@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T10:45:51.114Z",
+  "generatedAt": "2026-11-13T11:03:23.362Z",
   "briefDate": "2026-11-13",
   "displayDate": "Friday, November 13, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -82,6 +82,30 @@
         "license": "Public domain"
       },
       "heroDeck": "Nobody expected Aristides to win the first Kentucky Derby."
+    },
+    {
+      "slug": "cold-oak-shelter-lee-county",
+      "title": "Cold Oak Shelter, Lee County",
+      "summary": "At Cold Oak, a rock overhang in Lee County, Late Archaic families of about 1200–1000 BC stored seeds of sunflower, goosefoot and squash they had grown themselves.",
+      "era": "prehistoric",
+      "yearStart": -1200,
+      "county": "Lee",
+      "briefDate": "2026-11-13",
+      "href": "/stories/cold-oak-shelter-lee-county/",
+      "place": "Cold Oak Shelter, Lee County",
+      "lat": 37.6,
+      "lon": -83.7,
+      "historyId": "cold-oak-shelter-lee-county",
+      "mapHref": "/#map/history/cold-oak-shelter-lee-county",
+      "quote": "Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County.",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-cold-oak-late-archaic__ai-v1-1280.jpg",
+        "title": "AI illustration: Late Archaic people storing garden seed under a rock overhang in eastern Kentucky; reconstructed from archaeological evidence, not a view of Cold Oak. No known likeness exists.",
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
+      "heroDeck": "Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County."
     }
   ],
   "hero": {
@@ -163,6 +187,30 @@
         "license": "Public domain"
       },
       "heroDeck": "Nobody expected Aristides to win the first Kentucky Derby."
+    },
+    {
+      "slug": "cold-oak-shelter-lee-county",
+      "title": "Cold Oak Shelter, Lee County",
+      "summary": "At Cold Oak, a rock overhang in Lee County, Late Archaic families of about 1200–1000 BC stored seeds of sunflower, goosefoot and squash they had grown themselves.",
+      "era": "prehistoric",
+      "yearStart": -1200,
+      "county": "Lee",
+      "briefDate": "2026-11-13",
+      "href": "/stories/cold-oak-shelter-lee-county/",
+      "place": "Cold Oak Shelter, Lee County",
+      "lat": 37.6,
+      "lon": -83.7,
+      "historyId": "cold-oak-shelter-lee-county",
+      "mapHref": "/#map/history/cold-oak-shelter-lee-county",
+      "quote": "Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County.",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-cold-oak-late-archaic__ai-v1-1280.jpg",
+        "title": "AI illustration: Late Archaic people storing garden seed under a rock overhang in eastern Kentucky; reconstructed from archaeological evidence, not a view of Cold Oak. No known likeness exists.",
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
+      "heroDeck": "Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County."
     }
   ],
   "layers": [

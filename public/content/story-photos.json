@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T10:45:51.103Z",
+  "generatedAt": "2026-11-13T11:03:23.347Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -2546,6 +2546,17 @@
         "credit": "Unknown photographer",
         "license": "Public domain"
       }
+    },
+    "cold-oak-shelter-lee-county": {
+      "slug": "cold-oak-shelter-lee-county",
+      "historyId": "cold-oak-shelter-lee-county",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-cold-oak-late-archaic__ai-v1-1280.jpg",
+        "title": "AI illustration: Late Archaic people storing garden seed under a rock overhang in eastern Kentucky; reconstructed from archaeological evidence, not a view of Cold Oak. No known likeness exists.",
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
     }
   },
   "byHistoryId": {
@@ -4624,6 +4635,17 @@
         "year": 1901,
         "credit": "Unknown photographer",
         "license": "Public domain"
+      }
+    },
+    "cold-oak-shelter-lee-county": {
+      "slug": "cold-oak-shelter-lee-county",
+      "historyId": "cold-oak-shelter-lee-county",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-cold-oak-late-archaic__ai-v1-1280.jpg",
+        "title": "AI illustration: Late Archaic people storing garden seed under a rock overhang in eastern Kentucky; reconstructed from archaeological evidence, not a view of Cold Oak. No known likeness exists.",
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     }
   }
