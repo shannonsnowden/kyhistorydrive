@@ -3266,10 +3266,16 @@
           "id": "james-garrard",
           "name": "James Garrard",
           "href": "/people/#james-garrard"
+        },
+        {
+          "id": "tecumseh",
+          "name": "Tecumseh",
+          "href": "/people/#tecumseh"
         }
       ],
       "portraits": [
-        "james-garrard"
+        "james-garrard",
+        "tecumseh"
       ]
     },
     "the-catawba-and-the-northern-war-parties": {
