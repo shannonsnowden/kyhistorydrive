@@ -1,6 +1,6 @@
 # KY outbound link audit: Monday 2026-11-16
 
-PR: opened from this branch to main. OTA `data_version` goes 111 → 112. Live was re-read as 111 immediately before the bump (`https://kyhistorydrive.com/data/app/ky-history-manifest.json`, `last_brief_date` 2026-11-13). Started from origin/main @ `d1cb2863`. Not merged, not self-approved, not deployed.
+PR: https://github.com/shannonsnowden/kyhistorydrive/pull/433. OTA `data_version` goes 111 → 112. Live was re-read as 111 immediately before the bump (`https://kyhistorydrive.com/data/app/ky-history-manifest.json`, `last_brief_date` 2026-11-13). Started from origin/main @ `d1cb2863`. Not merged, not self-approved, not deployed.
 
 ## Counts
 
