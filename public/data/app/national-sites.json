@@ -85,7 +85,7 @@
     "overlap": "museums",
     "sources": [
       "https://henryclay.org/",
-      "https://en.wikipedia.org/wiki/Ashland_(Henry_Clay_estate)"
+      "https://grokipedia.com/page/Ashland_(Henry_Clay_estate)"
     ]
   },
   {
@@ -103,7 +103,7 @@
     "overlap": "museums",
     "sources": [
       "https://locustgrove.org/",
-      "https://en.wikipedia.org/wiki/Historic_Locust_Grove"
+      "https://grokipedia.com/page/historic_locust_grove"
     ]
   },
   {
@@ -174,7 +174,7 @@
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/Whitney_Young",
+      "https://grokipedia.com/page/Whitney_Young",
       "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
     ]
   },
@@ -193,7 +193,7 @@
     "overlap": "museums",
     "sources": [
       "https://www.churchilldowns.com/",
-      "https://en.wikipedia.org/wiki/Churchill_Downs"
+      "https://grokipedia.com/page/Churchill_Downs"
     ]
   },
   {
@@ -318,7 +318,7 @@
     "overlap": null,
     "sources": [
       "https://www.belleoflouisville.org/",
-      "https://en.wikipedia.org/wiki/Belle_of_Louisville"
+      "https://grokipedia.com/page/Belle_of_Louisville"
     ]
   },
   {
@@ -336,7 +336,7 @@
     "overlap": null,
     "sources": [
       "https://www.louisvillewatertower.com/",
-      "https://en.wikipedia.org/wiki/Louisville_Water_Tower"
+      "https://grokipedia.com/page/Louisville_Water_Tower"
     ]
   },
   {
@@ -354,7 +354,7 @@
     "overlap": null,
     "sources": [
       "https://www.keeneland.com/",
-      "https://en.wikipedia.org/wiki/Keeneland"
+      "https://grokipedia.com/page/Keeneland"
     ]
   },
   {
@@ -597,7 +597,7 @@
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/Zachary_Taylor_House"
+      "https://grokipedia.com/page/zachary_taylor_house"
     ]
   },
   {
