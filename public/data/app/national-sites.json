@@ -85,7 +85,7 @@
     "overlap": "museums",
     "sources": [
       "https://henryclay.org/",
-      "https://grokipedia.com/page/Ashland_(Henry_Clay_estate)"
+      "https://grokipedia.com/page/Ashland_%28Henry_Clay_estate%29"
     ]
   },
   {
@@ -174,7 +174,7 @@
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://grokipedia.com/page/Whitney_Young",
+      "https://en.wikipedia.org/wiki/Whitney_Young",
       "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
     ]
   },
