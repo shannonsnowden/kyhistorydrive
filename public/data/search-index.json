@@ -2,12 +2,12 @@
   "generatedAt": "2026-11-13T10:51:39.067Z",
   "version": 2,
   "counts": {
-    "places": 2954,
-    "stories": 256,
-    "total": 3210,
+    "places": 2959,
+    "stories": 261,
+    "total": 3220,
     "byLayer": {
       "markers": 1921,
-      "history": 209,
+      "history": 214,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -30902,7 +30902,7 @@
       "layerId": "history",
       "layerLabel": "History",
       "title": "Washington, Mason County (Old Washington)",
-      "text": "Washington, Mason County (Old Washington) In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still part of Virginia. By the 1790 census it had 462 residents in 119 houses, second only to Lexington; it became Mason County’s seat in 1788, hosted an early regional post office, and later yielded the seat to riverside Maysville (1848) before Maysville annexed Old Washington in 1990. Mason History",
+      "text": "Washington, Mason County (Old Washington) In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still part of Virginia. By the 1790 census it had 462 residents in 119 houses, second only to Lexington; it became Mason County’s seat in 1788, hosted an early regional post office, and later yielded the seat to riverside Maysville (1848) before Maysville annexed Old Washington in 1990. History",
       "snippet": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washing…",
       "lat": 38.615908,
       "lon": -83.808533,
@@ -31727,7 +31727,7 @@
       "layerId": "history",
       "layerLabel": "History",
       "title": "C. and O. Mounds, Johnson County (approximate)",
-      "text": "C. and O. Mounds, Johnson County (approximate) In Johnson County, Adena people raised two burial mounds about 1,600 feet apart, each over circular rings of paired posts. William S. Webb's University of Kentucky crews excavated them with Works Progress Administration support and published them in 1942. Webb read each mound as the grave of an important person over a house, with small hamlets nearby. Later work has not found those villages, and many archaeologists now see the post circles as ceremonial structures. The sites are not public; this pin is generalized to about 10 km. Johnson History",
+      "text": "C. and O. Mounds, Johnson County (approximate) In Johnson County, Adena people raised two burial mounds about 1,600 feet apart, each over circular rings of paired posts. William S. Webb's University of Kentucky crews excavated them with Works Progress Administration support and published them in 1942. Webb read each mound as the grave of an important person over a house, with small hamlets nearby. Later work has not found those villages, and many archaeologists now see the post circles as ceremonial structures. The sites are not public; this pin is generalized to about 10 km. History",
       "snippet": "In Johnson County, Adena people raised two burial mounds about 1,600 feet apart, each over circular rings of paired posts. William S. Webb'…",
       "lat": 37.8,
       "lon": -82.8,
@@ -31975,6 +31975,81 @@
       "shareId": "kentucky-derby-museum",
       "layerIds": [
         "museums"
+      ]
+    },
+    {
+      "id": "place:peter-cartwright-boyhood-home-logan-1793-1802",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Peter Cartwright’s boyhood home (Rogues’ Harbor)",
+      "text": "Peter Cartwright’s boyhood home (Rogues’ Harbor) In the fall of 1793 the family of Peter Cartwright, born in Virginia in 1785, settled in Logan County, nine miles south of Russellville and within a mile of the Tennessee line. Logan County was then called “Rogues’ Harbor,” and Cartwright later remembered it as a place with no newspaper south of Green River and no mill within forty miles. In 1801 he was converted at a sacramental meeting held by the Presbyterian James McGready about three miles north of the farm, and in May 1802 he received a permit to exhort from the Methodist society at Ebenezer. That fall the family moved toward the mouth of the Cumberland. Cartwright rode Methodist circuit",
+      "snippet": "In the fall of 1793 the family of Peter Cartwright, born in Virginia in 1785, settled in Logan County, nine miles south of Russellville and…",
+      "lat": 36.6684833,
+      "lon": -86.8630333,
+      "shareId": "peter-cartwright-boyhood-home-logan-1793-1802",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:madisonville-courthouse-hopkins-1807",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Madisonville courthouse lawn",
+      "text": "Madisonville courthouse lawn Hopkins County was created on December 9, 1806, from Henderson County and named for Gen. Samuel Hopkins. In 1807 the county seat was laid out on 40 acres given by Daniel McGary and Solomon Silkwood and named Madisonville for James Madison, then Secretary of State. A plain courthouse went up that year, and the town was incorporated in 1810. Confederates under Gen. Hylan B. Lyon burned the courthouse on December 17, 1864, because Union forces had been using it; the county records were saved. The pin marks the courthouse lawn, where the County Named, 1806 marker stands. History",
+      "snippet": "Hopkins County was created on December 9, 1806, from Henderson County and named for Gen. Samuel Hopkins. In 1807 the county seat was laid o…",
+      "lat": 37.3280167,
+      "lon": -87.4983,
+      "shareId": "madisonville-courthouse-hopkins-1807",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:bernheim-bros-paducah-mccracken-1868-1888",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Bernheim Brothers in Paducah",
+      "text": "Bernheim Brothers in Paducah Isaac W. Bernheim, a German immigrant who had peddled in Pennsylvania, came to Paducah in May 1868 to clerk for his uncles and then kept books for the liquor house of Loeb, Bloom & Co. On January 1, 1872, he and his brother Bernard opened Bernheim Brothers in the back of a store on Market Street, with Elbridge Palmer as silent partner. The firm sold first within about two hundred miles of Paducah and within fifteen years across the South. Its premium label was I. W. Harper. On April 1, 1888, the business moved to Louisville. The pin is city-level: the Market Street store is not located. History",
+      "snippet": "Isaac W. Bernheim, a German immigrant who had peddled in Pennsylvania, came to Paducah in May 1868 to clerk for his uncles and then kept bo…",
+      "lat": 37.07222,
+      "lon": -88.6275,
+      "shareId": "bernheim-bros-paducah-mccracken-1868-1888",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:bernheim-bros-main-street-louisville-1888-1897",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Bernheim Bros. on Main Street, Louisville",
+      "text": "Bernheim Bros. on Main Street, Louisville On April 1, 1888, Bernheim Brothers moved from Paducah to Louisville and took a building on Main Street between First and Second. From there the firm sold its I. W. Harper whiskey across the country. After a March 1896 fire at a Pleasure Ridge Park distillery left Isaac W. Bernheim liable for the whiskey tax bond, he fought the claim until the Treasury cancelled it in November 1897. The brothers built their own distillery near the city limits on the Illinois Central Railroad, with the first mash in April 1897, and later rebuilt a red sandstone store on the north side of Main near Second before moving farther up Main. The pin marks the First-to-Second",
+      "snippet": "On April 1, 1888, Bernheim Brothers moved from Paducah to Louisville and took a building on Main Street between First and Second. From ther…",
+      "lat": 38.2565,
+      "lon": -85.7535,
+      "shareId": "bernheim-bros-main-street-louisville-1888-1897",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:bernheim-forest-bullitt-1928-1945",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Bernheim Forest",
+      "text": "Bernheim Forest In 1928 Isaac W. Bernheim bought Bullitt County land that had been stripped for iron ore, paying about a dollar an acre. He founded Bernheim Forest in 1929 and gave it in trust to the people of Kentucky. The Olmsted landscape firm began designing it in 1931, and it opened in 1950, five years after Bernheim’s death. He and his first wife, Amanda, are buried there. The forest now covers more than 16,000 acres near Clermont. The pin marks the visitor center. History",
+      "snippet": "In 1928 Isaac W. Bernheim bought Bullitt County land that had been stripped for iron ore, paying about a dollar an acre. He founded Bernhei…",
+      "lat": 37.9181645,
+      "lon": -85.6580221,
+      "shareId": "bernheim-forest-bullitt-1928-1945",
+      "layerIds": [
+        "history"
       ]
     },
     {
@@ -45081,6 +45156,16 @@
       "lon": -85.90619
     },
     {
+      "id": "story:fort-jefferson-clarks-fort-on-chickasaw-ground",
+      "type": "story",
+      "title": "Fort Jefferson, Clark's fort on Chickasaw ground",
+      "text": "Fort Jefferson, Clark's fort on Chickasaw ground In April 1780 George Rogers Clark planted Fort Jefferson and the village of Clarksville below the mouth of the Ohio on Chickasaw land he never bought. A Chickasaw siege that August destroyed the corn, and Virginia gave up the post on June 8, 1781. George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade on the Mississippi just below the meeting of the rivers, in what is now Ballard County. Virginia called it Fort Jefferson. It lasted thirteen months and twenty days. ## A fort for a charter In 1777 Gov. Patrick Henry proposed a post at the mouth of the Ohio to protect trade with Spanish Lo",
+      "snippet": "In April 1780 George Rogers Clark planted Fort Jefferson and the village of Clarksville below the mouth of the Ohio on Chickasaw land he ne…",
+      "slug": "fort-jefferson-clarks-fort-on-chickasaw-ground",
+      "lat": 36.95310833,
+      "lon": -89.08979167
+    },
+    {
       "id": "story:hodgenville-from-hodgens-mill-to-county-seat",
       "type": "story",
       "title": "Hodgenville: from Hodgen’s Mill to a county seat",
@@ -45343,6 +45428,16 @@
       "slug": "lancaster-at-wallaces-crossroads",
       "lat": 37.6195246,
       "lon": -84.5779957
+    },
+    {
+      "id": "story:i-w-bernheim-from-peddler-to-i-w-harper",
+      "type": "story",
+      "title": "I. W. Bernheim, from peddler to I. W. Harper",
+      "text": "I. W. Bernheim, from peddler to I. W. Harper Isaac W. Bernheim landed in New York in 1867 with about four dollars, peddled in Pennsylvania until his horse died, built Bernheim Brothers and the I. W. Harper label in Paducah and Louisville, and gave Kentucky Bernheim Forest. Isaac Wolfe Bernheim landed at Castle Garden, New York's immigrant station, at noon on April 8, 1867. Asked how much money he carried, he told the commissioner: a few small coins and twenty francs in gold, \"about four dollars in American money.\" He was eighteen, born on November 4, 1848, in Schmieheim, a small village in the Grand Duchy of Baden. ## A peddler's pack His uncle had no work for him. An old schoolmate of the u",
+      "snippet": "Isaac W. Bernheim landed in New York in 1867 with about four dollars, peddled in Pennsylvania until his horse died, built Bernheim Brothers…",
+      "slug": "i-w-bernheim-from-peddler-to-i-w-harper",
+      "lat": 38.2565,
+      "lon": -85.7535
     },
     {
       "id": "story:lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
@@ -45699,6 +45794,16 @@
       "slug": "nonhelema"
     },
     {
+      "id": "story:madisonville-a-courthouse-town-on-mcgary-and-silkwood-land",
+      "type": "story",
+      "title": "Madisonville, a courthouse town on McGary and Silkwood land",
+      "text": "Madisonville, a courthouse town on McGary and Silkwood land Hopkins County was created on December 9, 1806, and in 1807 its seat was laid out on 40 acres given by Daniel McGary and Solomon Silkwood and named for Secretary of State James Madison. Madisonville began with a gift of forty acres and a name borrowed from Thomas Jefferson's cabinet. The Kentucky legislature created Hopkins County on December 9, 1806, cutting it from Henderson County, and within a year the new county had a seat of justice. ## A general's county The county took its name from Samuel Hopkins, who had served on Washington's staff and in many campaigns of the Revolution. He came to Kentucky in 1797 as agent for the Trans",
+      "snippet": "Hopkins County was created on December 9, 1806, and in 1807 its seat was laid out on 40 acres given by Daniel McGary and Solomon Silkwood a…",
+      "slug": "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land",
+      "lat": 37.3280167,
+      "lon": -87.4983
+    },
+    {
       "id": "story:odawa-raid-at-eskippakithiki-1753",
       "type": "story",
       "title": "Odawa raid at Eskippakithiki, 1753",
@@ -45808,7 +45913,7 @@
       "id": "story:phosphatic-limestone-and-horse-country",
       "type": "story",
       "title": "Phosphatic limestone and horse country",
-      "text": "Phosphatic limestone and horse country Inner Bluegrass soils rest on phosphatic Lexington and Cynthiana limestones, with high calcium and phosphorus. University of Kentucky soil tests still show that edge over the… Inner Bluegrass soils rest on phosphatic Lexington and Cynthiana limestones, with high calcium and phosphorus. University of Kentucky soil tests still show that edge over the rest of the state—about two-thirds of Bluegrass samples testing high for phosphorus in a late twentieth-century lab series. After the Revolution, from about 1780 to 1820, Virginia and Carolina horse-raising families pushed west onto that forage-rich ground just as industrial America needed more horsepower. UK",
+      "text": "Phosphatic limestone and horse country Inner Bluegrass soils rest on phosphatic Lexington and Cynthiana limestones, with high calcium and phosphorus. University of Kentucky soil tests still show that edge over the… Kentucky's horse country starts underground. The Inner Bluegrass around Lexington rests on very old rock: the Bluegrass region sits on the Cincinnati Arch, a broad fold that brings Ordovician limestones about 450 million years old close to the surface. Some of those limestones are special. The Lexington and Cynthiana limestones are phosphatic, rich in phosphorus as well as calcium. As they weather, they make soils with more of both than most farmland in the state. That shows up in",
       "snippet": "Inner Bluegrass soils rest on phosphatic Lexington and Cynthiana limestones, with high calcium and phosphorus. University of Kentucky soil…",
       "slug": "phosphatic-limestone-and-horse-country",
       "lat": 38.0406,
@@ -46045,6 +46150,16 @@
       "slug": "simon-girty-interpreter-at-bryan-station-1782",
       "lat": 38.07586667,
       "lon": -84.41529167
+    },
+    {
+      "id": "story:peter-cartwright-the-backwoods-preacher-from-logan-county",
+      "type": "story",
+      "title": "Peter Cartwright, the backwoods preacher from Logan County",
+      "text": "Peter Cartwright, the backwoods preacher from Logan County Raised in Logan County when it was called Rogues’ Harbor, Peter Cartwright was converted at a sacramental meeting in 1801, licensed to exhort in 1802, and rode Methodist circuits for two decades before leaving slave-state Kentucky for Illinois in 1824. Peter Cartwright grew up in the roughest corner of the Kentucky frontier and spent his long life preaching to people like the ones he knew there. He was born on September 1, 1785, in Amherst County, Virginia, the son of a Revolutionary War veteran, and came to Kentucky as a small boy. ## Rogues' Harbor His father first rented a farm for two years in Lincoln County, on the Hanging Fork ",
+      "snippet": "Raised in Logan County when it was called Rogues’ Harbor, Peter Cartwright was converted at a sacramental meeting in 1801, licensed to exho…",
+      "slug": "peter-cartwright-the-backwoods-preacher-from-logan-county",
+      "lat": 36.6684833,
+      "lon": -86.8630333
     },
     {
       "id": "story:simpsonville-takes-shape-on-the-louisville-road",
@@ -46451,6 +46566,14 @@
       "lon": -84.51056
     },
     {
+      "id": "story:the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky",
+      "type": "story",
+      "title": "The Treaty of Lancaster, 1744: how Virginia claimed Kentucky",
+      "text": "The Treaty of Lancaster, 1744: how Virginia claimed Kentucky At Lancaster, Pennsylvania, in 1744 the Six Nations gave Virginia a deed to the lands of its colony for goods and £200 in gold. Virginia read it as reaching the Mississippi; the Iroquois said they had sold only to the Alleghenies. The treaty made at Lancaster, Pennsylvania, in the summer of 1744 was negotiated hundreds of miles from Kentucky, but it became one of the paper foundations of Virginia's claim to the land. ## A council in a courthouse From late June into early July 1744, about 250 Iroquois delegates led by Canassatego of the Onondaga met colonial commissioners in the court house at Lancaster. Onondaga, Oneida, Cayuga, Se",
+      "snippet": "At Lancaster, Pennsylvania, in 1744 the Six Nations gave Virginia a deed to the lands of its colony for goods and £200 in gold. Virginia re…",
+      "slug": "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+    },
+    {
       "id": "story:yuchi-on-the-green-river-maps",
       "type": "story",
       "title": "Yuchi on the Green River maps",
@@ -46695,7 +46818,7 @@
       "id": "story:guilfoil-village-15fa176-fayette-county",
       "type": "story",
       "title": "Guilfoil Village (15Fa176), Fayette County",
-      "text": "Guilfoil Village (15Fa176), Fayette County Guilfoil Village (15Fa176) in Fayette County was a Middle Fort Ancient farming village of about AD 1000–1499. It is a protected site. Guilfoil Village is a Middle Fort Ancient village in Fayette County, recorded by archaeologists as site 15Fa176. It was listed on the National Register of Historic Places in 1985, with a period of significance of AD 1000 to 1499. Fort Ancient is an archaeologists' name for a shared way of life in the middle Ohio Valley, not the name of a single tribe. Communities like this one farmed corn, beans, and squash, hunted deer, and lived in villages that were often ringed by a wooden stockade. Guilfoil belongs to the centuri",
+      "text": "Guilfoil Village (15Fa176), Fayette County Guilfoil Village (15Fa176) in Fayette County was a Middle Fort Ancient farming village of about AD 1000–1499. It is a protected site. Guilfoil Village is a Middle Fort Ancient farming village in Fayette County, recorded by archaeologists as site 15Fa176. It was listed on the National Register of Historic Places in 1985 under criterion of information potential. The Register’s period of significance is AD 1000 to 1499—the centuries when people lived there, not the year of the listing or any modern dig. This story uses those occupation years. Fort Ancient is an archaeologists’ name for a shared way of life in the middle Ohio Valley from about 1000 to 1",
       "snippet": "Guilfoil Village (15Fa176) in Fayette County was a Middle Fort Ancient farming village of about AD 1000–1499. It is a protected site.",
       "slug": "guilfoil-village-15fa176-fayette-county",
       "lat": 38,
@@ -46770,7 +46893,7 @@
       "layerId": "history",
       "layerLabel": "History",
       "title": "Cold Oak Shelter, Lee County",
-      "text": "Cold Oak Shelter, Lee County Cold Oak is a rock overhang in Lee County where Late Archaic families, about 1200 to 1000 BC, returned season after season. Storage pits held charred and uncharred seeds of sunflower, goosefoot, knotweed, marshelder and squash, and possibly maygrass, crops of the Eastern Agricultural Complex, alongside hickory nuts, walnuts, acorns and chestnuts. The state archaeology site does not publish the location, so the pin is a county-level point for Lee County. Lee History",
+      "text": "Cold Oak Shelter, Lee County Cold Oak is a rock overhang in Lee County where Late Archaic families, about 1200 to 1000 BC, returned season after season. Storage pits held charred and uncharred seeds of sunflower, goosefoot, knotweed, marshelder and squash, and possibly maygrass, crops of the Eastern Agricultural Complex, alongside hickory nuts, walnuts, acorns and chestnuts. The state archaeology site does not publish the location, so the pin is a county-level point for Lee County. History",
       "snippet": "Cold Oak is a rock overhang in Lee County where Late Archaic families, about 1200 to 1000 BC, returned season after season. Storage pits he…",
       "lat": 37.6,
       "lon": -83.7,

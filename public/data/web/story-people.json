@@ -3289,6 +3289,120 @@
       "portraits": [
         "john-finley"
       ]
+    },
+    "peter-cartwright-the-backwoods-preacher-from-logan-county": {
+      "links": [
+        {
+          "id": "peter-cartwright",
+          "name": "Peter Cartwright",
+          "href": "/people/#peter-cartwright"
+        },
+        {
+          "id": "james-mcgready",
+          "name": "James McGready",
+          "href": "/people/#james-mcgready"
+        }
+      ],
+      "portraits": []
+    },
+    "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": {
+      "links": [
+        {
+          "id": "thomas-jefferson",
+          "name": "Thomas Jefferson",
+          "href": "/people/#thomas-jefferson"
+        },
+        {
+          "id": "samuel-hopkins",
+          "name": "Samuel Hopkins",
+          "href": "/people/#samuel-hopkins"
+        },
+        {
+          "id": "james-madison",
+          "name": "James Madison",
+          "href": "/people/#james-madison"
+        }
+      ],
+      "portraits": [
+        "thomas-jefferson",
+        "samuel-hopkins",
+        "james-madison"
+      ]
+    },
+    "i-w-bernheim-from-peddler-to-i-w-harper": {
+      "links": [
+        {
+          "id": "isaac-w-bernheim",
+          "name": "Isaac Wolfe Bernheim",
+          "href": "/people/#isaac-w-bernheim"
+        },
+        {
+          "id": "thomas-jefferson",
+          "name": "Thomas Jefferson",
+          "href": "/people/#thomas-jefferson"
+        },
+        {
+          "id": "george-garvin-brown",
+          "name": "George Garvin Brown",
+          "href": "/stories/george-garvin-brown-and-old-forester/"
+        },
+        {
+          "id": "frederick-stitzel",
+          "name": "Frederick Stitzel",
+          "href": "/people/#frederick-stitzel"
+        }
+      ],
+      "portraits": [
+        "thomas-jefferson",
+        "george-garvin-brown",
+        "frederick-stitzel"
+      ]
+    },
+    "fort-jefferson-clarks-fort-on-chickasaw-ground": {
+      "links": [
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "patrick-henry",
+          "name": "Patrick Henry",
+          "href": "/people/#patrick-henry"
+        },
+        {
+          "id": "thomas-jefferson",
+          "name": "Thomas Jefferson",
+          "href": "/people/#thomas-jefferson"
+        },
+        {
+          "id": "william-clark",
+          "name": "William Clark",
+          "href": "/people/#william-clark"
+        },
+        {
+          "id": "edward-worthington",
+          "name": "Edward Worthington",
+          "href": "/stories/edward-worthington-at-worthingtons-fort/"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark",
+        "patrick-henry",
+        "thomas-jefferson",
+        "william-clark",
+        "edward-worthington"
+      ]
+    },
+    "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky": {
+      "links": [
+        {
+          "id": "william-beverley",
+          "name": "William Beverley",
+          "href": "/people/#william-beverley"
+        }
+      ],
+      "portraits": []
     }
   }
 }

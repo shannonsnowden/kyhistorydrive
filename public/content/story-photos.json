@@ -2568,6 +2568,101 @@
         "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
         "license": "Original AI illustration"
       }
+    },
+    "fort-jefferson-clarks-fort-on-chickasaw-ground": {
+      "slug": "fort-jefferson-clarks-fort-on-chickasaw-ground",
+      "historyId": "fort-jefferson-ballard-1780",
+      "photo": {
+        "image_url": "/content/photos/stories/fort-jefferson-clarks-fort-on-chickasaw-ground.jpg",
+        "title": "The Mississippi River looking south from Fort Jefferson Hill Park, Wickliffe, near the site of Clark's 1780 fort (photographed 2018)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe-Ft-Jefferson-Mississippi-River-south-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2018,
+        "credit": "Brian Stansberry",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    "i-w-bernheim-from-peddler-to-i-w-harper": {
+      "slug": "i-w-bernheim-from-peddler-to-i-w-harper",
+      "historyId": "bernheim-bros-main-street-louisville-1888-1897",
+      "photo": {
+        "image_url": "/content/photos/stories/i-w-bernheim-from-peddler-to-i-w-harper.jpg",
+        "title": "Isaac W. Bernheim as a peddler in Pennsylvania, 1867, a plate in his The Story of the Bernheim Family (1910)",
+        "source_url": "https://archive.org/details/TheStoryOfTheBernheimFamily/page/n45/mode/1up",
+        "source_label": "Internet Archive",
+        "attribution": "Unknown photographer · The Story of the Bernheim Family (1910) · Internet Archive (University of Louisville) · public domain",
+        "year": 1867,
+        "credit": "Unknown photographer",
+        "license": "Public domain",
+        "fit": "contain"
+      }
+    },
+    "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": {
+      "slug": "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land",
+      "historyId": "madisonville-courthouse-hopkins-1807",
+      "photo": {
+        "image_url": "/content/photos/stories/madisonville-a-courthouse-town-on-mcgary-and-silkwood-land.jpg",
+        "title": "The Hopkins County Courthouse in Madisonville, with the Confederate monument on the courthouse lawn (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hopkins_County_Courthouse_statue_jeh.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jim.henderson · Wikimedia Commons · CC0",
+        "year": 2017,
+        "credit": "Jim.henderson",
+        "license": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    },
+    "peter-cartwright-the-backwoods-preacher-from-logan-county": {
+      "slug": "peter-cartwright-the-backwoods-preacher-from-logan-county",
+      "historyId": "peter-cartwright-boyhood-home-logan-1793-1802",
+      "photo": {
+        "image_url": "/content/photos/stories/peter-cartwright-the-backwoods-preacher-from-logan-county.jpg",
+        "title": "Title page of the Autobiography of Peter Cartwright, the Backwoods Preacher (New York: Carlton & Porter, 1857 printing; first published 1856)",
+        "source_url": "https://archive.org/details/autobiographyofp00incart/page/n6/mode/1up",
+        "source_label": "Internet Archive",
+        "attribution": "Carlton & Porter, 1857 · Internet Archive (Lincoln Financial Foundation Collection) · public domain",
+        "year": 1857,
+        "credit": "Carlton & Porter, publishers",
+        "license": "Public domain",
+        "fit": "contain"
+      }
+    },
+    "robbins-mounds-boone-county": {
+      "slug": "robbins-mounds-boone-county",
+      "historyId": "robbins-mounds",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky": {
+      "slug": "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky.jpg",
+        "title": "Title page of A Treaty, Held at the Town of Lancaster, in Pennsylvania … in June, 1744, printed and sold by B. Franklin, Philadelphia, 1744",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Printed_Copy_of_the_Indian_Treaty_Between_the_Provinces_of_Maryland_and_Virginia_and_the_Six_Nations_Held_at_Lancaster,_Pennsylvania_-_DPLA_-_b321ef860b5852c3933346bca3e31042_(page_1).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "B. Franklin, printer · U.S. National Archives via DPLA · public domain",
+        "year": 1744,
+        "credit": "B. Franklin, printer (U.S. National Archives)",
+        "license": "Public domain",
+        "fit": "contain"
+      }
+    },
+    "wright-mounds-montgomery-county": {
+      "slug": "wright-mounds-montgomery-county",
+      "historyId": "wright-mounds-15mm6-8-montgomery-county-adena",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
     }
   },
   "byHistoryId": {
@@ -4655,6 +4750,86 @@
         "image_url": "/content/photos/stories/figures/culture-cold-oak-late-archaic__ai-v1-1280.jpg",
         "title": "AI illustration: Late Archaic people storing garden seed under a rock overhang in eastern Kentucky; reconstructed from archaeological evidence, not a view of Cold Oak. No known likeness exists.",
         "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "fort-jefferson-ballard-1780": {
+      "slug": "fort-jefferson-clarks-fort-on-chickasaw-ground",
+      "historyId": "fort-jefferson-ballard-1780",
+      "photo": {
+        "image_url": "/content/photos/stories/fort-jefferson-clarks-fort-on-chickasaw-ground.jpg",
+        "title": "The Mississippi River looking south from Fort Jefferson Hill Park, Wickliffe, near the site of Clark's 1780 fort (photographed 2018)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe-Ft-Jefferson-Mississippi-River-south-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2018,
+        "credit": "Brian Stansberry",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    "bernheim-bros-main-street-louisville-1888-1897": {
+      "slug": "i-w-bernheim-from-peddler-to-i-w-harper",
+      "historyId": "bernheim-bros-main-street-louisville-1888-1897",
+      "photo": {
+        "image_url": "/content/photos/stories/i-w-bernheim-from-peddler-to-i-w-harper.jpg",
+        "title": "Isaac W. Bernheim as a peddler in Pennsylvania, 1867, a plate in his The Story of the Bernheim Family (1910)",
+        "source_url": "https://archive.org/details/TheStoryOfTheBernheimFamily/page/n45/mode/1up",
+        "source_label": "Internet Archive",
+        "attribution": "Unknown photographer · The Story of the Bernheim Family (1910) · Internet Archive (University of Louisville) · public domain",
+        "year": 1867,
+        "credit": "Unknown photographer",
+        "license": "Public domain",
+        "fit": "contain"
+      }
+    },
+    "madisonville-courthouse-hopkins-1807": {
+      "slug": "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land",
+      "historyId": "madisonville-courthouse-hopkins-1807",
+      "photo": {
+        "image_url": "/content/photos/stories/madisonville-a-courthouse-town-on-mcgary-and-silkwood-land.jpg",
+        "title": "The Hopkins County Courthouse in Madisonville, with the Confederate monument on the courthouse lawn (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hopkins_County_Courthouse_statue_jeh.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jim.henderson · Wikimedia Commons · CC0",
+        "year": 2017,
+        "credit": "Jim.henderson",
+        "license": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    },
+    "peter-cartwright-boyhood-home-logan-1793-1802": {
+      "slug": "peter-cartwright-the-backwoods-preacher-from-logan-county",
+      "historyId": "peter-cartwright-boyhood-home-logan-1793-1802",
+      "photo": {
+        "image_url": "/content/photos/stories/peter-cartwright-the-backwoods-preacher-from-logan-county.jpg",
+        "title": "Title page of the Autobiography of Peter Cartwright, the Backwoods Preacher (New York: Carlton & Porter, 1857 printing; first published 1856)",
+        "source_url": "https://archive.org/details/autobiographyofp00incart/page/n6/mode/1up",
+        "source_label": "Internet Archive",
+        "attribution": "Carlton & Porter, 1857 · Internet Archive (Lincoln Financial Foundation Collection) · public domain",
+        "year": 1857,
+        "credit": "Carlton & Porter, publishers",
+        "license": "Public domain",
+        "fit": "contain"
+      }
+    },
+    "peter-village-enclosure-15fa166-fayette-county": {
+      "slug": "peter-village-enclosure-15fa166",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Early Woodland (Adena) people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "wright-mounds-15mm6-8-montgomery-county-adena": {
+      "slug": "wright-mounds-montgomery-county",
+      "historyId": "wright-mounds-15mm6-8-montgomery-county-adena",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
         "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
         "license": "Original AI illustration"
       }

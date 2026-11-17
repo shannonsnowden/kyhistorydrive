@@ -219,6 +219,8 @@ const MANUAL_OVERRIDES = {
   'the-westo-erie-refugees-who-carried-the-beaver-wars-south': {},
   // Nov 13 2026: the Catawba lived in the Carolina Piedmont. Explicit no-place. Do not fuzzy-match the Warriors' Path or a Kentucky site.
   'the-catawba-and-the-northern-war-parties': {},
+  // Nov 17 2026: the Treaty of Lancaster was made in Pennsylvania. Explicit no-place. Do not fuzzy-match Lancaster in Garrard County or a Kentucky site.
+  'the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
@@ -1137,6 +1139,13 @@ Object.assign(NOV6_PIN_NAMES, {
   'barbourville-the-knox-county-seat-on-the-cumberland': 'Barbourville court square',
   'aristides-winner-of-the-first-kentucky-derby': 'Aristides wins the first Kentucky Derby',
   'cold-oak-shelter-lee-county': 'Cold Oak Shelter, Lee County',
+})
+// Nov 17 pins live in story-overrides.json too. Bernheim also owns the Paducah and Bernheim Forest pins (alsoHistoryIds). Lancaster is unpinned. Fort Jefferson links the existing fort-jefferson-ballard-1780 pin.
+Object.assign(NOV6_PIN_NAMES, {
+  'peter-cartwright-the-backwoods-preacher-from-logan-county': 'Peter Cartwright’s boyhood home (Rogues’ Harbor)',
+  'madisonville-a-courthouse-town-on-mcgary-and-silkwood-land': 'Madisonville courthouse lawn',
+  'i-w-bernheim-from-peddler-to-i-w-harper': 'Bernheim Bros. on Main Street, Louisville',
+  'fort-jefferson-clarks-fort-on-chickasaw-ground': "Fort Jefferson (Clark's post on the Mississippi)",
 })
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]

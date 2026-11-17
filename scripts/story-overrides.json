@@ -1149,6 +1149,60 @@
       "yearStart": 1701,
       "yearEnd": 1754,
       "county": ""
+    },
+    "peter-cartwright-the-backwoods-preacher-from-logan-county": {
+      "reason": "Pin KHS marker #1334 (Boyhood Home, 1793-1802), KY 591, Adairville, Logan County; the Autobiography places the farm nine miles south of Russellville within a mile of the Tennessee line. Story years 1793 (move to Logan County)–1824 (move to Illinois); the History pin keeps the boyhood years 1793–1802 (yearsStoryOnly). County Logan.",
+      "date": "2026-11-17",
+      "historyId": "peter-cartwright-boyhood-home-logan-1793-1802",
+      "lat": 36.6684833,
+      "lon": -86.8630333,
+      "yearStart": 1793,
+      "yearEnd": 1824,
+      "yearsStoryOnly": true,
+      "county": "Logan"
+    },
+    "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": {
+      "reason": "Pin the Hopkins County courthouse lawn, Madisonville (KHS #849 County Named, 1806 marker coordinates). Madisonville made county seat 1807 (KHS #1104). Story years 1806 (county formed Dec. 9)–1807; the History pin keeps 1807 (yearsStoryOnly). Not the protected Andalex Village site. County Hopkins.",
+      "date": "2026-11-17",
+      "historyId": "madisonville-courthouse-hopkins-1807",
+      "lat": 37.3280167,
+      "lon": -87.4983,
+      "yearStart": 1806,
+      "yearEnd": 1807,
+      "yearsStoryOnly": true,
+      "county": "Hopkins"
+    },
+    "i-w-bernheim-from-peddler-to-i-w-harper": {
+      "reason": "Bourbon Series. Primary pin: Bernheim Bros. on the north side of the 100 block of W. Main St., Louisville (Main between First and Second, 1888); kept clear of the Old Forester Whiskey Row pin. Also owns the Paducah (city-level, 1868–1888) and Bernheim Forest (1928–1945) History pins. Story years 1867 (arrival)–1945 (death); each History pin keeps its own years (yearsStoryOnly). County Jefferson.",
+      "date": "2026-11-17",
+      "historyId": "bernheim-bros-main-street-louisville-1888-1897",
+      "lat": 38.2565,
+      "lon": -85.7535,
+      "yearStart": 1867,
+      "yearEnd": 1945,
+      "yearsStoryOnly": true,
+      "county": "Jefferson",
+      "alsoHistoryIds": [
+        "bernheim-bros-paducah-mccracken-1868-1888",
+        "bernheim-forest-bullitt-1928-1945"
+      ]
+    },
+    "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky": {
+      "reason": "Nov 17 2026: the treaty was made at Lancaster, Pennsylvania. Explicit no-place. Do not fuzzy-match Lancaster in Garrard County or a Kentucky site.",
+      "date": "2026-11-17",
+      "yearStart": 1744,
+      "yearEnd": 1744,
+      "county": ""
+    },
+    "fort-jefferson-clarks-fort-on-chickasaw-ground": {
+      "reason": "Nov 17 2026: link the existing History pin fort-jefferson-ballard-1780 (Wikipedia/GNIS fort site 36.9531, -89.0898, KHS marker #1309 nearby on US 51 south of Wickliffe). Event years 1780 (founded April 19)–1781 (abandoned June 8). County Ballard.",
+      "date": "2026-11-17",
+      "historyId": "fort-jefferson-ballard-1780",
+      "lat": 36.95310833,
+      "lon": -89.08979167,
+      "yearStart": 1780,
+      "yearEnd": 1781,
+      "county": "Ballard"
     }
   }
 }

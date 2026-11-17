@@ -296,7 +296,8 @@
         "shawnee-chillicothe-divisions",
         "william-christian-of-beargrass",
         "william-whitley-sportsmans-hill",
-        "isaac-ruddell-and-the-guns-at-ruddells-station"
+        "isaac-ruddell-and-the-guns-at-ruddells-station",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "role": "Revolutionary general, Illinois campaign",
       "native": false,
@@ -2304,7 +2305,10 @@
       "stories": [
         "jack-jouett-kentuckys-midnight-rider",
         "big-bone-lick-older-cycle",
-        "thomas-walker-and-cumberland-gap"
+        "thomas-walker-and-cumberland-gap",
+        "i-w-bernheim-from-peddler-to-i-w-harper",
+        "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "role": "Governor of Virginia, U.S. president",
       "native": false,
@@ -2370,7 +2374,8 @@
       "lifeDates": "c. 1754–1804",
       "stories": [
         "edward-worthington-at-worthingtons-fort",
-        "georgetown-and-royal-spring"
+        "georgetown-and-royal-spring",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "role": "Worthington's Fort founder",
       "native": false,
@@ -2918,7 +2923,8 @@
       "lifeDates": null,
       "stories": [
         "frederick-stitzels-barrel-racks-1879",
-        "george-garvin-brown-and-old-forester"
+        "george-garvin-brown-and-old-forester",
+        "i-w-bernheim-from-peddler-to-i-w-harper"
       ],
       "role": "Inventor of barrel racks",
       "native": false,
@@ -3332,7 +3338,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "russellville-from-big-boiling-spring-to-county-seat"
+        "russellville-from-big-boiling-spring-to-county-seat",
+        "peter-cartwright-the-backwoods-preacher-from-logan-county"
       ],
       "role": "Presbyterian revivalist",
       "native": false,
@@ -5079,7 +5086,8 @@
       "lifeDates": null,
       "stories": [
         "henderson-at-red-banks",
-        "hopkinsville"
+        "hopkinsville",
+        "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land"
       ],
       "role": "General, Henderson platter",
       "native": false,
@@ -5123,7 +5131,8 @@
       "stories": [
         "paducah-at-the-tennessee-mouth",
         "big-bone-lick-older-cycle",
-        "falls-of-the-ohio"
+        "falls-of-the-ohio",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "role": "Explorer, platted Paducah",
       "native": false,
@@ -5691,7 +5700,8 @@
         "old-fort-earthworks-15gp1-greenup-county",
         "william-christian-of-beargrass",
         "col-john-todd-of-lexington",
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "role": "Virginia governor",
       "native": false,
@@ -6238,7 +6248,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "treaty-of-logstown-1752"
+        "treaty-of-logstown-1752",
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
       ],
       "role": "Ohio Company",
       "native": false,
@@ -6261,7 +6272,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "treaty-of-logstown-1752"
+        "treaty-of-logstown-1752",
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
       ],
       "role": "Seneca leader",
       "native": true,
@@ -6867,7 +6879,8 @@
       "lifeDates": null,
       "stories": [
         "the-travelling-church-1781",
-        "richmond-from-millers-barn"
+        "richmond-from-millers-barn",
+        "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land"
       ],
       "role": "President (mention)",
       "native": false,
@@ -7036,7 +7049,8 @@
       "aliases": [],
       "lifeDates": "1846–1917",
       "stories": [
-        "george-garvin-brown-and-old-forester"
+        "george-garvin-brown-and-old-forester",
+        "i-w-bernheim-from-peddler-to-i-w-harper"
       ],
       "role": "Founder of Old Forester and Brown-Forman",
       "native": false,
@@ -7573,6 +7587,55 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Etching by C. Lloyd (engraved by Fay), plate in Famous Horses of America (Porter & Coates, Philadelphia, 1877), made in the horse's lifetime. Commons public domain. 512 square is the full etching padded with white top and bottom (horse, head and jockey all in frame). Story sidebar is the 1901 Churchill Downs view. Do NOT use File:Jockey_Oliver_Lewis_atop_winner_Aristides_in_first_Kentucky_Derby.png: it is a motion photograph that cannot date from 1875 and its identity is doubtful.",
+      "ai": false
+    },
+    {
+      "id": "peter-cartwright",
+      "name": "Peter Cartwright",
+      "aliases": [
+        "Rev. Peter Cartwright"
+      ],
+      "lifeDates": "1785–1872",
+      "stories": [
+        "peter-cartwright-the-backwoods-preacher-from-logan-county"
+      ],
+      "role": "Methodist circuit rider, raised in Logan County",
+      "native": false,
+      "likeness": "photograph",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Peter_Cartwright_-_Erweckungsprediger.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Peter_Cartwright_-_Erweckungsprediger.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Peter_Cartwright_-_Erweckungsprediger.jpg",
+      "credit": "Unknown photographer · New York Public Library (Pageant of America collection) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Cased photograph with a handwritten label (Rev. Peter Cartwright (M.E.), born Amherst Co. Virginia Sept. 1, 1785, died Pleasant Plains Ill. Sept. 25, 1872), from the NYPL Digital Gallery Pageant of America photograph collection (imageID 97303); Commons PD-US, author unknown. 512 square is a hand crop of head and shoulders from the 553x760 Commons file. Story sidebar is the title page of the 1857 Autobiography (Internet Archive autobiographyofp00incart, leaf n6), not this portrait. Do not use the Autobiography frontispiece engraving as a second face.",
+      "ai": false
+    },
+    {
+      "id": "isaac-w-bernheim",
+      "name": "Isaac Wolfe Bernheim",
+      "aliases": [
+        "I. W. Bernheim",
+        "Isaac W. Bernheim"
+      ],
+      "lifeDates": "1848–1945",
+      "stories": [
+        "i-w-bernheim-from-peddler-to-i-w-harper"
+      ],
+      "role": "Paducah and Louisville whiskey merchant and distiller (I. W. Harper), founder of Bernheim Forest",
+      "native": false,
+      "likeness": "photograph",
+      "timing": "life",
+      "image": "https://archive.org/download/TheStoryOfTheBernheimFamily/page/n74_w1200.jpg",
+      "sourcePage": "https://archive.org/details/TheStoryOfTheBernheimFamily/page/n74/mode/1up",
+      "license": "Public domain",
+      "licenseUrl": "http://creativecommons.org/publicdomain/mark/1.0/",
+      "credit": "Unknown photographer, about 1876 · The Story of the Bernheim Family (1910) · Internet Archive (University of Louisville) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Halftone plate captioned THE AUTHOR IN HIS TWENTY-EIGHTH YEAR (about 1876) in I. W. Bernheim, The Story of the Bernheim Family (Louisville, 1910). Internet Archive item TheStoryOfTheBernheimFamily, leaf n74, University of Louisville collection, Public Domain Mark. 512 square is a hand crop of the face. Story sidebar is the 1867 peddler plate (leaf n45). Do NOT use Commons File:IW_Bernheim.jpg: its own-work CC BY-SA claim on an old photograph is doubtful.",
       "ai": false
     }
   ]

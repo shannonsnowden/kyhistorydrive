@@ -246,7 +246,8 @@
         "shawnee-chillicothe-divisions",
         "william-christian-of-beargrass",
         "william-whitley-sportsmans-hill",
-        "isaac-ruddell-and-the-guns-at-ruddells-station"
+        "isaac-ruddell-and-the-guns-at-ruddells-station",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "sourceFile": null
     },
@@ -1756,7 +1757,10 @@
       "stories": [
         "jack-jouett-kentuckys-midnight-rider",
         "big-bone-lick-older-cycle",
-        "thomas-walker-and-cumberland-gap"
+        "thomas-walker-and-cumberland-gap",
+        "i-w-bernheim-from-peddler-to-i-w-harper",
+        "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "sourceFile": "Official Presidential portrait of Thomas Jefferson (by Rembrandt Peale, 1800).jpg"
     },
@@ -1805,7 +1809,8 @@
       "licenseUrl": null,
       "stories": [
         "edward-worthington-at-worthingtons-fort",
-        "georgetown-and-royal-spring"
+        "georgetown-and-royal-spring",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "sourceFile": null
     },
@@ -2209,7 +2214,8 @@
       "licenseUrl": null,
       "stories": [
         "frederick-stitzels-barrel-racks-1879",
-        "george-garvin-brown-and-old-forester"
+        "george-garvin-brown-and-old-forester",
+        "i-w-bernheim-from-peddler-to-i-w-harper"
       ],
       "sourceFile": null
     },
@@ -2507,7 +2513,8 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "russellville-from-big-boiling-spring-to-county-seat"
+        "russellville-from-big-boiling-spring-to-county-seat",
+        "peter-cartwright-the-backwoods-preacher-from-logan-county"
       ]
     },
     {
@@ -3637,7 +3644,8 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "stories": [
         "henderson-at-red-banks",
-        "hopkinsville"
+        "hopkinsville",
+        "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land"
       ],
       "sourceFile": "Portrait of Samuel Hopkins (cropped).jpg"
     },
@@ -3669,7 +3677,8 @@
       "stories": [
         "paducah-at-the-tennessee-mouth",
         "big-bone-lick-older-cycle",
-        "falls-of-the-ohio"
+        "falls-of-the-ohio",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "sourceFile": "Portrait of William Clark (cropped).jpg"
     },
@@ -4056,7 +4065,8 @@
         "old-fort-earthworks-15gp1-greenup-county",
         "william-christian-of-beargrass",
         "col-john-todd-of-lexington",
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "fort-jefferson-clarks-fort-on-chickasaw-ground"
       ],
       "sourceFile": "Patrick henry.JPG"
     },
@@ -4451,7 +4461,8 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "treaty-of-logstown-1752"
+        "treaty-of-logstown-1752",
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
       ]
     },
     {
@@ -4467,7 +4478,8 @@
       "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
-        "treaty-of-logstown-1752"
+        "treaty-of-logstown-1752",
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
       ],
       "sourceFile": null
     },
@@ -4934,7 +4946,8 @@
       "licenseUrl": null,
       "stories": [
         "the-travelling-church-1781",
-        "richmond-from-millers-barn"
+        "richmond-from-millers-barn",
+        "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land"
       ],
       "sourceFile": "James Madison.jpg"
     },
@@ -5063,7 +5076,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "george-garvin-brown-and-old-forester"
+        "george-garvin-brown-and-old-forester",
+        "i-w-bernheim-from-peddler-to-i-w-harper"
       ],
       "sourceFile": null,
       "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
@@ -5441,6 +5455,40 @@
         "aristides-winner-of-the-first-kentucky-derby"
       ],
       "sourceFile": "Aristides (horse).jpg"
+    },
+    {
+      "id": "peter-cartwright",
+      "name": "Peter Cartwright",
+      "dates": "1785–1872",
+      "image": {
+        "webp": "/people/portraits/peter-cartwright-512.webp",
+        "jpg": "/people/portraits/peter-cartwright-512.jpg"
+      },
+      "credit": "Unknown photographer · New York Public Library (Pageant of America collection) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "peter-cartwright-the-backwoods-preacher-from-logan-county"
+      ],
+      "sourceFile": "Peter Cartwright - Erweckungsprediger.jpg"
+    },
+    {
+      "id": "isaac-w-bernheim",
+      "name": "Isaac Wolfe Bernheim",
+      "dates": "1848–1945",
+      "image": {
+        "webp": "/people/portraits/isaac-w-bernheim-512.webp",
+        "jpg": "/people/portraits/isaac-w-bernheim-512.jpg"
+      },
+      "credit": "Unknown photographer, about 1876 · The Story of the Bernheim Family (1910) · Internet Archive (University of Louisville) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "i-w-bernheim-from-peddler-to-i-w-harper"
+      ],
+      "sourceFile": null
     }
   ],
   "storySubjects": {
@@ -5511,6 +5559,7 @@
     "jacob-spears-early-bourbon-whiskey": "jacob-spears",
     "little-turtle-and-hardins-defeat-1790": "little-turtle",
     "capt-william-hubbells-ohio-flatboat-stand-1791": "william-hubbell",
+    "peter-cartwright-the-backwoods-preacher-from-logan-county": "peter-cartwright",
     "jacob-beam-on-hardin-creek": "jacob-beam",
     "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
     "tecumseh-falls-at-the-thames-oct-5-1813": "tecumseh",
@@ -5518,6 +5567,7 @@
     "james-crow-on-glenns-creek": "james-c-crow",
     "lexington-blind-hero-of-woodburn": "lexington-stallion",
     "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
+    "i-w-bernheim-from-peddler-to-i-w-harper": "isaac-w-bernheim",
     "george-garvin-brown-and-old-forester": "george-garvin-brown",
     "aristides-winner-of-the-first-kentucky-derby": "aristides-horse",
     "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
