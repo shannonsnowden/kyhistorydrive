@@ -13,12 +13,8 @@
     <name>2. Lloyd Tilghman House &amp; Civil War Museum (Paducah)</name>
     <desc>Visiting: Museum; limited hours. Limited hours</desc>
   </wpt>
-  <wpt lat="36.9531" lon="-89.0898">
-    <name>4. Fort Jefferson Memorial Cross (approximate fort site)</name>
-    <desc>Visiting: Memorial cross park and marker; the exact fort site is approximate. Marker only</desc>
-  </wpt>
   <wpt lat="36.7672" lon="-89.1106">
-    <name>5. Columbus-Belmont State Park</name>
+    <name>4. Columbus-Belmont State Park</name>
     <desc>Visiting: State park; museum seasonal. Limited hours</desc>
   </wpt>
   <rte>
@@ -32,12 +28,8 @@
       <name>2. Lloyd Tilghman House &amp; Civil War Museum (Paducah)</name>
       <desc>Visiting: Museum; limited hours. Limited hours</desc>
     </rtept>
-    <rtept lat="36.9531" lon="-89.0898">
-      <name>4. Fort Jefferson Memorial Cross (approximate fort site)</name>
-      <desc>Visiting: Memorial cross park and marker; the exact fort site is approximate. Marker only</desc>
-    </rtept>
     <rtept lat="36.7672" lon="-89.1106">
-      <name>5. Columbus-Belmont State Park</name>
+      <name>4. Columbus-Belmont State Park</name>
       <desc>Visiting: State park; museum seasonal. Limited hours</desc>
     </rtept>
   </rte>

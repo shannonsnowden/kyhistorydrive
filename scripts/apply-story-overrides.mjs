@@ -239,6 +239,8 @@ if (fs.existsSync(RULES)) {
     const n = applyPin(targets(st.slug, hid), lat, lon)
     if (n) rounding.rounded.push(st.slug)
   }
+  // History pins protected on their own (no linked story): listed so pages, cards and checks treat them as protected.
+  for (const hid of okList(rules.forceHistoryIds) ? rules.forceHistoryIds : []) rounding.protectedIds.push(hid)
 }
 
 // Markers sharing a protected pin (pin-rounding.json roundMarkerNumbers): coordinates only; number and text untouched.
