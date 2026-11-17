@@ -758,6 +758,20 @@
       "aliases": {
         "tanacharison": "Tanacharison"
       }
+    },
+    "capt-billy-bush-and-the-bush-settlement": {
+      "links": [
+        "william-bush",
+        "daniel-boone",
+        "john-holder"
+      ],
+      "portraits": [
+        "daniel-boone",
+        "john-holder"
+      ],
+      "aliases": {
+        "william-bush": "William “Billy” Bush"
+      }
     }
   }
 }
