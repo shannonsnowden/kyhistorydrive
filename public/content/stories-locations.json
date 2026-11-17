@@ -4,8 +4,8 @@
     "exact": 12,
     "fuzzy": 49,
     "county": 4,
-    "override": 151,
-    "none": 40
+    "override": 155,
+    "none": 41
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -2061,6 +2061,50 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky": {
+      "slug": "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "fort-jefferson-clarks-fort-on-chickasaw-ground": {
+      "slug": "fort-jefferson-clarks-fort-on-chickasaw-ground",
+      "lat": 37,
+      "lon": -89,
+      "mapConfidence": "override",
+      "matchedPlace": "Fort Jefferson, Ballard County",
+      "historyId": null
+    },
+    "peter-cartwright-the-backwoods-preacher-from-logan-county": {
+      "slug": "peter-cartwright-the-backwoods-preacher-from-logan-county",
+      "lat": 36.6684833,
+      "lon": -86.8630333,
+      "mapConfidence": "override",
+      "matchedPlace": "Peter Cartwright’s boyhood home (Rogues’ Harbor)",
+      "historyId": "peter-cartwright-boyhood-home-logan-1793-1802"
+    },
+    "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": {
+      "slug": "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land",
+      "lat": 37.3280167,
+      "lon": -87.4983,
+      "mapConfidence": "override",
+      "matchedPlace": "Madisonville courthouse lawn",
+      "historyId": "madisonville-courthouse-hopkins-1807"
+    },
+    "i-w-bernheim-from-peddler-to-i-w-harper": {
+      "slug": "i-w-bernheim-from-peddler-to-i-w-harper",
+      "lat": 38.2565,
+      "lon": -85.7535,
+      "mapConfidence": "override",
+      "matchedPlace": "Bernheim Bros. on Main Street, Louisville",
+      "historyId": "bernheim-bros-main-street-louisville-1888-1897",
+      "alsoHistoryIds": [
+        "bernheim-bros-paducah-mccracken-1868-1888",
+        "bernheim-forest-bullitt-1928-1945"
+      ]
     }
   }
 }

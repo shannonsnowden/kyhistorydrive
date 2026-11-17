@@ -43,6 +43,12 @@ export const NO_AUTO_STORY_PHOTOS = [
   'aristides-winner-of-the-first-kentucky-derby',
   'cold-oak-shelter-lee-county',
   'the-catawba-and-the-northern-war-parties',
+  // Nov 17 2026 pack. Hand-placed public-domain/CC0 photos; do not fetch a stand-in.
+  'peter-cartwright-the-backwoods-preacher-from-logan-county',
+  'madisonville-a-courthouse-town-on-mcgary-and-silkwood-land',
+  'i-w-bernheim-from-peddler-to-i-w-harper',
+  'the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky',
+  'fort-jefferson-clarks-fort-on-chickasaw-ground',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

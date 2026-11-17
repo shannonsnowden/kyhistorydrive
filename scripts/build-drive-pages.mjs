@@ -68,6 +68,7 @@ Object.assign(DESCS, {
   'buffalo-trace-loop-2': "Glenn's Creek distilling history near Frankfort: Buffalo Trace, the 1887 Old Taylor Distillery, the former Old Crow Distillery and the Oscar Pepper Distillery.",
   'boones-trail': "From Cumberland Gap along Thomas Walker's 1750 Indian road to Logan's and Whitley's stations, Boone's fort and Pilot Knob, where Boone first saw Kentucky.",
   'wild-turkey-loop-2': "From the Ripys' 1891 distillery at Tyrone to Lawrenceburg's Kaufman's Station and Shaker Village of Pleasant Hill, home to a Shaker community from 1806 to 1910.",
+  'western-rivers': "Along the lower Ohio and Mississippi: the Trail of Tears at Mantle Rock, Civil War Paducah, Wickliffe Mounds and the Confederate river fort at Columbus.",
 })
 
 // Page text -> plain text. Entities are decoded in one pass (so "&amp;lt;" stays "&lt;"), then tags are

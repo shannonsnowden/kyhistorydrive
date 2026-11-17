@@ -727,6 +727,37 @@
       "aliases": {
         "john-austin-wharton": "John Wharton"
       }
+    },
+    "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": {
+      "links": [
+        "samuel-hopkins",
+        "james-madison"
+      ],
+      "portraits": [
+        "samuel-hopkins",
+        "james-madison"
+      ]
+    },
+    "i-w-bernheim-from-peddler-to-i-w-harper": {
+      "links": [
+        "isaac-w-bernheim",
+        "george-garvin-brown",
+        "frederick-stitzel"
+      ],
+      "portraits": [
+        "george-garvin-brown",
+        "frederick-stitzel"
+      ]
+    },
+    "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky": {
+      "links": [
+        "william-beverley",
+        "tanacharison"
+      ],
+      "portraits": [],
+      "aliases": {
+        "tanacharison": "Tanacharison"
+      }
     }
   }
 }

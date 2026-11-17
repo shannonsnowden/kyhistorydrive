@@ -270,6 +270,30 @@ function finiteCoord(value) {
 let protectedStoryIds = { protectedIds: new Set(), skipIds: new Set() }
 export function setProtectedStoryIds(ids, skipIds) {
   protectedStoryIds = { protectedIds: new Set(ids || []), skipIds: new Set(skipIds || []) }
+  setProtectedMarkerIds(ids)
+}
+
+// Protected KHS markers ("marker:<number>" in protected-pins.json, rounded by pin-rounding roundMarkerNumbers).
+// They are never a nearby card on another page: a distance from a public pin places the protected site.
+let protectedMarkerIds = new Set()
+export function setProtectedMarkerIds(ids) {
+  protectedMarkerIds = new Set(
+    [...(ids || [])].map((id) => String(id)).filter((id) => id.startsWith('marker:')).map((id) => id.slice('marker:'.length)),
+  )
+}
+
+// Fail closed before protected-pins.json loads: a marker on the 0.1° grid is a rounded protected marker.
+function onCoarseGrid(lat, lon) {
+  const g = (v) => Math.abs(v * 10 - Math.round(v * 10)) < 1e-9
+  return g(lat) && g(lon)
+}
+
+export function isProtectedMarker(marker) {
+  const id = marker?.id ?? marker?.marker_number
+  if (id != null && protectedMarkerIds.has(String(id))) return true
+  const lat = finiteCoord(marker?.lat ?? marker?.latitude)
+  const lon = finiteCoord(marker?.lon ?? marker?.longitude)
+  return lat != null && lon != null && onCoarseGrid(lat, lon)
 }
 
 export function isProtectedStoryCoords(story) {
@@ -357,6 +381,7 @@ export function nearbyMarkers(story, markers, { limit = 5, excludeMarkerIds = []
     const lat = finiteCoord(marker.lat ?? marker.latitude)
     const lon = finiteCoord(marker.lon ?? marker.longitude)
     if (!validPin(lat, lon)) continue
+    if (protectedMarkerIds.has(String(id))) continue
     rows.push({
       kind: 'marker',
       id: String(id),
