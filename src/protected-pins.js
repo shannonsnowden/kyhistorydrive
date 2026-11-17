@@ -64,7 +64,8 @@ export function protectedPinIdsFor(p) {
 /** True when any of the pin's ids is protected. Markers also fail closed on the 0.1° grid before the list loads. */
 export function isProtectedPlace(p, lat = null, lon = null) {
   if (protectedPinIdsFor(p).some((id) => isProtectedPin(id))) return true
-  if (p?.marker_number == null) return false
+  // The 0.1° grid fallback only covers the window before protected-pins.json loads; after that the list decides.
+  if (loaded || p?.marker_number == null) return false
   return isProtectedMarker({ id: p.marker_number, lat: lat ?? p.latitude ?? p.lat, lon: lon ?? p.longitude ?? p.lon })
 }
 

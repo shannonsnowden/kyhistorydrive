@@ -6,7 +6,8 @@
  *    no photo search, no KHS marker-page link); it also fails closed on the 0.1° grid before the list loads.
  * 2) Nearby (story-tools, used by the client and prerender): protected markers and protected stories
  *    are never another page's nearby card (prerender loads the list from protected-pins.json).
- * 3) Built output (when dist/ exists): no page's nearby list names a protected id, and no card that
+ * 3) No /#map/history/<id> deep link in public/, src/ or dist/ points at a protected id.
+ * 4) Built output (when dist/ exists): no page's nearby list names a protected id, and no card that
  *    names a protected id carries a distance ("miles", "less than 0.1", "same point").
  * Coordinates are never printed.
  */
@@ -35,6 +36,21 @@ for (const n of markerNums) {
   assert.ok(pp.protectedPlaceNoteHtml({ marker_number: n }), `marker ${n} popup has no approximate-location note`)
 }
 assert.ok(!pp.isProtectedPlace({ marker_number: '128' }, 37.1031283, -85.3064101), 'control: marker 128 must stay public')
+// After the list loads the grid fallback is off: the list alone decides.
+assert.ok(!pp.isProtectedPlace({ marker_number: '99999' }, 37.5, -85.2), 'loaded: the 0.1° grid fallback must only run before protected-pins.json loads')
+
+// Every marker sitting exactly on the 0.1° grid is a rounded protected marker and must be listed as marker:N.
+{
+  const onGrid = (v) => Number.isFinite(Number(v)) && Math.abs(Number(v) * 10 - Math.round(Number(v) * 10)) < 1e-9
+  const geo = JSON.parse(fs.readFileSync(path.join(root, 'public/data/markers.geojson'), 'utf8'))
+  const phase1 = JSON.parse(fs.readFileSync(path.join(root, 'public/data/app/markers.phase1.json'), 'utf8'))
+  const rows = [
+    ...(geo.features || []).map((f) => ({ n: String(f.properties?.marker_number), lat: f.geometry?.coordinates?.[1], lon: f.geometry?.coordinates?.[0] })),
+    ...(Array.isArray(phase1) ? phase1 : phase1.markers || []).map((m) => ({ n: String(m.marker_number), lat: m.latitude, lon: m.longitude })),
+  ]
+  const unlisted = [...new Set(rows.filter((r) => r.lat != null && r.lon != null && onGrid(r.lat) && onGrid(r.lon) && !ids.has(`marker:${r.n}`)).map((r) => r.n))]
+  assert.deepEqual(unlisted, [], `markers on the 0.1° grid missing from protected-pins.json: ${unlisted.join(', ')}`)
+}
 
 // Code guard: the popup builder checks every id (marker:N included) before directions and withholds the KHS link.
 const main = fs.readFileSync(path.join(root, 'src/main.js'), 'utf8')
@@ -65,7 +81,28 @@ assert.ok(!near.some((r) => r.kind === 'marker' && r.id === markerNums[0]), 'nea
 assert.equal(near.filter((r) => r.kind === 'marker').length, 3, 'control: public markers still listed')
 assert.ok(!tools.nearbyMarkers(origin, markers).some((r) => r.id === markerNums[0]), 'nearbyMarkers must exclude a protected marker')
 
-// --- 3) built output ---
+// --- 3) History deep links: no /#map/history/<id> link may point at a protected id (shipped or built). ---
+{
+  const historyLinkHits = (text) => [...String(text).matchAll(/#map\/history\/([A-Za-z0-9%_.:-]+)/g)].map((m) => decodeURIComponent(m[1])).filter((id) => ids.has(id))
+  // plant: a protected id in a history deep link must fail; a public one passes
+  const prot = [...ids].find((id) => !id.includes(':'))
+  assert.ok(historyLinkHits(`<a href="/#map/history/${prot}">x</a>`).length === 1, 'planted protected history deep link must be caught')
+  assert.ok(!historyLinkHits('<a href="/#map/history/example-public-pin">x</a>').length, 'control: a public history deep link passes')
+  const exts = /\.(html|json|geojson|js|xml|md|txt|gpx)$/
+  const scan = (dir, out) => {
+    if (!fs.existsSync(dir)) return out
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, ent.name)
+      if (ent.isDirectory()) { if (ent.name !== 'node_modules') scan(p, out) }
+      else if (exts.test(ent.name)) for (const id of historyLinkHits(fs.readFileSync(p, 'utf8'))) out.push(`${path.relative(root, p)}: /#map/history/${id}`)
+    }
+    return out
+  }
+  const deep = [...scan(path.join(root, 'public'), []), ...scan(path.join(root, 'dist'), []), ...scan(path.join(root, 'src'), [])]
+  assert.deepEqual(deep, [], `protected ids in /#map/history/ deep links:\n${deep.join('\n')}`)
+}
+
+// --- 4) built output ---
 const dist = path.join(root, 'dist')
 const storiesDir = path.join(dist, 'stories')
 if (fs.existsSync(storiesDir)) {
