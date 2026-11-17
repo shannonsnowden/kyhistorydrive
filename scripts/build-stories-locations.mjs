@@ -1140,12 +1140,12 @@ Object.assign(NOV6_PIN_NAMES, {
   'aristides-winner-of-the-first-kentucky-derby': 'Aristides wins the first Kentucky Derby',
   'cold-oak-shelter-lee-county': 'Cold Oak Shelter, Lee County',
 })
-// Nov 17 pins live in story-overrides.json too. Bernheim also owns the Paducah and Bernheim Forest pins (alsoHistoryIds). Lancaster is unpinned. Fort Jefferson links the existing fort-jefferson-ballard-1780 pin.
+// Nov 17 pins live in story-overrides.json too. Bernheim also owns the Paducah and Bernheim Forest pins (alsoHistoryIds). Lancaster is unpinned. Fort Jefferson is a protected site: Ballard County at 0.1°, linked to no History pin.
 Object.assign(NOV6_PIN_NAMES, {
   'peter-cartwright-the-backwoods-preacher-from-logan-county': 'Peter Cartwright’s boyhood home (Rogues’ Harbor)',
   'madisonville-a-courthouse-town-on-mcgary-and-silkwood-land': 'Madisonville courthouse lawn',
   'i-w-bernheim-from-peddler-to-i-w-harper': 'Bernheim Bros. on Main Street, Louisville',
-  'fort-jefferson-clarks-fort-on-chickasaw-ground': "Fort Jefferson (Clark's post on the Mississippi)",
+  'fort-jefferson-clarks-fort-on-chickasaw-ground': 'Fort Jefferson, Ballard County',
 })
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]

@@ -2072,11 +2072,11 @@
     },
     "fort-jefferson-clarks-fort-on-chickasaw-ground": {
       "slug": "fort-jefferson-clarks-fort-on-chickasaw-ground",
-      "lat": 36.95310833,
-      "lon": -89.08979167,
+      "lat": 37,
+      "lon": -89,
       "mapConfidence": "override",
-      "matchedPlace": "Fort Jefferson (Clark's post on the Mississippi)",
-      "historyId": "fort-jefferson-ballard-1780"
+      "matchedPlace": "Fort Jefferson, Ballard County",
+      "historyId": null
     },
     "peter-cartwright-the-backwoods-preacher-from-logan-county": {
       "slug": "peter-cartwright-the-backwoods-preacher-from-logan-county",

@@ -1,6 +1,9 @@
 {
- "_todo": "Remaining exact hits are the site name Old Fort Earthworks, the Old Fort Commons file name, the shared Green River culture-figure path, Chambers Mill Creek chert and the Jonathan Creek story link, and the Cloudsplitter related-card slug for the gorge story. Prose locators are not allowlisted. Never add Peter Village.",
+ "_todo": "Remaining exact hits are the site name Old Fort Earthworks, the Old Fort and Fort Jefferson Commons file names, the shared Green River culture-figure path, Chambers Mill Creek chert and the Jonathan Creek story link, and the Cloudsplitter related-card slug for the gorge story. Prose locators are not allowlisted. Never add Peter Village.",
  "entries": [
+  "content/stories.json|fort-jefferson-clarks-fort-on-chickasaw-ground|photo.source_url|Wickliffe-Ft-Jefferson-Mississippi-River",
+  "content/stories/fort-jefferson-clarks-fort-on-chickasaw-ground.json|fort-jefferson-clarks-fort-on-chickasaw-ground|photo.source_url|Wickliffe-Ft-Jefferson-Mississippi-River",
+  "content/story-photos.json|fort-jefferson-clarks-fort-on-chickasaw-ground|photo.source_url|Wickliffe-Ft-Jefferson-Mississippi-River",
   "content/stories-locations.json|old-fort-earthworks-15gp1-greenup-county|matchedPlace|Old Fort Earthworks",
   "content/stories.json|old-fort-earthworks-15gp1-greenup-county|matchedPlace|Old Fort Earthworks",
   "content/stories.json|old-fort-earthworks-15gp1-greenup-county|photo.title|Old Fort Earthworks",

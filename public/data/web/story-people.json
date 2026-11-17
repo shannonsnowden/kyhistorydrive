@@ -3308,11 +3308,6 @@
     "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": {
       "links": [
         {
-          "id": "thomas-jefferson",
-          "name": "Thomas Jefferson",
-          "href": "/people/#thomas-jefferson"
-        },
-        {
           "id": "samuel-hopkins",
           "name": "Samuel Hopkins",
           "href": "/people/#samuel-hopkins"
@@ -3324,7 +3319,6 @@
         }
       ],
       "portraits": [
-        "thomas-jefferson",
         "samuel-hopkins",
         "james-madison"
       ]
@@ -3335,11 +3329,6 @@
           "id": "isaac-w-bernheim",
           "name": "Isaac Wolfe Bernheim",
           "href": "/people/#isaac-w-bernheim"
-        },
-        {
-          "id": "thomas-jefferson",
-          "name": "Thomas Jefferson",
-          "href": "/people/#thomas-jefferson"
         },
         {
           "id": "george-garvin-brown",
@@ -3353,7 +3342,6 @@
         }
       ],
       "portraits": [
-        "thomas-jefferson",
         "george-garvin-brown",
         "frederick-stitzel"
       ]
@@ -3376,11 +3364,6 @@
           "href": "/people/#thomas-jefferson"
         },
         {
-          "id": "william-clark",
-          "name": "William Clark",
-          "href": "/people/#william-clark"
-        },
-        {
           "id": "edward-worthington",
           "name": "Edward Worthington",
           "href": "/stories/edward-worthington-at-worthingtons-fort/"
@@ -3390,7 +3373,6 @@
         "george-rogers-clark",
         "patrick-henry",
         "thomas-jefferson",
-        "william-clark",
         "edward-worthington"
       ]
     },
@@ -3400,6 +3382,11 @@
           "id": "william-beverley",
           "name": "William Beverley",
           "href": "/people/#william-beverley"
+        },
+        {
+          "id": "tanacharison",
+          "name": "Tanacharison",
+          "href": "/people/#tanacharison"
         }
       ],
       "portraits": []

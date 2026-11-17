@@ -266,6 +266,14 @@ export const ITEMS = [
     terms: ['Beattyville', 'Big Sinking', 'Red River', 'Gorge', 'Daniel Boone National Forest', 'hollow', 'cliff', 'east-facing'],
     ownOnly: true,
   },
+  {
+    name: 'Fort Jefferson',
+    names: ['Fort Jefferson'],
+    slugs: ['fort-jefferson-clarks-fort-on-chickasaw-ground'],
+    ids: ['fort-jefferson-clarks-fort-on-chickasaw-ground'],
+    terms: ['Wickliffe', 'Mayfield Creek', 'US 51', 'Fort Jefferson Hill', 'memorial cross', 'bluff', 'mile south'],
+    ownOnly: true,
+  },
 ]
 
 /** Required credit URLs that may keep a term. Keep this list specific. */
@@ -660,10 +668,10 @@ function selfTest() {
   assert(hitsIn('Portsmouth Earthworks in the research file.', oldFort, { research: true }).includes('Portsmouth'), 'a shortened official title in research still fails')
   assert(findLocators('A square earthwork in Greenup County. Portsmouth.').length === 0, 'bare Portsmouth is not a generic pattern')
   assert(findLocators('A square earthwork in Greenup County. Portsmouth.', oldFort.slugs[0]).some((h) => h.match === 'Portsmouth'), 'Old Fort term catches bare Portsmouth')
-  assert(protectedStoryCount() === 41, `generic pass covers all 41 protected stories (got ${protectedStoryCount()})`)
+  assert(protectedStoryCount() === 42, `generic pass covers all 42 protected stories (got ${protectedStoryCount()})`)
   const storyFiles = fs.readdirSync(path.join(ROOT, 'public/content/stories')).filter((f) => f.endsWith('.json'))
   const protFiles = storyFiles.filter((f) => isProtectedStory(JSON.parse(fs.readFileSync(path.join(ROOT, 'public/content/stories', f), 'utf8'))))
-  assert(protFiles.length === 41, `protected story files: ${protFiles.length}`)
+  assert(protFiles.length === 42, `protected story files: ${protFiles.length}`)
   const planted = []
   scanGeneric({ slug: oldFort.slugs[0], summary: 'A square earthwork in Greenup County. Portsmouth.' }, `content/stories/${oldFort.slugs[0]}.json`, planted)
   const bare = planted.filter((h) => h.match === 'Portsmouth')

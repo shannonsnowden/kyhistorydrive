@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T12:20:24.487Z",
+  "generatedAt": "2026-11-17T13:05:08.230Z",
   "briefDate": "2026-11-17",
   "displayDate": "Tuesday, November 17, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -42,7 +42,7 @@
       "lon": -87.4983,
       "historyId": "madisonville-courthouse-hopkins-1807",
       "mapHref": "/#map/history/madisonville-courthouse-hopkins-1807",
-      "quote": "Madisonville began with a gift of forty acres and a name borrowed from Thomas Jefferson's cabinet.",
+      "quote": "Madisonville began with a gift of forty acres and a name borrowed from President Jefferson's cabinet.",
       "photo": {
         "image_url": "/content/photos/stories/madisonville-a-courthouse-town-on-mcgary-and-silkwood-land.jpg",
         "title": "The Hopkins County Courthouse in Madisonville, with the Confederate monument on the courthouse lawn (photographed 2017)",
@@ -54,7 +54,7 @@
         "license": "CC0 1.0",
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
       },
-      "heroDeck": "Madisonville began with a gift of forty acres and a name borrowed from Thomas Jefferson's cabinet."
+      "heroDeck": "Madisonville began with a gift of forty acres and a name borrowed from President Jefferson's cabinet."
     },
     {
       "slug": "i-w-bernheim-from-peddler-to-i-w-harper",
@@ -93,15 +93,15 @@
       "county": "Ballard",
       "briefDate": "2026-11-17",
       "href": "/stories/fort-jefferson-clarks-fort-on-chickasaw-ground/",
-      "place": "Fort Jefferson (Clark's post on the Mississippi)",
-      "lat": 36.95310833,
-      "lon": -89.08979167,
-      "historyId": "fort-jefferson-ballard-1780",
-      "mapHref": "/#map/history/fort-jefferson-ballard-1780",
-      "quote": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade on the Mississippi just below the meeting of the rivers, in what is now Ballard County.",
+      "place": "Fort Jefferson, Ballard County",
+      "lat": 37,
+      "lon": -89,
+      "historyId": null,
+      "mapHref": "/#map/stories/fort-jefferson-clarks-fort-on-chickasaw-ground",
+      "quote": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade in what is now Ballard County.",
       "photo": {
         "image_url": "/content/photos/stories/fort-jefferson-clarks-fort-on-chickasaw-ground.jpg",
-        "title": "The Mississippi River looking south from Fort Jefferson Hill Park, Wickliffe, near the site of Clark's 1780 fort (photographed 2018)",
+        "title": "Looking south over the river bottoms of Ballard County (photographed 2018)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe-Ft-Jefferson-Mississippi-River-south-ky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
@@ -110,7 +110,7 @@
         "license": "CC BY 4.0",
         "license_url": "https://creativecommons.org/licenses/by/4.0/"
       },
-      "heroDeck": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade on the Mississippi just below the meeting of the rivers, in what is now Ballard County."
+      "heroDeck": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade in what is now Ballard County."
     },
     {
       "slug": "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky",
@@ -130,11 +130,11 @@
       "photo": {
         "image_url": "/content/photos/stories/the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky.jpg",
         "title": "Title page of A Treaty, Held at the Town of Lancaster, in Pennsylvania … in June, 1744, printed and sold by B. Franklin, Philadelphia, 1744",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Printed_Copy_of_the_Indian_Treaty_Between_the_Provinces_of_Maryland_and_Virginia_and_the_Six_Nations_Held_at_Lancaster,_Pennsylvania_-_DPLA_-_b321ef860b5852c3933346bca3e31042_(page_1).jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Printed_Copy_of_the_Indian_Treaty_Between_the_Provinces_of_Maryland_and_Virginia_and_the_Six_Nations_Held_at_Lancaster,_Pennsylvania_-_DPLA_-_b321ef860b5852c3933346bca3e31042_%28page_1%29.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "B. Franklin, printer · U.S. National Archives via DPLA · public domain",
         "year": 1744,
-        "credit": "B. Franklin, printer (U.S. National Archives)",
+        "credit": "B. Franklin, printer",
         "license": "Public domain",
         "fit": "contain"
       },
@@ -180,7 +180,7 @@
       "lon": -87.4983,
       "historyId": "madisonville-courthouse-hopkins-1807",
       "mapHref": "/#map/history/madisonville-courthouse-hopkins-1807",
-      "quote": "Madisonville began with a gift of forty acres and a name borrowed from Thomas Jefferson's cabinet.",
+      "quote": "Madisonville began with a gift of forty acres and a name borrowed from President Jefferson's cabinet.",
       "photo": {
         "image_url": "/content/photos/stories/madisonville-a-courthouse-town-on-mcgary-and-silkwood-land.jpg",
         "title": "The Hopkins County Courthouse in Madisonville, with the Confederate monument on the courthouse lawn (photographed 2017)",
@@ -192,7 +192,7 @@
         "license": "CC0 1.0",
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
       },
-      "heroDeck": "Madisonville began with a gift of forty acres and a name borrowed from Thomas Jefferson's cabinet."
+      "heroDeck": "Madisonville began with a gift of forty acres and a name borrowed from President Jefferson's cabinet."
     },
     {
       "slug": "i-w-bernheim-from-peddler-to-i-w-harper",
@@ -231,15 +231,15 @@
       "county": "Ballard",
       "briefDate": "2026-11-17",
       "href": "/stories/fort-jefferson-clarks-fort-on-chickasaw-ground/",
-      "place": "Fort Jefferson (Clark's post on the Mississippi)",
-      "lat": 36.95310833,
-      "lon": -89.08979167,
-      "historyId": "fort-jefferson-ballard-1780",
-      "mapHref": "/#map/history/fort-jefferson-ballard-1780",
-      "quote": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade on the Mississippi just below the meeting of the rivers, in what is now Ballard County.",
+      "place": "Fort Jefferson, Ballard County",
+      "lat": 37,
+      "lon": -89,
+      "historyId": null,
+      "mapHref": "/#map/stories/fort-jefferson-clarks-fort-on-chickasaw-ground",
+      "quote": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade in what is now Ballard County.",
       "photo": {
         "image_url": "/content/photos/stories/fort-jefferson-clarks-fort-on-chickasaw-ground.jpg",
-        "title": "The Mississippi River looking south from Fort Jefferson Hill Park, Wickliffe, near the site of Clark's 1780 fort (photographed 2018)",
+        "title": "Looking south over the river bottoms of Ballard County (photographed 2018)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe-Ft-Jefferson-Mississippi-River-south-ky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
@@ -248,7 +248,7 @@
         "license": "CC BY 4.0",
         "license_url": "https://creativecommons.org/licenses/by/4.0/"
       },
-      "heroDeck": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade on the Mississippi just below the meeting of the rivers, in what is now Ballard County."
+      "heroDeck": "George Rogers Clark reached the mouth of the Ohio on April 19, 1780, and his Illinois Battalion began a stockade in what is now Ballard County."
     },
     {
       "slug": "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky",
@@ -268,11 +268,11 @@
       "photo": {
         "image_url": "/content/photos/stories/the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky.jpg",
         "title": "Title page of A Treaty, Held at the Town of Lancaster, in Pennsylvania … in June, 1744, printed and sold by B. Franklin, Philadelphia, 1744",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Printed_Copy_of_the_Indian_Treaty_Between_the_Provinces_of_Maryland_and_Virginia_and_the_Six_Nations_Held_at_Lancaster,_Pennsylvania_-_DPLA_-_b321ef860b5852c3933346bca3e31042_(page_1).jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Printed_Copy_of_the_Indian_Treaty_Between_the_Provinces_of_Maryland_and_Virginia_and_the_Six_Nations_Held_at_Lancaster,_Pennsylvania_-_DPLA_-_b321ef860b5852c3933346bca3e31042_%28page_1%29.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "B. Franklin, printer · U.S. National Archives via DPLA · public domain",
         "year": 1744,
-        "credit": "B. Franklin, printer (U.S. National Archives)",
+        "credit": "B. Franklin, printer",
         "license": "Public domain",
         "fit": "contain"
       },

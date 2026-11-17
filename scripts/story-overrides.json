@@ -1195,11 +1195,10 @@
       "county": ""
     },
     "fort-jefferson-clarks-fort-on-chickasaw-ground": {
-      "reason": "Nov 17 2026: link the existing History pin fort-jefferson-ballard-1780 (Wikipedia/GNIS fort site 36.9531, -89.0898, KHS marker #1309 nearby on US 51 south of Wickliffe). Event years 1780 (founded April 19)–1781 (abandoned June 8). County Ballard.",
+      "reason": "Protected site: county-level placement (Ballard County at 0.1°, same pattern as Cold Oak); no History pin link and no directions. Event years 1780 (founded April 19)–1781 (abandoned June 8). County Ballard.",
       "date": "2026-11-17",
-      "historyId": "fort-jefferson-ballard-1780",
-      "lat": 36.95310833,
-      "lon": -89.08979167,
+      "lat": 37.0,
+      "lon": -89.0,
       "yearStart": 1780,
       "yearEnd": 1781,
       "county": "Ballard"
