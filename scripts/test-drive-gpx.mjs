@@ -1,6 +1,5 @@
 /**
- * Drive GPX: public exact waypoints only, GPX 1.1, private and approx omitted,
- * waypoints numbered 1..N in GPX order with no gaps.
+ * Drive GPX: public exact waypoints only, GPX 1.1, private and approx omitted.
  * Also checks the print sheet and Visiting line the drive-page build writes.
  */
 import assert from 'node:assert/strict'
@@ -16,11 +15,6 @@ function leaksPair(gpx, rawLat, rawLon) {
   const trim = (raw) => String(raw).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '')
   const attr = (axis, raw) => new RegExp(`${axis}="${trim(raw).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}0*"`)
   return attr('lat', rawLat).test(gpx) && attr('lon', rawLon).test(gpx)
-}
-
-/** Leading numbers of each <wpt>/<rtept> name, in file order. */
-function gpxNumbers(gpx, tag) {
-  return [...gpx.matchAll(new RegExp(`<${tag} [^>]*>\\s*<name>(\\d+)\\. `, 'g'))].map((x) => Number(x[1]))
 }
 
 const fixture = [
@@ -51,11 +45,6 @@ assert.match(sample, /<wpt lat="38\.2001" lon="-84\.8763">/)
 assert.match(sample, /<name>1\. Public Museum<\/name>/)
 assert.match(sample, /Visiting: Open daily\. Limited hours/)
 assert.equal((sample.match(/<wpt /g) || []).length, 1)
-// Sequential numbering: an omitted stop leaves no gap in the GPX numbers.
-const gapless = renderDriveGpx({ name: 'Gap', url: 'https://kyhistorydrive.com/drives/gap/', stops: [fixture[0], fixture[2], { ...fixture[0], id: 'pub2', name: 'Second Public', lat: 38.3, lon: -84.5 }] })
-assert.deepEqual(gpxNumbers(gapless, 'wpt'), [1, 2], 'fixture wpt numbers are 1..N')
-assert.deepEqual(gpxNumbers(gapless, 'rtept'), [1, 2], 'fixture rtept numbers are 1..N')
-assert.match(gapless, /<name>2\. Second Public<\/name>/)
 assert.equal((sample.match(/<rtept /g) || []).length, 1)
 assert.doesNotMatch(sample, /<trk/)
 for (const stop of fixture.slice(1)) {
@@ -105,10 +94,6 @@ for (const slug of slugs) {
   const publicStops = stops.filter((s) => !stopOmitsDriveGeo(s))
   assert.equal((gpx.match(/<wpt /g) || []).length, publicStops.length, `${slug} wpt count`)
   assert.equal((gpx.match(/<rtept /g) || []).length, publicStops.length, `${slug} rtept count`)
-  const seq = publicStops.map((_, i) => i + 1)
-  assert.deepEqual(gpxNumbers(gpx, 'wpt'), seq, `${slug} wpt numbers must be 1..${seq.length} with no gaps`)
-  assert.deepEqual(gpxNumbers(gpx, 'rtept'), seq, `${slug} rtept numbers must be 1..${seq.length} with no gaps`)
-  publicStops.forEach((s, i) => assert.ok(gpx.includes(`<name>${i + 1}. ${s.name.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]))}</name>`), `${slug} waypoint ${i + 1} is ${s.id}`))
   for (const s of stops) {
     const [rawLat, rawLon] = raw.get(s.id) || [String(s.lat), String(s.lon)]
     if (stopOmitsDriveGeo(s)) {

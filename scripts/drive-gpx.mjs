@@ -61,13 +61,12 @@ export function renderDriveGpx({ name, desc, url, stops }) {
   if (!name || !url) throw new Error('drive-gpx: name and url are required')
   const kept = []
   const omitted = []
-  stops.forEach((stop) => {
+  stops.forEach((stop, i) => {
     if (stopOmitsDriveGeo(stop)) {
       omitted.push(stop)
       return
     }
-    // Waypoints are numbered 1..N in GPX order with no gaps; omitted stops keep the page's own numbering only.
-    kept.push({ stop, n: kept.length + 1, lat: coordAttr(stop.lat), lon: coordAttr(stop.lon) })
+    kept.push({ stop, n: i + 1, lat: coordAttr(stop.lat), lon: coordAttr(stop.lon) })
   })
   const summary = `${desc ? `${String(desc).replace(/\s+/g, ' ').trim()} ` : ''}Public, exact waypoints only. Private land and approximate stops are omitted. ${url}`
   const lines = [

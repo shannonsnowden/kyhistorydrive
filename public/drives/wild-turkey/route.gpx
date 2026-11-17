@@ -10,11 +10,11 @@
     <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
   </wpt>
   <wpt lat="38.0523" lon="-84.7301">
-    <name>2. Woodford County Historical Society Museum (Versailles)</name>
+    <name>3. Woodford County Historical Society Museum (Versailles)</name>
     <desc>Visiting: Free museum; limited open days. Limited hours</desc>
   </wpt>
   <wpt lat="38.0106" lon="-84.7717">
-    <name>3. Jack Jouett House Historic Site</name>
+    <name>4. Jack Jouett House Historic Site</name>
     <desc>Visiting: Historic house; tours by appointment in the off-season. Limited hours</desc>
   </wpt>
   <rte>
@@ -25,11 +25,11 @@
       <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
     </rtept>
     <rtept lat="38.0523" lon="-84.7301">
-      <name>2. Woodford County Historical Society Museum (Versailles)</name>
+      <name>3. Woodford County Historical Society Museum (Versailles)</name>
       <desc>Visiting: Free museum; limited open days. Limited hours</desc>
     </rtept>
     <rtept lat="38.0106" lon="-84.7717">
-      <name>3. Jack Jouett House Historic Site</name>
+      <name>4. Jack Jouett House Historic Site</name>
       <desc>Visiting: Historic house; tours by appointment in the off-season. Limited hours</desc>
     </rtept>
   </rte>
