@@ -483,7 +483,9 @@ const MANUAL_OVERRIDES = {
     lon: -84.7,
     confidence: 'override',
   },
+  'henry-skaggs-green-river-long-hunter': { matchName: 'Barren County (centroid)', lat: 37.03703, lon: -85.92479, confidence: 'county' },
   // Wyandot Kah-ten-tah-teh — theme-only, no KY place pin
+  'wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow': {},
   // 2026-09-26 morning brief
   'col-john-holder-at-lower-howards-creek': {
     matchName: "Holder's Station / Lower Howard's Creek",
