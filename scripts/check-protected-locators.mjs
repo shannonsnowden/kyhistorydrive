@@ -270,7 +270,8 @@ export const ITEMS = [
     name: 'Fort Jefferson',
     names: ['Fort Jefferson'],
     slugs: ['fort-jefferson-clarks-fort-on-chickasaw-ground'],
-    ids: ['fort-jefferson-clarks-fort-on-chickasaw-ground'],
+    // Also the protected History pin and Worthington's story and pin (Fort Jefferson's commander).
+    ids: ['fort-jefferson-clarks-fort-on-chickasaw-ground', 'fort-jefferson-ballard-1780', 'edward-worthington-at-worthingtons-fort', 'worthingtons-fort-danville'],
     terms: ['Wickliffe', 'Mayfield Creek', 'US 51', 'Fort Jefferson Hill', 'memorial cross', 'bluff', 'mile south'],
     ownOnly: true,
   },

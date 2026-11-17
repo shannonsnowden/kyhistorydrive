@@ -13,7 +13,7 @@ import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
-import { loadProtectedPins, protectedPinsLoaded, isProtectedPin, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
+import { loadProtectedPins, protectedPinsLoaded, isProtectedPin, isProtectedPlace, protectedPinIdsFor, protectedPlaceNoteHtml, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
@@ -1664,6 +1664,7 @@ function placeDetailExtrasHtml({
   website,
   storyPhoto,
   protectedIds = [],
+  protectedPlace = false,
 }) {
   const displayMarkdown = stripSourceAttribution(bodyMarkdown)
   const links = extractResearchLinks(bodyMarkdown)
@@ -1672,7 +1673,7 @@ function placeDetailExtrasHtml({
     photos.unshift(storyPhoto)
   }
   // Protected sites never get directions, map links or a photo search (the /about/ promise).
-  const isProtected = protectedIds.some((id) => isProtectedPin(id))
+  const isProtected = protectedPlace || protectedIds.some((id) => isProtectedPin(id))
   const mapsHtml = isProtected || lat == null || lon == null ? '' : mapsLinksHtml(lat, lon, name, placeHint)
   return `${mapsHtml}${photosHtml(photos)}${researchLinksHtml(links, name, {
     placeHint,
@@ -1703,13 +1704,6 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   const rawDesc = stripSourceAttribution(p.inscription || p.history || p.description || p.location_text || '')
   const desc = /\]\(|(?:^|\n)#{1,6}\s/m.test(rawDesc) ? storyPlainText(rawDesc) : rawDesc
   const descHtml = popupParagraphsHtml(desc)
-  const href = p.source_url || p.website || null
-  const linkLabel = p.source_url ? 'history.ky.gov' : isWikipediaUrl(href) ? 'Wikipedia' : 'Website'
-  // Research URLs also appear under Learn more — don't show the same link twice.
-  const link =
-    href && !isResearchUrl(href)
-      ? `<p class="popup-link"><a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${linkLabel}</a></p>`
-      : ''
   let lat = null
   let lon = null
   // County cave markers sit at a county center, not a cave: no directions links.
@@ -1727,6 +1721,18 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     lat = p.latitude
     lon = p.longitude
   }
+  // A protected pin matches on any listed id, including marker:<number> for a rounded KHS marker.
+  const protectedPlace = isProtectedPlace(p, lat, lon)
+  // Protected KHS markers: no link to the KHS marker page (it maps the sign); plain-text credit instead.
+  const protectedMarker = protectedPlace && (layerId === 'markers' || p.marker_number != null)
+  const href = protectedMarker ? null : p.source_url || p.website || null
+  const linkLabel = p.source_url ? 'history.ky.gov' : isWikipediaUrl(href) ? 'Wikipedia' : 'Website'
+  // Research URLs also appear under Learn more — don't show the same link twice.
+  const link = protectedMarker
+    ? `<p class="popup-link">Kentucky Historical Society marker ${escapeHtml(String(p.marker_number ?? ''))}</p>`
+    : href && !isResearchUrl(href)
+      ? `<p class="popup-link"><a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${linkLabel}</a></p>`
+      : ''
   const hint = [p.city, p.county ? `${p.county} County` : '', p.subtitle].filter(Boolean).join(', ')
   const bodyMarkdown = p.bodyMarkdown || p.history || p.description || p.inscription || ''
   const extras = placeDetailExtrasHtml({
@@ -1737,10 +1743,11 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     bodyMarkdown,
     historyId: p.id || p.historyId || null,
     layer: layerId === 'markers' ? 'marker' : layerId,
-    source_url: p.source_url || null,
-    website: p.website || null,
+    source_url: protectedMarker ? null : p.source_url || null,
+    website: protectedMarker ? null : p.website || null,
     storyPhoto: p.photo || p.storyPhoto || null,
-    protectedIds: [p.historyId, p.id, p.slug],
+    protectedIds: protectedPinIdsFor(p),
+    protectedPlace,
   })
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
   const shareUrl = absoluteShareUrl(placeShareHash(layerId, p))
@@ -1755,7 +1762,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     <div class="map-popup">
       <div class="detail-layer">${escapeHtml(layerLabel)}</div>
       <h3>${escapeHtml(name)}</h3>
-      ${protectedPinNoteHtml(p.historyId || p.id || p.slug)}
+      ${protectedPlaceNoteHtml(p, lat, lon)}
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
       ${descHtml}
@@ -3913,7 +3920,7 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
   }
   const [lon, lat] = feature.geometry.coordinates
   const fp = feature.properties || {}
-  const zoom = capProtectedZoom(Math.max(map.getZoom(), 12), fp.historyId, fp.id, fp.slug, placeId)
+  const zoom = capProtectedZoom(Math.max(map.getZoom(), 12), ...protectedPinIdsFor(fp), placeId, placeLayer === 'markers' ? `marker:${placeId}` : null)
   // Wait for the zoom to settle before placing the popup. Otherwise the easeTo
   // finishes after nudgeCameraForPopup and recenters the pin, undoing the
   // phone lower-third offset and clipping the scrollable card (#213).

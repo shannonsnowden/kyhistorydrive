@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
   <metadata>
-    <name>Western Rivers: Mississippian Towns, Clark&apos;s Fort and the Trail of Tears</name>
-    <desc>Along the lower Ohio and Mississippi: the Cherokee Trail of Tears at Mantle Rock, Civil War Paducah, the Mississippian town at Wickliffe, Clark&apos;s 1780 fort and the Confederate river fort at Columbus. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/western-rivers/</desc>
-    <link href="https://kyhistorydrive.com/drives/western-rivers/"><text>Western Rivers: Mississippian Towns, Clark&apos;s Fort and the Trail of Tears</text></link>
+    <name>Western Rivers: Mississippian Towns, Civil War Rivers and the Trail of Tears</name>
+    <desc>Along the lower Ohio and Mississippi: the Cherokee Trail of Tears at Mantle Rock, Civil War Paducah, the Mississippian town at Wickliffe and the Confederate river fort at Columbus. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/western-rivers/</desc>
+    <link href="https://kyhistorydrive.com/drives/western-rivers/"><text>Western Rivers: Mississippian Towns, Civil War Rivers and the Trail of Tears</text></link>
   </metadata>
   <wpt lat="37.3605" lon="-88.423">
     <name>1. Mantle Rock Preserve</name>
@@ -18,8 +18,8 @@
     <desc>Visiting: State park; museum seasonal. Limited hours</desc>
   </wpt>
   <rte>
-    <name>Western Rivers: Mississippian Towns, Clark&apos;s Fort and the Trail of Tears</name>
-    <desc>Along the lower Ohio and Mississippi: the Cherokee Trail of Tears at Mantle Rock, Civil War Paducah, the Mississippian town at Wickliffe, Clark&apos;s 1780 fort and the Confederate river fort at Columbus. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/western-rivers/</desc>
+    <name>Western Rivers: Mississippian Towns, Civil War Rivers and the Trail of Tears</name>
+    <desc>Along the lower Ohio and Mississippi: the Cherokee Trail of Tears at Mantle Rock, Civil War Paducah, the Mississippian town at Wickliffe and the Confederate river fort at Columbus. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/western-rivers/</desc>
     <rtept lat="37.3605" lon="-88.423">
       <name>1. Mantle Rock Preserve</name>
       <desc>Visiting: The Nature Conservancy preserve; trail open daylight hours.</desc>

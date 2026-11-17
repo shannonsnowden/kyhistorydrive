@@ -55,7 +55,10 @@ import {
   ARTWORK_LEADS,
   looksLikeUnlabeledArtwork,
   REVIEWED_ARTWORK_SLUGS,
+  setProtectedMarkerIds,
 } from '../src/story-tools.js'
+// Protected markers (marker:<n> in protected-pins.json) never appear as another page's nearby card.
+setProtectedMarkerIds(JSON.parse(fs.readFileSync(path.resolve('public/data/web/protected-pins.json'), 'utf8')).ids)
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
   ROUTE_MAPS,

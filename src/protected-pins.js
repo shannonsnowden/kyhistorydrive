@@ -9,7 +9,7 @@
  * KILL SWITCH: set PROTECTED_PIN_NOTE_ENABLED to false to hide the popup note (the rounding itself
  * lives in the data; to undo it, revert the PR and rebuild).
  */
-import { setProtectedStoryIds } from './story-tools.js'
+import { setProtectedStoryIds, isProtectedMarker } from './story-tools.js'
 
 export const PROTECTED_PIN_NOTE_ENABLED = true
 
@@ -51,9 +51,33 @@ export function isProtectedPin(id) {
   return PROTECTED_PIN_NOTE_ENABLED && !!id && ids.has(id)
 }
 
+/**
+ * Every id a pin can be listed under in protected-pins.json: History/story ids and slugs, and
+ * `marker:<number>` for a KHS marker rounded with a protected site (pin-rounding roundMarkerNumbers).
+ */
+export function protectedPinIdsFor(p) {
+  const ids = [p?.historyId, p?.id, p?.slug]
+  if (p?.marker_number != null && String(p.marker_number).trim() !== '') ids.push(`marker:${p.marker_number}`)
+  return ids.filter(Boolean)
+}
+
+/** True when any of the pin's ids is protected. Markers also fail closed on the 0.1° grid before the list loads. */
+export function isProtectedPlace(p, lat = null, lon = null) {
+  if (protectedPinIdsFor(p).some((id) => isProtectedPin(id))) return true
+  if (p?.marker_number == null) return false
+  return isProtectedMarker({ id: p.marker_number, lat: lat ?? p.latitude ?? p.lat, lon: lon ?? p.longitude ?? p.lon })
+}
+
 export function protectedPinNoteHtml(id) {
   if (!isProtectedPin(id)) return ''
-  return '<p class="popup-protected" data-protected-pin>Approximate location (within ~6 mi) to protect the site.</p>'
+  return PROTECTED_NOTE_HTML
+}
+
+const PROTECTED_NOTE_HTML = '<p class="popup-protected" data-protected-pin>Approximate location (within ~6 mi) to protect the site.</p>'
+
+/** Popup note for a place given all its ids (a marker is listed as marker:<number>). */
+export function protectedPlaceNoteHtml(p, lat = null, lon = null) {
+  return PROTECTED_PIN_NOTE_ENABLED && isProtectedPlace(p, lat, lon) ? PROTECTED_NOTE_HTML : ''
 }
 
 /** Deep links and story focus never zoom past this on a protected pin, so it can't look exact. */
