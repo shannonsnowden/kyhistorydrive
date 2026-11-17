@@ -14,7 +14,7 @@
     <desc>Visiting: Museum; limited hours. Limited hours</desc>
   </wpt>
   <wpt lat="36.7672" lon="-89.1106">
-    <name>4. Columbus-Belmont State Park</name>
+    <name>3. Columbus-Belmont State Park</name>
     <desc>Visiting: State park; museum seasonal. Limited hours</desc>
   </wpt>
   <rte>
@@ -29,7 +29,7 @@
       <desc>Visiting: Museum; limited hours. Limited hours</desc>
     </rtept>
     <rtept lat="36.7672" lon="-89.1106">
-      <name>4. Columbus-Belmont State Park</name>
+      <name>3. Columbus-Belmont State Park</name>
       <desc>Visiting: State park; museum seasonal. Limited hours</desc>
     </rtept>
   </rte>
