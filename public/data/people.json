@@ -5532,6 +5532,58 @@
       "sourceFile": "Ca-Ta-He-Cas-Sa, Black Hoof, Principal Chief of the Shawannes (15251349593).jpg"
     },
     {
+      "id": "john-b-castleman",
+      "name": "John B. Castleman",
+      "dates": "1841–1918",
+      "image": {
+        "webp": "/people/portraits/john-b-castleman-512.webp",
+        "jpg": "/people/portraits/john-b-castleman-512.jpg"
+      },
+      "credit": "Unknown photographer · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": "John-B.-Castleman.jpg"
+    },
+    {
+      "id": "charles-wilkins-saltpeter",
+      "name": "Charles Wilkins",
+      "dates": "1763–1827",
+      "image": {
+        "webp": "/people/portraits/charles-wilkins-saltpeter-512.webp",
+        "jpg": "/people/portraits/charles-wilkins-saltpeter-512.jpg"
+      },
+      "credit": "Benjamin Trott, miniature, 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "mammoth-cave-saltpeter",
+        "the-woman-from-short-cave"
+      ],
+      "sourceFile": "Charles Wilkins 1805 by Trott (page 83 crop).jpg"
+    },
+    {
+      "id": "nahum-ward",
+      "name": "Nahum Ward",
+      "dates": "1785–1860",
+      "image": {
+        "webp": "/people/portraits/nahum-ward-512.webp",
+        "jpg": "/people/portraits/nahum-ward-512.jpg"
+      },
+      "credit": "Unknown painter · Charles Martyn, The William Ward Genealogy (1925) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "sourceFile": "Nahum Ward 1785-1860 (page 325 crop).jpg"
+    },
+    {
       "id": "william-campbell-muhlenberg",
       "name": "William Campbell of Muhlenberg County",
       "dates": null,

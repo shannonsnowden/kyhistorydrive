@@ -7694,6 +7694,75 @@
       "ai": false
     },
     {
+      "id": "john-b-castleman",
+      "name": "John B. Castleman",
+      "aliases": [
+        "John Breckinridge Castleman"
+      ],
+      "lifeDates": "1841–1918",
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Saddle-horse breeder of Castleton Farm; a founder and later president of the American Saddle Horse Breeders' Association",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/John-B.-Castleman.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John-B.-Castleman.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:John-B.-Castleman.jpg",
+      "credit": "Unknown photographer · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Lifetime photograph in Confederate uniform, published 1912 (he died 1918); Commons PD, unknown author, 602x862. 512 square is a hand crop of the head and shoulders. Same file Wikipedia uses for John Breckinridge Castleman. Not David Castleman (Breckinridge's son-in-law, Cabell's Dale). No Grokipedia page (John_B._Castleman and John_Breckinridge_Castleman return 404).",
+      "ai": false
+    },
+    {
+      "id": "charles-wilkins-saltpeter",
+      "name": "Charles Wilkins",
+      "aliases": [],
+      "lifeDates": "1763–1827",
+      "stories": [
+        "mammoth-cave-saltpeter",
+        "the-woman-from-short-cave"
+      ],
+      "role": "Lexington merchant and saltpeter broker; owner of Mammoth Cave and its saltpeter works",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Charles_Wilkins_1805_by_Trott_%28page_83_crop%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Charles_Wilkins_1805_by_Trott_(page_83_crop).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Charles_Wilkins_1805_by_Trott_(page_83_crop).jpg",
+      "credit": "Benjamin Trott, miniature, 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Watercolor-on-ivory miniature by Benjamin Trott, about 1805, painted on Trott's 1805 trip west of the mountains (Wehle, p. 41, pl. XV). Identification: a letter fragment in the frame back signed 'Goodbye, Chas. Wilkins', pencilled 'Lexington, Ky., July 1824'; Wehle reads the sitter as about forty (Wilkins was born 1763). Commons PD-scan from the 1927 Metropolitan Museum book. Not Sir Charles Wilkins the Orientalist (Grokipedia Charles_Wilkins is that namesake, so no Grokipedia link).",
+      "ai": false
+    },
+    {
+      "id": "nahum-ward",
+      "name": "Nahum Ward",
+      "aliases": [],
+      "lifeDates": "1785–1860",
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "role": "Marietta, Ohio land dealer who toured the cave in 1815 and took her east",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Nahum_Ward_1785-1860_%28page_325_crop%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nahum_Ward_1785-1860_(page_325_crop).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nahum_Ward_1785-1860_(page_325_crop).jpg",
+      "credit": "Unknown painter · Charles Martyn, The William Ward Genealogy (1925) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait of Nahum Ward in later life (holding papers over a map of Ohio), reproduced opposite p. 325 of Martyn's William Ward Genealogy (1925) 'from a painting in the possession of Agnes (Ward) White'. Entry 1330: born October 23, 1785, Shrewsbury, Mass.; died April 6, 1860, Marietta; moved to Marietta 1811; land operator; mayor. Painter and date unrecorded; painted in his lifetime. Commons PD-scan. Shows him decades after 1815-16. No Grokipedia page (Nahum_Ward 404).",
+      "ai": false
+    },
+    {
       "id": "william-campbell-muhlenberg",
       "name": "William Campbell of Muhlenberg County",
       "aliases": [],

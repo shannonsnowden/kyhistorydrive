@@ -2474,8 +2474,16 @@
       ]
     },
     "mammoth-cave-saltpeter": {
-      "links": [],
-      "portraits": []
+      "links": [
+        {
+          "id": "charles-wilkins-saltpeter",
+          "name": "Charles Wilkins",
+          "href": "/people/#charles-wilkins-saltpeter"
+        }
+      ],
+      "portraits": [
+        "charles-wilkins-saltpeter"
+      ]
     },
     "manns-lick-louisvilles-salt-town": {
       "links": [
@@ -3433,12 +3441,34 @@
       ]
     },
     "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
-      "links": [],
-      "portraits": []
+      "links": [
+        {
+          "id": "john-b-castleman",
+          "name": "John B. Castleman",
+          "href": "/people/#john-b-castleman"
+        }
+      ],
+      "portraits": [
+        "john-b-castleman"
+      ]
     },
     "the-woman-from-short-cave": {
-      "links": [],
-      "portraits": []
+      "links": [
+        {
+          "id": "charles-wilkins-saltpeter",
+          "name": "Charles Wilkins",
+          "href": "/people/#charles-wilkins-saltpeter"
+        },
+        {
+          "id": "nahum-ward",
+          "name": "Nahum Ward",
+          "href": "/people/#nahum-ward"
+        }
+      ],
+      "portraits": [
+        "charles-wilkins-saltpeter",
+        "nahum-ward"
+      ]
     },
     "black-hoof-the-shawnee-warrior-who-chose-peace": {
       "links": [
