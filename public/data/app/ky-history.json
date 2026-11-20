@@ -4240,5 +4240,107 @@
       "credit": "Unknown photographer",
       "license": "Public domain"
     }
+  },
+  {
+    "id": "cabells-dale-breckinridge-fayette-1793-1806",
+    "name": "John Breckinridge at Cabell's Dale",
+    "subtitle": "Fayette County · Mt. Horeb Presbyterian Church (KHS #1687 marker site), near Cabell's Dale · 1793–1806",
+    "latitude": 38.1308,
+    "longitude": -84.4831667,
+    "history": "John Breckinridge brought his family and 25 enslaved people from Virginia in 1793 and built Cabell's Dale, a hemp and grain farm north of Lexington named for his wife's family. From there he served as Kentucky's attorney general, carried Thomas Jefferson's secret Kentucky Resolutions through the legislature in 1798, helped write the 1799 constitution, and went to the U.S. Senate and then Jefferson's cabinet as attorney general. He died at Cabell's Dale in December 1806.\n\nMt. Horeb Presbyterian Church was organized at Cabell's Dale in 1827, at the home of his widow, Mary Cabell Breckinridge. The pin marks the church's state historical marker, near the farm.",
+    "source_date": "2026-11-20",
+    "marker_title": "Mt. Horeb Presbyterian Church",
+    "marker_number": 1687,
+    "geocode_source": "khs-marker-1687",
+    "geocode_note": "KHS marker #1687 (Mt. Horeb Presbyterian Church), Iron Works Pike at Mt. Horeb Pike (38.1308, -84.4831667; repo markers.phase1.json). The marker says the church was organized at nearby Cabell's Dale; the farm itself has no marker coordinate in the repo. Years 1793 (arrival)–1806 (death).",
+    "category": "person",
+    "website": "https://history.ky.gov/markers/mt-horeb-presbyterian-church",
+    "year_start": 1793,
+    "year_end": 1806,
+    "photo": {
+      "image_url": "/content/photos/stories/john-breckinridge-of-cabells-dale.jpg",
+      "title": "The Sedition Act of July 14, 1798, signed by John Adams, which the Kentucky Resolutions answered",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Sedition_Act_(1798).png",
+      "source_label": "Wikimedia Commons",
+      "attribution": "United States Congress · U.S. National Archives via Wikimedia Commons · public domain",
+      "year": 1798,
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "greenville-courthouse-square-muhlenberg-1799",
+    "name": "Greenville courthouse square",
+    "subtitle": "Muhlenberg County · courthouse lawn (KHS #821 marker site) · county seat chosen 1799",
+    "latitude": 37.2008,
+    "longitude": -87.1782667,
+    "history": "Muhlenberg County was formed in 1798 and named for Gen. Peter Muhlenberg. In 1799 the county court accepted Col. William Campbell's gift of 30 acres of high ground with two springs for its seat, and Alney McLean laid out 50 lots around a public square. A log courthouse stood on the square by the fall of 1800, and the General Assembly established the town of Greenville in 1812.\n\nThe Neo-Classical courthouse built in 1907 stands on the same square. The pin marks the courthouse lawn, where the Muhlenberg County marker stands.",
+    "source_date": "2026-11-20",
+    "marker_title": "Muhlenberg County",
+    "marker_number": 821,
+    "geocode_source": "khs-marker-821-courthouse-lawn",
+    "geocode_note": "KHS marker #821 (Muhlenberg County) on the Greenville courthouse lawn, US 62 (37.2008, -87.1782667; repo markers.phase1.json). Years 1799 (seat chosen, first court May 28)–1800 (plat recorded, log courthouse).",
+    "category": "town",
+    "website": "https://history.ky.gov/markers/muhlenberg-county",
+    "year_start": 1799,
+    "year_end": 1800,
+    "photo": {
+      "image_url": "/content/photos/stories/greenville-a-hilltop-seat-on-william-campbells-land.jpg",
+      "title": "The Muhlenberg County Courthouse (1907) on the square in Greenville (photographed 2013)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Muhlenberg_County_Courthouse.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Acdixon · Wikimedia Commons · CC0",
+      "year": 2013,
+      "credit": "Acdixon",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  {
+    "id": "gaines-denmark-lexington-fayette-1851",
+    "name": "Gaines' Denmark, bred near Lexington",
+    "subtitle": "Fayette County · Lexington (town-level point) · foaled 1851",
+    "latitude": 38.04591,
+    "longitude": -84.49603,
+    "history": "Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a part-bred mare, was foaled in 1851, bred by William V. Cromwell near Lexington. Owned by Edward P. Gaines, he was remembered as a great saddle horse that was never beaten in a fair ring, and his sons carried the line forward. When the National Saddle Horse Breeders' Association was founded in Louisville in 1891, more than 60 percent of the horses in its first studbook volumes traced to him.\n\nThe exact farm is not known. The pin is a town-level point in Lexington.",
+    "source_date": "2026-11-20",
+    "geocode_source": "town-level-lexington-khs-1440",
+    "geocode_note": "Town-level: the ASHA Register Vol. I (1893), No. 61, says bred by Wm. V. Cromwell near Lexington, foaled 1851; no farm site is known. Point is KHS marker #1440 (Fayette County) on the Main St. courthouse lawn in Lexington (repo markers.phase1.json, rounded), not a horse site. Year 1851.",
+    "category": "horses",
+    "website": "https://archive.org/details/registeramerica00assogoog/page/n40/mode/1up",
+    "year_start": 1851,
+    "year_end": 1851,
+    "photo": {
+      "image_url": "/people/portraits/gaines-denmark__ai-portrait-v1-512.jpg",
+      "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
+      "title": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
+      "alt": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration",
+      "fit": "contain"
+    }
+  },
+  {
+    "id": "the-woman-from-short-cave-edmonson",
+    "name": "The Woman from Short Cave, Edmonson County",
+    "subtitle": "Edmonson County · county-level pin (site location not public)",
+    "latitude": 37.2,
+    "longitude": -86.2,
+    "history": "In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammoth Cave and displayed there, then exhibited in the East, given to the American Antiquarian Society in 1817 and sent to the Smithsonian in 1876. Later writers called her Fawn Hoof; no one knows her own name, and no radiocarbon date has been determined.\n\nShort Cave is a protected archaeological site in Edmonson County, and its location is not public. The pin is a county-level point.",
+    "source_date": "2026-11-20",
+    "geocode_source": "edmonson-county-generalized",
+    "geocode_note": "county-level placement; protected site",
+    "category": "archaeology",
+    "website": "https://www.nps.gov/articles/000/prehistoric-cave-discoveries.htm",
+    "year_start": null,
+    "year_end": null,
+    "photo": {
+      "image_url": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.jpg",
+      "webp": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.webp",
+      "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+      "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration",
+      "fit": "contain"
+    }
   }
 ]

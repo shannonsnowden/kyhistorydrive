@@ -141,7 +141,7 @@ function loadCatalog() {
   for (const row of index.stories || []) {
     if (!row?.slug) continue
     const photo = bySlug[row.slug]?.photo
-    if (!photo?.image_url || !(photo.attribution || photo.source_label)) continue
+    if (!photo?.image_url || !(photo.attribution || photo.source_label || photo.credit)) continue
     stories.push({
       slug: row.slug,
       title: row.title || '',

@@ -10,6 +10,7 @@ import {
   safeStoryUrl,
 } from '../../src/story-markdown.js'
 import { isProtectedStoryRule } from '../../src/protected-story-rule.js'
+import { countyLevelProtectedCounty } from '../../src/protected-pins.js'
 import { loadMerges } from './story-merges.mjs'
 import {
   compactYearRange,
@@ -769,9 +770,12 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
   }
 
   // Directions live on the Visit it strip (one primary). This card keeps Open on map.
-  const dirsHtml = geo.protectedStory
-    ? `<span class="usp-railmap-dirs usp-approx-pill" title="Coordinates rounded to 0.1° (~11 km) to protect a sensitive archaeological or cultural site">Approximate area (~11 km) · Protected site</span>`
-    : ''
+  const countyLevel = geo.protectedStory ? countyLevelProtectedCounty(story?.slug, story?.historyId) : ''
+  const dirsHtml = !geo.protectedStory
+    ? ''
+    : countyLevel
+      ? `<span class="usp-railmap-dirs usp-approx-pill" title="Shown at a county-level point to protect a sensitive archaeological site">County-level location (${escapeHtml(countyLevel)}) · Protected site</span>`
+      : `<span class="usp-railmap-dirs usp-approx-pill" title="Coordinates rounded to 0.1° (~11 km) to protect a sensitive archaeological or cultural site">Approximate area (~11 km) · Protected site</span>`
 
   return `<section class="usp-railmap usp-map-card usp-map-card-rail" aria-label="Story location on Kentucky map" data-lat="${latStr}" data-lon="${lonStr}"${approxAttr}>
     <div class="usp-railmap-canvas">

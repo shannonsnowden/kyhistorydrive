@@ -1541,7 +1541,15 @@ class PrerenderPages {
     // AI art: the pill already says 'AI illustration', so the credit is just the maker (and any
     // 'no known likeness' note), e.g. 'Kentucky History Drive · no known likeness exists'.
     if (person.ai) return PrerenderPages.peopleCreditName(person).replace(/\s*;\s*/g, ' · ')
-    return `Photo: ${PrerenderPages.peopleCreditName(person)}${viaCommons ? ' / Wikimedia Commons' : ''}, `
+    // M8 (#436): the license link follows, so drop a trailing credit segment that repeats it
+    // ('… · public domain' + 'Public domain' read as 'public domain, Public domain').
+    const lic = String(person.license || '').trim().toLowerCase()
+    let name = PrerenderPages.peopleCreditName(person)
+    if (lic) {
+      const segs = String(name).split(/\s+·\s+/)
+      if (segs.length > 1 && segs[segs.length - 1].trim().toLowerCase() === lic) name = segs.slice(0, -1).join(' · ')
+    }
+    return `Photo: ${name}${viaCommons ? ' / Wikimedia Commons' : ''}, `
   }
 
   static storyCreditHtml(photo, title, { priority = false } = {}) {
