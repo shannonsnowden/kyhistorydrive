@@ -164,6 +164,12 @@ if (fs.existsSync(storiesDir)) {
         assert.ok(bullet.includes(`(County-level point (${county}) to protect a sensitive archaeological site)`), `${slug}: story.md coordinates bullet must be county-level`)
         assert.ok(!/rounded|0\.1°|\bkm\b|radius/i.test(bullet), `${slug}: story.md coordinates bullet carries rounding or a radius`)
       }
+      // #436: no numeric coordinates or degree signs anywhere in a county-level story.md.
+      const mdText = fs.readFileSync(mdFile, 'utf8')
+      assert.ok(!/°/.test(mdText), `${slug}: county-level story.md carries a degree sign`)
+      assert.ok(!/-?\d{1,3}\.\d+\s*(?:°|deg)?\s*[NS]?\s*,\s*-?\d{1,3}\.\d+/.test(mdText), `${slug}: county-level story.md carries numeric coordinates`)
+      assert.ok(!/^coordinates:/m.test(mdText), `${slug}: county-level story.md front matter carries coordinates`)
+      assert.ok(bullet.startsWith(`- **Coordinates:** ${county} `), `${slug}: coordinates bullet must show the county only`)
     }
   }
   // #436 B15: only county-level stories use the county-level coordinates bullet; other protected
@@ -175,7 +181,12 @@ if (fs.existsSync(storiesDir)) {
     if (!fs.existsSync(md)) continue
     const text = fs.readFileSync(md, 'utf8')
     if (countyBullet.test(text)) assert.ok(pp.countyLevelProtectedCounty(slug), `${slug}: county-level bullet on a story that is not county-level`)
-    if (/^- \*\*Coordinates:\*\*.*rounded to 0\.1°/m.test(text)) roundedKept++
+    if (/^- \*\*Coordinates:\*\*.*rounded to 0\.1°/m.test(text)) {
+      roundedKept++
+      // Other protected stories are unchanged: rounded numeric coordinates plus the 0.1° note.
+      assert.ok(/^- \*\*Coordinates:\*\* \d{1,2}\.\d° [NS], \d{1,3}\.\d° [EW] \*\(Approximate area — rounded to 0\.1° to protect a sensitive site\)\*$/m.test(text), `${slug}: protected coordinates bullet changed shape`)
+      assert.ok(!pp.countyLevelProtectedCounty(slug), `${slug}: county-level story kept the 0.1° note`)
+    }
   }
   assert.ok(roundedKept > 0, 'other protected stories must keep the 0.1° rounding note')
   assert.ok(pages > 100, 'too few story pages in dist')

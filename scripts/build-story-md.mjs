@@ -39,8 +39,10 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
   const counties = storyCountiesList(story, matchedMarkers)
   const years = compactYearRange(story.year ?? story.yearStart, story.yearEnd)
   const canonicalUrl = `${SITE_ORIGIN}/stories/${encodeURIComponent(story.slug)}/`
-  const coordStr = geo ? formatCoordCardinal(geo.lat, geo.lon, geo.decimals) : ''
   const protectedStory = isProtectedStory(story)
+  // #436: county-level protected stories print no numeric coordinates at all, only the county.
+  const countyLevel = protectedStory ? countyLevelProtectedCounty(story.slug, story.historyId) : ''
+  const coordStr = geo && !countyLevel ? formatCoordCardinal(geo.lat, geo.lon, geo.decimals) : ''
 
   const fm = [
     '---',
@@ -85,9 +87,11 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
       .join('; ')
     glanceRows.push(`- **People:** ${pNames}`)
   }
-  if (coordStr) {
+  if (countyLevel && geo) {
+    glanceRows.push(`- **Coordinates:** ${countyLevel} *(County-level point (${countyLevel}) to protect a sensitive archaeological site)*`)
+  } else if (coordStr) {
     glanceRows.push(
-      `- **Coordinates:** ${coordStr}${!protectedStory ? '' : countyLevelProtectedCounty(story.slug, story.historyId) ? ` *(County-level point (${countyLevelProtectedCounty(story.slug, story.historyId)}) to protect a sensitive archaeological site)*` : ' *(Approximate area — rounded to 0.1° to protect a sensitive site)*'}`,
+      `- **Coordinates:** ${coordStr}${protectedStory ? ' *(Approximate area — rounded to 0.1° to protect a sensitive site)*' : ''}`,
     )
   }
 
