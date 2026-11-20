@@ -3379,9 +3379,29 @@
     "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky": {
       "links": [
         {
+          "id": "canassatego",
+          "name": "Canassatego",
+          "href": "/people/#canassatego"
+        },
+        {
+          "id": "thomas-lee",
+          "name": "Thomas Lee",
+          "href": "/people/#thomas-lee"
+        },
+        {
           "id": "william-beverley",
           "name": "William Beverley",
           "href": "/people/#william-beverley"
+        },
+        {
+          "id": "conrad-weiser",
+          "name": "Conrad Weiser",
+          "href": "/people/#conrad-weiser"
+        },
+        {
+          "id": "tachanoontia",
+          "name": "Tachanoontia",
+          "href": "/people/#tachanoontia"
         },
         {
           "id": "tanacharison",
@@ -3389,7 +3409,10 @@
           "href": "/people/#tanacharison"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "thomas-lee",
+        "tanacharison"
+      ]
     }
   }
 }

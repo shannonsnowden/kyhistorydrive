@@ -4481,6 +4481,62 @@
       "sourceFile": null
     },
     {
+      "id": "thomas-lee",
+      "name": "Thomas Lee",
+      "dates": "1690–1750",
+      "image": {
+        "webp": "/people/portraits/thomas-lee-512.webp",
+        "jpg": "/people/portraits/thomas-lee-512.jpg"
+      },
+      "credit": "Unidentified painter, oil, c. 1725 · Stratford Hall · public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ],
+      "sourceFile": "Col. Thomas Lee.jpg"
+    },
+    {
+      "id": "conrad-weiser",
+      "name": "Conrad Weiser",
+      "dates": "1696–1760",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ]
+    },
+    {
+      "id": "canassatego",
+      "name": "Canassatego",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ]
+    },
+    {
+      "id": "tachanoontia",
+      "name": "Tachanoontia",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ]
+    },
+    {
       "id": "scarouady",
       "name": "Scarouady",
       "dates": null,
