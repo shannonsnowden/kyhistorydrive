@@ -5635,6 +5635,109 @@
       "sourceFile": "Alney McLean.jpg"
     },
     {
+      "id": "mary-hopkins-cabell-breckinridge",
+      "name": "Mary Hopkins Cabell Breckinridge",
+      "dates": "1769–1858",
+      "image": {
+        "webp": "/people/portraits/mary-hopkins-cabell-breckinridge-512.webp",
+        "jpg": "/people/portraits/mary-hopkins-cabell-breckinridge-512.jpg"
+      },
+      "credit": "Matthew Harris Jouett · Smithsonian National Portrait Gallery, Catalog of American Portraits · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": "Mary Hopkins Cabell Breckinridge, 1769 - 1858.jpg"
+    },
+    {
+      "id": "john-c-breckinridge",
+      "name": "John C. Breckinridge",
+      "dates": "1821–1875",
+      "image": {
+        "webp": "/people/portraits/john-c-breckinridge-512.webp",
+        "jpg": "/people/portraits/john-c-breckinridge-512.jpg"
+      },
+      "credit": "Mathew Brady / Levin C. Handy · Library of Congress, Brady-Handy Collection · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": "John C. Breckinridge 1860 portrait (3x4 cropped).jpg"
+    },
+    {
+      "id": "nathanael-greene",
+      "name": "Nathanael Greene",
+      "dates": "1742–1786",
+      "image": {
+        "webp": "/people/portraits/nathanael-greene-512.webp",
+        "jpg": "/people/portraits/nathanael-greene-512.jpg"
+      },
+      "credit": "Charles Willson Peale, 1783 · Independence National Historical Park · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Nathanael Greene by Charles Willson Peale.jpg"
+    },
+    {
+      "id": "nathan-bedford-forrest",
+      "name": "Nathan Bedford Forrest",
+      "dates": "1821–1877",
+      "image": {
+        "webp": "/people/portraits/nathan-bedford-forrest-512.webp",
+        "jpg": "/people/portraits/nathan-bedford-forrest-512.jpg"
+      },
+      "credit": "Unknown photographer, 1862–65 · Library of Congress · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land",
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": "Nathan B. Forrest - LOCc.jpg"
+    },
+    {
+      "id": "ephraim-brank",
+      "name": "Ephraim McLean Brank",
+      "dates": "1791–1875",
+      "image": {
+        "webp": "/people/portraits/ephraim-brank-512.webp",
+        "jpg": "/people/portraits/ephraim-brank-512.jpg"
+      },
+      "credit": "Unknown photographer, about 1850 · Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Ephraim-Brank.jpg"
+    },
+    {
+      "id": "john-dennis-greenville",
+      "name": "John Dennis",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-dennis-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-dennis-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
       "id": "william-campbell-muhlenberg",
       "name": "William Campbell of Muhlenberg County",
       "dates": null,

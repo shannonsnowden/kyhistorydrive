@@ -147,6 +147,8 @@ export const PORTRAIT_ALTS = {
   'william-campbell-muhlenberg': "AI illustration: imagined portrait of Col. William Campbell of Muhlenberg County, founder of Greenville, as a frontier Kentucky landowner and militia colonel about 1795–1800, in a plain wool coat, waistcoat and linen neckcloth; no known likeness exists.",
   // Nov 20 2026 (#436). AI portrait render v3, History CLEAR. Imagined in life; never the remains.
   'woman-from-short-cave': "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+  // Nov 20 2026 (#436). AI portrait render v1, History CLEAR. None-known.
+  'john-dennis-greenville': "AI illustration of John Dennis, Muhlenberg County tavern keeper at whose house the county's first court met in 1799.",
   // Nov 20 2026 (#436). Horse series, AI portrait render v1, History CLEAR. No sourced period likeness.
   // Nov 20 2026 (#436). Horse series, AI portrait render v2, History CLEAR. Sire of gaines-denmark.
   'denmark-1839': "AI illustration of Denmark, the brown Thoroughbred stallion foaled in 1839 who became the foundation sire of the American Saddlebred, standing in a Kentucky pasture.",

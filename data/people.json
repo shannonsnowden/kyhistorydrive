@@ -7832,6 +7832,146 @@
       "ai": false
     },
     {
+      "id": "mary-hopkins-cabell-breckinridge",
+      "name": "Mary Hopkins Cabell Breckinridge",
+      "aliases": [
+        "Mary Hopkins",
+        "Polly Cabell"
+      ],
+      "lifeDates": "1769–1858",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Wife of John Breckinridge (married 1785); Cabell's Dale is named for her family",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Mary_Hopkins_Cabell_Breckinridge%2C_1769_-_1858.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Mary_Hopkins_Cabell_Breckinridge,_1769_-_1858.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mary_Hopkins_Cabell_Breckinridge,_1769_-_1858.jpg",
+      "credit": "Matthew Harris Jouett · Smithsonian National Portrait Gallery, Catalog of American Portraits · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait by Matthew Harris Jouett (1788–1827), painted in her lifetime (she died 1858). Commons PD-Art|PD-old-70; source NPG Catalog of American Portraits DC990457. 512 square is a hand crop inside the frame. In the story she is Mary Hopkins \"Polly\" Cabell.",
+      "ai": false
+    },
+    {
+      "id": "john-c-breckinridge",
+      "name": "John C. Breckinridge",
+      "aliases": [
+        "John Cabell Breckinridge"
+      ],
+      "lifeDates": "1821–1875",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Grandson of John Breckinridge; U.S. vice president (1857–61)",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/John_C._Breckinridge_1860_portrait_%283x4_cropped%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John_C._Breckinridge_1860_portrait_(3x4_cropped).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:John_C._Breckinridge_1860_portrait_(3x4_cropped).jpg",
+      "credit": "Mathew Brady / Levin C. Handy · Library of Congress, Brady-Handy Collection · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Brady-Handy studio photograph from life (LOC cwpbh.04775; Commons PD-US, digitally retouched crop, PD-retouched-user). The file Wikipedia uses. Not his grandfather john-breckinridge (1760–1806) and not john-b-castleman.",
+      "ai": false
+    },
+    {
+      "id": "nathanael-greene",
+      "name": "Nathanael Greene",
+      "aliases": [],
+      "lifeDates": "1742–1786",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Continental Army major general; Greenville is usually said to be named for him",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Nathanael_Greene_by_Charles_Willson_Peale.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nathanael_Greene_by_Charles_Willson_Peale.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nathanael_Greene_by_Charles_Willson_Peale.jpg",
+      "credit": "Charles Willson Peale, 1783 · Independence National Historical Park · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait by Charles Willson Peale, painted from life in 1783 (Greene died 1786). Commons PD-Art|PD-old-auto-expired (Peale died 1827). Greensburg also names him; that out-of-pack story is in people-mention-exceptions for the sweep.",
+      "ai": false
+    },
+    {
+      "id": "nathan-bedford-forrest",
+      "name": "Nathan Bedford Forrest",
+      "aliases": [],
+      "lifeDates": "1821–1877",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land",
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Confederate cavalry general",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Nathan_B._Forrest_-_LOCc.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nathan_B._Forrest_-_LOCc.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nathan_B._Forrest_-_LOCc.jpg",
+      "credit": "Unknown photographer, 1862–65 · Library of Congress · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Photograph of Lt. Gen. Nathan Bedford Forrest, 1862–65, likely T. J. Selby of Corinth, Mississippi (LOC ppmscd.00082; Commons PD-old-70-1923). The file Wikipedia uses. Not his grandson Nathan Bedford Forrest III (1905–1943). Old Forester story names him; out-of-pack, in people-mention-exceptions for the sweep.",
+      "ai": false
+    },
+    {
+      "id": "ephraim-brank",
+      "name": "Ephraim McLean Brank",
+      "aliases": [
+        "Ephraim M. Brank"
+      ],
+      "lifeDates": "1791–1875",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Muhlenberg County rifleman remembered for the Battle of New Orleans, 1815",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ephraim-Brank.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ephraim-Brank.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Ephraim-Brank.jpg",
+      "credit": "Unknown photographer, about 1850 · Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Likeness 'Ephraim M. Brank, about 1850' in Rothert's A History of Muhlenberg County (1913), chapter 7 (Muhlenberg men in the War of 1812). Commons PD-US. 512 square is a hand crop of the face.",
+      "ai": false
+    },
+    {
+      "id": "john-dennis-greenville",
+      "name": "John Dennis",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Tavern keeper and pioneer from North Carolina; Muhlenberg County's first court met at his house in 1799",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness (Rothert 1913 has none). AI portrait render v1 (512 jpg sha256 eb5ee6a0…, 96 jpg 65f6e20c…), Nov 20 2026, History CLEAR. Dates not documented.",
+      "ai": true
+    },
+    {
       "id": "william-campbell-muhlenberg",
       "name": "William Campbell of Muhlenberg County",
       "aliases": [],

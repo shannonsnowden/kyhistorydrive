@@ -82,15 +82,21 @@
       "shaker-village-of-pleasant-hill": "Approvals 111 Wave 7: people.json held; no stories[] edits this wave"
     },
     "charles-wilkins-saltpeter": {
-      "mammoth-cave-saltpeter": "same man; kept off this out-of-pack story to keep PR #436 to its own files (wire in a later pass)"
+      "mammoth-cave-saltpeter": "same man; out of pack for PR #436; goes to the portrait sweep"
     },
     "john-hunt-morgan": {
-      "glasgow-the-barrens": "same man; out-of-pack story kept off PR #436 (scope), wire in a later pass",
-      "lebanon-cedars-meeting-house-county-seat": "same man; out-of-pack story kept off PR #436 (scope), wire in a later pass",
-      "cynthiana-cynthia-anna-on-the-licking": "same man; out-of-pack story kept off PR #436 (scope), wire in a later pass",
-      "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": "same man; out-of-pack story kept off PR #436 (scope), wire in a later pass",
-      "paris-from-hopewell": "same man; out-of-pack story kept off PR #436 (scope), wire in a later pass",
-      "lost-river-cave": "same man; out-of-pack story kept off PR #436 (scope), wire in a later pass"
+      "glasgow-the-barrens": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "lebanon-cedars-meeting-house-county-seat": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "cynthiana-cynthia-anna-on-the-licking": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "paris-from-hopewell": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "lost-river-cave": "same man; out of pack for PR #436; goes to the portrait sweep"
+    },
+    "nathanael-greene": {
+      "greensburg-takes-shape-on-the-green-river": "same man; out of pack for PR #436; goes to the portrait sweep"
+    },
+    "nathan-bedford-forrest": {
+      "george-garvin-brown-and-old-forester": "same man; out of pack for PR #436; goes to the portrait sweep"
     }
   }
 }

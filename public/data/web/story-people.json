@@ -3412,30 +3412,54 @@
           "id": "thomas-jefferson",
           "name": "Thomas Jefferson",
           "href": "/people/#thomas-jefferson"
+        },
+        {
+          "id": "john-c-breckinridge",
+          "name": "John C. Breckinridge",
+          "href": "/people/#john-c-breckinridge"
         }
       ],
       "portraits": [
         "william-preston",
         "isaac-shelby",
-        "thomas-jefferson"
+        "thomas-jefferson",
+        "john-c-breckinridge"
       ]
     },
     "greenville-a-hilltop-seat-on-william-campbells-land": {
       "links": [
+        {
+          "id": "john-dennis-greenville",
+          "name": "John Dennis",
+          "href": "/people/#john-dennis-greenville"
+        },
         {
           "id": "alney-mclean",
           "name": "Alney McLean",
           "href": "/people/#alney-mclean"
         },
         {
+          "id": "nathanael-greene",
+          "name": "Nathanael Greene",
+          "href": "/people/#nathanael-greene"
+        },
+        {
           "id": "peter-cartwright",
           "name": "Peter Cartwright",
           "href": "/stories/peter-cartwright-the-backwoods-preacher-from-logan-county/"
+        },
+        {
+          "id": "nathan-bedford-forrest",
+          "name": "Nathan Bedford Forrest",
+          "href": "/people/#nathan-bedford-forrest"
         }
       ],
       "portraits": [
+        "john-dennis-greenville",
         "alney-mclean",
-        "peter-cartwright"
+        "nathanael-greene",
+        "peter-cartwright",
+        "nathan-bedford-forrest"
       ]
     },
     "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
@@ -3459,11 +3483,17 @@
           "id": "john-hunt-morgan",
           "name": "John Hunt Morgan",
           "href": "/people/#john-hunt-morgan"
+        },
+        {
+          "id": "nathan-bedford-forrest",
+          "name": "Nathan Bedford Forrest",
+          "href": "/people/#nathan-bedford-forrest"
         }
       ],
       "portraits": [
         "john-b-castleman",
-        "john-hunt-morgan"
+        "john-hunt-morgan",
+        "nathan-bedford-forrest"
       ]
     },
     "the-woman-from-short-cave": {
