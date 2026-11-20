@@ -3414,6 +3414,11 @@
           "href": "/people/#thomas-jefferson"
         },
         {
+          "id": "david-castleman",
+          "name": "David Castleman",
+          "href": "/people/#david-castleman"
+        },
+        {
           "id": "john-c-breckinridge",
           "name": "John C. Breckinridge",
           "href": "/people/#john-c-breckinridge"
@@ -3423,6 +3428,7 @@
         "william-preston",
         "isaac-shelby",
         "thomas-jefferson",
+        "david-castleman",
         "john-c-breckinridge"
       ]
     },
@@ -3449,6 +3455,16 @@
           "href": "/people/#james-weir-greenville"
         },
         {
+          "id": "james-craig-greenville",
+          "name": "James Craig",
+          "href": "/people/#james-craig-greenville"
+        },
+        {
+          "id": "samuel-russell-greenville",
+          "name": "Samuel Russell",
+          "href": "/people/#samuel-russell-greenville"
+        },
+        {
           "id": "nathanael-greene",
           "name": "Nathanael Greene",
           "href": "/people/#nathanael-greene"
@@ -3457,6 +3473,11 @@
           "id": "peter-cartwright",
           "name": "Peter Cartwright",
           "href": "/stories/peter-cartwright-the-backwoods-preacher-from-logan-county/"
+        },
+        {
+          "id": "philip-kennerly",
+          "name": "Philip Kennerly",
+          "href": "/people/#philip-kennerly"
         },
         {
           "id": "nathan-bedford-forrest",
@@ -3469,8 +3490,11 @@
         "john-dennis-greenville",
         "alney-mclean",
         "james-weir-greenville",
+        "james-craig-greenville",
+        "samuel-russell-greenville",
         "nathanael-greene",
         "peter-cartwright",
+        "philip-kennerly",
         "nathan-bedford-forrest"
       ]
     },
@@ -3487,9 +3511,24 @@
           "href": "/people/#gaines-denmark"
         },
         {
+          "id": "william-v-cromwell",
+          "name": "William V. Cromwell",
+          "href": "/people/#william-v-cromwell"
+        },
+        {
+          "id": "edward-p-gaines",
+          "name": "Edward P. Gaines",
+          "href": "/people/#edward-p-gaines"
+        },
+        {
           "id": "john-b-castleman",
           "name": "John B. Castleman",
           "href": "/people/#john-b-castleman"
+        },
+        {
+          "id": "isaac-byrd",
+          "name": "Isaac Byrd",
+          "href": "/people/#isaac-byrd"
         },
         {
           "id": "john-hunt-morgan",
@@ -3503,7 +3542,10 @@
         }
       ],
       "portraits": [
+        "william-v-cromwell",
+        "edward-p-gaines",
         "john-b-castleman",
+        "isaac-byrd",
         "john-hunt-morgan",
         "nathan-bedford-forrest"
       ]
@@ -3532,6 +3574,11 @@
           "id": "black-hoof",
           "name": "Black Hoof",
           "href": "/people/#black-hoof"
+        },
+        {
+          "id": "peter-chartier",
+          "name": "Peter Chartier",
+          "href": "/people/#peter-chartier"
         },
         {
           "id": "henry-bird",
@@ -3580,6 +3627,7 @@
         }
       ],
       "portraits": [
+        "peter-chartier",
         "henry-bird",
         "john-bowman",
         "josiah-harmar",

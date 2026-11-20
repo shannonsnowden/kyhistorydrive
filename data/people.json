@@ -8109,6 +8109,254 @@
       "verified": true,
       "notes": "Plate 'Pioneer James Weir, about 1840' in Rothert, A History of Muhlenberg County (1913), ch. 6 'The Weirs', p. 57 (archive.org historyofmuhlenb00roth, leaf n86). Rothert: born South Carolina 1777, came to Muhlenberg 1798, first merchant and banker in Greenville, died Greenville Aug. 9, 1845. Published 1913, PD-US. Not his son James Weir the author (1821–1906). 512 square is a hand crop of the face.",
       "ai": false
+    },
+    {
+      "id": "mary-ann-castleman",
+      "name": "Mary Ann Castleman",
+      "aliases": [
+        "Mary Ann Breckinridge Castleman"
+      ],
+      "lifeDates": "about 1794–1816",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Daughter of John Breckinridge; with her husband, David Castleman, she took over Cabell's Dale's horse and mule breeding",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Born 1794 or 1795 (sources differ); married David Castleman Jan. 2, 1811; died 1816. Not the later Mary Ann Castleman (b. 1836, of David's second marriage). AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "david-castleman",
+      "name": "David Castleman",
+      "aliases": [],
+      "lifeDates": "1786–1852",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Lexington merchant and horse breeder who held Cabell's Dale after 1816; father of John B. Castleman",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Married Mary Ann Breckinridge 1811. Not john-b-castleman (his son, 1841–1918). AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "james-craig-greenville",
+      "name": "James Craig",
+      "aliases": [],
+      "lifeDates": "1734–1816",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Revolutionary War soldier who opened Greenville's first store with James Weir in 1799",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Rothert 1913: Capt. James Craig, born 1734, died March 5, 1816. Not lewis-craig, elijah-craig, benjamin-craig or john-hawkins-craig. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "samuel-russell-greenville",
+      "name": "Samuel Russell",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Greenville's first postmaster (1801) and tavern keeper; brother of Tabitha Campbell",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Son of Gen. William Russell and Tabitha Adams (Rothert 1913). Dates not in our sources. Not william-russell-iii or henry-russell. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "tabitha-campbell-greenville",
+      "name": "Tabitha Campbell",
+      "aliases": [
+        "Tabitha Adams Russell Campbell"
+      ],
+      "lifeDates": "died 1806",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Wife of Col. William Campbell, Greenville's founder; remembered as the \"Mother of Greenville\"",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Rothert 1913 pp. 13–14: daughter of Gen. William Russell; died in Greenville July 26, 1806. Not the Kings Mountain Campbell line. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "philip-kennerly",
+      "name": "Philip Kennerly",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Methodist preacher who formed churches in Muhlenberg County with Peter Cartwright",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. KHS marker Greenville Methodist Church. Dates not in our sources. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "william-v-cromwell",
+      "name": "William V. Cromwell",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Breeder of Gaines' Denmark, foaled in 1851 near Lexington",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. 1893 American Saddle Horse Breeders' Association register. Dates not in our sources. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "edward-p-gaines",
+      "name": "Edward P. Gaines",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Scott County breeder of saddle horses, cattle and mules; Gaines' Denmark took his name",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Son of James Gaines (1790–1874) of Antebellum, Yarnallton Pike (NRHP Gaines House data sheet). Not Gen. Edmund P. Gaines; not the gaines-denmark horse. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "isaac-byrd",
+      "name": "Isaac Byrd",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Enslaved horseman held by the Castleman family who helped train Lightfoot in 1857",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. No dates or likeness known. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "edward-braddock",
+      "name": "Edward Braddock",
+      "aliases": [],
+      "lifeDates": "1695–1755",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "British major general mortally wounded at the Monongahela, 1755",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. No authentic likeness exists (DNB 1885–1900: 'No portrait of Braddock is known to exist'); the 1899 Sartain engraving is not used. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "peter-chartier",
+      "name": "Peter Chartier",
+      "aliases": [
+        "Pierre Chartier"
+      ],
+      "lifeDates": "about 1690–about 1759",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Shawnee and French trader and leader whose band founded Eskippakithiki, 1745–48",
+      "native": true,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. v2 render (v1 STAND by History). AI portrait render v2, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
     }
   ]
 }

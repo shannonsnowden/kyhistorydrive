@@ -5839,6 +5839,193 @@
         "greenville-a-hilltop-seat-on-william-campbells-land"
       ],
       "sourceFile": null
+    },
+    {
+      "id": "mary-ann-castleman",
+      "name": "Mary Ann Castleman",
+      "dates": "about 1794–1816",
+      "image": {
+        "webp": "/people/portraits/mary-ann-castleman__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/mary-ann-castleman__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "david-castleman",
+      "name": "David Castleman",
+      "dates": "1786–1852",
+      "image": {
+        "webp": "/people/portraits/david-castleman__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/david-castleman__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "james-craig-greenville",
+      "name": "James Craig",
+      "dates": "1734–1816",
+      "image": {
+        "webp": "/people/portraits/james-craig-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/james-craig-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "samuel-russell-greenville",
+      "name": "Samuel Russell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/samuel-russell-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/samuel-russell-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "tabitha-campbell-greenville",
+      "name": "Tabitha Campbell",
+      "dates": "died 1806",
+      "image": {
+        "webp": "/people/portraits/tabitha-campbell-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/tabitha-campbell-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "philip-kennerly",
+      "name": "Philip Kennerly",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/philip-kennerly__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/philip-kennerly__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "william-v-cromwell",
+      "name": "William V. Cromwell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/william-v-cromwell__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-v-cromwell__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "edward-p-gaines",
+      "name": "Edward P. Gaines",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/edward-p-gaines__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/edward-p-gaines__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "isaac-byrd",
+      "name": "Isaac Byrd",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/isaac-byrd__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/isaac-byrd__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "edward-braddock",
+      "name": "Edward Braddock",
+      "dates": "1695–1755",
+      "image": {
+        "webp": "/people/portraits/edward-braddock__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/edward-braddock__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "peter-chartier",
+      "name": "Peter Chartier",
+      "dates": "about 1690–about 1759",
+      "image": {
+        "webp": "/people/portraits/peter-chartier__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/peter-chartier__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": null
     }
   ],
   "storySubjects": {
