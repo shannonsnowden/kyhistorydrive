@@ -30,3 +30,13 @@ for (const ev of bad) {
   assert.ok(html.includes('Reconstruction note.'), 'note still renders')
 }
 console.log(`test-story-figure-src: evidence link renders for a good slug; ${bad.length} bad slugs render no link`)
+
+// #436: fit 'contain' keeps a non-16:9 engraving whole at its own size; the default stays 1280x720 cover.
+{
+  const plain = storyFigureHtml(base)
+  assert.ok(plain.includes('class="story-figure"') && plain.includes('width="1280" height="720"'), 'default figure unchanged')
+  const fit = storyFigureHtml({ ...base, fit: 'contain', width: 402, height: 486 })
+  assert.ok(fit.includes('class="story-figure story-figure--contain"') && fit.includes('width="402" height="486"'), 'contain figure keeps its size')
+  const bogus = storyFigureHtml({ ...base, width: 402, height: 486 })
+  assert.ok(bogus.includes('width="1280" height="720"'), 'width/height ignored without fit contain')
+}

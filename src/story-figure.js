@@ -46,10 +46,15 @@ export function storyFigureHtml(fig, { priority = false, strict = false } = {}) 
     }
   }
   const load = priority ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'
+  // fit: 'contain' keeps a non-16:9 figure (e.g. a period engraving) whole at its own size.
+  const contain = fig.fit === 'contain'
+  const dim = (v, d) => (contain && Number.isInteger(v) && v > 0 && v <= 4096 ? v : d)
+  const w = dim(fig.width, 1280)
+  const h = dim(fig.height, 720)
   const evHref = figureEvidenceHref(fig.evidence)
   const evidence = evHref ? `<a class="story-figure-evidence" href="${esc(evHref)}">${esc(EVIDENCE_LABEL)}</a>` : ''
   const note = fig.note || evidence
     ? `<span class="story-figure-note">${esc(fig.note || '')}${fig.note && evidence ? ' ' : ''}${evidence}</span> `
     : ''
-  return `<figure class="story-figure"><picture><source srcset="${esc(fig.webp)}" type="image/webp"><img src="${esc(fig.jpg)}" alt="${esc(fig.alt)}" width="1280" height="720" ${load} decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${esc(fig.credit)}</span></figcaption></figure>`
+  return `<figure class="story-figure${contain ? ' story-figure--contain' : ''}"><picture><source srcset="${esc(fig.webp)}" type="image/webp"><img src="${esc(fig.jpg)}" alt="${esc(fig.alt)}" width="${w}" height="${h}" ${load} decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${esc(fig.credit)}</span></figcaption></figure>`
 }

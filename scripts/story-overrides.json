@@ -991,11 +991,11 @@
       "replace": [
         {
           "old": "Catherine Drake, widow of local landowner Joseph Hough,",
-          "new": "Catherine Drake, formerly Joseph Hough’s widow,"
+          "new": "Catherine Drake, formerly Joseph Hough\u2019s widow,"
         },
         {
-          "old": "George Washington’s estate",
-          "new": "[George Washington](/people/#george-washington)’s estate"
+          "old": "George Washington\u2019s estate",
+          "new": "[George Washington](/people/#george-washington)\u2019s estate"
         }
       ]
     },
@@ -1236,7 +1236,7 @@
       "county": "Nelson"
     },
     "the-woman-from-short-cave": {
-      "reason": "Protected archaeological site and human remains: county-level placement; protected site. Edmonson County at 0.1° (where she was displayed, Mammoth Cave); the find site's location is not public and no creek, river, direction or nearby place is named. Same pattern as Fort Jefferson: the story links no History pin; the county-level History pin the-woman-from-short-cave-edmonson is protected on its own (pin-rounding forceHistoryIds). No years: no radiocarbon date has been determined; the 1810s find and later moves are text only. County Edmonson.",
+      "reason": "Protected archaeological site and human remains: county-level placement; protected site. Edmonson County at 0.1°; the find site's location is not public and no creek, river, direction or nearby place is named. Same pattern as Fort Jefferson: the story links no History pin; the county-level History pin the-woman-from-short-cave-edmonson is protected on its own (pin-rounding forceHistoryIds). No years: no radiocarbon date has been determined; the 1810s find and later moves are text only. County Edmonson.",
       "date": "2026-11-20",
       "lat": 37.2,
       "lon": -86.2,

@@ -279,7 +279,7 @@ export const ITEMS = [
     name: 'Short Cave',
     names: ['Short Cave'],
     slugs: ['the-woman-from-short-cave'],
-    // A burial site. The story names only Edmonson County, where she was displayed; the find site is not mapped.
+    // A burial site. The story names only its county, Edmonson; the site's location is not public.
     ids: ['the-woman-from-short-cave', 'the-woman-from-short-cave-edmonson'],
     terms: ['Diamond Caverns', 'Park City', 'Glasgow Junction', "Bell's Tavern", 'Three Forks', 'Long Cave', 'Cave City', 'Barren', 'sinkhole', 'entrance', 'north of', 'miles from'],
     ownOnly: true,

@@ -1156,7 +1156,7 @@ Object.assign(NOV6_PIN_NAMES, {
   'john-breckinridge-of-cabells-dale': "John Breckinridge at Cabell's Dale",
   'greenville-a-hilltop-seat-on-william-campbells-land': 'Greenville courthouse square',
   'denmark-and-gaines-denmark-the-saddlebreds-foundation': "Gaines' Denmark, foaled at Bardstown",
-  'the-woman-from-short-cave': 'Edmonson County (Mammoth Cave, where she was displayed)',
+  'the-woman-from-short-cave': 'Edmonson County (county-level point)',
 })
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]

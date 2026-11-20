@@ -5522,14 +5522,65 @@
         "webp": "/people/portraits/black-hoof-512.webp",
         "jpg": "/people/portraits/black-hoof-512.jpg"
       },
-      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1836) · public domain",
+      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1842 edition; plate entered 1837 by E. C. Biddle), DeGolyer Library, Southern Methodist University · public domain",
       "ai": false,
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
         "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
-      "sourceFile": "Black Hoof.jpg"
+      "sourceFile": "Ca-Ta-He-Cas-Sa, Black Hoof, Principal Chief of the Shawannes (15251349593).jpg"
+    },
+    {
+      "id": "william-campbell-muhlenberg",
+      "name": "William Campbell of Muhlenberg County",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/william-campbell-muhlenberg__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-campbell-muhlenberg__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "woman-from-short-cave",
+      "name": "The Woman from Short Cave",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "gaines-denmark",
+      "name": "Gaines' Denmark (horse)",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/gaines-denmark__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
     }
   ],
   "storySubjects": {
@@ -5604,11 +5655,11 @@
     "john-breckinridge-of-cabells-dale": "john-breckinridge",
     "peter-cartwright-the-backwoods-preacher-from-logan-county": "peter-cartwright",
     "jacob-beam-on-hardin-creek": "jacob-beam",
-    "greenville-a-hilltop-seat-on-william-campbells-land": "william-campbell",
     "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
     "tecumseh-falls-at-the-thames-oct-5-1813": "tecumseh",
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
     "james-crow-on-glenns-creek": "james-c-crow",
+    "denmark-and-gaines-denmark-the-saddlebreds-foundation": "gaines-denmark",
     "lexington-blind-hero-of-woodburn": "lexington-stallion",
     "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
     "i-w-bernheim-from-peddler-to-i-w-harper": "isaac-w-bernheim",
@@ -5616,6 +5667,8 @@
     "aristides-winner-of-the-first-kentucky-derby": "aristides-horse",
     "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr",
-    "zanes-trace-ends-at-maysville": "ebenezer-zane"
+    "the-woman-from-short-cave": "woman-from-short-cave",
+    "zanes-trace-ends-at-maysville": "ebenezer-zane",
+    "greenville-a-hilltop-seat-on-william-campbells-land": "william-campbell-muhlenberg"
   }
 }

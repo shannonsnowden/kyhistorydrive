@@ -2143,7 +2143,7 @@
       "lat": 37.2,
       "lon": -86.2,
       "mapConfidence": "override",
-      "matchedPlace": "Edmonson County (Mammoth Cave, where she was displayed)",
+      "matchedPlace": "Edmonson County (county-level point)",
       "historyId": null
     }
   }

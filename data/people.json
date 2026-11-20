@@ -7648,9 +7648,7 @@
     {
       "id": "john-breckinridge",
       "name": "John Breckinridge",
-      "aliases": [
-        "Breckinridge"
-      ],
+      "aliases": [],
       "lifeDates": "1760–1806",
       "stories": [
         "john-breckinridge-of-cabells-dale"
@@ -7685,15 +7683,85 @@
       "native": true,
       "likeness": "portrait",
       "timing": "uncertain",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Black_Hoof.jpg",
-      "sourcePage": "https://commons.wikimedia.org/wiki/File:Black_Hoof.jpg",
+      "image": "https://live.staticflickr.com/7506/15251349593_6c75563a59_o.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ca-Ta-He-Cas-Sa,_Black_Hoof,_Principal_Chief_of_the_Shawannes_(15251349593).jpg",
       "license": "Public domain",
-      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Black_Hoof.jpg",
-      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1836) · public domain",
+      "licenseUrl": "https://www.flickr.com/photos/smu_cul_digitalcollections/15251349593/",
+      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1842 edition; plate entered 1837 by E. C. Biddle), DeGolyer Library, Southern Methodist University · public domain",
       "freeToUse": true,
       "verified": true,
-      "notes": "Hand-colored lithograph from McKenney & Hall vol. I (1836), after Charles Bird King's portrait (King's original is lost; Henry Inman's copy is NPG.82.105). Commons File:Black_Hoof.jpg is small (412x464); the 512 square is a light upscale of a head-and-shoulders crop. Timing uncertain: King's sitting date is not documented. Story sidebar is his memorial in Saint Johns, Ohio, not this portrait.",
+      "notes": "Hand-colored Lehman & Duval lithograph after Charles Bird King, from the 1842 printing of McKenney & Hall vol. I held by DeGolyer Library, SMU (Folio-5 E77 .M13 1842). Same plate as the 1836-37 Biddle issue: the imprint reads Painted by C. B. King, Lehman & Duval Lithrs., Philadelphia Published by E. C. Biddle, entered 1837. Not the later J. T. Bowen redrawing (LOC 95502230). King's original is lost; Henry Inman's copy is NPG.82.105. The 512 square is a head-and-shoulders crop downscaled from SMU's 757x1000 Flickr Commons scan (also on Commons as File:Ca-Ta-He-Cas-Sa, Black Hoof, Principal Chief of the Shawannes (15251349593).jpg). Timing uncertain: King's sitting date is not documented. Story sidebar is his memorial in Saint Johns, Ohio, not this portrait.",
       "ai": false
+    },
+    {
+      "id": "william-campbell-muhlenberg",
+      "name": "William Campbell of Muhlenberg County",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Founder of Greenville; Caney Station about 1795; gave 30 acres for the Muhlenberg County seat in 1799",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Col. William Campbell of Muhlenberg County, Greenville's founder (Caney Station about 1795; 30-acre gift for the county seat in 1799). Not william-campbell (Kings Mountain, d. 1781). Canonical face: AI portrait AI portrait v1, Nov 20 2026 (1024 jpg sha256 1bd176bb…), History CLEAR. No known likeness exists.",
+      "ai": true
+    },
+    {
+      "id": "woman-from-short-cave",
+      "name": "The Woman from Short Cave",
+      "aliases": [
+        "Fawn Hoof"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "role": "Ancient Native American woman, later called Fawn Hoof; her own name is not known",
+      "native": true,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Imagined in life, never the remains. AI portrait render v3 (1024 jpg sha256 6000a146…), shipped as site v1, Nov 20 2026, History CLEAR. Renders v1/v2 not used. No radiocarbon date; non-specific prehistoric Eastern Woodlands dress.",
+      "ai": true
+    },
+    {
+      "id": "gaines-denmark",
+      "name": "Gaines' Denmark (horse)",
+      "aliases": [
+        "Gaines' Denmark"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Saddlebred foundation stallion, foaled at Bardstown in 1851",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Horse series. No sourced period likeness; the Commons painting is not used. AI portrait render v1 (1024 jpg sha256 52da2590…), Nov 20 2026, History CLEAR. Black, two white hind socks.",
+      "ai": true
     }
   ]
 }

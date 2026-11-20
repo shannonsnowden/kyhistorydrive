@@ -143,6 +143,12 @@ export const PORTRAIT_ALTS = {
   'ann-mcginty': 'AI illustration: imagined portrait of Ann McGinty, who brought a spinning wheel to Harrodstown in 1775. No known likeness exists.',
   'william-hubbell': 'AI illustration: imagined portrait of Capt. William Hubbell, Ohio River flatboat captain, 1791. No known likeness exists.',
   'henry-mckenna': 'AI illustration: imagined portrait of Henry McKenna, Fairfield distiller, about 1855. No known likeness exists.',
+  // Nov 20 2026 (#436). AI portrait v1, History CLEAR. None-known; not the Kings Mountain william-campbell.
+  'william-campbell-muhlenberg': "AI illustration: imagined portrait of Col. William Campbell of Muhlenberg County, founder of Greenville, as a frontier Kentucky landowner and militia colonel about 1795–1800, in a plain wool coat, waistcoat and linen neckcloth; no known likeness exists.",
+  // Nov 20 2026 (#436). AI portrait render v3, History CLEAR. Imagined in life; never the remains.
+  'woman-from-short-cave': "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth with a feather headdress and fawn-hoof necklace; no known likeness exists.",
+  // Nov 20 2026 (#436). Horse series, AI portrait render v1, History CLEAR. No sourced period likeness.
+  'gaines-denmark': "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
 }
 
 export function portraitAlt(person) {
