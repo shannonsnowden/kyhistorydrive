@@ -5304,7 +5304,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Tecumseh02.jpg"
     },
@@ -5539,7 +5540,7 @@
         "webp": "/people/portraits/john-b-castleman-512.webp",
         "jpg": "/people/portraits/john-b-castleman-512.jpg"
       },
-      "credit": "Unknown photographer · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
+      "credit": "Unknown photographer, c. 1898 · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
       "ai": false,
       "license": "Public domain",
       "licenseUrl": null,
@@ -5556,12 +5557,11 @@
         "webp": "/people/portraits/charles-wilkins-saltpeter-512.webp",
         "jpg": "/people/portraits/charles-wilkins-saltpeter-512.jpg"
       },
-      "credit": "Benjamin Trott, miniature, 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
+      "credit": "Benjamin Trott, miniature, about 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
       "ai": false,
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "mammoth-cave-saltpeter",
         "the-woman-from-short-cave"
       ],
       "sourceFile": "Charles Wilkins 1805 by Trott (page 83 crop).jpg"
@@ -5582,6 +5582,57 @@
         "the-woman-from-short-cave"
       ],
       "sourceFile": "Nahum Ward 1785-1860 (page 325 crop).jpg"
+    },
+    {
+      "id": "tenskwatawa",
+      "name": "Tenskwatawa",
+      "dates": "1775–1836",
+      "image": {
+        "webp": "/people/portraits/tenskwatawa-512.webp",
+        "jpg": "/people/portraits/tenskwatawa-512.jpg"
+      },
+      "credit": "George Catlin, 1830 · Smithsonian American Art Museum · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "Ten-sqúat-a-way.jpg"
+    },
+    {
+      "id": "john-hunt-morgan",
+      "name": "John Hunt Morgan",
+      "dates": "1825–1864",
+      "image": {
+        "webp": "/people/portraits/john-hunt-morgan-512.webp",
+        "jpg": "/people/portraits/john-hunt-morgan-512.jpg"
+      },
+      "credit": "Unknown photographer, about 1862–64 · Library Company of Philadelphia · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": "Library Company of Philadelphia (I)P.9100.12f John Hunt Morgan.jpg"
+    },
+    {
+      "id": "alney-mclean",
+      "name": "Alney McLean",
+      "dates": "1779–1841",
+      "image": {
+        "webp": "/people/portraits/alney-mclean-512.webp",
+        "jpg": "/people/portraits/alney-mclean-512.jpg"
+      },
+      "credit": "Unknown artist, about 1820 · Otto A. Rothert, A History of Muhlenberg County (1913) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Alney McLean.jpg"
     },
     {
       "id": "william-campbell-muhlenberg",
@@ -5614,6 +5665,23 @@
       "licenseUrl": null,
       "stories": [
         "the-woman-from-short-cave"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "denmark-1839",
+      "name": "Denmark (horse)",
+      "dates": "foaled 1839",
+      "image": {
+        "webp": "/people/portraits/denmark-1839__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/denmark-1839__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
       ],
       "sourceFile": null
     },
@@ -5711,7 +5779,7 @@
     "tecumseh-falls-at-the-thames-oct-5-1813": "tecumseh",
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
     "james-crow-on-glenns-creek": "james-c-crow",
-    "denmark-and-gaines-denmark-the-saddlebreds-foundation": "gaines-denmark",
+    "denmark-and-gaines-denmark-the-saddlebreds-foundation": "denmark-1839",
     "lexington-blind-hero-of-woodburn": "lexington-stallion",
     "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
     "i-w-bernheim-from-peddler-to-i-w-harper": "isaac-w-bernheim",

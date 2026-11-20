@@ -298,7 +298,8 @@ const FORCED_STORY_SUBJECTS = {
   // Greenville's founder, Col. William Campbell of Muhlenberg County (not the Kings Mountain william-campbell).
   'greenville-a-hilltop-seat-on-william-campbells-land': 'william-campbell-muhlenberg',
   'the-woman-from-short-cave': 'woman-from-short-cave',
-  'denmark-and-gaines-denmark-the-saddlebreds-foundation': 'gaines-denmark',
+  // Title and dek subject is Denmark (1839); his son gaines-denmark stays the Photos sidebar image.
+  'denmark-and-gaines-denmark-the-saddlebreds-foundation': 'denmark-1839',
 }
 
 /** slug → person id for stories whose title names exactly one person (ids only; aliases stay private). */

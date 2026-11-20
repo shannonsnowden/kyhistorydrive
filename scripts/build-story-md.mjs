@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { routeBySlug } from '../src/route-maps.js'
+import { countyLevelProtectedCounty } from '../src/protected-pins.js'
 const SITE_ORIGIN = 'https://kyhistorydrive.com'
 import { PrerenderPages } from './prerender-pages.mjs'
 import { compactYearRange, countyLong, markerRecords } from '../src/story-tools.js'
@@ -54,9 +55,11 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
     ...(geo
       ? [
           `coordinates_precision: ${yamlQuote(
-            protectedStory
-              ? 'approximate (rounded to 0.1 deg / ~11 km to protect a sensitive archaeological or cultural site)'
-              : 'standard (0.0001 deg)',
+            !protectedStory
+              ? 'standard (0.0001 deg)'
+              : countyLevelProtectedCounty(story.slug, story.historyId)
+                ? `county-level (${countyLevelProtectedCounty(story.slug, story.historyId)}) to protect a sensitive archaeological site`
+                : 'approximate (rounded to 0.1 deg / ~11 km to protect a sensitive archaeological or cultural site)',
           )}`,
         ]
       : []),

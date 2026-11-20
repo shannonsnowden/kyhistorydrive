@@ -139,6 +139,28 @@ if (fs.existsSync(storiesDir)) {
       if (isProtHref(href) && DIST_RE.test(card.replace(/<[^>]+>/g, ' '))) bad.push(`${slug}: distance on protected card ${href}`)
     }
   }
+  // #436 B9: county-level protected stories never render km, mi, a degree sign or a radius in the
+  // location pill, its tooltip, or story.md coordinates_precision.
+  const UNIT_RE = /\bkm\b|\bmi\b|mile|°|\bdeg\b|radius|within|~/i
+  for (const slug of ['the-woman-from-short-cave']) {
+    const county = pp.countyLevelProtectedCounty(slug)
+    assert.equal(county, 'Edmonson County', `${slug}: must be county-level`)
+    const htmlFile = path.join(storiesDir, slug, 'index.html')
+    if (!fs.existsSync(htmlFile)) continue
+    const html = fs.readFileSync(htmlFile, 'utf8')
+    const pills = html.match(/<span class="[^"]*usp-approx-pill[^"]*"[^>]*>[^<]*<\/span>/g) || []
+    assert.ok(pills.length >= 1, `${slug}: location pill missing`)
+    for (const pill of pills) {
+      assert.ok(pill.includes(`County-level location (${county}) · Protected site`), `${slug}: pill must be county-level`)
+      assert.ok(!UNIT_RE.test(pill), `${slug}: pill or tooltip carries a unit or radius`)
+    }
+    const mdFile = path.join(storiesDir, slug, 'story.md')
+    if (fs.existsSync(mdFile)) {
+      const line = (fs.readFileSync(mdFile, 'utf8').match(/^coordinates_precision:.*$/m) || [''])[0]
+      assert.ok(line.includes(`county-level (${county})`), `${slug}: story.md precision must be county-level`)
+      assert.ok(!UNIT_RE.test(line), `${slug}: story.md precision carries a unit or radius`)
+    }
+  }
   assert.ok(pages > 100, 'too few story pages in dist')
   assert.deepEqual(bad, [], `protected ids in nearby lists or with distances:\n${bad.join('\n')}`)
   console.log(`test-protected-markers: OK (${markerNums.length} protected markers; ${pages} built story pages clean)`)

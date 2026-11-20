@@ -772,6 +772,50 @@
       "aliases": {
         "william-bush": "William “Billy” Bush"
       }
+    },
+    "black-hoof-the-shawnee-warrior-who-chose-peace": {
+      "links": [
+        "black-hoof",
+        "henry-bird",
+        "john-bowman",
+        "josiah-harmar",
+        "arthur-st-clair",
+        "anthony-wayne",
+        "little-turtle",
+        "tecumseh",
+        "tenskwatawa"
+      ],
+      "portraits": [
+        "henry-bird",
+        "john-bowman",
+        "josiah-harmar",
+        "arthur-st-clair",
+        "anthony-wayne",
+        "little-turtle",
+        "tecumseh",
+        "tenskwatawa"
+      ],
+      "aliases": {
+        "tecumseh": "Tecumseh",
+        "tenskwatawa": "the Prophet"
+      }
+    },
+    "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
+      "links": [
+        "denmark-1839",
+        "gaines-denmark",
+        "john-b-castleman",
+        "john-hunt-morgan"
+      ],
+      "portraits": [
+        "gaines-denmark",
+        "john-b-castleman",
+        "john-hunt-morgan"
+      ],
+      "aliases": {
+        "denmark-1839": "Denmark",
+        "gaines-denmark": "Gaines' Denmark"
+      }
     }
   }
 }

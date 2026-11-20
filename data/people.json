@@ -7369,7 +7369,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Shawnee leader",
       "native": true,
@@ -7711,10 +7712,10 @@
       "sourcePage": "https://commons.wikimedia.org/wiki/File:John-B.-Castleman.jpg",
       "license": "Public domain",
       "licenseUrl": "https://commons.wikimedia.org/wiki/File:John-B.-Castleman.jpg",
-      "credit": "Unknown photographer · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
+      "credit": "Unknown photographer, c. 1898 · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
       "freeToUse": true,
       "verified": true,
-      "notes": "Lifetime photograph in Confederate uniform, published 1912 (he died 1918); Commons PD, unknown author, 602x862. 512 square is a hand crop of the head and shoulders. Same file Wikipedia uses for John Breckinridge Castleman. Not David Castleman (Breckinridge's son-in-law, Cabell's Dale). No Grokipedia page (John_B._Castleman and John_Breckinridge_Castleman return 404).",
+      "notes": "Lifetime photograph in U.S. Volunteers uniform (collar \"USV\"), c. 1898, published 1912 (he died 1918); Commons PD, unknown author, 602x862. 512 square is a hand crop of the head and shoulders. Same file Wikipedia uses for John Breckinridge Castleman. Not David Castleman (Breckinridge's son-in-law, Cabell's Dale). No Grokipedia page (John_B._Castleman and John_Breckinridge_Castleman return 404).",
       "ai": false
     },
     {
@@ -7723,7 +7724,6 @@
       "aliases": [],
       "lifeDates": "1763–1827",
       "stories": [
-        "mammoth-cave-saltpeter",
         "the-woman-from-short-cave"
       ],
       "role": "Lexington merchant and saltpeter broker; owner of Mammoth Cave and its saltpeter works",
@@ -7734,7 +7734,7 @@
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Charles_Wilkins_1805_by_Trott_(page_83_crop).jpg",
       "license": "Public domain",
       "licenseUrl": "https://commons.wikimedia.org/wiki/File:Charles_Wilkins_1805_by_Trott_(page_83_crop).jpg",
-      "credit": "Benjamin Trott, miniature, 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
+      "credit": "Benjamin Trott, miniature, about 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
       "freeToUse": true,
       "verified": true,
       "notes": "Watercolor-on-ivory miniature by Benjamin Trott, about 1805, painted on Trott's 1805 trip west of the mountains (Wehle, p. 41, pl. XV). Identification: a letter fragment in the frame back signed 'Goodbye, Chas. Wilkins', pencilled 'Lexington, Ky., July 1824'; Wehle reads the sitter as about forty (Wilkins was born 1763). Commons PD-scan from the 1927 Metropolitan Museum book. Not Sir Charles Wilkins the Orientalist (Grokipedia Charles_Wilkins is that namesake, so no Grokipedia link).",
@@ -7760,6 +7760,75 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Oil portrait of Nahum Ward in later life (holding papers over a map of Ohio), reproduced opposite p. 325 of Martyn's William Ward Genealogy (1925) 'from a painting in the possession of Agnes (Ward) White'. Entry 1330: born October 23, 1785, Shrewsbury, Mass.; died April 6, 1860, Marietta; moved to Marietta 1811; land operator; mayor. Painter and date unrecorded; painted in his lifetime. Commons PD-scan. Shows him decades after 1815-16. No Grokipedia page (Nahum_Ward 404).",
+      "ai": false
+    },
+    {
+      "id": "tenskwatawa",
+      "name": "Tenskwatawa",
+      "aliases": [
+        "Tenskwatawa (the Prophet)",
+        "Ten-sqúat-a-way"
+      ],
+      "lifeDates": "1775–1836",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Shawnee religious leader known as the Prophet; Tecumseh's brother",
+      "native": true,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Ten-sq%C3%BAat-a-way.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ten-sq%C3%BAat-a-way.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Ten-sq%C3%BAat-a-way.jpg",
+      "credit": "George Catlin, 1830 · Smithsonian American Art Museum · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "George Catlin, Ten-sqúat-a-way, The Open Door, Known as The Prophet, Brother of Tecumseh, oil, painted 1830 at Kansas (from life; he died 1836). SAAM 1985.66.279. Commons PD-Art. 512 square is a hand crop of the head and shoulders. In the Black Hoof story he is 'his brother, the Prophet' (per-story alias in portrait-sweep.json).",
+      "ai": false
+    },
+    {
+      "id": "john-hunt-morgan",
+      "name": "John Hunt Morgan",
+      "aliases": [],
+      "lifeDates": "1825–1864",
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Confederate cavalry general from Lexington",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Library_Company_of_Philadelphia_%28I%29P.9100.12f_John_Hunt_Morgan.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Library_Company_of_Philadelphia_(I)P.9100.12f_John_Hunt_Morgan.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Library_Company_of_Philadelphia_(I)P.9100.12f_John_Hunt_Morgan.jpg",
+      "credit": "Unknown photographer, about 1862–64 · Library Company of Philadelphia · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Carte-de-visite photograph of Brig. Gen. John Hunt Morgan in Confederate uniform (Library Company of Philadelphia (I)P.9100.12f; print about 1870 of a lifetime sitting; he died 1864). This is the file Wikipedia uses. Commons PD. 512 square is a hand crop. Not Daniel Morgan (Revolutionary general). Other stories naming him are kept off this PR (people-mention-exceptions, scope).",
+      "ai": false
+    },
+    {
+      "id": "alney-mclean",
+      "name": "Alney McLean",
+      "aliases": [],
+      "lifeDates": "1779–1841",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Muhlenberg County's first surveyor, who laid out Greenville; later U.S. representative",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Alney_McLean.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Alney_McLean.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Alney_McLean.jpg",
+      "credit": "Unknown artist, about 1820 · Otto A. Rothert, A History of Muhlenberg County (1913) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Portrait of Alney McLean about 1820, reproduced in Rothert's A History of Muhlenberg County (1913), chapter 7 plate 'Alney McLean, about 1820'. Commons PD-US (also File:Alney_McLean_c1820.jpg, smaller). 512 square is a hand crop above the caption. The congressman and county surveyor are the same man.",
       "ai": false
     },
     {
@@ -7806,6 +7875,28 @@
       "freeToUse": false,
       "verified": false,
       "notes": "Imagined in life, never the remains. AI portrait render v3 (1024 jpg sha256 6000a146…), shipped as site v1, Nov 20 2026, History CLEAR. Renders v1/v2 not used. No radiocarbon date; non-specific prehistoric Eastern Woodlands dress.",
+      "ai": true
+    },
+    {
+      "id": "denmark-1839",
+      "name": "Denmark (horse)",
+      "aliases": [],
+      "lifeDates": "foaled 1839",
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Brown Thoroughbred stallion foaled in 1839, by imported Hedgeford; foundation sire of the American Saddlebred",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Horse series. No sourced period likeness. AI portrait render v2 (512 jpg sha256 6748c26e…, 96 jpg e21b885f…), Nov 20 2026, History CLEAR (v1 STAND, not used). Solid brown, black points, small star, no leg white, plain halter, facing right (opposite gaines-denmark). Sire of gaines-denmark (1851).",
       "ai": true
     },
     {

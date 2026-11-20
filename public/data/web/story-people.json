@@ -2474,16 +2474,8 @@
       ]
     },
     "mammoth-cave-saltpeter": {
-      "links": [
-        {
-          "id": "charles-wilkins-saltpeter",
-          "name": "Charles Wilkins",
-          "href": "/people/#charles-wilkins-saltpeter"
-        }
-      ],
-      "portraits": [
-        "charles-wilkins-saltpeter"
-      ]
+      "links": [],
+      "portraits": []
     },
     "manns-lick-louisvilles-salt-town": {
       "links": [
@@ -3431,25 +3423,47 @@
     "greenville-a-hilltop-seat-on-william-campbells-land": {
       "links": [
         {
+          "id": "alney-mclean",
+          "name": "Alney McLean",
+          "href": "/people/#alney-mclean"
+        },
+        {
           "id": "peter-cartwright",
           "name": "Peter Cartwright",
           "href": "/stories/peter-cartwright-the-backwoods-preacher-from-logan-county/"
         }
       ],
       "portraits": [
+        "alney-mclean",
         "peter-cartwright"
       ]
     },
     "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
       "links": [
         {
+          "id": "denmark-1839",
+          "name": "Denmark",
+          "href": "/people/#denmark-1839"
+        },
+        {
+          "id": "gaines-denmark",
+          "name": "Gaines' Denmark",
+          "href": "/people/#gaines-denmark"
+        },
+        {
           "id": "john-b-castleman",
           "name": "John B. Castleman",
           "href": "/people/#john-b-castleman"
+        },
+        {
+          "id": "john-hunt-morgan",
+          "name": "John Hunt Morgan",
+          "href": "/people/#john-hunt-morgan"
         }
       ],
       "portraits": [
-        "john-b-castleman"
+        "john-b-castleman",
+        "john-hunt-morgan"
       ]
     },
     "the-woman-from-short-cave": {
@@ -3506,6 +3520,16 @@
           "id": "little-turtle",
           "name": "Little Turtle",
           "href": "/stories/little-turtle-and-hardins-defeat-1790/"
+        },
+        {
+          "id": "tecumseh",
+          "name": "Tecumseh",
+          "href": "/stories/tecumseh-falls-at-the-thames-oct-5-1813/"
+        },
+        {
+          "id": "tenskwatawa",
+          "name": "the Prophet",
+          "href": "/people/#tenskwatawa"
         }
       ],
       "portraits": [
@@ -3514,7 +3538,9 @@
         "josiah-harmar",
         "arthur-st-clair",
         "anthony-wayne",
-        "little-turtle"
+        "little-turtle",
+        "tecumseh",
+        "tenskwatawa"
       ]
     }
   }

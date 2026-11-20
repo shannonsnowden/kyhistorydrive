@@ -81,6 +81,12 @@ const COUNTY_LEVEL_PROTECTED = {
   'the-woman-from-short-cave-edmonson': 'Edmonson County',
 }
 
+/** County for a county-level protected id or story slug ('' when it is not county-level). */
+export function countyLevelProtectedCounty(...ids) {
+  const id = ids.flat().find((x) => x && COUNTY_LEVEL_PROTECTED[x])
+  return id ? COUNTY_LEVEL_PROTECTED[id] : ''
+}
+
 /** Note for a protected pin's ids: county-level pins name their county; others keep the approximate note. */
 export function protectedNoteFor(ids) {
   const id = (ids || []).find((x) => COUNTY_LEVEL_PROTECTED[x])
