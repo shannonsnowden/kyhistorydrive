@@ -32083,16 +32083,16 @@
       ]
     },
     {
-      "id": "place:gaines-denmark-bardstown-nelson-1851",
+      "id": "place:gaines-denmark-lexington-fayette-1851",
       "type": "place",
       "layerId": "history",
       "layerLabel": "History",
-      "title": "Gaines' Denmark, foaled at Bardstown",
-      "text": "Gaines' Denmark, foaled at Bardstown Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a part-bred mare, was foaled at Bardstown in 1851. Owned by Edward P. Gaines, he was remembered as a great saddle horse that was never beaten in a fair ring, and his sons carried the line forward. When the National Saddle Horse Breeders' Association was founded in Louisville in 1891, more than 60 percent of the horses in its first studbook volumes traced to him. The exact farm is not known. The pin is a town-level point on the Bardstown courthouse square. History",
-      "snippet": "Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a part-bred mare, was foaled at Bardstown in 1851. Owned by Edward P. Gain…",
-      "lat": 37.80925,
-      "lon": -85.46665,
-      "shareId": "gaines-denmark-bardstown-nelson-1851",
+      "title": "Gaines' Denmark, bred near Lexington",
+      "text": "Gaines' Denmark, bred near Lexington Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a part-bred mare, was foaled in 1851, bred by William V. Cromwell near Lexington. Owned by Edward P. Gaines, he was remembered as a great saddle horse that was never beaten in a fair ring, and his sons carried the line forward. When the National Saddle Horse Breeders' Association was founded in Louisville in 1891, more than 60 percent of the horses in its first studbook volumes traced to him. The exact farm is not known. The pin is a town-level point in Lexington. History",
+      "snippet": "Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a part-bred mare, was foaled in 1851, bred by William V. Cromwell near Lex…",
+      "lat": 38.04591,
+      "lon": -84.49603,
+      "shareId": "gaines-denmark-lexington-fayette-1851",
       "layerIds": [
         "history"
       ]
@@ -32103,7 +32103,7 @@
       "layerId": "history",
       "layerLabel": "History",
       "title": "The Woman from Short Cave, Edmonson County",
-      "text": "The Woman from Short Cave, Edmonson County In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammoth Cave and displayed there, then exhibited in the East, given to the American Antiquarian Society in 1817 and sent to the Smithsonian in 1876. Later writers called her Fawn Hoof, after a necklace buried with her; no one knows her own name, and no radiocarbon date has been determined. Short Cave is a protected archaeological site in Edmonson County, and its location is not public. The pin is a county-level point. History",
+      "text": "The Woman from Short Cave, Edmonson County In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammoth Cave and displayed there, then exhibited in the East, given to the American Antiquarian Society in 1817 and sent to the Smithsonian in 1876. Later writers called her Fawn Hoof; no one knows her own name, and no radiocarbon date has been determined. Short Cave is a protected archaeological site in Edmonson County, and its location is not public. The pin is a county-level point. History",
       "snippet": "In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammo…",
       "lat": 37.2,
       "lon": -86.2,
@@ -45080,8 +45080,8 @@
       "text": "Denmark and Gaines' Denmark, the Saddlebred's foundation Denmark, a Kentucky Thoroughbred foaled in 1839, sired Gaines' Denmark in 1851, and their line became the core of the American Saddlebred. The breed's registry was founded in Louisville in 1891, and in 1908 it named Denmark its sole foundation sire. Denmark, a Kentucky Thoroughbred, is the horse that turned the Kentucky Saddler into a breed. Early Kentuckians needed a horse they could ride all day: across a farm, to court day, or over a rough road to the next county seat. Breeders crossed Thoroughbreds with Narragansett Pacers and other easy-gaited stock and got a smooth, stylish riding horse they called the Kentucky Saddler. Kentucky'",
       "snippet": "Denmark, a Kentucky Thoroughbred foaled in 1839, sired Gaines' Denmark in 1851, and their line became the core of the American Saddlebred.…",
       "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
-      "lat": 37.80925,
-      "lon": -85.46665
+      "lat": 38.04591,
+      "lon": -84.49603
     },
     {
       "id": "story:gen-james-wilkinson-kentuckys-agent-13",

@@ -1225,15 +1225,15 @@
       "county": "Muhlenberg"
     },
     "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
-      "reason": "Horse series. Town-level pin for Bardstown, where Gaines' Denmark was foaled in 1851 (no farm site known); point is KHS #956 (County Named, 1784) on the courthouse lawn. Story years 1839 (Denmark foaled)–1891 (breed association founded); the History pin keeps 1851 (yearsStoryOnly). County Nelson.",
+      "reason": "Horse series. Town-level pin for Lexington: the ASHA Register Vol. I (1893), No. 61, says Gaines' Denmark was bred by Wm. V. Cromwell near Lexington and foaled in 1851 (no farm site known); point is KHS #1440 (Fayette County) on the Main St. courthouse lawn. Story years 1839 (Denmark foaled)–1891 (breed association founded); the History pin keeps 1851 (yearsStoryOnly). County Fayette.",
       "date": "2026-11-20",
-      "historyId": "gaines-denmark-bardstown-nelson-1851",
-      "lat": 37.80925,
-      "lon": -85.46665,
+      "historyId": "gaines-denmark-lexington-fayette-1851",
+      "lat": 38.04591,
+      "lon": -84.49603,
       "yearStart": 1839,
       "yearEnd": 1891,
       "yearsStoryOnly": true,
-      "county": "Nelson"
+      "county": "Fayette"
     },
     "the-woman-from-short-cave": {
       "reason": "Protected archaeological site and human remains: county-level placement; protected site. Edmonson County at 0.1°; the find site's location is not public and no creek, river, direction or nearby place is named. Same pattern as Fort Jefferson: the story links no History pin; the county-level History pin the-woman-from-short-cave-edmonson is protected on its own (pin-rounding forceHistoryIds). No years: no radiocarbon date has been determined; the 1810s find and later moves are text only. County Edmonson.",

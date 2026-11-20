@@ -2132,11 +2132,11 @@
     },
     "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
       "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
-      "lat": 37.80925,
-      "lon": -85.46665,
+      "lat": 38.04591,
+      "lon": -84.49603,
       "mapConfidence": "override",
-      "matchedPlace": "Gaines' Denmark, foaled at Bardstown",
-      "historyId": "gaines-denmark-bardstown-nelson-1851"
+      "matchedPlace": "Gaines' Denmark, bred near Lexington",
+      "historyId": "gaines-denmark-lexington-fayette-1851"
     },
     "the-woman-from-short-cave": {
       "slug": "the-woman-from-short-cave",

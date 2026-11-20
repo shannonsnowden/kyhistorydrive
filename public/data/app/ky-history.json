@@ -4262,7 +4262,7 @@
       "title": "The Sedition Act of July 14, 1798, signed by John Adams, which the Kentucky Resolutions answered",
       "source_url": "https://commons.wikimedia.org/wiki/File:Sedition_Act_(1798).png",
       "source_label": "Wikimedia Commons",
-      "attribution": "United States Congress, 1798 · U.S. National Archives via Wikimedia Commons · public domain",
+      "attribution": "United States Congress · U.S. National Archives via Wikimedia Commons · public domain",
       "year": 1798,
       "license": "Public domain"
     }
@@ -4296,17 +4296,17 @@
     }
   },
   {
-    "id": "gaines-denmark-bardstown-nelson-1851",
-    "name": "Gaines' Denmark, foaled at Bardstown",
-    "subtitle": "Nelson County · Bardstown (town-level point on the courthouse square) · foaled 1851",
-    "latitude": 37.80925,
-    "longitude": -85.46665,
-    "history": "Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a part-bred mare, was foaled at Bardstown in 1851. Owned by Edward P. Gaines, he was remembered as a great saddle horse that was never beaten in a fair ring, and his sons carried the line forward. When the National Saddle Horse Breeders' Association was founded in Louisville in 1891, more than 60 percent of the horses in its first studbook volumes traced to him.\n\nThe exact farm is not known. The pin is a town-level point on the Bardstown courthouse square.",
+    "id": "gaines-denmark-lexington-fayette-1851",
+    "name": "Gaines' Denmark, bred near Lexington",
+    "subtitle": "Fayette County · Lexington (town-level point) · foaled 1851",
+    "latitude": 38.04591,
+    "longitude": -84.49603,
+    "history": "Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a part-bred mare, was foaled in 1851, bred by William V. Cromwell near Lexington. Owned by Edward P. Gaines, he was remembered as a great saddle horse that was never beaten in a fair ring, and his sons carried the line forward. When the National Saddle Horse Breeders' Association was founded in Louisville in 1891, more than 60 percent of the horses in its first studbook volumes traced to him.\n\nThe exact farm is not known. The pin is a town-level point in Lexington.",
     "source_date": "2026-11-20",
-    "geocode_source": "town-level-bardstown-khs-956",
-    "geocode_note": "Town-level: Wikipedia (Gaines' Denmark) says foaled at Bardstown; no farm site is known. Point is KHS marker #956 (County Named, 1784) on the Bardstown courthouse lawn (37.80925, -85.46665; repo markers.phase1.json), not a horse site. Year 1851.",
+    "geocode_source": "town-level-lexington-khs-1440",
+    "geocode_note": "Town-level: the ASHA Register Vol. I (1893), No. 61, says bred by Wm. V. Cromwell near Lexington, foaled 1851; no farm site is known. Point is KHS marker #1440 (Fayette County) on the Main St. courthouse lawn in Lexington (repo markers.phase1.json, rounded), not a horse site. Year 1851.",
     "category": "horses",
-    "website": "https://en.wikipedia.org/wiki/Gaines%27_Denmark",
+    "website": "https://archive.org/details/registeramerica00assogoog/page/n40/mode/1up",
     "year_start": 1851,
     "year_end": 1851,
     "photo": {
@@ -4314,7 +4314,6 @@
       "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
       "title": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
       "alt": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
-      "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
       "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "license": "Original AI illustration",
       "fit": "contain"
@@ -4326,7 +4325,7 @@
     "subtitle": "Edmonson County · county-level pin (site location not public)",
     "latitude": 37.2,
     "longitude": -86.2,
-    "history": "In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammoth Cave and displayed there, then exhibited in the East, given to the American Antiquarian Society in 1817 and sent to the Smithsonian in 1876. Later writers called her Fawn Hoof, after a necklace buried with her; no one knows her own name, and no radiocarbon date has been determined.\n\nShort Cave is a protected archaeological site in Edmonson County, and its location is not public. The pin is a county-level point.",
+    "history": "In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammoth Cave and displayed there, then exhibited in the East, given to the American Antiquarian Society in 1817 and sent to the Smithsonian in 1876. Later writers called her Fawn Hoof; no one knows her own name, and no radiocarbon date has been determined.\n\nShort Cave is a protected archaeological site in Edmonson County, and its location is not public. The pin is a county-level point.",
     "source_date": "2026-11-20",
     "geocode_source": "edmonson-county-generalized",
     "geocode_note": "county-level placement; protected site",
@@ -4337,9 +4336,8 @@
     "photo": {
       "image_url": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.jpg",
       "webp": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.webp",
-      "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth with a feather headdress and fawn-hoof necklace; no known likeness exists.",
-      "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth with a feather headdress and fawn-hoof necklace; no known likeness exists.",
-      "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+      "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
       "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "license": "Original AI illustration",
       "fit": "contain"

@@ -40,3 +40,12 @@ console.log(`test-story-figure-src: evidence link renders for a good slug; ${bad
   const bogus = storyFigureHtml({ ...base, width: 402, height: 486 })
   assert.ok(bogus.includes('width="1280" height="720"'), 'width/height ignored without fit contain')
 }
+// #436: a figure's source_url links only to a Wikimedia Commons File: page.
+{
+  const ok = 'https://commons.wikimedia.org/wiki/File:Gothic_Chapel,_Mammoth_Cave.jpg'
+  const linked = storyFigureHtml({ ...base, source_url: ok })
+  assert.ok(linked.includes(`<a href="${ok}"`), 'Commons File: source links the credit')
+  for (const bad of ['https://commons.wikimedia.org/', 'https://example.com/File:x.jpg', 'javascript:alert(1)', 'http://commons.wikimedia.org/wiki/File:x.jpg']) {
+    assert.ok(!storyFigureHtml({ ...base, source_url: bad }).includes('<a href="' + bad), `rejects ${bad}`)
+  }
+}

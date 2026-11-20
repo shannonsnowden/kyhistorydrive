@@ -2662,13 +2662,12 @@
     },
     "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
       "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
-      "historyId": "gaines-denmark-bardstown-nelson-1851",
+      "historyId": "gaines-denmark-lexington-fayette-1851",
       "photo": {
         "image_url": "/people/portraits/gaines-denmark__ai-portrait-v1-512.jpg",
         "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
         "title": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
         "alt": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
-        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
         "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
         "license": "Original AI illustration",
         "fit": "contain"
@@ -2697,7 +2696,7 @@
         "title": "The Sedition Act of July 14, 1798, signed by John Adams, which the Kentucky Resolutions answered",
         "source_url": "https://commons.wikimedia.org/wiki/File:Sedition_Act_(1798).png",
         "source_label": "Wikimedia Commons",
-        "attribution": "United States Congress, 1798 · U.S. National Archives via Wikimedia Commons · public domain",
+        "attribution": "United States Congress · U.S. National Archives via Wikimedia Commons · public domain",
         "year": 1798,
         "license": "Public domain",
         "artwork": "document",
@@ -2710,9 +2709,8 @@
       "photo": {
         "image_url": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.jpg",
         "webp": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.webp",
-        "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth with a feather headdress and fawn-hoof necklace; no known likeness exists.",
-        "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth with a feather headdress and fawn-hoof necklace; no known likeness exists.",
-        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+        "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
         "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
         "license": "Original AI illustration",
         "fit": "contain"
@@ -4853,20 +4851,6 @@
         "fit": "contain"
       }
     },
-    "gaines-denmark-bardstown-nelson-1851": {
-      "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
-      "historyId": "gaines-denmark-bardstown-nelson-1851",
-      "photo": {
-        "image_url": "/people/portraits/gaines-denmark__ai-portrait-v1-512.jpg",
-        "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
-        "title": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
-        "alt": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
-        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
-        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
-        "license": "Original AI illustration",
-        "fit": "contain"
-      }
-    },
     "greenville-courthouse-square-muhlenberg-1799": {
       "slug": "greenville-a-hilltop-seat-on-william-campbells-land",
       "historyId": "greenville-courthouse-square-muhlenberg-1799",
@@ -4890,10 +4874,23 @@
         "title": "The Sedition Act of July 14, 1798, signed by John Adams, which the Kentucky Resolutions answered",
         "source_url": "https://commons.wikimedia.org/wiki/File:Sedition_Act_(1798).png",
         "source_label": "Wikimedia Commons",
-        "attribution": "United States Congress, 1798 · U.S. National Archives via Wikimedia Commons · public domain",
+        "attribution": "United States Congress · U.S. National Archives via Wikimedia Commons · public domain",
         "year": 1798,
         "license": "Public domain",
         "artwork": "document",
+        "fit": "contain"
+      }
+    },
+    "gaines-denmark-lexington-fayette-1851": {
+      "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
+      "historyId": "gaines-denmark-lexington-fayette-1851",
+      "photo": {
+        "image_url": "/people/portraits/gaines-denmark__ai-portrait-v1-512.jpg",
+        "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
+        "title": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
+        "alt": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration",
         "fit": "contain"
       }
     }

@@ -38,6 +38,14 @@ for (const n of markerNums) {
   assert.ok(pp.protectedPlaceNoteHtml({ marker_number: n }), `marker ${n} popup has no approximate-location note`)
 }
 assert.ok(!pp.isProtectedPlace({ marker_number: '128' }, 37.1031283, -85.3064101), 'control: marker 128 must stay public')
+// #436: Short Cave's county-level pins carry a county-only note, never a distance or radius.
+for (const id of ['the-woman-from-short-cave', 'the-woman-from-short-cave-edmonson']) {
+  const note = pp.protectedPinNoteHtml(id)
+  assert.ok(note.includes('Edmonson County'), `${id}: protected note must name Edmonson County`)
+  assert.ok(!/\bmi\b|mile|within|~|km\b/i.test(note), `${id}: protected note must not carry a distance or radius`)
+  const place = pp.protectedPlaceNoteHtml({ id })
+  assert.ok(place.includes('Edmonson County') && !/within|~/.test(place), `${id}: popup note must be county-only`)
+}
 // After the list loads the grid fallback is off: the list alone decides.
 assert.ok(!pp.isProtectedPlace({ marker_number: '99999' }, 37.5, -85.2), 'loaded: the 0.1° grid fallback must only run before protected-pins.json loads')
 

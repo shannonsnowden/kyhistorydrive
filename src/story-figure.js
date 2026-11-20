@@ -23,6 +23,12 @@ export function figureEvidenceHref(slug) {
   return researchPageHref(id)
 }
 
+/** A figure's source link: a Wikimedia Commons File: page only, else ''. */
+export function figureSourceHref(url) {
+  const v = typeof url === 'string' ? url : ''
+  return /^https:\/\/commons\.wikimedia\.org\/wiki\/File:[^\s"'<>]+$/.test(v) ? v : ''
+}
+
 /** Figure files must be our own /content/ assets (no external, protocol-relative or traversal URLs). */
 export function isSafeFigureSrc(src) {
   const v = String(src || '')
@@ -56,5 +62,10 @@ export function storyFigureHtml(fig, { priority = false, strict = false } = {}) 
   const note = fig.note || evidence
     ? `<span class="story-figure-note">${esc(fig.note || '')}${fig.note && evidence ? ' ' : ''}${evidence}</span> `
     : ''
-  return `<figure class="story-figure${contain ? ' story-figure--contain' : ''}"><picture><source srcset="${esc(fig.webp)}" type="image/webp"><img src="${esc(fig.jpg)}" alt="${esc(fig.alt)}" width="${w}" height="${h}" ${load} decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${esc(fig.credit)}</span></figcaption></figure>`
+  // source_url: only a Wikimedia Commons File: page, linked from the credit (e.g. a public-domain engraving).
+  const src = figureSourceHref(fig.source_url)
+  const credit = src
+    ? `<a href="${esc(src)}" target="_blank" rel="noopener noreferrer">${esc(fig.credit)}</a>`
+    : esc(fig.credit)
+  return `<figure class="story-figure${contain ? ' story-figure--contain' : ''}"><picture><source srcset="${esc(fig.webp)}" type="image/webp"><img src="${esc(fig.jpg)}" alt="${esc(fig.alt)}" width="${w}" height="${h}" ${load} decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${credit}</span></figcaption></figure>`
 }

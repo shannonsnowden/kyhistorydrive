@@ -71,14 +71,26 @@ export function isProtectedPlace(p, lat = null, lon = null) {
 
 export function protectedPinNoteHtml(id) {
   if (!isProtectedPin(id)) return ''
-  return PROTECTED_NOTE_HTML
+  return protectedNoteFor([id])
 }
 
 const PROTECTED_NOTE_HTML = '<p class="popup-protected" data-protected-pin>Approximate location (within ~6 mi) to protect the site.</p>'
+// County-level protected pins (#436): the note names the county only, with no distance or radius.
+const COUNTY_LEVEL_PROTECTED = {
+  'the-woman-from-short-cave': 'Edmonson County',
+  'the-woman-from-short-cave-edmonson': 'Edmonson County',
+}
+
+/** Note for a protected pin's ids: county-level pins name their county; others keep the approximate note. */
+export function protectedNoteFor(ids) {
+  const id = (ids || []).find((x) => COUNTY_LEVEL_PROTECTED[x])
+  if (!id) return PROTECTED_NOTE_HTML
+  return `<p class="popup-protected" data-protected-pin>County-level location (${COUNTY_LEVEL_PROTECTED[id]}) to protect the site.</p>`
+}
 
 /** Popup note for a place given all its ids (a marker is listed as marker:<number>). */
 export function protectedPlaceNoteHtml(p, lat = null, lon = null) {
-  return PROTECTED_PIN_NOTE_ENABLED && isProtectedPlace(p, lat, lon) ? PROTECTED_NOTE_HTML : ''
+  return PROTECTED_PIN_NOTE_ENABLED && isProtectedPlace(p, lat, lon) ? protectedNoteFor(protectedPinIdsFor(p)) : ''
 }
 
 /** Deep links and story focus never zoom past this on a protected pin, so it can't look exact. */

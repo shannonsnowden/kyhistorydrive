@@ -1151,11 +1151,11 @@ Object.assign(NOV6_PIN_NAMES, {
   'i-w-bernheim-from-peddler-to-i-w-harper': 'Bernheim Bros. on Main Street, Louisville',
   'fort-jefferson-clarks-fort-on-chickasaw-ground': 'Fort Jefferson, Ballard County',
 })
-// Nov 20 pins live in story-overrides.json too. Gaines' Denmark is town-level at Bardstown. Short Cave is a protected site: Edmonson County at 0.1°, find site not mapped, linked to no History pin. Black Hoof is unpinned.
+// Nov 20 pins live in story-overrides.json too. Gaines' Denmark is town-level at Lexington (bred near Lexington, ASHA Register 1893). Short Cave is a protected site: Edmonson County at 0.1°, find site not mapped, linked to no History pin. Black Hoof is unpinned.
 Object.assign(NOV6_PIN_NAMES, {
   'john-breckinridge-of-cabells-dale': "John Breckinridge at Cabell's Dale",
   'greenville-a-hilltop-seat-on-william-campbells-land': 'Greenville courthouse square',
-  'denmark-and-gaines-denmark-the-saddlebreds-foundation': "Gaines' Denmark, foaled at Bardstown",
+  'denmark-and-gaines-denmark-the-saddlebreds-foundation': "Gaines' Denmark, bred near Lexington",
   'the-woman-from-short-cave': 'Edmonson County (county-level point)',
 })
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {

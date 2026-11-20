@@ -19,9 +19,8 @@
   "photo": {
     "image_url": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.jpg",
     "webp": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.webp",
-    "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth with a feather headdress and fawn-hoof necklace; no known likeness exists.",
-    "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth with a feather headdress and fawn-hoof necklace; no known likeness exists.",
-    "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+    "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
     "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
     "license": "Original AI illustration",
     "fit": "contain"
@@ -31,6 +30,7 @@
     "jpg": "/content/photos/stories/figures/the-woman-from-short-cave--gothic-chapel-1865.jpg",
     "alt": "Engraving of the Gothic Chapel in Gothic Avenue, Mammoth Cave, the upper passage where she was later kept (1865)",
     "credit": "Engraving: John Warner Barber and Henry Howe, The Loyal West in the Times of the Rebellion (1865) · Wikimedia Commons · public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gothic_Chapel,_Mammoth_Cave.jpg",
     "fit": "contain",
     "width": 402,
     "height": 486
