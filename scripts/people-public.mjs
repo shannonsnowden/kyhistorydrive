@@ -150,6 +150,11 @@ export const AI_IDS = [
   'catherine-drake',
   // Joseph Hough v1 is a People-card face only. Not an inline story portrait.
   'joseph-hough',
+  // Nov 20 2026: Treaty of Lancaster (1744) faces. All none-known. Treaty title page stays the sidebar.
+  'canassatego',
+  'conrad-weiser',
+  'tachanoontia',
+  'william-beverley',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
