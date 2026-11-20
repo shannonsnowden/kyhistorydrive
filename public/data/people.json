@@ -6026,6 +6026,40 @@
         "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": null
+    },
+    {
+      "id": "thomas-l-mckenney",
+      "name": "Thomas L. McKenney",
+      "dates": "1785–1859",
+      "image": {
+        "webp": "/people/portraits/thomas-l-mckenney-512.webp",
+        "jpg": "/people/portraits/thomas-l-mckenney-512.jpg"
+      },
+      "credit": "Charles Loring Elliott, oil, 1856 · National Portrait Gallery, Smithsonian Institution · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "Thomas Loraine McKenney by Charles Loring Elliott, 1856, oil on canvas, from the National Portrait Gallery - NPG-NPG 2011 62McKenney d1.jpg"
+    },
+    {
+      "id": "james-hall-author",
+      "name": "James Hall",
+      "dates": "1793–1868",
+      "image": {
+        "webp": "/people/portraits/james-hall-author-512.webp",
+        "jpg": "/people/portraits/james-hall-author-512.jpg"
+      },
+      "credit": "J. C. Buttre after J. O. Eaton, engraving, 1857 · The Romance of Western History · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "James Hall, judge and writer.png"
     }
   ],
   "storySubjects": {

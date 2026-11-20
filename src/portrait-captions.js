@@ -108,7 +108,7 @@ export const PORTRAIT_ALTS = {
   'peter-hildebrand': "AI illustration of Peter Hildebrand, Cherokee removal detachment conductor, about 1838",
   'william-campbell': "AI illustration of William Campbell, Kings Mountain commander, about 1780",
   'william-fleming': "AI illustration of Col. William Fleming, physician-soldier, about 1780",
-  'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772",
+  'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772; no known likeness exists",
   // River Raisin: modeled on the Earl oil, c. 1817. A real likeness exists.
   'james-winchester': 'AI illustration of Brig. Gen. James Winchester, about age 60 at River Raisin, 1813, modeled on the Ralph E.W. Earl portrait',
   // Susannah Hart Shelby v1 (Oct 2026). None-known.
@@ -116,7 +116,7 @@ export const PORTRAIT_ALTS = {
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
   // Approvals 111: Rice Wave 1 (Oct 2026). All v1, none-known.
   'abraham-lincoln-capt': "AI illustration of Capt. Abraham Lincoln, the president's grandfather, about 1784",
-  'henry-bird': 'AI illustration of Henry Bird, British officer on the 1780 Kentucky expedition',
+  'henry-bird': 'AI illustration of Henry Bird, British officer on the 1780 Kentucky expedition; no known likeness exists',
   'robert-tyler': 'AI illustration of Robert Tyler, co-founder of Tyler Station, about 1781',
   'william-caldwell': "AI illustration of Capt. William Caldwell of Butler's Rangers, about 1782",
   'edward-worthington': "AI illustration of Edward Worthington, founder of Worthington's Fort, about 1780",

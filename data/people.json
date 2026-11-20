@@ -8357,6 +8357,55 @@
       "verified": false,
       "notes": "No known likeness. v2 render (v1 STAND by History). AI portrait render v2, Nov 20 2026, History CLEAR, Design PASS.",
       "ai": true
+    },
+    {
+      "id": "thomas-l-mckenney",
+      "name": "Thomas L. McKenney",
+      "aliases": [
+        "Thomas Loraine McKenney",
+        "Thomas McKenney"
+      ],
+      "lifeDates": "1785–1859",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "U.S. superintendent of Indian trade and first head of the Office of Indian Affairs; co-author with James Hall of History of the Indian Tribes of North America",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Thomas_Loraine_McKenney_by_Charles_Loring_Elliott%2C_1856%2C_oil_on_canvas%2C_from_the_National_Portrait_Gallery_-_NPG-NPG_2011_62McKenney_d1.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Thomas_Loraine_McKenney_by_Charles_Loring_Elliott,_1856,_oil_on_canvas,_from_the_National_Portrait_Gallery_-_NPG-NPG_2011_62McKenney_d1.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Loraine_McKenney_by_Charles_Loring_Elliott,_1856,_oil_on_canvas,_from_the_National_Portrait_Gallery_-_NPG-NPG_2011_62McKenney_d1.jpg",
+      "credit": "Charles Loring Elliott, oil, 1856 · National Portrait Gallery, Smithsonian Institution · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil on canvas by Charles Loring Elliott, 1856, painted in his life (he died 1859); NPG.2011.62, sitter Thomas Loraine McKenney. Commons PD-old-100-expired / PD-Art; NPG released the image CC0. No Charles Bird King portrait of McKenney is on Commons; King painted the Indian delegates McKenney commissioned. 512 square is a hand crop of the face. Named in Black Hoof prose as McKenney of 'McKenney and Hall' (B16).",
+      "ai": false
+    },
+    {
+      "id": "james-hall-author",
+      "name": "James Hall",
+      "aliases": [
+        "Judge James Hall"
+      ],
+      "lifeDates": "1793–1868",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Illinois judge, Cincinnati banker and writer on the West; co-author with Thomas L. McKenney of History of the Indian Tribes of North America",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/James_Hall%2C_judge_and_writer.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:James_Hall,_judge_and_writer.png",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:James_Hall,_judge_and_writer.png",
+      "credit": "J. C. Buttre after J. O. Eaton, engraving, 1857 · The Romance of Western History · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Frontispiece of Hall's own The Romance of Western History (Cincinnati: Applegate, 1857; archive.org romanceofwestern00hal, LoC copy, creator 'Hall, James, 1793-1868'), signed 'Yours Truly James Hall', 'Painted by J. O. Eaton, Engraved by J. C. Buttre'. Commons PD-US. Not James Hall the geologist (1811–1898) or other namesakes. 512 square is a hand crop of the face. Named in Black Hoof prose as Hall of 'McKenney and Hall' (B16).",
+      "ai": false
     }
   ]
 }
