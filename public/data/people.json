@@ -299,7 +299,8 @@
         "shelbyville",
         "ephraim-mcdowell-jane-todd-crawford-1809",
         "winchester-clark-county-seat",
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "john-breckinridge-of-cabells-dale"
       ],
       "sourceFile": "Isaac shelby.jpg"
     },
@@ -755,7 +756,8 @@
         "egushawa-and-the-odawa-in-kentuckys-war-years",
         "falmouth-at-the-licking-forks",
         "isaac-ruddell-and-the-guns-at-ruddells-station",
-        "ojibwe-on-birds-war-road"
+        "ojibwe-on-birds-war-road",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": null
     },
@@ -1019,7 +1021,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "elizabethtown-from-severns-valley",
-        "miami-hunters-return-north-of-the-ohio"
+        "miami-hunters-return-north-of-the-ohio",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Little Turtle.jpg"
     },
@@ -1204,7 +1207,8 @@
         "benjamin-logan",
         "maj-joseph-bowman",
         "maj-silas-harlan",
-        "shawnee-chillicothe-divisions"
+        "shawnee-chillicothe-divisions",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": null
     },
@@ -1758,7 +1762,8 @@
         "jack-jouett-kentuckys-midnight-rider",
         "big-bone-lick-older-cycle",
         "thomas-walker-and-cumberland-gap",
-        "fort-jefferson-clarks-fort-on-chickasaw-ground"
+        "fort-jefferson-clarks-fort-on-chickasaw-ground",
+        "john-breckinridge-of-cabells-dale"
       ],
       "sourceFile": "Official Presidential portrait of Thomas Jefferson (by Rembrandt Peale, 1800).jpg"
     },
@@ -4039,7 +4044,8 @@
       "licenseUrl": null,
       "stories": [
         "hancock-taylor-fincastle-surveyor",
-        "john-floyd"
+        "john-floyd",
+        "john-breckinridge-of-cabells-dale"
       ],
       "sourceFile": null
     },
@@ -4639,7 +4645,8 @@
         "gen-charles-scott-and-petersburg",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "simpsonville-takes-shape-on-the-louisville-road",
-        "bland-w-ballard-of-tick-creek"
+        "bland-w-ballard-of-tick-creek",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Anthony Wayne, uniform.jpg"
     },
@@ -4656,7 +4663,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "little-turtle-and-hardins-defeat-1790"
+        "little-turtle-and-hardins-defeat-1790",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Josiah Harmar by Raphaelle Peale.jpeg"
     },
@@ -4676,7 +4684,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "blue-jacket-weyapiersenwah",
         "egushawa-and-the-odawa-in-kentuckys-war-years",
-        "john-filson-kentucke-1784"
+        "john-filson-kentucke-1784",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "ArthurStClairOfficialPortrait-restored.jpg"
     },
@@ -5466,7 +5475,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "peter-cartwright-the-backwoods-preacher-from-logan-county"
+        "peter-cartwright-the-backwoods-preacher-from-logan-county",
+        "greenville-a-hilltop-seat-on-william-campbells-land"
       ],
       "sourceFile": "Peter Cartwright - Erweckungsprediger.jpg"
     },
@@ -5486,6 +5496,40 @@
         "i-w-bernheim-from-peddler-to-i-w-harper"
       ],
       "sourceFile": null
+    },
+    {
+      "id": "john-breckinridge",
+      "name": "John Breckinridge",
+      "dates": "1760–1806",
+      "image": {
+        "webp": "/people/portraits/john-breckinridge-512.webp",
+        "jpg": "/people/portraits/john-breckinridge-512.jpg"
+      },
+      "credit": "Alban Jasper Conant, 1863 · U.S. Department of Justice · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": "John Breckinridge as Attorney General.jpg"
+    },
+    {
+      "id": "black-hoof",
+      "name": "Black Hoof",
+      "dates": "c. 1740–1831",
+      "image": {
+        "webp": "/people/portraits/black-hoof-512.webp",
+        "jpg": "/people/portraits/black-hoof-512.jpg"
+      },
+      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1836) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "Black Hoof.jpg"
     }
   ],
   "storySubjects": {
@@ -5501,6 +5545,7 @@
     "thomas-walker-and-cumberland-gap": "thomas-walker",
     "john-finley-the-trader-who-put-kentucky-on-boones-map": "john-finley",
     "maj-silas-harlan": "silas-harlan",
+    "black-hoof-the-shawnee-warrior-who-chose-peace": "black-hoof",
     "evan-williams-on-the-louisville-wharf": "evan-williams",
     "mary-draper-ingles-escapes-through-kentucky-1755": "mary-draper-ingles",
     "col-william-russell-iii": "william-russell-iii",
@@ -5556,8 +5601,10 @@
     "jacob-spears-early-bourbon-whiskey": "jacob-spears",
     "little-turtle-and-hardins-defeat-1790": "little-turtle",
     "capt-william-hubbells-ohio-flatboat-stand-1791": "william-hubbell",
+    "john-breckinridge-of-cabells-dale": "john-breckinridge",
     "peter-cartwright-the-backwoods-preacher-from-logan-county": "peter-cartwright",
     "jacob-beam-on-hardin-creek": "jacob-beam",
+    "greenville-a-hilltop-seat-on-william-campbells-land": "william-campbell",
     "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
     "tecumseh-falls-at-the-thames-oct-5-1813": "tecumseh",
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",

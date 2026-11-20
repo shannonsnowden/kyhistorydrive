@@ -221,6 +221,8 @@ const MANUAL_OVERRIDES = {
   'the-catawba-and-the-northern-war-parties': {},
   // Nov 17 2026: the Treaty of Lancaster was made in Pennsylvania. Explicit no-place. Do not fuzzy-match Lancaster in Garrard County or a Kentucky site.
   'the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky': {},
+  // Nov 20 2026: Black Hoof's life centered on Ohio Shawnee towns. Explicit no-place. Do not fuzzy-match Eskippakithiki, Ruddell's Station, Boonesborough or Greenville.
+  'black-hoof-the-shawnee-warrior-who-chose-peace': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
@@ -1148,6 +1150,13 @@ Object.assign(NOV6_PIN_NAMES, {
   'madisonville-a-courthouse-town-on-mcgary-and-silkwood-land': 'Madisonville courthouse lawn',
   'i-w-bernheim-from-peddler-to-i-w-harper': 'Bernheim Bros. on Main Street, Louisville',
   'fort-jefferson-clarks-fort-on-chickasaw-ground': 'Fort Jefferson, Ballard County',
+})
+// Nov 20 pins live in story-overrides.json too. Gaines' Denmark is town-level at Bardstown. Short Cave is a protected site: Edmonson County at 0.1°, find site not mapped, linked to no History pin. Black Hoof is unpinned.
+Object.assign(NOV6_PIN_NAMES, {
+  'john-breckinridge-of-cabells-dale': "John Breckinridge at Cabell's Dale",
+  'greenville-a-hilltop-seat-on-william-campbells-land': 'Greenville courthouse square',
+  'denmark-and-gaines-denmark-the-saddlebreds-foundation': "Gaines' Denmark, foaled at Bardstown",
+  'the-woman-from-short-cave': 'Edmonson County (Mammoth Cave, where she was displayed)',
 })
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]

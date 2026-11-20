@@ -2,10 +2,10 @@
   "generatedAt": "2026-11-13T10:43:28.455Z",
   "stats": {
     "exact": 12,
-    "fuzzy": 49,
+    "fuzzy": 48,
     "county": 4,
-    "override": 155,
-    "none": 41
+    "override": 159,
+    "none": 43
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -2105,6 +2105,46 @@
         "bernheim-bros-paducah-mccracken-1868-1888",
         "bernheim-forest-bullitt-1928-1945"
       ]
+    },
+    "black-hoof-the-shawnee-warrior-who-chose-peace": {
+      "slug": "black-hoof-the-shawnee-warrior-who-chose-peace",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "john-breckinridge-of-cabells-dale": {
+      "slug": "john-breckinridge-of-cabells-dale",
+      "lat": 38.1308,
+      "lon": -84.4831667,
+      "mapConfidence": "override",
+      "matchedPlace": "John Breckinridge at Cabell's Dale",
+      "historyId": "cabells-dale-breckinridge-fayette-1793-1806"
+    },
+    "greenville-a-hilltop-seat-on-william-campbells-land": {
+      "slug": "greenville-a-hilltop-seat-on-william-campbells-land",
+      "lat": 37.2008,
+      "lon": -87.1782667,
+      "mapConfidence": "override",
+      "matchedPlace": "Greenville courthouse square",
+      "historyId": "greenville-courthouse-square-muhlenberg-1799"
+    },
+    "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
+      "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
+      "lat": 37.80925,
+      "lon": -85.46665,
+      "mapConfidence": "override",
+      "matchedPlace": "Gaines' Denmark, foaled at Bardstown",
+      "historyId": "gaines-denmark-bardstown-nelson-1851"
+    },
+    "the-woman-from-short-cave": {
+      "slug": "the-woman-from-short-cave",
+      "lat": 37.2,
+      "lon": -86.2,
+      "mapConfidence": "override",
+      "matchedPlace": "Edmonson County (Mammoth Cave, where she was displayed)",
+      "historyId": null
     }
   }
 }

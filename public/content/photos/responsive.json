@@ -718,6 +718,97 @@
           "w": 1280
         }
       ]
+    },
+    "/content/photos/stories/greenville-a-hilltop-seat-on-william-campbells-land.jpg": {
+      "sha256": "4a613939db36692802841cea0d34ef846d0994b86a28f5c8fbf0cee08b2dfc69",
+      "width": 800,
+      "height": 742,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/greenville-a-hilltop-seat-on-william-campbells-land-800.avif",
+          "w": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/greenville-a-hilltop-seat-on-william-campbells-land-800.webp",
+          "w": 800
+        }
+      ]
+    },
+    "/content/photos/stories/the-woman-from-short-cave.jpg": {
+      "sha256": "1e4d84095d8c4284590dfc3a87d365f81e9e04288d239991fa25a6d52fb895a7",
+      "width": 402,
+      "height": 486,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/black-hoof-the-shawnee-warrior-who-chose-peace.jpg": {
+      "sha256": "a6cb587efff0dd24a31ecaa6028cb20fc9fbbe3073196848618e5a37cfb33821",
+      "width": 1100,
+      "height": 1371,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/black-hoof-the-shawnee-warrior-who-chose-peace-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/black-hoof-the-shawnee-warrior-who-chose-peace-1100.avif",
+          "w": 1100
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/black-hoof-the-shawnee-warrior-who-chose-peace-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/black-hoof-the-shawnee-warrior-who-chose-peace-1100.webp",
+          "w": 1100
+        }
+      ]
+    },
+    "/content/photos/stories/denmark-and-gaines-denmark-the-saddlebreds-foundation.jpg": {
+      "sha256": "29ac4f12ba82d073910ad92afd8d3c953bf5d9f4b86d6fd279dcc4f008b36814",
+      "width": 777,
+      "height": 530,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/denmark-and-gaines-denmark-the-saddlebreds-foundation-777.avif",
+          "w": 777
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/denmark-and-gaines-denmark-the-saddlebreds-foundation-777.webp",
+          "w": 777
+        }
+      ]
+    },
+    "/content/photos/stories/john-breckinridge-of-cabells-dale.jpg": {
+      "sha256": "39111f7ed234ad8813cedfec302137ec84993b5088162055bb6a722ac6cbb98e",
+      "width": 1200,
+      "height": 1474,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/john-breckinridge-of-cabells-dale-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/john-breckinridge-of-cabells-dale-1200.avif",
+          "w": 1200
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/john-breckinridge-of-cabells-dale-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/john-breckinridge-of-cabells-dale-1200.webp",
+          "w": 1200
+        }
+      ]
     }
   }
 }

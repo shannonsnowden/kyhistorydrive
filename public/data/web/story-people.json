@@ -3390,6 +3390,102 @@
         }
       ],
       "portraits": []
+    },
+    "john-breckinridge-of-cabells-dale": {
+      "links": [
+        {
+          "id": "john-breckinridge",
+          "name": "John Breckinridge",
+          "href": "/people/#john-breckinridge"
+        },
+        {
+          "id": "william-preston",
+          "name": "William Preston",
+          "href": "/people/#william-preston"
+        },
+        {
+          "id": "isaac-shelby",
+          "name": "Isaac Shelby",
+          "href": "/stories/isaac-shelby-old-kings-mountain/"
+        },
+        {
+          "id": "thomas-jefferson",
+          "name": "Thomas Jefferson",
+          "href": "/people/#thomas-jefferson"
+        }
+      ],
+      "portraits": [
+        "william-preston",
+        "isaac-shelby",
+        "thomas-jefferson"
+      ]
+    },
+    "greenville-a-hilltop-seat-on-william-campbells-land": {
+      "links": [
+        {
+          "id": "peter-cartwright",
+          "name": "Peter Cartwright",
+          "href": "/stories/peter-cartwright-the-backwoods-preacher-from-logan-county/"
+        }
+      ],
+      "portraits": [
+        "peter-cartwright"
+      ]
+    },
+    "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
+      "links": [],
+      "portraits": []
+    },
+    "the-woman-from-short-cave": {
+      "links": [],
+      "portraits": []
+    },
+    "black-hoof-the-shawnee-warrior-who-chose-peace": {
+      "links": [
+        {
+          "id": "black-hoof",
+          "name": "Black Hoof",
+          "href": "/people/#black-hoof"
+        },
+        {
+          "id": "henry-bird",
+          "name": "Henry Bird",
+          "href": "/stories/ojibwe-on-birds-war-road/"
+        },
+        {
+          "id": "john-bowman",
+          "name": "John Bowman",
+          "href": "/stories/col-john-bowman-at-old-chillicothe/"
+        },
+        {
+          "id": "josiah-harmar",
+          "name": "Josiah Harmar",
+          "href": "/people/#josiah-harmar"
+        },
+        {
+          "id": "arthur-st-clair",
+          "name": "Arthur St. Clair",
+          "href": "/people/#arthur-st-clair"
+        },
+        {
+          "id": "anthony-wayne",
+          "name": "Anthony Wayne",
+          "href": "/people/#anthony-wayne"
+        },
+        {
+          "id": "little-turtle",
+          "name": "Little Turtle",
+          "href": "/stories/little-turtle-and-hardins-defeat-1790/"
+        }
+      ],
+      "portraits": [
+        "henry-bird",
+        "john-bowman",
+        "josiah-harmar",
+        "arthur-st-clair",
+        "anthony-wayne",
+        "little-turtle"
+      ]
     }
   }
 }

@@ -2,12 +2,12 @@
   "generatedAt": "2026-11-13T10:51:39.067Z",
   "version": 2,
   "counts": {
-    "places": 2959,
-    "stories": 261,
-    "total": 3220,
+    "places": 2963,
+    "stories": 266,
+    "total": 3229,
     "byLayer": {
       "markers": 1921,
-      "history": 214,
+      "history": 218,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -32053,6 +32053,66 @@
       ]
     },
     {
+      "id": "place:cabells-dale-breckinridge-fayette-1793-1806",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "John Breckinridge at Cabell's Dale",
+      "text": "John Breckinridge at Cabell's Dale John Breckinridge brought his family and 25 enslaved people from Virginia in 1793 and built Cabell's Dale, a hemp and grain farm north of Lexington named for his wife's family. From there he served as Kentucky's attorney general, carried Thomas Jefferson's secret Kentucky Resolutions through the legislature in 1798, helped write the 1799 constitution, and went to the U.S. Senate and then Jefferson's cabinet as attorney general. He died at Cabell's Dale in December 1806. Mt. Horeb Presbyterian Church was organized at Cabell's Dale in 1827, at the home of his widow, Mary Cabell Breckinridge. The pin marks the church's state historical marker, near the farm. H",
+      "snippet": "John Breckinridge brought his family and 25 enslaved people from Virginia in 1793 and built Cabell's Dale, a hemp and grain farm north of L…",
+      "lat": 38.1308,
+      "lon": -84.4831667,
+      "shareId": "cabells-dale-breckinridge-fayette-1793-1806",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:greenville-courthouse-square-muhlenberg-1799",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Greenville courthouse square",
+      "text": "Greenville courthouse square Muhlenberg County was formed in 1798 and named for Gen. Peter Muhlenberg. In 1799 the county court accepted Col. William Campbell's gift of 30 acres of high ground with two springs for its seat, and Alney McLean laid out 50 lots around a public square. A log courthouse stood on the square by the fall of 1800, and the General Assembly established the town of Greenville in 1812. The Neo-Classical courthouse built in 1907 stands on the same square. The pin marks the courthouse lawn, where the Muhlenberg County marker stands. History",
+      "snippet": "Muhlenberg County was formed in 1798 and named for Gen. Peter Muhlenberg. In 1799 the county court accepted Col. William Campbell's gift of…",
+      "lat": 37.2008,
+      "lon": -87.1782667,
+      "shareId": "greenville-courthouse-square-muhlenberg-1799",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:gaines-denmark-bardstown-nelson-1851",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Gaines' Denmark, foaled at Bardstown",
+      "text": "Gaines' Denmark, foaled at Bardstown Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a natural-gaited mare, was foaled at Bardstown in 1851. Owned by Edward P. Gaines, he was remembered as a great saddle horse that was never beaten in a fair ring, and his sons carried the line forward. When the National Saddle Horse Breeders' Association was founded in Louisville in 1891, more than 60 percent of the horses in its first studbook volumes traced to him. The exact farm is not known. The pin is a town-level point on the Bardstown courthouse square. History",
+      "snippet": "Gaines' Denmark, a black colt by the Thoroughbred Denmark out of a natural-gaited mare, was foaled at Bardstown in 1851. Owned by Edward P.…",
+      "lat": 37.80925,
+      "lon": -85.46665,
+      "shareId": "gaines-denmark-bardstown-nelson-1851",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:the-woman-from-short-cave-edmonson",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "The Woman from Short Cave, Edmonson County",
+      "text": "The Woman from Short Cave, Edmonson County In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammoth Cave and displayed there, then exhibited in the East, given to the American Antiquarian Society in 1817 and sent to the Smithsonian in 1876. Later writers called her Fawn Hoof, after a necklace buried with her; no one knows her own name, and no radiocarbon date has been determined. Short Cave is a protected archaeological site, and its location is not public. The pin is a county-level point for Edmonson County, where she was displayed. History",
+      "snippet": "In the early 1810s saltpeter miners opened the careful burial of an ancient Native American woman in Short Cave. She was carried into Mammo…",
+      "lat": 37.2,
+      "lon": -86.2,
+      "shareId": "the-woman-from-short-cave-edmonson",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
       "id": "place:louisville-slugger-museum",
       "type": "place",
       "layerId": "museums",
@@ -44500,6 +44560,14 @@
       "lon": -86.4425
     },
     {
+      "id": "story:black-hoof-the-shawnee-warrior-who-chose-peace",
+      "type": "story",
+      "title": "Black Hoof, the Shawnee warrior who chose peace",
+      "text": "Black Hoof, the Shawnee warrior who chose peace Black Hoof (Catecahassa), a Mekoche Shawnee born about 1740, fought Kentucky's settlers for decades, then led the Ohio Shawnee toward peace, farming and diplomacy. He kept most of his people out of Tecumseh's War and never signed a removal treaty. Few men fought Kentucky's settlers longer than Catecahassa, the Shawnee the Americans called Black Hoof. Fewer still made the turn he made in old age, from war chief to the Shawnee nation's leading voice for peace. ## Born a Mekoche He was born around 1740 into the Mekoche division of the Shawnee, one of the nation's five divisions. As a child he may have traveled with Peter Chartier's band of about 4",
+      "snippet": "Black Hoof (Catecahassa), a Mekoche Shawnee born about 1740, fought Kentucky's settlers for decades, then led the Ohio Shawnee toward peace…",
+      "slug": "black-hoof-the-shawnee-warrior-who-chose-peace"
+    },
+    {
       "id": "story:capt-william-hubbells-ohio-flatboat-stand-1791",
       "type": "story",
       "title": "Capt. William Hubbell’s Ohio Flatboat Stand (1791)",
@@ -45006,6 +45074,16 @@
       "lon": -84.1756194
     },
     {
+      "id": "story:denmark-and-gaines-denmark-the-saddlebreds-foundation",
+      "type": "story",
+      "title": "Denmark and Gaines' Denmark, the Saddlebred's foundation",
+      "text": "Denmark and Gaines' Denmark, the Saddlebred's foundation Denmark, a Kentucky Thoroughbred foaled in 1839, sired Gaines' Denmark in 1851, and their line became the core of the American Saddlebred. The breed's registry was founded in Louisville in 1891, and in 1908 it named Denmark its sole foundation sire. Denmark, a Kentucky Thoroughbred, is the horse that turned the Kentucky Saddler into a breed. Early Kentuckians needed a horse they could ride all day: across a farm, to court day, or over a rough road to the next county seat. Breeders crossed Thoroughbreds with Narragansett Pacers and other easy-gaited stock and got a smooth, stylish riding horse they called the Kentucky Saddler. Kentucky'",
+      "snippet": "Denmark, a Kentucky Thoroughbred foaled in 1839, sired Gaines' Denmark in 1851, and their line became the core of the American Saddlebred.…",
+      "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
+      "lat": 37.80925,
+      "lon": -85.46665
+    },
+    {
       "id": "story:gen-james-wilkinson-kentuckys-agent-13",
       "type": "story",
       "title": "Gen. James Wilkinson, Kentucky’s “Agent 13”",
@@ -45292,6 +45370,16 @@
       "lon": -84.29951666666666
     },
     {
+      "id": "story:greenville-a-hilltop-seat-on-william-campbells-land",
+      "type": "story",
+      "title": "Greenville, a hilltop seat on William Campbell's land",
+      "text": "Greenville, a hilltop seat on William Campbell's land Muhlenberg County was formed in 1798, and in 1799 Col. William Campbell gave 30 acres of high ground with two springs for its seat. Greenville got a log courthouse in 1800, a charter in 1812, the railroad in 1871, and then coal. Greenville began with a gift of land on a hill. When the legislature carved Muhlenberg County out of Logan and Christian counties at the end of 1798, the new county had settlers and a name but no town. ## A county without a seat The county was formed in 1798 and named for Gen. Peter Muhlenberg, a minister who had led a Virginia regiment of German settlers in the Revolution. Some of his old soldiers had settled the",
+      "snippet": "Muhlenberg County was formed in 1798, and in 1799 Col. William Campbell gave 30 acres of high ground with two springs for its seat. Greenvi…",
+      "slug": "greenville-a-hilltop-seat-on-william-campbells-land",
+      "lat": 37.2008,
+      "lon": -87.1782667
+    },
+    {
       "id": "story:james-crow-on-glenns-creek",
       "type": "story",
       "title": "James Crow on Glenn's Creek",
@@ -45576,6 +45664,16 @@
       "slug": "maj-silas-harlan",
       "lat": 37.66,
       "lon": -84.83
+    },
+    {
+      "id": "story:john-breckinridge-of-cabells-dale",
+      "type": "story",
+      "title": "John Breckinridge of Cabell's Dale",
+      "text": "John Breckinridge of Cabell's Dale John Breckinridge brought his family and 25 enslaved people from Virginia to Cabell's Dale near Lexington in 1793, carried Jefferson's secret Kentucky Resolutions through the legislature in 1798, and died Jefferson's attorney general in 1806. In April 1793 John Breckinridge, a Virginia lawyer, stepped off a flatboat in Kentucky with his family and 25 enslaved people. He headed inland toward land north of Lexington and named it Cabell's Dale, after his wife's family. From that farm he did as much as anyone to shape the new state's politics. ## A Virginian looks west Breckinridge was born on December 2, 1760, near Staunton in Augusta County, Virginia, into a ",
+      "snippet": "John Breckinridge brought his family and 25 enslaved people from Virginia to Cabell's Dale near Lexington in 1793, carried Jefferson's secr…",
+      "slug": "john-breckinridge-of-cabells-dale",
+      "lat": 38.1308,
+      "lon": -84.4831667
     },
     {
       "id": "story:mammoth-cave-saltpeter",
@@ -46580,6 +46678,16 @@
       "text": "Yuchi on the Green River maps John R. Swanton's 1953 handbook of North American tribes reports that some early maps placed a Yuchi town on a Kentucky river that appears to be the Green. In his 1953 handbook of North American tribes, Smithsonian ethnologist John R. Swanton wrote that \"according to some early maps, the Yuchi had a town in this State on a river which appears to be identical with Green River.\" He did not name the maps or give a date. No Yuchi town in Kentucky is otherwise documented, so the Green River mark is a single colonial map placement, not a known settlement. The Yuchi (Euchee) speak a language unrelated to any other. The Tennessee Encyclopedia places their documented tow",
       "snippet": "John R. Swanton's 1953 handbook of North American tribes reports that some early maps placed a Yuchi town on a Kentucky river that appears…",
       "slug": "yuchi-on-the-green-river-maps"
+    },
+    {
+      "id": "story:the-woman-from-short-cave",
+      "type": "story",
+      "title": "The Woman from Short Cave",
+      "text": "The Woman from Short Cave Saltpeter miners found an ancient Native American woman's burial in Short Cave in the early 1810s. She was shown in Mammoth Cave, toured the East, went to the American Antiquarian Society in 1817 and the Smithsonian in 1876, and was later called Fawn Hoof. Sometime between 1811 and 1813 (the accounts differ), as the country went to war with Britain, men digging saltpeter in Short Cave opened a grave. Inside was a Native American woman who had been laid to rest with great care, long before anyone now remembers. What happened to her afterward says as much about the people who found her as about the people who buried her. ## A careful burial Charles Wilkins, a Lexingto",
+      "snippet": "Saltpeter miners found an ancient Native American woman's burial in Short Cave in the early 1810s. She was shown in Mammoth Cave, toured th…",
+      "slug": "the-woman-from-short-cave",
+      "lat": 37.2,
+      "lon": -86.2
     },
     {
       "id": "place:bullitt-survey-falls-of-the-ohio-jefferson-1773",

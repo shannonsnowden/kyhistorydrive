@@ -49,6 +49,12 @@ export const NO_AUTO_STORY_PHOTOS = [
   'i-w-bernheim-from-peddler-to-i-w-harper',
   'the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky',
   'fort-jefferson-clarks-fort-on-chickasaw-ground',
+  // Nov 20 2026 pack. Hand-placed public-domain/CC photos; do not fetch a stand-in. Short Cave: never a photo of the remains.
+  'john-breckinridge-of-cabells-dale',
+  'greenville-a-hilltop-seat-on-william-campbells-land',
+  'denmark-and-gaines-denmark-the-saddlebreds-foundation',
+  'the-woman-from-short-cave',
+  'black-hoof-the-shawnee-warrior-who-chose-peace',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

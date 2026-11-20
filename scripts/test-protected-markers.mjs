@@ -20,6 +20,8 @@ const pins = JSON.parse(fs.readFileSync(path.join(root, 'public/data/web/protect
 const ids = new Set(pins.ids || [])
 const markerNums = [...ids].filter((id) => id.startsWith('marker:')).map((id) => id.slice(7))
 assert.ok(markerNums.includes('1309') && markerNums.includes('1274'), 'protected-pins.json must list marker:1309 and marker:1274')
+// Nov 20 2026: the Woman from Short Cave (a burial site) and her county-level History pin are protected, so they are never another page's nearby card.
+for (const id of ['the-woman-from-short-cave', 'the-woman-from-short-cave-edmonson']) assert.ok(ids.has(id), `protected-pins.json must list ${id}`)
 
 // --- 1) popup protection logic ---
 const tools = await import('../src/story-tools.js')

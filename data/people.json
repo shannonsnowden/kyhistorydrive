@@ -359,7 +359,8 @@
         "shelbyville",
         "ephraim-mcdowell-jane-todd-crawford-1809",
         "winchester-clark-county-seat",
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "john-breckinridge-of-cabells-dale"
       ],
       "role": "First and fifth governor of Kentucky",
       "native": false,
@@ -965,7 +966,8 @@
         "egushawa-and-the-odawa-in-kentuckys-war-years",
         "falmouth-at-the-licking-forks",
         "isaac-ruddell-and-the-guns-at-ruddells-station",
-        "ojibwe-on-birds-war-road"
+        "ojibwe-on-birds-war-road",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "British officer, led 1780 invasion",
       "native": false,
@@ -1311,7 +1313,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "elizabethtown-from-severns-valley",
-        "miami-hunters-return-north-of-the-ohio"
+        "miami-hunters-return-north-of-the-ohio",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Miami war leader",
       "native": true,
@@ -1550,7 +1553,8 @@
         "benjamin-logan",
         "maj-joseph-bowman",
         "maj-silas-harlan",
-        "shawnee-chillicothe-divisions"
+        "shawnee-chillicothe-divisions",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Colonel, 1779 Chillicothe raid",
       "native": false,
@@ -2306,7 +2310,8 @@
         "jack-jouett-kentuckys-midnight-rider",
         "big-bone-lick-older-cycle",
         "thomas-walker-and-cumberland-gap",
-        "fort-jefferson-clarks-fort-on-chickasaw-ground"
+        "fort-jefferson-clarks-fort-on-chickasaw-ground",
+        "john-breckinridge-of-cabells-dale"
       ],
       "role": "Governor of Virginia, U.S. president",
       "native": false,
@@ -5669,7 +5674,8 @@
       "lifeDates": null,
       "stories": [
         "hancock-taylor-fincastle-surveyor",
-        "john-floyd"
+        "john-floyd",
+        "john-breckinridge-of-cabells-dale"
       ],
       "role": "Colonel, county surveyor",
       "native": false,
@@ -6478,7 +6484,8 @@
         "gen-charles-scott-and-petersburg",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "simpsonville-takes-shape-on-the-louisville-road",
-        "bland-w-ballard-of-tick-creek"
+        "bland-w-ballard-of-tick-creek",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "General, Fallen Timbers",
       "native": false,
@@ -6499,7 +6506,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "little-turtle-and-hardins-defeat-1790"
+        "little-turtle-and-hardins-defeat-1790",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "General, 1790 campaign",
       "native": false,
@@ -6525,7 +6533,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "blue-jacket-weyapiersenwah",
         "egushawa-and-the-odawa-in-kentuckys-war-years",
-        "john-filson-kentucke-1784"
+        "john-filson-kentucke-1784",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "General, 1791 defeat",
       "native": false,
@@ -7594,7 +7603,8 @@
       ],
       "lifeDates": "1785–1872",
       "stories": [
-        "peter-cartwright-the-backwoods-preacher-from-logan-county"
+        "peter-cartwright-the-backwoods-preacher-from-logan-county",
+        "greenville-a-hilltop-seat-on-william-campbells-land"
       ],
       "role": "Methodist circuit rider, raised in Logan County",
       "native": false,
@@ -7633,6 +7643,56 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Halftone plate captioned THE AUTHOR IN HIS TWENTY-EIGHTH YEAR (about 1876) in I. W. Bernheim, The Story of the Bernheim Family (Louisville, 1910). Internet Archive item TheStoryOfTheBernheimFamily, leaf n74, University of Louisville collection, Public Domain Mark. 512 square is a hand crop of the face. Story sidebar is the 1867 peddler plate (leaf n45). Do NOT use Commons File:IW_Bernheim.jpg: its own-work CC BY-SA claim on an old photograph is doubtful.",
+      "ai": false
+    },
+    {
+      "id": "john-breckinridge",
+      "name": "John Breckinridge",
+      "aliases": [
+        "Breckinridge"
+      ],
+      "lifeDates": "1760–1806",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Kentucky legislator, U.S. senator and U.S. attorney general, of Cabell's Dale",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "posthumous",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/John_Breckinridge_as_Attorney_General.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John_Breckinridge_as_Attorney_General.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:John_Breckinridge_as_Attorney_General.jpg",
+      "credit": "Alban Jasper Conant, 1863 · U.S. Department of Justice · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait by Alban Jasper Conant (1863), painted for the Department of Justice attorneys general series after an earlier likeness; posthumous. Commons PD (796x1029). 512 square is a hand crop of the face and shoulders. Story sidebar is the 1798 Sedition Act (National Archives), not this portrait. Not John C. Breckinridge (grandson, vice president).",
+      "ai": false
+    },
+    {
+      "id": "black-hoof",
+      "name": "Black Hoof",
+      "aliases": [
+        "Catecahassa",
+        "Catahecassa",
+        "Ca-ta-he-cas-sa"
+      ],
+      "lifeDates": "c. 1740–1831",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Mekoche Shawnee war leader and head civil chief",
+      "native": true,
+      "likeness": "portrait",
+      "timing": "uncertain",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Black_Hoof.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Black_Hoof.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Black_Hoof.jpg",
+      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1836) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Hand-colored lithograph from McKenney & Hall vol. I (1836), after Charles Bird King's portrait (King's original is lost; Henry Inman's copy is NPG.82.105). Commons File:Black_Hoof.jpg is small (412x464); the 512 square is a light upscale of a head-and-shoulders crop. Timing uncertain: King's sitting date is not documented. Story sidebar is his memorial in Saint Johns, Ohio, not this portrait.",
       "ai": false
     }
   ]
