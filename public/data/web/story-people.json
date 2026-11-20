@@ -3429,6 +3429,11 @@
     "greenville-a-hilltop-seat-on-william-campbells-land": {
       "links": [
         {
+          "id": "peter-muhlenberg",
+          "name": "Peter Muhlenberg",
+          "href": "/people/#peter-muhlenberg"
+        },
+        {
           "id": "john-dennis-greenville",
           "name": "John Dennis",
           "href": "/people/#john-dennis-greenville"
@@ -3437,6 +3442,11 @@
           "id": "alney-mclean",
           "name": "Alney McLean",
           "href": "/people/#alney-mclean"
+        },
+        {
+          "id": "james-weir-greenville",
+          "name": "James Weir",
+          "href": "/people/#james-weir-greenville"
         },
         {
           "id": "nathanael-greene",
@@ -3455,8 +3465,10 @@
         }
       ],
       "portraits": [
+        "peter-muhlenberg",
         "john-dennis-greenville",
         "alney-mclean",
+        "james-weir-greenville",
         "nathanael-greene",
         "peter-cartwright",
         "nathan-bedford-forrest"
@@ -3552,6 +3564,11 @@
           "href": "/stories/little-turtle-and-hardins-defeat-1790/"
         },
         {
+          "id": "thomas-jefferson",
+          "name": "Jefferson",
+          "href": "/people/#thomas-jefferson"
+        },
+        {
           "id": "tecumseh",
           "name": "Tecumseh",
           "href": "/stories/tecumseh-falls-at-the-thames-oct-5-1813/"
@@ -3569,6 +3586,7 @@
         "arthur-st-clair",
         "anthony-wayne",
         "little-turtle",
+        "thomas-jefferson",
         "tecumseh",
         "tenskwatawa"
       ]

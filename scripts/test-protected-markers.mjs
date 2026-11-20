@@ -159,8 +159,25 @@ if (fs.existsSync(storiesDir)) {
       const line = (fs.readFileSync(mdFile, 'utf8').match(/^coordinates_precision:.*$/m) || [''])[0]
       assert.ok(line.includes(`county-level (${county})`), `${slug}: story.md precision must be county-level`)
       assert.ok(!UNIT_RE.test(line), `${slug}: story.md precision carries a unit or radius`)
+      const bullet = (fs.readFileSync(mdFile, 'utf8').match(/^- \*\*Coordinates:\*\*.*$/m) || [''])[0]
+      if (bullet) {
+        assert.ok(bullet.includes(`(County-level point (${county}) to protect a sensitive archaeological site)`), `${slug}: story.md coordinates bullet must be county-level`)
+        assert.ok(!/rounded|0\.1°|\bkm\b|radius/i.test(bullet), `${slug}: story.md coordinates bullet carries rounding or a radius`)
+      }
     }
   }
+  // #436 B15: only county-level stories use the county-level coordinates bullet; other protected
+  // stories keep the 0.1° rounding note.
+  const countyBullet = /^- \*\*Coordinates:\*\*.*County-level point/m
+  let roundedKept = 0
+  for (const slug of fs.readdirSync(storiesDir)) {
+    const md = path.join(storiesDir, slug, 'story.md')
+    if (!fs.existsSync(md)) continue
+    const text = fs.readFileSync(md, 'utf8')
+    if (countyBullet.test(text)) assert.ok(pp.countyLevelProtectedCounty(slug), `${slug}: county-level bullet on a story that is not county-level`)
+    if (/^- \*\*Coordinates:\*\*.*rounded to 0\.1°/m.test(text)) roundedKept++
+  }
+  assert.ok(roundedKept > 0, 'other protected stories must keep the 0.1° rounding note')
   assert.ok(pages > 100, 'too few story pages in dist')
   assert.deepEqual(bad, [], `protected ids in nearby lists or with distances:\n${bad.join('\n')}`)
   console.log(`test-protected-markers: OK (${markerNums.length} protected markers; ${pages} built story pages clean)`)

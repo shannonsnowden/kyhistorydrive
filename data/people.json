@@ -2311,7 +2311,8 @@
         "big-bone-lick-older-cycle",
         "thomas-walker-and-cumberland-gap",
         "fort-jefferson-clarks-fort-on-chickasaw-ground",
-        "john-breckinridge-of-cabells-dale"
+        "john-breckinridge-of-cabells-dale",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Governor of Virginia, U.S. president",
       "native": false,
@@ -7803,7 +7804,7 @@
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Library_Company_of_Philadelphia_(I)P.9100.12f_John_Hunt_Morgan.jpg",
       "license": "Public domain",
       "licenseUrl": "https://commons.wikimedia.org/wiki/File:Library_Company_of_Philadelphia_(I)P.9100.12f_John_Hunt_Morgan.jpg",
-      "credit": "Unknown photographer, about 1862–64 · Library Company of Philadelphia · public domain",
+      "credit": "Unknown photographer, lifetime sitting, print about 1870 · Library Company of Philadelphia · Public domain",
       "freeToUse": true,
       "verified": true,
       "notes": "Carte-de-visite photograph of Brig. Gen. John Hunt Morgan in Confederate uniform (Library Company of Philadelphia (I)P.9100.12f; print about 1870 of a lifetime sitting; he died 1864). This is the file Wikipedia uses. Commons PD. 512 square is a hand crop. Not Daniel Morgan (Revolutionary general). Other stories naming him are kept off this PR (people-mention-exceptions, scope).",
@@ -8062,6 +8063,52 @@
       "verified": false,
       "notes": "Horse series. No sourced period likeness; the Commons painting is not used. AI portrait render v1 (1024 jpg sha256 52da2590…), Nov 20 2026, History CLEAR. Black, two white hind socks.",
       "ai": true
+    },
+    {
+      "id": "peter-muhlenberg",
+      "name": "Peter Muhlenberg",
+      "aliases": [
+        "John Peter Gabriel Muhlenberg"
+      ],
+      "lifeDates": "1746–1807",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Lutheran minister and Continental Army general; Muhlenberg County is named for him",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "posthumous",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/Maj._Gen._Peter_Muhlenberg_%28NYPL_b12349150-423993%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Maj._Gen._Peter_Muhlenberg_(NYPL_b12349150-423993).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Maj._Gen._Peter_Muhlenberg_(NYPL_b12349150-423993).jpg",
+      "credit": "H. B. Hall, etching, 1871 · Emmet Collection, New York Public Library · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Etching 'Maj. Gen. Peter Muhlenberg' signed 'Etch'd by H. B. Hall, Morrisania, N.Y. 1871', Emmet Collection, NYPL (b12349150, image 423993); NYPL names the sitter John Peter Gabriel Muhlenberg, 1746–1807. Commons PD-1923. Not william-campbell-muhlenberg. 512 square is a hand crop of the face.",
+      "ai": false
+    },
+    {
+      "id": "james-weir-greenville",
+      "name": "James Weir",
+      "aliases": [],
+      "lifeDates": "1777–1845",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Pioneer merchant and banker of Greenville; opened the town's first store with James Craig in 1799",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://archive.org/download/historyofmuhlenb00roth/page/n86_w1400.jpg",
+      "sourcePage": "https://archive.org/details/historyofmuhlenb00roth/page/n86/mode/1up",
+      "license": "Public domain",
+      "licenseUrl": "https://archive.org/details/historyofmuhlenb00roth/page/n86/mode/1up",
+      "credit": "Unknown artist, about 1840 · Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Plate 'Pioneer James Weir, about 1840' in Rothert, A History of Muhlenberg County (1913), ch. 6 'The Weirs', p. 57 (archive.org historyofmuhlenb00roth, leaf n86). Rothert: born South Carolina 1777, came to Muhlenberg 1798, first merchant and banker in Greenville, died Greenville Aug. 9, 1845. Published 1913, PD-US. Not his son James Weir the author (1821–1906). 512 square is a hand crop of the face.",
+      "ai": false
     }
   ]
 }

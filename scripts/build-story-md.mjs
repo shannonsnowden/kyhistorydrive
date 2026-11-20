@@ -87,7 +87,7 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
   }
   if (coordStr) {
     glanceRows.push(
-      `- **Coordinates:** ${coordStr}${protectedStory ? ' *(Approximate area — rounded to 0.1° to protect a sensitive site)*' : ''}`,
+      `- **Coordinates:** ${coordStr}${!protectedStory ? '' : countyLevelProtectedCounty(story.slug, story.historyId) ? ` *(County-level point (${countyLevelProtectedCounty(story.slug, story.historyId)}) to protect a sensitive archaeological site)*` : ' *(Approximate area — rounded to 0.1° to protect a sensitive site)*'}`,
     )
   }
 

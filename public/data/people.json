@@ -1763,7 +1763,8 @@
         "big-bone-lick-older-cycle",
         "thomas-walker-and-cumberland-gap",
         "fort-jefferson-clarks-fort-on-chickasaw-ground",
-        "john-breckinridge-of-cabells-dale"
+        "john-breckinridge-of-cabells-dale",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Official Presidential portrait of Thomas Jefferson (by Rembrandt Peale, 1800).jpg"
     },
@@ -5608,7 +5609,7 @@
         "webp": "/people/portraits/john-hunt-morgan-512.webp",
         "jpg": "/people/portraits/john-hunt-morgan-512.jpg"
       },
-      "credit": "Unknown photographer, about 1862–64 · Library Company of Philadelphia · public domain",
+      "credit": "Unknown photographer, lifetime sitting, print about 1870 · Library Company of Philadelphia · Public domain",
       "ai": false,
       "license": "Public domain",
       "licenseUrl": null,
@@ -5802,6 +5803,40 @@
       "licenseUrl": null,
       "stories": [
         "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "peter-muhlenberg",
+      "name": "Peter Muhlenberg",
+      "dates": "1746–1807",
+      "image": {
+        "webp": "/people/portraits/peter-muhlenberg-512.webp",
+        "jpg": "/people/portraits/peter-muhlenberg-512.jpg"
+      },
+      "credit": "H. B. Hall, etching, 1871 · Emmet Collection, New York Public Library · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Maj. Gen. Peter Muhlenberg (NYPL b12349150-423993).jpg"
+    },
+    {
+      "id": "james-weir-greenville",
+      "name": "James Weir",
+      "dates": "1777–1845",
+      "image": {
+        "webp": "/people/portraits/james-weir-greenville-512.webp",
+        "jpg": "/people/portraits/james-weir-greenville-512.jpg"
+      },
+      "credit": "Unknown artist, about 1840 · Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
       ],
       "sourceFile": null
     }

@@ -783,7 +783,8 @@
         "anthony-wayne",
         "little-turtle",
         "tecumseh",
-        "tenskwatawa"
+        "tenskwatawa",
+        "thomas-jefferson"
       ],
       "portraits": [
         "henry-bird",
@@ -793,11 +794,13 @@
         "anthony-wayne",
         "little-turtle",
         "tecumseh",
-        "tenskwatawa"
+        "tenskwatawa",
+        "thomas-jefferson"
       ],
       "aliases": {
         "tecumseh": "Tecumseh",
-        "tenskwatawa": "the Prophet"
+        "tenskwatawa": "the Prophet",
+        "thomas-jefferson": "Jefferson"
       }
     },
     "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
