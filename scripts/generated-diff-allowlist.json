@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Rice Wave 7 adds the last two body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged. Oct 31 closed Good Eats removals allow the four place rows to drop and the search-index counts object to follow. Soft pack #413 adds Mount Sterling and Treaty of Greenville so those link-audit edits are not treated as generated-diff noise. Monday 2026-11-16 link audit allowlists Hartford, Jacob Spears, and Treaty of Fort McIntosh, plus eight story files already different from origin/v2 on main (Cane Ridge, Carrollton, Chickamauga, Cornstalk, Hugh McGary, Jacob Beam, Little Turtle, Mingo camps). Soft pack retire Dee Felice allows place:dee-felice-covington to drop (counts already allowlisted). Nov 17 drift-source fix allowlists the Bryan Station story summary and the bryans-station-siege-1782 History pin text.",
+  "note": "Monday 2026-11-23 link audit allowlists the John Hardin and Pound Gap stories plus the History pins whose website moved to Grokipedia (McGary's Station, Levi Todd / Ellerslie, John Hardin's Pleasant Run, Pound Gap). Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Rice Wave 7 adds the last two body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged. Oct 31 closed Good Eats removals allow the four place rows to drop and the search-index counts object to follow. Soft pack #413 adds Mount Sterling and Treaty of Greenville so those link-audit edits are not treated as generated-diff noise. Monday 2026-11-16 link audit allowlists Hartford, Jacob Spears, and Treaty of Fort McIntosh, plus eight story files already different from origin/v2 on main (Cane Ridge, Carrollton, Chickamauga, Cornstalk, Hugh McGary, Jacob Beam, Little Turtle, Mingo camps). Soft pack retire Dee Felice allows place:dee-felice-covington to drop (counts already allowlisted). Nov 17 drift-source fix allowlists the Bryan Station story summary and the bryans-station-siege-1782 History pin text.",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -205,6 +205,12 @@
     "treaty-of-fort-mcintosh-1785",
     "bryan-station-siege-august-1782",
     "bryans-station-siege-1782",
+    "col-john-hardin-of-pleasant-run",
+    "john-hardin-pleasant-run-washington-1786-1792",
+    "pine-mountain-and-pound-gap",
+    "pound-gap-pine-mountain-letcher-1750-1864",
+    "mcgarys-station-shawnee-springs-mercer",
+    "levi-todd-ellerslie-lexington",
     "briefDateRange",
     "count"
   ],
@@ -287,6 +293,8 @@
     "springfield-founding-and-washington-county-seat.json",
     "harry-innes.json",
     "esther-whitley-over-the-cumberlands-1775.json",
+    "col-john-hardin-of-pleasant-run.json",
+    "pine-mountain-and-pound-gap.json",
     "william-hoy-and-hoys-station.json",
     "mary-draper-ingles-escapes-through-kentucky-1755.json",
     "campbellsville-from-buckhorn-creek-to-county-seat.json",
