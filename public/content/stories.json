@@ -1,9 +1,9 @@
 {
   "generatedAt": "2026-11-13T10:51:38.872Z",
-  "count": 261,
+  "count": 266,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-11-17"
+    "end": "2026-11-20"
   },
   "eras": [
     "early-commonwealth",
@@ -2263,6 +2263,42 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Lee Paxton · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2009
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "black-hoof-the-shawnee-warrior-who-chose-peace",
+      "title": "Black Hoof, the Shawnee warrior who chose peace",
+      "publishedDate": "2026-11-20",
+      "summary": "Black Hoof (Catecahassa), a Mekoche Shawnee born about 1740, fought Kentucky's settlers for decades, then led the Ohio Shawnee toward peace, farming and diplomacy. He kept most of his people out of Tecumseh's War and never signed a removal treaty.",
+      "proseChars": 3787,
+      "yearStart": 1755,
+      "yearEnd": 1831,
+      "era": "native",
+      "tags": [
+        "native",
+        "native-history",
+        "shawnee",
+        "frontier-war",
+        "treaty"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-20",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/black-hoof-the-shawnee-warrior-who-chose-peace.jpg",
+        "title": "Memorial to Black Hoof (Catahecassa) at Chief Blackhoof Memorial Park in Saint Johns, Ohio, where he died in 1831 (photographed 2021)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Black_Hoof_headstone.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021,
+        "credit": "Kevin1776",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "fit": "contain"
       },
       "lat": null,
       "lon": null,
@@ -5628,6 +5664,40 @@
       "matchedPlace": "Falmouth at the Licking Forks"
     },
     {
+      "slug": "john-breckinridge-of-cabells-dale",
+      "title": "John Breckinridge of Cabell's Dale",
+      "publishedDate": "2026-11-20",
+      "summary": "John Breckinridge brought his family and 25 enslaved people from Virginia to Cabell's Dale near Lexington in 1793, carried Jefferson's secret Kentucky Resolutions through the legislature in 1798, and died Jefferson's attorney general in 1806.",
+      "proseChars": 4259,
+      "yearStart": 1793,
+      "yearEnd": 1806,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "politics",
+        "slavery"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-20",
+      "county": "Fayette",
+      "photo": {
+        "image_url": "/content/photos/stories/john-breckinridge-of-cabells-dale.jpg",
+        "title": "The Sedition Act of July 14, 1798, signed by John Adams, which the Kentucky Resolutions answered",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sedition_Act_(1798).png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "United States Congress · U.S. National Archives via Wikimedia Commons · public domain",
+        "year": 1798,
+        "license": "Public domain",
+        "artwork": "document",
+        "fit": "contain"
+      },
+      "lat": 38.1308,
+      "lon": -84.4831667,
+      "mapConfidence": "override",
+      "matchedPlace": "John Breckinridge at Cabell's Dale"
+    },
+    {
       "slug": "newport-at-the-licking-mouth",
       "title": "Newport at the Licking Mouth",
       "publishedDate": "2026-09-16",
@@ -6121,6 +6191,40 @@
       "lon": -85.9145954,
       "mapConfidence": "override",
       "matchedPlace": "Glasgow / Barren County seat"
+    },
+    {
+      "slug": "greenville-a-hilltop-seat-on-william-campbells-land",
+      "title": "Greenville, a hilltop seat on William Campbell's land",
+      "publishedDate": "2026-11-20",
+      "summary": "Muhlenberg County was formed in 1798, and in 1799 Col. William Campbell gave 30 acres of high ground with two springs for its seat. Greenville got a log courthouse in 1800, a charter in 1812, the railroad in 1871, and then coal.",
+      "proseChars": 3818,
+      "yearStart": 1798,
+      "yearEnd": 1812,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding",
+        "county-seats"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-20",
+      "county": "Muhlenberg",
+      "photo": {
+        "image_url": "/content/photos/stories/greenville-a-hilltop-seat-on-william-campbells-land.jpg",
+        "title": "The Muhlenberg County Courthouse (1907) on the square in Greenville (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Muhlenberg_County_Courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Acdixon · Wikimedia Commons · CC0",
+        "year": 2013,
+        "credit": "Acdixon",
+        "license": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "lat": 37.2008,
+      "lon": -87.1782667,
+      "mapConfidence": "override",
+      "matchedPlace": "Greenville courthouse square"
     },
     {
       "slug": "new-castle-henry-county-seat",
@@ -7063,6 +7167,36 @@
       "matchedPlace": "Mantle Rock, Trail of Tears campsite (KHS marker #1675)"
     },
     {
+      "slug": "denmark-and-gaines-denmark-the-saddlebreds-foundation",
+      "title": "Denmark and Gaines' Denmark, the Saddlebred's foundation",
+      "publishedDate": "2026-11-20",
+      "summary": "Denmark, a Kentucky Thoroughbred foaled in 1839, sired Gaines' Denmark in 1851, and their line became the core of the American Saddlebred. The breed's registry was founded in Louisville in 1891, and in 1908 it named Denmark its sole foundation sire.",
+      "proseChars": 3846,
+      "yearStart": 1839,
+      "yearEnd": 1891,
+      "era": "other",
+      "tags": [
+        "kentucky",
+        "horses"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-20",
+      "county": "Fayette",
+      "photo": {
+        "image_url": "/people/portraits/gaines-denmark__ai-portrait-v1-512.jpg",
+        "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
+        "title": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
+        "alt": "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration",
+        "fit": "contain"
+      },
+      "lat": 38.04591,
+      "lon": -84.49603,
+      "mapConfidence": "override",
+      "matchedPlace": "Gaines' Denmark, bred near Lexington"
+    },
+    {
       "slug": "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",
       "title": "Bagdad: How a Shelby County Rail Stop Took Over Consolation",
       "publishedDate": "2026-09-25",
@@ -7971,6 +8105,38 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "the-woman-from-short-cave",
+      "title": "The Woman from Short Cave",
+      "publishedDate": "2026-11-20",
+      "summary": "Saltpeter miners found an ancient Native American woman's burial in Short Cave in the early 1810s. She was shown in Mammoth Cave, toured the East, went to the American Antiquarian Society in 1817 and the Smithsonian in 1876, and was later called Fawn Hoof.",
+      "proseChars": 4039,
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "caves"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-20",
+      "county": "Edmonson",
+      "photo": {
+        "image_url": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.jpg",
+        "webp": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.webp",
+        "title": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+        "alt": "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration",
+        "fit": "contain"
+      },
+      "lat": 37.2,
+      "lon": -86.2,
+      "mapConfidence": "override",
+      "matchedPlace": "Edmonson County (county-level point)"
     },
     {
       "slug": "tinsley-hill-15ly18-lyon-county",

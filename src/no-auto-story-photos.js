@@ -49,6 +49,12 @@ export const NO_AUTO_STORY_PHOTOS = [
   'i-w-bernheim-from-peddler-to-i-w-harper',
   'the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky',
   'fort-jefferson-clarks-fort-on-chickasaw-ground',
+  // Nov 20 2026 pack. Hand-placed public-domain/CC photos; do not fetch a stand-in. The Woman from Short Cave and Denmark are
+  // not listed: their photos are AI likenesses under /people/portraits/ (like Blue Jacket), which this list would hide.
+  // Never a photo of the remains.
+  'john-breckinridge-of-cabells-dale',
+  'greenville-a-hilltop-seat-on-william-campbells-land',
+  'black-hoof-the-shawnee-warrior-who-chose-peace',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

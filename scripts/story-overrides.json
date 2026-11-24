@@ -1202,6 +1202,52 @@
       "yearStart": 1780,
       "yearEnd": 1781,
       "county": "Ballard"
+    },
+    "john-breckinridge-of-cabells-dale": {
+      "reason": "Pin KHS marker #1687 (Mt. Horeb Presbyterian Church, Iron Works Pike at Mt. Horeb Pike), which says the church was organized at nearby Cabell's Dale; the farm has no marker coordinate. Story and History pin years 1793 (arrival)–1806 (death). County Fayette.",
+      "date": "2026-11-20",
+      "historyId": "cabells-dale-breckinridge-fayette-1793-1806",
+      "lat": 38.1308,
+      "lon": -84.4831667,
+      "yearStart": 1793,
+      "yearEnd": 1806,
+      "county": "Fayette"
+    },
+    "greenville-a-hilltop-seat-on-william-campbells-land": {
+      "reason": "Pin the Muhlenberg County courthouse lawn, Greenville (KHS #821 Muhlenberg County marker coordinates). Story years 1798 (county formed)–1812 (town established); the History pin keeps 1799–1800 (seat chosen, plat and log courthouse) (yearsStoryOnly). County Muhlenberg.",
+      "date": "2026-11-20",
+      "historyId": "greenville-courthouse-square-muhlenberg-1799",
+      "lat": 37.2008,
+      "lon": -87.1782667,
+      "yearStart": 1798,
+      "yearEnd": 1812,
+      "yearsStoryOnly": true,
+      "county": "Muhlenberg"
+    },
+    "denmark-and-gaines-denmark-the-saddlebreds-foundation": {
+      "reason": "Horse series. Town-level pin for Lexington: the ASHA Register Vol. I (1893), No. 61, says Gaines' Denmark was bred by Wm. V. Cromwell near Lexington and foaled in 1851 (no farm site known); point is KHS #1440 (Fayette County) on the Main St. courthouse lawn. Story years 1839 (Denmark foaled)–1891 (breed association founded); the History pin keeps 1851 (yearsStoryOnly). County Fayette.",
+      "date": "2026-11-20",
+      "historyId": "gaines-denmark-lexington-fayette-1851",
+      "lat": 38.04591,
+      "lon": -84.49603,
+      "yearStart": 1839,
+      "yearEnd": 1891,
+      "yearsStoryOnly": true,
+      "county": "Fayette"
+    },
+    "the-woman-from-short-cave": {
+      "reason": "Protected archaeological site and human remains: county-level placement; protected site. Edmonson County at 0.1°; the find site's location is not public and no creek, river, direction or nearby place is named. Same pattern as Fort Jefferson: the story links no History pin; the county-level History pin the-woman-from-short-cave-edmonson is protected on its own (pin-rounding forceHistoryIds). No years: no radiocarbon date has been determined; the 1810s find and later moves are text only. County Edmonson.",
+      "date": "2026-11-20",
+      "lat": 37.2,
+      "lon": -86.2,
+      "county": "Edmonson"
+    },
+    "black-hoof-the-shawnee-warrior-who-chose-peace": {
+      "reason": "Nov 20 2026: unpinned. Black Hoof's life centered on Shawnee towns in Ohio (Wapakoneta, died Saint Johns); his Kentucky ties are raids and a possible childhood stay at Eskippakithiki (protected). No defensible Kentucky point; must not fuzzy-match Eskippakithiki, Ruddell's Station, Boonesborough or Greenville.",
+      "date": "2026-11-20",
+      "yearStart": 1755,
+      "yearEnd": 1831,
+      "county": ""
     }
   }
 }
