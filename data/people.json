@@ -359,7 +359,8 @@
         "shelbyville",
         "ephraim-mcdowell-jane-todd-crawford-1809",
         "winchester-clark-county-seat",
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "john-breckinridge-of-cabells-dale"
       ],
       "role": "First and fifth governor of Kentucky",
       "native": false,
@@ -965,7 +966,8 @@
         "egushawa-and-the-odawa-in-kentuckys-war-years",
         "falmouth-at-the-licking-forks",
         "isaac-ruddell-and-the-guns-at-ruddells-station",
-        "ojibwe-on-birds-war-road"
+        "ojibwe-on-birds-war-road",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "British officer, led 1780 invasion",
       "native": false,
@@ -1311,7 +1313,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "elizabethtown-from-severns-valley",
-        "miami-hunters-return-north-of-the-ohio"
+        "miami-hunters-return-north-of-the-ohio",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Miami war leader",
       "native": true,
@@ -1550,7 +1553,8 @@
         "benjamin-logan",
         "maj-joseph-bowman",
         "maj-silas-harlan",
-        "shawnee-chillicothe-divisions"
+        "shawnee-chillicothe-divisions",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Colonel, 1779 Chillicothe raid",
       "native": false,
@@ -2306,7 +2310,9 @@
         "jack-jouett-kentuckys-midnight-rider",
         "big-bone-lick-older-cycle",
         "thomas-walker-and-cumberland-gap",
-        "fort-jefferson-clarks-fort-on-chickasaw-ground"
+        "fort-jefferson-clarks-fort-on-chickasaw-ground",
+        "john-breckinridge-of-cabells-dale",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Governor of Virginia, U.S. president",
       "native": false,
@@ -5669,7 +5675,8 @@
       "lifeDates": null,
       "stories": [
         "hancock-taylor-fincastle-surveyor",
-        "john-floyd"
+        "john-floyd",
+        "john-breckinridge-of-cabells-dale"
       ],
       "role": "Colonel, county surveyor",
       "native": false,
@@ -6569,7 +6576,8 @@
         "gen-charles-scott-and-petersburg",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "simpsonville-takes-shape-on-the-louisville-road",
-        "bland-w-ballard-of-tick-creek"
+        "bland-w-ballard-of-tick-creek",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "General, Fallen Timbers",
       "native": false,
@@ -6590,7 +6598,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "little-turtle-and-hardins-defeat-1790"
+        "little-turtle-and-hardins-defeat-1790",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "General, 1790 campaign",
       "native": false,
@@ -6616,7 +6625,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "blue-jacket-weyapiersenwah",
         "egushawa-and-the-odawa-in-kentuckys-war-years",
-        "john-filson-kentucke-1784"
+        "john-filson-kentucke-1784",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "General, 1791 defeat",
       "native": false,
@@ -7451,7 +7461,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "role": "Shawnee leader",
       "native": true,
@@ -7685,7 +7696,8 @@
       ],
       "lifeDates": "1785–1872",
       "stories": [
-        "peter-cartwright-the-backwoods-preacher-from-logan-county"
+        "peter-cartwright-the-backwoods-preacher-from-logan-county",
+        "greenville-a-hilltop-seat-on-william-campbells-land"
       ],
       "role": "Methodist circuit rider, raised in Logan County",
       "native": false,
@@ -7724,6 +7736,766 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Halftone plate captioned THE AUTHOR IN HIS TWENTY-EIGHTH YEAR (about 1876) in I. W. Bernheim, The Story of the Bernheim Family (Louisville, 1910). Internet Archive item TheStoryOfTheBernheimFamily, leaf n74, University of Louisville collection, Public Domain Mark. 512 square is a hand crop of the face. Story sidebar is the 1867 peddler plate (leaf n45). Do NOT use Commons File:IW_Bernheim.jpg: its own-work CC BY-SA claim on an old photograph is doubtful.",
+      "ai": false
+    },
+    {
+      "id": "john-breckinridge",
+      "name": "John Breckinridge",
+      "aliases": [],
+      "lifeDates": "1760–1806",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Kentucky legislator, U.S. senator and U.S. attorney general, of Cabell's Dale",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "posthumous",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/John_Breckinridge_as_Attorney_General.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John_Breckinridge_as_Attorney_General.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:John_Breckinridge_as_Attorney_General.jpg",
+      "credit": "Alban Jasper Conant, 1863 · U.S. Department of Justice · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait by Alban Jasper Conant (1863), painted for the Department of Justice attorneys general series after an earlier likeness; posthumous. Commons PD (796x1029). 512 square is a hand crop of the face and shoulders. Story sidebar is the 1798 Sedition Act (National Archives), not this portrait. Not John C. Breckinridge (grandson, vice president).",
+      "ai": false
+    },
+    {
+      "id": "black-hoof",
+      "name": "Black Hoof",
+      "aliases": [
+        "Catecahassa",
+        "Catahecassa",
+        "Ca-ta-he-cas-sa"
+      ],
+      "lifeDates": "c. 1740–1831",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Mekoche Shawnee war leader and head civil chief",
+      "native": true,
+      "likeness": "portrait",
+      "timing": "uncertain",
+      "image": "https://live.staticflickr.com/7506/15251349593_6c75563a59_o.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ca-Ta-He-Cas-Sa,_Black_Hoof,_Principal_Chief_of_the_Shawannes_(15251349593).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://www.flickr.com/photos/smu_cul_digitalcollections/15251349593/",
+      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1842 edition; plate entered 1837 by E. C. Biddle), DeGolyer Library, Southern Methodist University · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Hand-colored Lehman & Duval lithograph after Charles Bird King, from the 1842 printing of McKenney & Hall vol. I held by DeGolyer Library, SMU (Folio-5 E77 .M13 1842). Same plate as the 1836-37 Biddle issue: the imprint reads Painted by C. B. King, Lehman & Duval Lithrs., Philadelphia Published by E. C. Biddle, entered 1837. Not the later J. T. Bowen redrawing (LOC 95502230). King's original is lost; Henry Inman's copy is NPG.82.105. The 512 square is a head-and-shoulders crop downscaled from SMU's 757x1000 Flickr Commons scan (also on Commons as File:Ca-Ta-He-Cas-Sa, Black Hoof, Principal Chief of the Shawannes (15251349593).jpg). Timing uncertain: King's sitting date is not documented. Story sidebar is his memorial in Saint Johns, Ohio, not this portrait.",
+      "ai": false
+    },
+    {
+      "id": "john-b-castleman",
+      "name": "John B. Castleman",
+      "aliases": [
+        "John Breckinridge Castleman"
+      ],
+      "lifeDates": "1841–1918",
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Saddle-horse breeder of Castleton Farm; a founder and later president of the American Saddle Horse Breeders' Association",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/John-B.-Castleman.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John-B.-Castleman.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:John-B.-Castleman.jpg",
+      "credit": "Unknown photographer, c. 1898 · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Lifetime photograph in U.S. Volunteers uniform (collar \"USV\"), c. 1898, published 1912 (he died 1918); Commons PD, unknown author, 602x862. 512 square is a hand crop of the head and shoulders. Same file Wikipedia uses for John Breckinridge Castleman. Not David Castleman (Breckinridge's son-in-law, Cabell's Dale). No Grokipedia page (John_B._Castleman and John_Breckinridge_Castleman return 404).",
+      "ai": false
+    },
+    {
+      "id": "charles-wilkins-saltpeter",
+      "name": "Charles Wilkins",
+      "aliases": [],
+      "lifeDates": "1763–1827",
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "role": "Lexington merchant and saltpeter broker; owner of Mammoth Cave and its saltpeter works",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Charles_Wilkins_1805_by_Trott_%28page_83_crop%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Charles_Wilkins_1805_by_Trott_(page_83_crop).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Charles_Wilkins_1805_by_Trott_(page_83_crop).jpg",
+      "credit": "Benjamin Trott, miniature, about 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Watercolor-on-ivory miniature by Benjamin Trott, about 1805, painted on Trott's 1805 trip west of the mountains (Wehle, p. 41, pl. XV). Identification: a letter fragment in the frame back signed 'Goodbye, Chas. Wilkins', pencilled 'Lexington, Ky., July 1824'; Wehle reads the sitter as about forty (Wilkins was born 1763). Commons PD-scan from the 1927 Metropolitan Museum book. Not Sir Charles Wilkins the Orientalist (Grokipedia Charles_Wilkins is that namesake, so no Grokipedia link).",
+      "ai": false
+    },
+    {
+      "id": "nahum-ward",
+      "name": "Nahum Ward",
+      "aliases": [],
+      "lifeDates": "1785–1860",
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "role": "Marietta, Ohio land dealer who toured the cave in 1815 and took her east",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Nahum_Ward_1785-1860_%28page_325_crop%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nahum_Ward_1785-1860_(page_325_crop).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nahum_Ward_1785-1860_(page_325_crop).jpg",
+      "credit": "Unknown painter · Charles Martyn, The William Ward Genealogy (1925) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait of Nahum Ward in later life (holding papers over a map of Ohio), reproduced opposite p. 325 of Martyn's William Ward Genealogy (1925) 'from a painting in the possession of Agnes (Ward) White'. Entry 1330: born October 23, 1785, Shrewsbury, Mass.; died April 6, 1860, Marietta; moved to Marietta 1811; land operator; mayor. Painter and date unrecorded; painted in his lifetime. Commons PD-scan. Shows him decades after 1815-16. No Grokipedia page (Nahum_Ward 404).",
+      "ai": false
+    },
+    {
+      "id": "tenskwatawa",
+      "name": "Tenskwatawa",
+      "aliases": [
+        "Tenskwatawa (the Prophet)",
+        "Ten-sqúat-a-way"
+      ],
+      "lifeDates": "1775–1836",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Shawnee religious leader known as the Prophet; Tecumseh's brother",
+      "native": true,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Ten-sq%C3%BAat-a-way.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ten-sq%C3%BAat-a-way.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Ten-sq%C3%BAat-a-way.jpg",
+      "credit": "George Catlin, 1830 · Smithsonian American Art Museum · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "George Catlin, Ten-sqúat-a-way, The Open Door, Known as The Prophet, Brother of Tecumseh, oil, painted 1830 at Kansas (from life; he died 1836). SAAM 1985.66.279. Commons PD-Art. 512 square is a hand crop of the head and shoulders. In the Black Hoof story he is 'his brother, the Prophet' (per-story alias in portrait-sweep.json).",
+      "ai": false
+    },
+    {
+      "id": "john-hunt-morgan",
+      "name": "John Hunt Morgan",
+      "aliases": [],
+      "lifeDates": "1825–1864",
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Confederate cavalry general from Lexington",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Library_Company_of_Philadelphia_%28I%29P.9100.12f_John_Hunt_Morgan.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Library_Company_of_Philadelphia_(I)P.9100.12f_John_Hunt_Morgan.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Library_Company_of_Philadelphia_(I)P.9100.12f_John_Hunt_Morgan.jpg",
+      "credit": "Unknown photographer, lifetime sitting, print about 1870 · Library Company of Philadelphia · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Carte-de-visite photograph of Brig. Gen. John Hunt Morgan in Confederate uniform (Library Company of Philadelphia (I)P.9100.12f; print about 1870 of a lifetime sitting; he died 1864). This is the file Wikipedia uses. Commons PD. 512 square is a hand crop. Not Daniel Morgan (Revolutionary general). Other stories naming him are kept off this PR (people-mention-exceptions, scope).",
+      "ai": false
+    },
+    {
+      "id": "alney-mclean",
+      "name": "Alney McLean",
+      "aliases": [],
+      "lifeDates": "1779–1841",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Muhlenberg County's first surveyor, who laid out Greenville; later U.S. representative",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Alney_McLean.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Alney_McLean.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Alney_McLean.jpg",
+      "credit": "Unknown artist, about 1820 · Otto A. Rothert, A History of Muhlenberg County (1913) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Portrait of Alney McLean about 1820, reproduced in Rothert's A History of Muhlenberg County (1913), chapter 7 plate 'Alney McLean, about 1820'. Commons PD-US (also File:Alney_McLean_c1820.jpg, smaller). 512 square is a hand crop above the caption. The congressman and county surveyor are the same man.",
+      "ai": false
+    },
+    {
+      "id": "mary-hopkins-cabell-breckinridge",
+      "name": "Mary Hopkins Cabell Breckinridge",
+      "aliases": [
+        "Mary Hopkins",
+        "Polly Cabell"
+      ],
+      "lifeDates": "1769–1858",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Wife of John Breckinridge (married 1785); Cabell's Dale is named for her family",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Mary_Hopkins_Cabell_Breckinridge%2C_1769_-_1858.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Mary_Hopkins_Cabell_Breckinridge,_1769_-_1858.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mary_Hopkins_Cabell_Breckinridge,_1769_-_1858.jpg",
+      "credit": "Matthew Harris Jouett · Smithsonian National Portrait Gallery, Catalog of American Portraits · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait by Matthew Harris Jouett (1788–1827), painted in her lifetime (she died 1858). Commons PD-Art|PD-old-70; source NPG Catalog of American Portraits DC990457. 512 square is a hand crop inside the frame. In the story she is Mary Hopkins \"Polly\" Cabell.",
+      "ai": false
+    },
+    {
+      "id": "john-c-breckinridge",
+      "name": "John C. Breckinridge",
+      "aliases": [
+        "John Cabell Breckinridge"
+      ],
+      "lifeDates": "1821–1875",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Grandson of John Breckinridge; U.S. vice president (1857–61)",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/John_C._Breckinridge_1860_portrait_%283x4_cropped%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John_C._Breckinridge_1860_portrait_(3x4_cropped).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:John_C._Breckinridge_1860_portrait_(3x4_cropped).jpg",
+      "credit": "Mathew Brady / Levin C. Handy · Library of Congress, Brady-Handy Collection · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Brady-Handy studio photograph from life (LOC cwpbh.04775; Commons PD-US, digitally retouched crop, PD-retouched-user). The file Wikipedia uses. Not his grandfather john-breckinridge (1760–1806) and not john-b-castleman.",
+      "ai": false
+    },
+    {
+      "id": "nathanael-greene",
+      "name": "Nathanael Greene",
+      "aliases": [],
+      "lifeDates": "1742–1786",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Continental Army major general; Greenville is usually said to be named for him",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Nathanael_Greene_by_Charles_Willson_Peale.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nathanael_Greene_by_Charles_Willson_Peale.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nathanael_Greene_by_Charles_Willson_Peale.jpg",
+      "credit": "Charles Willson Peale, 1783 · Independence National Historical Park · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait by Charles Willson Peale, painted from life in 1783 (Greene died 1786). Commons PD-Art|PD-old-auto-expired (Peale died 1827). Greensburg also names him; that out-of-pack story is in people-mention-exceptions for the sweep.",
+      "ai": false
+    },
+    {
+      "id": "nathan-bedford-forrest",
+      "name": "Nathan Bedford Forrest",
+      "aliases": [],
+      "lifeDates": "1821–1877",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land",
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Confederate cavalry general",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Nathan_B._Forrest_-_LOCc.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nathan_B._Forrest_-_LOCc.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nathan_B._Forrest_-_LOCc.jpg",
+      "credit": "Unknown photographer, 1862–65 · Library of Congress · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Photograph of Lt. Gen. Nathan Bedford Forrest, 1862–65, likely T. J. Selby of Corinth, Mississippi (LOC ppmscd.00082; Commons PD-old-70-1923). The file Wikipedia uses. Not his grandson Nathan Bedford Forrest III (1905–1943). Old Forester story names him; out-of-pack, in people-mention-exceptions for the sweep.",
+      "ai": false
+    },
+    {
+      "id": "ephraim-brank",
+      "name": "Ephraim McLean Brank",
+      "aliases": [
+        "Ephraim M. Brank"
+      ],
+      "lifeDates": "1791–1875",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Muhlenberg County rifleman remembered for the Battle of New Orleans, 1815",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ephraim-Brank.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ephraim-Brank.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Ephraim-Brank.jpg",
+      "credit": "Unknown photographer, about 1850 · Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Likeness 'Ephraim M. Brank, about 1850' in Rothert's A History of Muhlenberg County (1913), chapter 7 (Muhlenberg men in the War of 1812). Commons PD-US. 512 square is a hand crop of the face.",
+      "ai": false
+    },
+    {
+      "id": "john-dennis-greenville",
+      "name": "John Dennis",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Tavern keeper and pioneer from North Carolina; Muhlenberg County's first court met at his house in 1799",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness (Rothert 1913 has none). AI portrait render v1 (512 jpg sha256 eb5ee6a0…, 96 jpg 65f6e20c…), Nov 20 2026, History CLEAR. Dates not documented.",
+      "ai": true
+    },
+    {
+      "id": "william-campbell-muhlenberg",
+      "name": "William Campbell of Muhlenberg County",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Founder of Greenville; Caney Station about 1795; gave 30 acres for the Muhlenberg County seat in 1799",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Col. William Campbell of Muhlenberg County, Greenville's founder (Caney Station about 1795; 30-acre gift for the county seat in 1799). Not william-campbell (Kings Mountain, d. 1781). Canonical face: AI portrait AI portrait v1, Nov 20 2026 (1024 jpg sha256 1bd176bb…), History CLEAR. No known likeness exists.",
+      "ai": true
+    },
+    {
+      "id": "woman-from-short-cave",
+      "name": "The Woman from Short Cave",
+      "aliases": [
+        "Fawn Hoof"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "role": "Ancient Native American woman, later called Fawn Hoof; her own name is not known",
+      "native": true,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Imagined in life, never the remains. AI portrait render v3 (1024 jpg sha256 6000a146…), shipped as site v1, Nov 20 2026, History CLEAR. Renders v1/v2 not used. No radiocarbon date; non-specific prehistoric Eastern Woodlands dress.",
+      "ai": true
+    },
+    {
+      "id": "denmark-1839",
+      "name": "Denmark (horse)",
+      "aliases": [],
+      "lifeDates": "foaled 1839",
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Brown Thoroughbred stallion foaled in 1839, by imported Hedgeford; foundation sire of the American Saddlebred",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Horse series. No sourced period likeness. AI portrait render v2 (512 jpg sha256 6748c26e…, 96 jpg e21b885f…), Nov 20 2026, History CLEAR (v1 STAND, not used). Solid brown, black points, small star, no leg white, plain halter, facing right (opposite gaines-denmark). Sire of gaines-denmark (1851).",
+      "ai": true
+    },
+    {
+      "id": "gaines-denmark",
+      "name": "Gaines' Denmark (horse)",
+      "aliases": [
+        "Gaines' Denmark"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Saddlebred foundation stallion, foaled in 1851 and bred near Lexington",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Horse series. No sourced period likeness; the Commons painting is not used. AI portrait render v1 (1024 jpg sha256 52da2590…), Nov 20 2026, History CLEAR. Black, two white hind socks.",
+      "ai": true
+    },
+    {
+      "id": "peter-muhlenberg",
+      "name": "Peter Muhlenberg",
+      "aliases": [
+        "John Peter Gabriel Muhlenberg"
+      ],
+      "lifeDates": "1746–1807",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Lutheran minister and Continental Army general; Muhlenberg County is named for him",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "posthumous",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/Maj._Gen._Peter_Muhlenberg_%28NYPL_b12349150-423993%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Maj._Gen._Peter_Muhlenberg_(NYPL_b12349150-423993).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Maj._Gen._Peter_Muhlenberg_(NYPL_b12349150-423993).jpg",
+      "credit": "H. B. Hall, etching, 1871 · Emmet Collection, New York Public Library · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Etching 'Maj. Gen. Peter Muhlenberg' signed 'Etch'd by H. B. Hall, Morrisania, N.Y. 1871', Emmet Collection, NYPL (b12349150, image 423993); NYPL names the sitter John Peter Gabriel Muhlenberg, 1746–1807. Commons PD-1923. Not william-campbell-muhlenberg. 512 square is a hand crop of the face.",
+      "ai": false
+    },
+    {
+      "id": "james-weir-greenville",
+      "name": "James Weir",
+      "aliases": [],
+      "lifeDates": "1777–1845",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Pioneer merchant and banker of Greenville; opened the town's first store with James Craig in 1799",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://archive.org/download/historyofmuhlenb00roth/page/n86_w1400.jpg",
+      "sourcePage": "https://archive.org/details/historyofmuhlenb00roth/page/n86/mode/1up",
+      "license": "Public domain",
+      "licenseUrl": "https://archive.org/details/historyofmuhlenb00roth/page/n86/mode/1up",
+      "credit": "Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Plate 'Pioneer James Weir, about 1840' in Rothert, A History of Muhlenberg County (1913), ch. 6 'The Weirs', p. 57 (archive.org historyofmuhlenb00roth, leaf n86). Rothert: born South Carolina 1777, came to Muhlenberg 1798, first merchant and banker in Greenville, died Greenville Aug. 9, 1845. Published 1913, PD-US. Not his son James Weir the author (1821–1906). 512 square is a hand crop of the face.",
+      "ai": false
+    },
+    {
+      "id": "mary-ann-castleman",
+      "name": "Mary Ann Castleman",
+      "aliases": [
+        "Mary Ann Breckinridge Castleman"
+      ],
+      "lifeDates": "about 1794–1816",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Daughter of John Breckinridge; with her husband, David Castleman, she took over Cabell's Dale's horse and mule breeding",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Born 1794 or 1795 (sources differ); married David Castleman Jan. 2, 1811; died 1816. Not the later Mary Ann Castleman (b. 1836, of David's second marriage). AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "david-castleman",
+      "name": "David Castleman",
+      "aliases": [],
+      "lifeDates": "1786–1852",
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "role": "Lexington merchant and horse breeder who held Cabell's Dale after 1816; father of John B. Castleman",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Married Mary Ann Breckinridge 1811. Not john-b-castleman (his son, 1841–1918). AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "james-craig-greenville",
+      "name": "James Craig",
+      "aliases": [],
+      "lifeDates": "1734–1816",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Revolutionary War soldier who opened Greenville's first store with James Weir in 1799",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Rothert 1913: Capt. James Craig, born 1734, died March 5, 1816. Not lewis-craig, elijah-craig, benjamin-craig or john-hawkins-craig. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "samuel-russell-greenville",
+      "name": "Samuel Russell",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Greenville's first postmaster (1801) and tavern keeper; brother of Tabitha Campbell",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Son of Gen. William Russell and Tabitha Adams (Rothert 1913). Dates not in our sources. Not william-russell-iii or henry-russell. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "tabitha-campbell-greenville",
+      "name": "Tabitha Campbell",
+      "aliases": [
+        "Tabitha Adams Russell Campbell"
+      ],
+      "lifeDates": "died 1806",
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Wife of Col. William Campbell, Greenville's founder; remembered as the \"Mother of Greenville\"",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Rothert 1913 pp. 13–14: daughter of Gen. William Russell; died in Greenville July 26, 1806. Not the Kings Mountain Campbell line. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "philip-kennerly",
+      "name": "Philip Kennerly",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "role": "Methodist preacher who formed churches in Muhlenberg County with Peter Cartwright",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. KHS marker Greenville Methodist Church. Dates not in our sources. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "william-v-cromwell",
+      "name": "William V. Cromwell",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Breeder of Gaines' Denmark, foaled in 1851 near Lexington",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. 1893 American Saddle Horse Breeders' Association register. Dates not in our sources. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "edward-p-gaines",
+      "name": "Edward P. Gaines",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Scott County breeder of saddle horses, cattle and mules; Gaines' Denmark took his name",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Son of James Gaines (1790–1874) of Antebellum, Yarnallton Pike (NRHP Gaines House data sheet). Not Gen. Edmund P. Gaines; not the gaines-denmark horse. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "isaac-byrd",
+      "name": "Isaac Byrd",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "role": "Enslaved horseman held by the Castleman family who helped train Lightfoot in 1857",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. No dates or likeness known. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "edward-braddock",
+      "name": "Edward Braddock",
+      "aliases": [],
+      "lifeDates": "1695–1755",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "British major general mortally wounded at the Monongahela, 1755",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. No authentic likeness exists (DNB 1885–1900: 'No portrait of Braddock is known to exist'); the 1899 Sartain engraving is not used. AI portrait render v1, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "peter-chartier",
+      "name": "Peter Chartier",
+      "aliases": [
+        "Pierre Chartier"
+      ],
+      "lifeDates": "about 1690–about 1759",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Shawnee and French trader and leader whose band founded Eskippakithiki, 1745–48",
+      "native": true,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. v2 render (v1 STAND by History). AI portrait render v2, Nov 20 2026, History CLEAR, Design PASS.",
+      "ai": true
+    },
+    {
+      "id": "thomas-l-mckenney",
+      "name": "Thomas L. McKenney",
+      "aliases": [
+        "Thomas Loraine McKenney",
+        "Thomas McKenney"
+      ],
+      "lifeDates": "1785–1859",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "U.S. superintendent of Indian trade and first head of the Office of Indian Affairs; co-author with James Hall of History of the Indian Tribes of North America",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Thomas_Loraine_McKenney_by_Charles_Loring_Elliott%2C_1856%2C_oil_on_canvas%2C_from_the_National_Portrait_Gallery_-_NPG-NPG_2011_62McKenney_d1.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Thomas_Loraine_McKenney_by_Charles_Loring_Elliott,_1856,_oil_on_canvas,_from_the_National_Portrait_Gallery_-_NPG-NPG_2011_62McKenney_d1.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Loraine_McKenney_by_Charles_Loring_Elliott,_1856,_oil_on_canvas,_from_the_National_Portrait_Gallery_-_NPG-NPG_2011_62McKenney_d1.jpg",
+      "credit": "Charles Loring Elliott, oil, 1856 · National Portrait Gallery, Smithsonian Institution · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil on canvas by Charles Loring Elliott, 1856, painted in his life (he died 1859); NPG.2011.62, sitter Thomas Loraine McKenney. Commons PD-old-100-expired / PD-Art; NPG released the image CC0. No Charles Bird King portrait of McKenney is on Commons; King painted the Indian delegates McKenney commissioned. 512 square is a hand crop of the face. Named in Black Hoof prose as McKenney of 'McKenney and Hall' (B16).",
+      "ai": false
+    },
+    {
+      "id": "james-hall-author",
+      "name": "James Hall",
+      "aliases": [
+        "Judge James Hall"
+      ],
+      "lifeDates": "1793–1868",
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "role": "Illinois judge, Cincinnati banker and writer on the West; co-author with Thomas L. McKenney of History of the Indian Tribes of North America",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/James_Hall%2C_judge_and_writer.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:James_Hall,_judge_and_writer.png",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:James_Hall,_judge_and_writer.png",
+      "credit": "J. C. Buttre after J. O. Eaton, engraving, 1857 · The Romance of Western History · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Frontispiece of Hall's own The Romance of Western History (Cincinnati: Applegate, 1857; archive.org romanceofwestern00hal, LoC copy, creator 'Hall, James, 1793-1868'), signed 'Yours Truly James Hall', 'Painted by J. O. Eaton, Engraved by J. C. Buttre'. Commons PD-US. Not James Hall the geologist (1811–1898) or other namesakes. 512 square is a hand crop of the face. Named in Black Hoof prose as Hall of 'McKenney and Hall' (B16).",
       "ai": false
     }
   ]

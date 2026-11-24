@@ -263,7 +263,8 @@ export function hasSafePortrait(person) {
  * Slug-prefix matches that are not the story's subject. The Red Bird petroglyphs story is
  * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
  */
-const NOT_SUBJECT = { 'red-bird-petroglyphs-clay-county': ['red-bird'] }
+// Greenville's founder is Col. William Campbell of Muhlenberg County (Caney Station), not william-campbell (Kings Mountain, d. 1781).
+const NOT_SUBJECT = { 'red-bird-petroglyphs-clay-county': ['red-bird'], 'greenville-a-hilltop-seat-on-william-campbells-land': ['william-campbell'] }
 export const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
 const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
@@ -294,6 +295,11 @@ export function titlePeople(people, title, slug = '') {
  */
 const FORCED_STORY_SUBJECTS = {
   'zanes-trace-ends-at-maysville': 'ebenezer-zane',
+  // Greenville's founder, Col. William Campbell of Muhlenberg County (not the Kings Mountain william-campbell).
+  'greenville-a-hilltop-seat-on-william-campbells-land': 'william-campbell-muhlenberg',
+  'the-woman-from-short-cave': 'woman-from-short-cave',
+  // Title and dek subject is Denmark (1839); his son gaines-denmark stays the Photos sidebar image.
+  'denmark-and-gaines-denmark-the-saddlebreds-foundation': 'denmark-1839',
 }
 
 /** slug → person id for stories whose title names exactly one person (ids only; aliases stay private). */

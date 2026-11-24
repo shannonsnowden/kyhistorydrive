@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { routeBySlug } from '../src/route-maps.js'
+import { countyLevelProtectedCounty } from '../src/protected-pins.js'
 const SITE_ORIGIN = 'https://kyhistorydrive.com'
 import { PrerenderPages } from './prerender-pages.mjs'
 import { compactYearRange, countyLong, markerRecords } from '../src/story-tools.js'
@@ -38,8 +39,10 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
   const counties = storyCountiesList(story, matchedMarkers)
   const years = compactYearRange(story.year ?? story.yearStart, story.yearEnd)
   const canonicalUrl = `${SITE_ORIGIN}/stories/${encodeURIComponent(story.slug)}/`
-  const coordStr = geo ? formatCoordCardinal(geo.lat, geo.lon, geo.decimals) : ''
   const protectedStory = isProtectedStory(story)
+  // #436: county-level protected stories print no numeric coordinates at all, only the county.
+  const countyLevel = protectedStory ? countyLevelProtectedCounty(story.slug, story.historyId) : ''
+  const coordStr = geo && !countyLevel ? formatCoordCardinal(geo.lat, geo.lon, geo.decimals) : ''
 
   const fm = [
     '---',
@@ -54,9 +57,11 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
     ...(geo
       ? [
           `coordinates_precision: ${yamlQuote(
-            protectedStory
-              ? 'approximate (rounded to 0.1 deg / ~11 km to protect a sensitive archaeological or cultural site)'
-              : 'standard (0.0001 deg)',
+            !protectedStory
+              ? 'standard (0.0001 deg)'
+              : countyLevelProtectedCounty(story.slug, story.historyId)
+                ? `county-level (${countyLevelProtectedCounty(story.slug, story.historyId)}) to protect a sensitive archaeological site`
+                : 'approximate (rounded to 0.1 deg / ~11 km to protect a sensitive archaeological or cultural site)',
           )}`,
         ]
       : []),
@@ -82,7 +87,9 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
       .join('; ')
     glanceRows.push(`- **People:** ${pNames}`)
   }
-  if (coordStr) {
+  if (countyLevel && geo) {
+    glanceRows.push(`- **Coordinates:** ${countyLevel} *(County-level point (${countyLevel}) to protect a sensitive archaeological site)*`)
+  } else if (coordStr) {
     glanceRows.push(
       `- **Coordinates:** ${coordStr}${protectedStory ? ' *(Approximate area — rounded to 0.1° to protect a sensitive site)*' : ''}`,
     )

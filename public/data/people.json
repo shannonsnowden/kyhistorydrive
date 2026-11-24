@@ -299,7 +299,8 @@
         "shelbyville",
         "ephraim-mcdowell-jane-todd-crawford-1809",
         "winchester-clark-county-seat",
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "john-breckinridge-of-cabells-dale"
       ],
       "sourceFile": "Isaac shelby.jpg"
     },
@@ -755,7 +756,8 @@
         "egushawa-and-the-odawa-in-kentuckys-war-years",
         "falmouth-at-the-licking-forks",
         "isaac-ruddell-and-the-guns-at-ruddells-station",
-        "ojibwe-on-birds-war-road"
+        "ojibwe-on-birds-war-road",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": null
     },
@@ -1019,7 +1021,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "elizabethtown-from-severns-valley",
-        "miami-hunters-return-north-of-the-ohio"
+        "miami-hunters-return-north-of-the-ohio",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Little Turtle.jpg"
     },
@@ -1204,7 +1207,8 @@
         "benjamin-logan",
         "maj-joseph-bowman",
         "maj-silas-harlan",
-        "shawnee-chillicothe-divisions"
+        "shawnee-chillicothe-divisions",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": null
     },
@@ -1758,7 +1762,9 @@
         "jack-jouett-kentuckys-midnight-rider",
         "big-bone-lick-older-cycle",
         "thomas-walker-and-cumberland-gap",
-        "fort-jefferson-clarks-fort-on-chickasaw-ground"
+        "fort-jefferson-clarks-fort-on-chickasaw-ground",
+        "john-breckinridge-of-cabells-dale",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Official Presidential portrait of Thomas Jefferson (by Rembrandt Peale, 1800).jpg"
     },
@@ -4039,7 +4045,8 @@
       "licenseUrl": null,
       "stories": [
         "hancock-taylor-fincastle-surveyor",
-        "john-floyd"
+        "john-floyd",
+        "john-breckinridge-of-cabells-dale"
       ],
       "sourceFile": null
     },
@@ -4711,7 +4718,8 @@
         "gen-charles-scott-and-petersburg",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
         "simpsonville-takes-shape-on-the-louisville-road",
-        "bland-w-ballard-of-tick-creek"
+        "bland-w-ballard-of-tick-creek",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Anthony Wayne, uniform.jpg"
     },
@@ -4728,7 +4736,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "little-turtle-and-hardins-defeat-1790"
+        "little-turtle-and-hardins-defeat-1790",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Josiah Harmar by Raphaelle Peale.jpeg"
     },
@@ -4748,7 +4757,8 @@
         "little-turtle-and-hardins-defeat-1790",
         "blue-jacket-weyapiersenwah",
         "egushawa-and-the-odawa-in-kentuckys-war-years",
-        "john-filson-kentucke-1784"
+        "john-filson-kentucke-1784",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "ArthurStClairOfficialPortrait-restored.jpg"
     },
@@ -5367,7 +5377,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "tecumseh-falls-at-the-thames-oct-5-1813"
+        "tecumseh-falls-at-the-thames-oct-5-1813",
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "Tecumseh02.jpg"
     },
@@ -5538,7 +5549,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "peter-cartwright-the-backwoods-preacher-from-logan-county"
+        "peter-cartwright-the-backwoods-preacher-from-logan-county",
+        "greenville-a-hilltop-seat-on-william-campbells-land"
       ],
       "sourceFile": "Peter Cartwright - Erweckungsprediger.jpg"
     },
@@ -5558,6 +5570,568 @@
         "i-w-bernheim-from-peddler-to-i-w-harper"
       ],
       "sourceFile": null
+    },
+    {
+      "id": "john-breckinridge",
+      "name": "John Breckinridge",
+      "dates": "1760–1806",
+      "image": {
+        "webp": "/people/portraits/john-breckinridge-512.webp",
+        "jpg": "/people/portraits/john-breckinridge-512.jpg"
+      },
+      "credit": "Alban Jasper Conant, 1863 · U.S. Department of Justice · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": "John Breckinridge as Attorney General.jpg"
+    },
+    {
+      "id": "black-hoof",
+      "name": "Black Hoof",
+      "dates": "c. 1740–1831",
+      "image": {
+        "webp": "/people/portraits/black-hoof-512.webp",
+        "jpg": "/people/portraits/black-hoof-512.jpg"
+      },
+      "credit": "Charles Bird King (painter), Lehman & Duval (lithographers), McKenney & Hall, History of the Indian Tribes of North America, vol. I (1842 edition; plate entered 1837 by E. C. Biddle), DeGolyer Library, Southern Methodist University · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "Ca-Ta-He-Cas-Sa, Black Hoof, Principal Chief of the Shawannes (15251349593).jpg"
+    },
+    {
+      "id": "john-b-castleman",
+      "name": "John B. Castleman",
+      "dates": "1841–1918",
+      "image": {
+        "webp": "/people/portraits/john-b-castleman-512.webp",
+        "jpg": "/people/portraits/john-b-castleman-512.jpg"
+      },
+      "credit": "Unknown photographer, c. 1898 · E. Polk Johnson, A History of Kentucky and Kentuckians (1912) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": "John-B.-Castleman.jpg"
+    },
+    {
+      "id": "charles-wilkins-saltpeter",
+      "name": "Charles Wilkins",
+      "dates": "1763–1827",
+      "image": {
+        "webp": "/people/portraits/charles-wilkins-saltpeter-512.webp",
+        "jpg": "/people/portraits/charles-wilkins-saltpeter-512.jpg"
+      },
+      "credit": "Benjamin Trott, miniature, about 1805 · Harry B. Wehle, American Miniatures, 1730–1850 (1927) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "sourceFile": "Charles Wilkins 1805 by Trott (page 83 crop).jpg"
+    },
+    {
+      "id": "nahum-ward",
+      "name": "Nahum Ward",
+      "dates": "1785–1860",
+      "image": {
+        "webp": "/people/portraits/nahum-ward-512.webp",
+        "jpg": "/people/portraits/nahum-ward-512.jpg"
+      },
+      "credit": "Unknown painter · Charles Martyn, The William Ward Genealogy (1925) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "sourceFile": "Nahum Ward 1785-1860 (page 325 crop).jpg"
+    },
+    {
+      "id": "tenskwatawa",
+      "name": "Tenskwatawa",
+      "dates": "1775–1836",
+      "image": {
+        "webp": "/people/portraits/tenskwatawa-512.webp",
+        "jpg": "/people/portraits/tenskwatawa-512.jpg"
+      },
+      "credit": "George Catlin, 1830 · Smithsonian American Art Museum · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "Ten-sqúat-a-way.jpg"
+    },
+    {
+      "id": "john-hunt-morgan",
+      "name": "John Hunt Morgan",
+      "dates": "1825–1864",
+      "image": {
+        "webp": "/people/portraits/john-hunt-morgan-512.webp",
+        "jpg": "/people/portraits/john-hunt-morgan-512.jpg"
+      },
+      "credit": "Unknown photographer, lifetime sitting, print about 1870 · Library Company of Philadelphia · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": "Library Company of Philadelphia (I)P.9100.12f John Hunt Morgan.jpg"
+    },
+    {
+      "id": "alney-mclean",
+      "name": "Alney McLean",
+      "dates": "1779–1841",
+      "image": {
+        "webp": "/people/portraits/alney-mclean-512.webp",
+        "jpg": "/people/portraits/alney-mclean-512.jpg"
+      },
+      "credit": "Unknown artist, about 1820 · Otto A. Rothert, A History of Muhlenberg County (1913) · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Alney McLean.jpg"
+    },
+    {
+      "id": "mary-hopkins-cabell-breckinridge",
+      "name": "Mary Hopkins Cabell Breckinridge",
+      "dates": "1769–1858",
+      "image": {
+        "webp": "/people/portraits/mary-hopkins-cabell-breckinridge-512.webp",
+        "jpg": "/people/portraits/mary-hopkins-cabell-breckinridge-512.jpg"
+      },
+      "credit": "Matthew Harris Jouett · Smithsonian National Portrait Gallery, Catalog of American Portraits · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": "Mary Hopkins Cabell Breckinridge, 1769 - 1858.jpg"
+    },
+    {
+      "id": "john-c-breckinridge",
+      "name": "John C. Breckinridge",
+      "dates": "1821–1875",
+      "image": {
+        "webp": "/people/portraits/john-c-breckinridge-512.webp",
+        "jpg": "/people/portraits/john-c-breckinridge-512.jpg"
+      },
+      "credit": "Mathew Brady / Levin C. Handy · Library of Congress, Brady-Handy Collection · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": "John C. Breckinridge 1860 portrait (3x4 cropped).jpg"
+    },
+    {
+      "id": "nathanael-greene",
+      "name": "Nathanael Greene",
+      "dates": "1742–1786",
+      "image": {
+        "webp": "/people/portraits/nathanael-greene-512.webp",
+        "jpg": "/people/portraits/nathanael-greene-512.jpg"
+      },
+      "credit": "Charles Willson Peale, 1783 · Independence National Historical Park · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Nathanael Greene by Charles Willson Peale.jpg"
+    },
+    {
+      "id": "nathan-bedford-forrest",
+      "name": "Nathan Bedford Forrest",
+      "dates": "1821–1877",
+      "image": {
+        "webp": "/people/portraits/nathan-bedford-forrest-512.webp",
+        "jpg": "/people/portraits/nathan-bedford-forrest-512.jpg"
+      },
+      "credit": "Unknown photographer, 1862–65 · Library of Congress · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land",
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": "Nathan B. Forrest - LOCc.jpg"
+    },
+    {
+      "id": "ephraim-brank",
+      "name": "Ephraim McLean Brank",
+      "dates": "1791–1875",
+      "image": {
+        "webp": "/people/portraits/ephraim-brank-512.webp",
+        "jpg": "/people/portraits/ephraim-brank-512.jpg"
+      },
+      "credit": "Unknown photographer, about 1850 · Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Ephraim-Brank.jpg"
+    },
+    {
+      "id": "john-dennis-greenville",
+      "name": "John Dennis",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-dennis-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-dennis-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "william-campbell-muhlenberg",
+      "name": "William Campbell of Muhlenberg County",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/william-campbell-muhlenberg__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-campbell-muhlenberg__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "woman-from-short-cave",
+      "name": "The Woman from Short Cave",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/woman-from-short-cave__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "the-woman-from-short-cave"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "denmark-1839",
+      "name": "Denmark (horse)",
+      "dates": "foaled 1839",
+      "image": {
+        "webp": "/people/portraits/denmark-1839__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/denmark-1839__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "gaines-denmark",
+      "name": "Gaines' Denmark (horse)",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/gaines-denmark__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/gaines-denmark__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "peter-muhlenberg",
+      "name": "Peter Muhlenberg",
+      "dates": "1746–1807",
+      "image": {
+        "webp": "/people/portraits/peter-muhlenberg-512.webp",
+        "jpg": "/people/portraits/peter-muhlenberg-512.jpg"
+      },
+      "credit": "H. B. Hall, etching, 1871 · Emmet Collection, New York Public Library · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": "Maj. Gen. Peter Muhlenberg (NYPL b12349150-423993).jpg"
+    },
+    {
+      "id": "james-weir-greenville",
+      "name": "James Weir",
+      "dates": "1777–1845",
+      "image": {
+        "webp": "/people/portraits/james-weir-greenville-512.webp",
+        "jpg": "/people/portraits/james-weir-greenville-512.jpg"
+      },
+      "credit": "Otto A. Rothert, A History of Muhlenberg County (1913) · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "mary-ann-castleman",
+      "name": "Mary Ann Castleman",
+      "dates": "about 1794–1816",
+      "image": {
+        "webp": "/people/portraits/mary-ann-castleman__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/mary-ann-castleman__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "david-castleman",
+      "name": "David Castleman",
+      "dates": "1786–1852",
+      "image": {
+        "webp": "/people/portraits/david-castleman__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/david-castleman__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "john-breckinridge-of-cabells-dale"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "james-craig-greenville",
+      "name": "James Craig",
+      "dates": "1734–1816",
+      "image": {
+        "webp": "/people/portraits/james-craig-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/james-craig-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "samuel-russell-greenville",
+      "name": "Samuel Russell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/samuel-russell-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/samuel-russell-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "tabitha-campbell-greenville",
+      "name": "Tabitha Campbell",
+      "dates": "died 1806",
+      "image": {
+        "webp": "/people/portraits/tabitha-campbell-greenville__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/tabitha-campbell-greenville__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "philip-kennerly",
+      "name": "Philip Kennerly",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/philip-kennerly__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/philip-kennerly__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "greenville-a-hilltop-seat-on-william-campbells-land"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "william-v-cromwell",
+      "name": "William V. Cromwell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/william-v-cromwell__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-v-cromwell__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "edward-p-gaines",
+      "name": "Edward P. Gaines",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/edward-p-gaines__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/edward-p-gaines__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "isaac-byrd",
+      "name": "Isaac Byrd",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/isaac-byrd__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/isaac-byrd__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "denmark-and-gaines-denmark-the-saddlebreds-foundation"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "edward-braddock",
+      "name": "Edward Braddock",
+      "dates": "1695–1755",
+      "image": {
+        "webp": "/people/portraits/edward-braddock__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/edward-braddock__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "peter-chartier",
+      "name": "Peter Chartier",
+      "dates": "about 1690–about 1759",
+      "image": {
+        "webp": "/people/portraits/peter-chartier__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/peter-chartier__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "thomas-l-mckenney",
+      "name": "Thomas L. McKenney",
+      "dates": "1785–1859",
+      "image": {
+        "webp": "/people/portraits/thomas-l-mckenney-512.webp",
+        "jpg": "/people/portraits/thomas-l-mckenney-512.jpg"
+      },
+      "credit": "Charles Loring Elliott, oil, 1856 · National Portrait Gallery, Smithsonian Institution · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "Thomas Loraine McKenney by Charles Loring Elliott, 1856, oil on canvas, from the National Portrait Gallery - NPG-NPG 2011 62McKenney d1.jpg"
+    },
+    {
+      "id": "james-hall-author",
+      "name": "James Hall",
+      "dates": "1793–1868",
+      "image": {
+        "webp": "/people/portraits/james-hall-author-512.webp",
+        "jpg": "/people/portraits/james-hall-author-512.jpg"
+      },
+      "credit": "J. C. Buttre after J. O. Eaton, engraving, 1857 · The Romance of Western History · Public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "black-hoof-the-shawnee-warrior-who-chose-peace"
+      ],
+      "sourceFile": "James Hall, judge and writer.png"
     }
   ],
   "storySubjects": {
@@ -5573,6 +6147,7 @@
     "thomas-walker-and-cumberland-gap": "thomas-walker",
     "john-finley-the-trader-who-put-kentucky-on-boones-map": "john-finley",
     "maj-silas-harlan": "silas-harlan",
+    "black-hoof-the-shawnee-warrior-who-chose-peace": "black-hoof",
     "evan-williams-on-the-louisville-wharf": "evan-williams",
     "mary-draper-ingles-escapes-through-kentucky-1755": "mary-draper-ingles",
     "col-william-russell-iii": "william-russell-iii",
@@ -5628,12 +6203,14 @@
     "jacob-spears-early-bourbon-whiskey": "jacob-spears",
     "little-turtle-and-hardins-defeat-1790": "little-turtle",
     "capt-william-hubbells-ohio-flatboat-stand-1791": "william-hubbell",
+    "john-breckinridge-of-cabells-dale": "john-breckinridge",
     "peter-cartwright-the-backwoods-preacher-from-logan-county": "peter-cartwright",
     "jacob-beam-on-hardin-creek": "jacob-beam",
     "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
     "tecumseh-falls-at-the-thames-oct-5-1813": "tecumseh",
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
     "james-crow-on-glenns-creek": "james-c-crow",
+    "denmark-and-gaines-denmark-the-saddlebreds-foundation": "denmark-1839",
     "lexington-blind-hero-of-woodburn": "lexington-stallion",
     "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
     "i-w-bernheim-from-peddler-to-i-w-harper": "isaac-w-bernheim",
@@ -5641,6 +6218,8 @@
     "aristides-winner-of-the-first-kentucky-derby": "aristides-horse",
     "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr",
-    "zanes-trace-ends-at-maysville": "ebenezer-zane"
+    "the-woman-from-short-cave": "woman-from-short-cave",
+    "zanes-trace-ends-at-maysville": "ebenezer-zane",
+    "greenville-a-hilltop-seat-on-william-campbells-land": "william-campbell-muhlenberg"
   }
 }

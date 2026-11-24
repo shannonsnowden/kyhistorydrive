@@ -113,7 +113,7 @@ export const PORTRAIT_ALTS = {
   'peter-hildebrand': "AI illustration of Peter Hildebrand, Cherokee removal detachment conductor, about 1838",
   'william-campbell': "AI illustration of William Campbell, Kings Mountain commander, about 1780",
   'william-fleming': "AI illustration of Col. William Fleming, physician-soldier, about 1780",
-  'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772",
+  'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772; no known likeness exists",
   // River Raisin: modeled on the Earl oil, c. 1817. A real likeness exists.
   'james-winchester': 'AI illustration of Brig. Gen. James Winchester, about age 60 at River Raisin, 1813, modeled on the Ralph E.W. Earl portrait',
   // Susannah Hart Shelby v1 (Oct 2026). None-known.
@@ -121,7 +121,7 @@ export const PORTRAIT_ALTS = {
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
   // Approvals 111: Rice Wave 1 (Oct 2026). All v1, none-known.
   'abraham-lincoln-capt': "AI illustration of Capt. Abraham Lincoln, the president's grandfather, about 1784",
-  'henry-bird': 'AI illustration of Henry Bird, British officer on the 1780 Kentucky expedition',
+  'henry-bird': 'AI illustration of Henry Bird, British officer on the 1780 Kentucky expedition; no known likeness exists',
   'robert-tyler': 'AI illustration of Robert Tyler, co-founder of Tyler Station, about 1781',
   'william-caldwell': "AI illustration of Capt. William Caldwell of Butler's Rangers, about 1782",
   'edward-worthington': "AI illustration of Edward Worthington, founder of Worthington's Fort, about 1780",
@@ -148,6 +148,28 @@ export const PORTRAIT_ALTS = {
   'ann-mcginty': 'AI illustration: imagined portrait of Ann McGinty, who brought a spinning wheel to Harrodstown in 1775. No known likeness exists.',
   'william-hubbell': 'AI illustration: imagined portrait of Capt. William Hubbell, Ohio River flatboat captain, 1791. No known likeness exists.',
   'henry-mckenna': 'AI illustration: imagined portrait of Henry McKenna, Fairfield distiller, about 1855. No known likeness exists.',
+  // Nov 20 2026 (#436). AI portrait v1, History CLEAR. None-known; not the Kings Mountain william-campbell.
+  'william-campbell-muhlenberg': "AI illustration: imagined portrait of Col. William Campbell of Muhlenberg County, founder of Greenville, as a frontier Kentucky landowner and militia colonel about 1795–1800, in a plain wool coat, waistcoat and linen neckcloth; no known likeness exists.",
+  // Nov 20 2026 (#436). AI portrait render v3, History CLEAR. Imagined in life; never the remains.
+  'woman-from-short-cave': "AI illustration: imagined portrait of the Woman from Short Cave, an older Native woman of the prehistoric Eastern Woodlands, in deerskin and woven cloth, with a feather in her hair and bead and pendant necklaces; no known likeness exists.",
+  // Nov 20 2026 (#436 round 3). AI portraits, History CLEAR + Design PASS. None-known.
+  'mary-ann-castleman': "Imagined oil-style portrait of Mary Ann Breckinridge Castleman as a young woman about 1811–16, in a grey Empire gown with a muslin chemisette; no known likeness exists",
+  'david-castleman': "Imagined oil-style portrait of David Castleman about 1816, in a dark high-collared tailcoat and tall white neckcloth; no known likeness exists",
+  'james-craig-greenville': "Imagined oil-style portrait of James Craig of Greenville about 1800, grey hair queued, in a worn brown coat and mustard waistcoat; no known likeness exists",
+  'samuel-russell-greenville': "Imagined oil-style portrait of Samuel Russell, Greenville's first postmaster, in a plum tailcoat and white neckcloth; no known likeness exists",
+  'tabitha-campbell-greenville': "Imagined oil-style portrait of Tabitha Campbell about 1800, in a muslin cap, white fichu and dark green gown; no known likeness exists",
+  'philip-kennerly': "Imagined oil-style portrait of Methodist preacher Philip Kennerly about 1815, long straight hair, plain black coat and white stock; no known likeness exists",
+  'william-v-cromwell': "Imagined oil-style portrait of horse breeder William V. Cromwell about 1851, with greying side-whiskers and a brown frock coat; no known likeness exists",
+  'edward-p-gaines': "Imagined oil-style portrait of Scott County stockman Edward P. Gaines about 1855, in a black frock coat and bow tie; no known likeness exists",
+  'isaac-byrd': "Imagined oil-style portrait of horseman Isaac Byrd about 1857, in a work jacket, vest and blue neckerchief; no known likeness exists",
+  'edward-braddock': "Imagined oil-style portrait of Maj. Gen. Edward Braddock about 1755, in a scarlet British general's coat with blue facings and crimson sash; no known likeness exists",
+  'peter-chartier': "Imagined oil-style portrait of Pekowi Shawnee leader and trader Peter Chartier about 1745, in a linen trade shirt with silver brooches and a blue stroud blanket; no known likeness exists",
+  // Nov 20 2026 (#436). AI portrait render v1, History CLEAR. None-known.
+  'john-dennis-greenville': "AI illustration of John Dennis, Muhlenberg County tavern keeper at whose house the county's first court met in 1799; no known likeness exists.",
+  // Nov 20 2026 (#436). Horse series, AI portrait render v1, History CLEAR. No sourced period likeness.
+  // Nov 20 2026 (#436). Horse series, AI portrait render v2, History CLEAR. Sire of gaines-denmark.
+  'denmark-1839': "AI illustration of Denmark, the brown Thoroughbred stallion foaled in 1839 who became the foundation sire of the American Saddlebred, standing in a Kentucky pasture; no known likeness exists.",
+  'gaines-denmark': "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
 }
 
 export function portraitAlt(person) {
