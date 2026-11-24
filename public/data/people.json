@@ -2530,7 +2530,7 @@
         "webp": "/people/portraits/gideon-shryock-512.webp",
         "jpg": "/people/portraits/gideon-shryock-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "credit": "Jouett · Public domain · via Wikimedia Commons",
       "ai": false,
       "license": "Public domain",
       "licenseUrl": null,
@@ -6091,12 +6091,12 @@
       "name": "Daniel Weisiger",
       "dates": "1763–1829",
       "image": {
-        "webp": "/people/portraits/daniel-weisiger__ai-portrait-v1-512.webp",
-        "jpg": "/people/portraits/daniel-weisiger__ai-portrait-v1-512.jpg"
+        "webp": "/people/portraits/daniel-weisiger-512.webp",
+        "jpg": "/people/portraits/daniel-weisiger-512.jpg"
       },
-      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
-      "ai": true,
-      "license": "Original AI illustration",
+      "credit": "Unknown artist · Kentucky Historical Society · Public domain",
+      "ai": false,
+      "license": "Public domain",
       "licenseUrl": null,
       "stories": [
         "frankfort-franks-ford-becomes-the-capital"
@@ -6182,6 +6182,40 @@
       "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "richard-h-collins",
+      "name": "Richard H. Collins",
+      "dates": "1824–1888",
+      "image": {
+        "webp": "/people/portraits/richard-h-collins-512.webp",
+        "jpg": "/people/portraits/richard-h-collins-512.jpg"
+      },
+      "credit": "W. G. Jackman · Public domain · Collins, History of Kentucky, vol. 1 (1874)",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "lewis-collins",
+      "name": "Lewis Collins",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/lewis-collins-512.webp",
+        "jpg": "/people/portraits/lewis-collins-512.jpg"
+      },
+      "credit": "W. G. Jackman · Public domain · Collins, History of Kentucky, vol. 1 (1874)",
+      "ai": false,
+      "license": "Public domain",
       "licenseUrl": null,
       "stories": [
         "frankfort-franks-ford-becomes-the-capital"

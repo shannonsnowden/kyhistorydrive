@@ -3376,10 +3376,10 @@
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Gideon_Shryock_by_Jouett.jpg",
       "license": "Public domain",
       "licenseUrl": null,
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "credit": "Jouett · Public domain · via Wikimedia Commons",
       "freeToUse": true,
       "verified": true,
-      "notes": null
+      "notes": "Commons File:Gideon_Shryock_by_Jouett.jpg. The file page names no artist in the metadata; the file title credits Jouett. Source line is Kentucky Ante-Bellum Portraiture. Public domain (PD-old-70)."
     },
     {
       "id": "andrew-holmes",
@@ -8441,17 +8441,17 @@
       ],
       "role": "Frankfort merchant, street-layer, and first postmaster",
       "native": false,
-      "likeness": "none-known",
-      "timing": null,
-      "image": null,
-      "sourcePage": null,
-      "license": "Original AI illustration",
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://explorekyhistory.ky.gov/files/fullsize/557ae6ada576ab4aaae7ff30d90068e2.jpg",
+      "sourcePage": "https://explorekyhistory.ky.gov/items/show/610",
+      "license": "Public domain",
       "licenseUrl": null,
-      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
-      "freeToUse": false,
-      "verified": false,
-      "notes": "ExploreKYHistory (Captain Daniel Weisiger III): 1763–1829; helped Wilkinson lay out and name the streets in the late 1780s; first postmaster 1 Oct 1794–1 July 1795. No known likeness.",
-      "ai": true
+      "credit": "Unknown artist · Kentucky Historical Society · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "ExploreKYHistory item 610 calls this a portrait of Daniel Weisiger from when he kept his Frankfort inn, and says 'Courtesy of the Kentucky Historical Society.' The page does not name the painter. He died in 1829. Not an AI illustration.",
+      "ai": false
     },
     {
       "id": "john-allen",
@@ -8561,6 +8561,50 @@
       "verified": false,
       "notes": "Gen. Robert Todd of Fayette, the commissioner Collins says switched his vote to Frankfort on 5 Dec 1792. Wikipedia 'Robert Todd (pioneer)' identifies the Fayette militia general, brother of John Todd and Levi Todd. Not Robert Smith Todd and not Robert Todd Lincoln. No portrait on that article. No known likeness used.",
       "ai": true
+    },
+    {
+      "id": "richard-h-collins",
+      "name": "Richard H. Collins",
+      "aliases": [],
+      "lifeDates": "1824–1888",
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Historian; enlarged his father's Kentucky history, published 1874",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://archive.org/download/collinshistoricav01coll/page/n7_w1600.jpg",
+      "sourcePage": "https://archive.org/details/collinshistoricav01coll",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "W. G. Jackman · Public domain · Collins, History of Kentucky, vol. 1 (1874)",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Richard Henry Collins (4 May 1824–1 Jan 1888), son of Lewis Collins. ExploreKYHistory item 350 and the 1874/1878 title page: he revised and enlarged Lewis Collins's 1847 Historical Sketches and brought the book down to 1874. Engraving labeled 'Richd H. Collins' on the 'Kentucky Historians' frontispiece, W. G. Jackman, Collins vol. 1. The bearded KHS portrait on ExploreKYHistory item 350 is the same man. Not Lewis Collins.",
+      "ai": false
+    },
+    {
+      "id": "lewis-collins",
+      "name": "Lewis Collins",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Judge of the Mason County Court; author of Historical Sketches of Kentucky (1847)",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://archive.org/download/collinshistoricav01coll/page/n7_w1600.jpg",
+      "sourcePage": "https://archive.org/details/collinshistoricav01coll",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "W. G. Jackman · Public domain · Collins, History of Kentucky, vol. 1 (1874)",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Father of Richard H. Collins. The 1874 title page calls him 'the late Lewis Collins, Judge of the Mason County Court,' author of the book his son enlarged. Engraving labeled 'Lewis Collins' on the same frontispiece. Not Richard H. Collins. Birth and death years are not taken from a page read for this story.",
+      "ai": false
     }
   ]
 }

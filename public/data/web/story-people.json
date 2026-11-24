@@ -531,14 +531,19 @@
           "href": "/people/#daniel-weisiger"
         },
         {
-          "id": "andrew-holmes",
-          "name": "Andrew Holmes",
-          "href": "/people/#andrew-holmes"
-        },
-        {
           "id": "isaac-shelby",
           "name": "Isaac Shelby",
           "href": "/stories/isaac-shelby-old-kings-mountain/"
+        },
+        {
+          "id": "richard-h-collins",
+          "name": "Richard H. Collins",
+          "href": "/people/#richard-h-collins"
+        },
+        {
+          "id": "lewis-collins",
+          "name": "Lewis Collins",
+          "href": "/people/#lewis-collins"
         },
         {
           "id": "john-allen",
@@ -566,6 +571,11 @@
           "href": "/people/#robert-todd"
         },
         {
+          "id": "andrew-holmes",
+          "name": "Andrew Holmes",
+          "href": "/people/#andrew-holmes"
+        },
+        {
           "id": "gideon-shryock",
           "name": "Gideon Shryock",
           "href": "/people/#gideon-shryock"
@@ -577,19 +587,10 @@
         }
       ],
       "portraits": [
-        "stephen-frank",
-        "james-wilkinson",
-        "daniel-gano",
-        "daniel-weisiger",
-        "andrew-holmes",
-        "isaac-shelby",
-        "john-allen",
-        "john-edwards",
-        "henry-lee-mason",
-        "thomas-kennedy-madison",
+        "richard-h-collins",
+        "lewis-collins",
         "robert-todd",
-        "gideon-shryock",
-        "john-brown"
+        "andrew-holmes"
       ]
     },
     "hodgenville-from-hodgens-mill-to-county-seat": {

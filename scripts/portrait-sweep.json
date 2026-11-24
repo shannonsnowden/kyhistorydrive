@@ -235,30 +235,23 @@
         "james-wilkinson",
         "daniel-gano",
         "daniel-weisiger",
-        "andrew-holmes",
         "isaac-shelby",
+        "richard-h-collins",
+        "lewis-collins",
         "john-allen",
         "john-edwards",
         "henry-lee-mason",
         "thomas-kennedy-madison",
         "robert-todd",
+        "andrew-holmes",
         "gideon-shryock",
         "john-brown"
       ],
       "portraits": [
-        "stephen-frank",
-        "james-wilkinson",
-        "daniel-gano",
-        "daniel-weisiger",
-        "andrew-holmes",
-        "isaac-shelby",
-        "john-allen",
-        "john-edwards",
-        "henry-lee-mason",
-        "thomas-kennedy-madison",
+        "richard-h-collins",
+        "lewis-collins",
         "robert-todd",
-        "gideon-shryock",
-        "john-brown"
+        "andrew-holmes"
       ]
     },
     "hodgenville-from-hodgens-mill-to-county-seat": {
@@ -462,6 +455,12 @@
     "hopkinsville": {
       "links": [
         "bartholomew-wood"
+      ],
+      "portraits": []
+    },
+    "owensboro-yellow-banks": {
+      "links": [
+        "william-smeathers"
       ],
       "portraits": []
     },
