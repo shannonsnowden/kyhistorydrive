@@ -20,6 +20,8 @@ const pins = JSON.parse(fs.readFileSync(path.join(root, 'public/data/web/protect
 const ids = new Set(pins.ids || [])
 const markerNums = [...ids].filter((id) => id.startsWith('marker:')).map((id) => id.slice(7))
 assert.ok(markerNums.includes('1309') && markerNums.includes('1274'), 'protected-pins.json must list marker:1309 and marker:1274')
+// Nov 20 2026: the Woman from Short Cave (a burial site) and her county-level History pin are protected, so they are never another page's nearby card.
+for (const id of ['the-woman-from-short-cave', 'the-woman-from-short-cave-edmonson']) assert.ok(ids.has(id), `protected-pins.json must list ${id}`)
 
 // --- 1) popup protection logic ---
 const tools = await import('../src/story-tools.js')
@@ -36,6 +38,14 @@ for (const n of markerNums) {
   assert.ok(pp.protectedPlaceNoteHtml({ marker_number: n }), `marker ${n} popup has no approximate-location note`)
 }
 assert.ok(!pp.isProtectedPlace({ marker_number: '128' }, 37.1031283, -85.3064101), 'control: marker 128 must stay public')
+// #436: Short Cave's county-level pins carry a county-only note, never a distance or radius.
+for (const id of ['the-woman-from-short-cave', 'the-woman-from-short-cave-edmonson']) {
+  const note = pp.protectedPinNoteHtml(id)
+  assert.ok(note.includes('Edmonson County'), `${id}: protected note must name Edmonson County`)
+  assert.ok(!/\bmi\b|mile|within|~|km\b/i.test(note), `${id}: protected note must not carry a distance or radius`)
+  const place = pp.protectedPlaceNoteHtml({ id })
+  assert.ok(place.includes('Edmonson County') && !/within|~/.test(place), `${id}: popup note must be county-only`)
+}
 // After the list loads the grid fallback is off: the list alone decides.
 assert.ok(!pp.isProtectedPlace({ marker_number: '99999' }, 37.5, -85.2), 'loaded: the 0.1° grid fallback must only run before protected-pins.json loads')
 
@@ -129,6 +139,56 @@ if (fs.existsSync(storiesDir)) {
       if (isProtHref(href) && DIST_RE.test(card.replace(/<[^>]+>/g, ' '))) bad.push(`${slug}: distance on protected card ${href}`)
     }
   }
+  // #436 B9: county-level protected stories never render km, mi, a degree sign or a radius in the
+  // location pill, its tooltip, or story.md coordinates_precision.
+  const UNIT_RE = /\bkm\b|\bmi\b|mile|°|\bdeg\b|radius|within|~/i
+  for (const slug of ['the-woman-from-short-cave']) {
+    const county = pp.countyLevelProtectedCounty(slug)
+    assert.equal(county, 'Edmonson County', `${slug}: must be county-level`)
+    const htmlFile = path.join(storiesDir, slug, 'index.html')
+    if (!fs.existsSync(htmlFile)) continue
+    const html = fs.readFileSync(htmlFile, 'utf8')
+    const pills = html.match(/<span class="[^"]*usp-approx-pill[^"]*"[^>]*>[^<]*<\/span>/g) || []
+    assert.ok(pills.length >= 1, `${slug}: location pill missing`)
+    for (const pill of pills) {
+      assert.ok(pill.includes(`County-level location (${county}) · Protected site`), `${slug}: pill must be county-level`)
+      assert.ok(!UNIT_RE.test(pill), `${slug}: pill or tooltip carries a unit or radius`)
+    }
+    const mdFile = path.join(storiesDir, slug, 'story.md')
+    if (fs.existsSync(mdFile)) {
+      const line = (fs.readFileSync(mdFile, 'utf8').match(/^coordinates_precision:.*$/m) || [''])[0]
+      assert.ok(line.includes(`county-level (${county})`), `${slug}: story.md precision must be county-level`)
+      assert.ok(!UNIT_RE.test(line), `${slug}: story.md precision carries a unit or radius`)
+      const bullet = (fs.readFileSync(mdFile, 'utf8').match(/^- \*\*Coordinates:\*\*.*$/m) || [''])[0]
+      if (bullet) {
+        assert.ok(bullet.includes(`(County-level point (${county}) to protect a sensitive archaeological site)`), `${slug}: story.md coordinates bullet must be county-level`)
+        assert.ok(!/rounded|0\.1°|\bkm\b|radius/i.test(bullet), `${slug}: story.md coordinates bullet carries rounding or a radius`)
+      }
+      // #436: no numeric coordinates or degree signs anywhere in a county-level story.md.
+      const mdText = fs.readFileSync(mdFile, 'utf8')
+      assert.ok(!/°/.test(mdText), `${slug}: county-level story.md carries a degree sign`)
+      assert.ok(!/-?\d{1,3}\.\d+\s*(?:°|deg)?\s*[NS]?\s*,\s*-?\d{1,3}\.\d+/.test(mdText), `${slug}: county-level story.md carries numeric coordinates`)
+      assert.ok(!/^coordinates:/m.test(mdText), `${slug}: county-level story.md front matter carries coordinates`)
+      assert.ok(bullet.startsWith(`- **Coordinates:** ${county} `), `${slug}: coordinates bullet must show the county only`)
+    }
+  }
+  // #436 B15: only county-level stories use the county-level coordinates bullet; other protected
+  // stories keep the 0.1° rounding note.
+  const countyBullet = /^- \*\*Coordinates:\*\*.*County-level point/m
+  let roundedKept = 0
+  for (const slug of fs.readdirSync(storiesDir)) {
+    const md = path.join(storiesDir, slug, 'story.md')
+    if (!fs.existsSync(md)) continue
+    const text = fs.readFileSync(md, 'utf8')
+    if (countyBullet.test(text)) assert.ok(pp.countyLevelProtectedCounty(slug), `${slug}: county-level bullet on a story that is not county-level`)
+    if (/^- \*\*Coordinates:\*\*.*rounded to 0\.1°/m.test(text)) {
+      roundedKept++
+      // Other protected stories are unchanged: rounded numeric coordinates plus the 0.1° note.
+      assert.ok(/^- \*\*Coordinates:\*\* \d{1,2}\.\d° [NS], \d{1,3}\.\d° [EW] \*\(Approximate area — rounded to 0\.1° to protect a sensitive site\)\*$/m.test(text), `${slug}: protected coordinates bullet changed shape`)
+      assert.ok(!pp.countyLevelProtectedCounty(slug), `${slug}: county-level story kept the 0.1° note`)
+    }
+  }
+  assert.ok(roundedKept > 0, 'other protected stories must keep the 0.1° rounding note')
   assert.ok(pages > 100, 'too few story pages in dist')
   assert.deepEqual(bad, [], `protected ids in nearby lists or with distances:\n${bad.join('\n')}`)
   console.log(`test-protected-markers: OK (${markerNums.length} protected markers; ${pages} built story pages clean)`)

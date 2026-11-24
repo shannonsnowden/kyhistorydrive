@@ -249,7 +249,15 @@ function countyFromSubtitle(sub) {
   return null
 }
 
+// History pins with no determined date. They keep their era but get no year range, so no surface
+// (popup, layer page, timeline, search, JSON-LD) shows an inferred one. The Woman from Short Cave:
+// no radiocarbon date has been determined, and "Mammoth Cave" must not read as the mammoth era.
+const UNDATED_HISTORY_IDS = new Set(['the-woman-from-short-cave-edmonson'])
+
 function inferHistoryYearsAndEra(p) {
+  if (UNDATED_HISTORY_IDS.has(p.id) && p.year_start == null && p.year_end == null) {
+    return { yearStart: null, yearEnd: null, era: p.era || CATEGORY_ERA[p.category] || 'other' }
+  }
   // Prefer explicit occupation/event years from source JSON (never dig/NRHP dates).
   if (p.year_start != null || p.year_end != null) {
     const yearStart = p.year_start != null ? Number(p.year_start) : Number(p.year_end)
@@ -266,7 +274,7 @@ function inferHistoryYearsAndEra(p) {
   const text = [p.history, p.subtitle, p.name].filter(Boolean).join(' ')
   const cultural =
     p.category === 'archaeology' ||
-    /pleistocene|mastodon|mammoth|paleo|archaic|woodland|adena|hopewell|mississippian|fort\s*ancient|shell\s*midden/i.test(
+    /pleistocene|mastodon|mammoth(?!\s*cave)|paleo|archaic|woodland|adena|hopewell|mississippian|fort\s*ancient|shell\s*midden/i.test(
       text,
     )
 
@@ -308,7 +316,7 @@ function inferHistoryYearsAndEra(p) {
     } else if (/hopewell|middle\s*woodland/i.test(text)) {
       yearStart = -100
       yearEnd = 500
-    } else if (/pleistocene|mastodon|mammoth|paleo/i.test(text)) {
+    } else if (/pleistocene|mastodon|mammoth(?!\s*cave)|paleo/i.test(text)) {
       yearStart = -10000
       yearEnd = -8000
     } else {
