@@ -1,9 +1,10 @@
 /**
  * One identifier line for /people/. Every part is copied from people.json
  * or from a linked story already in the repo. Missing parts are left out.
- * County comes from the story file's own county field. A map place is used
- * only when that is the single recorded exact or override place and the
- * stories do not name more than one county.
+ * County comes from the person's own county when that is recorded, otherwise
+ * from the story file's own county field. A map place is used only when that
+ * is the single recorded exact or override place and the stories do not name
+ * more than one county.
  */
 
 const EXACT_SPAN = /^(\d{4})\s*[–-]\s*(\d{4})$/
@@ -40,6 +41,9 @@ export function personPlace(storySlugs, storiesBySlug) {
 export function personIdentifier(source, storiesBySlug) {
   const role = String(source?.role || '').trim()
   const dates = String(source?.lifeDates || '').trim()
-  const place = personPlace(source?.stories, storiesBySlug)
+  const recorded = String(source?.county || '').trim()
+  const place = recorded
+    ? (/county$/i.test(recorded) ? recorded : `${recorded} County`)
+    : personPlace(source?.stories, storiesBySlug)
   return [role, dates, place].filter(Boolean).join(' · ')
 }
