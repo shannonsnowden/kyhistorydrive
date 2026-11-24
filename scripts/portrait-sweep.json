@@ -130,10 +130,15 @@
     "capt-thomas-bullitts-1773-survey-party": {
       "links": [
         "thomas-bullitt",
+        "hancock-taylor",
+        "george-washington",
+        "lord-dunmore",
         "lewis-collins"
       ],
       "portraits": [
-        "lewis-collins"
+        "hancock-taylor",
+        "george-washington",
+        "lord-dunmore"
       ]
     },
     "leestown": {

@@ -3160,13 +3160,30 @@
           "href": "/people/#thomas-bullitt"
         },
         {
+          "id": "hancock-taylor",
+          "name": "Hancock Taylor",
+          "href": "/stories/hancock-taylor-fincastle-surveyor/"
+        },
+        {
+          "id": "george-washington",
+          "name": "George Washington",
+          "href": "/people/#george-washington"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
+        },
+        {
           "id": "lewis-collins",
           "name": "Lewis Collins",
           "href": "/people/#lewis-collins"
         }
       ],
       "portraits": [
-        "lewis-collins"
+        "hancock-taylor",
+        "george-washington",
+        "lord-dunmore"
       ]
     },
     "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
