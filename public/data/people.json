@@ -2530,7 +2530,7 @@
         "webp": "/people/portraits/gideon-shryock-512.webp",
         "jpg": "/people/portraits/gideon-shryock-512.jpg"
       },
-      "credit": "Jouett · Public domain · via Wikimedia Commons",
+      "credit": "Matthew Harris Jouett · Public domain · via Wikimedia Commons",
       "ai": false,
       "license": "Public domain",
       "licenseUrl": null,
@@ -6208,7 +6208,7 @@
     {
       "id": "lewis-collins",
       "name": "Lewis Collins",
-      "dates": null,
+      "dates": "1797–1870",
       "image": {
         "webp": "/people/portraits/lewis-collins-512.webp",
         "jpg": "/people/portraits/lewis-collins-512.jpg"
@@ -6218,7 +6218,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "frankfort-franks-ford-becomes-the-capital"
+        "frankfort-franks-ford-becomes-the-capital",
+        "capt-thomas-bullitts-1773-survey-party"
       ],
       "sourceFile": null
     }

@@ -531,6 +531,11 @@
           "href": "/people/#daniel-weisiger"
         },
         {
+          "id": "andrew-holmes",
+          "name": "Andrew Holmes",
+          "href": "/people/#andrew-holmes"
+        },
+        {
           "id": "isaac-shelby",
           "name": "Isaac Shelby",
           "href": "/stories/isaac-shelby-old-kings-mountain/"
@@ -571,11 +576,6 @@
           "href": "/people/#robert-todd"
         },
         {
-          "id": "andrew-holmes",
-          "name": "Andrew Holmes",
-          "href": "/people/#andrew-holmes"
-        },
-        {
           "id": "gideon-shryock",
           "name": "Gideon Shryock",
           "href": "/people/#gideon-shryock"
@@ -587,10 +587,10 @@
         }
       ],
       "portraits": [
+        "andrew-holmes",
         "richard-h-collins",
         "lewis-collins",
-        "robert-todd",
-        "andrew-holmes"
+        "robert-todd"
       ]
     },
     "hodgenville-from-hodgens-mill-to-county-seat": {
@@ -3158,9 +3158,16 @@
           "id": "thomas-bullitt",
           "name": "Thomas Bullitt",
           "href": "/people/#thomas-bullitt"
+        },
+        {
+          "id": "lewis-collins",
+          "name": "Lewis Collins",
+          "href": "/people/#lewis-collins"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "lewis-collins"
+      ]
     },
     "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
       "links": [],

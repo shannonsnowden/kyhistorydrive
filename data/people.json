@@ -3376,10 +3376,10 @@
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Gideon_Shryock_by_Jouett.jpg",
       "license": "Public domain",
       "licenseUrl": null,
-      "credit": "Jouett · Public domain · via Wikimedia Commons",
+      "credit": "Matthew Harris Jouett · Public domain · via Wikimedia Commons",
       "freeToUse": true,
       "verified": true,
-      "notes": "Commons File:Gideon_Shryock_by_Jouett.jpg. The file page names no artist in the metadata; the file title credits Jouett. Source line is Kentucky Ante-Bellum Portraiture. Public domain (PD-old-70)."
+      "notes": "Commons File:Gideon_Shryock_by_Jouett.jpg. The file title credits Jouett. Matthew Harris Jouett is the Kentucky portrait painter of that name; the same credit is used for his other portraits here. Source line is Kentucky Ante-Bellum Portraiture. Public domain (PD-old-70)."
     },
     {
       "id": "andrew-holmes",
@@ -8588,9 +8588,10 @@
       "id": "lewis-collins",
       "name": "Lewis Collins",
       "aliases": [],
-      "lifeDates": null,
+      "lifeDates": "1797–1870",
       "stories": [
-        "frankfort-franks-ford-becomes-the-capital"
+        "frankfort-franks-ford-becomes-the-capital",
+        "capt-thomas-bullitts-1773-survey-party"
       ],
       "role": "Judge of the Mason County Court; author of Historical Sketches of Kentucky (1847)",
       "native": false,
@@ -8603,7 +8604,7 @@
       "credit": "W. G. Jackman · Public domain · Collins, History of Kentucky, vol. 1 (1874)",
       "freeToUse": true,
       "verified": true,
-      "notes": "Father of Richard H. Collins. The 1874 title page calls him 'the late Lewis Collins, Judge of the Mason County Court,' author of the book his son enlarged. Engraving labeled 'Lewis Collins' on the same frontispiece. Not Richard H. Collins. Birth and death years are not taken from a page read for this story.",
+      "notes": "Father of Richard H. Collins. Archive.org lists the author as 'Collins, Lewis, 1797-1870' on collinshistoricav01coll. The 1874 dedication is to 'Judge Lewis Collins,' whose labors as a historian in 1846–7 'were most appreciated after his death, in 1870.' The title page calls him judge of the Mason County Court. Engraving labeled 'Lewis Collins' on the Kentucky Historians frontispiece, W. G. Jackman. Not Richard H. Collins.",
       "ai": false
     }
   ]
