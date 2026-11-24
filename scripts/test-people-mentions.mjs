@@ -142,4 +142,16 @@ assert.deepEqual(entry.portraits, shipped)
 assert.deepEqual(read('public/data/web/story-people.json').stories[GLASGOW].links.map((link) => link.id), ['john-gorin'])
 assert.deepEqual(read('public/data/web/story-people.json').stories[GLASGOW].portraits, [])
 
+// Nov 20 2026 (#436 B1): Greenville's founder is Muhlenberg's Col. William Campbell, not the Kings Mountain
+// william-campbell. The title match must not make him the subject, and no Greenville surface may carry his portrait.
+{
+  const { titlePeople } = await import('../src/related-people.js')
+  const GREENVILLE = 'greenville-a-hilltop-seat-on-william-campbells-land'
+  const kingsMountain = { id: 'william-campbell', name: 'William Campbell', aliases: [] }
+  assert.deepEqual(titlePeople([kingsMountain], "Greenville, a hilltop seat on William Campbell's land", GREENVILLE), [])
+  assert.notEqual(read('public/data/people.json').storySubjects?.[GREENVILLE], 'william-campbell', 'Greenville subject is not the Kings Mountain Campbell')
+  const gv = read('public/data/web/story-people.json').stories[GREENVILLE] || {}
+  assert.ok(!JSON.stringify(gv).includes('william-campbell"') && !JSON.stringify(gv).includes('william-campbell__ai'), 'Greenville people strip has no Kings Mountain Campbell')
+}
+
 console.log('test-people-mentions: OK')

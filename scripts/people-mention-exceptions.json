@@ -12,7 +12,8 @@
       "battle-of-blue-licks": "named only in a source title (John Todd, great-uncle of Mary Todd Lincoln)"
     },
     "william-campbell": {
-      "isaac-shelby-old-kings-mountain": "Approvals 111 Q4: keep unlinked this wave until History confirms this entry is the Kings Mountain colonel"
+      "isaac-shelby-old-kings-mountain": "Approvals 111 Q4: keep unlinked this wave until History confirms this entry is the Kings Mountain colonel",
+      "greenville-a-hilltop-seat-on-william-campbells-land": "Col. William Campbell of Muhlenberg County (Greenville's founder, Caney Station), not Col. William Campbell of Kings Mountain (d. 1781)"
     },
     "daniel-boone": {
       "wyandot-on-kentuckys-northern-frontier": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave",
@@ -79,6 +80,23 @@
     },
     "henry-clay": {
       "shaker-village-of-pleasant-hill": "Approvals 111 Wave 7: people.json held; no stories[] edits this wave"
+    },
+    "charles-wilkins-saltpeter": {
+      "mammoth-cave-saltpeter": "same man; out of pack for PR #436; goes to the portrait sweep"
+    },
+    "john-hunt-morgan": {
+      "glasgow-the-barrens": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "lebanon-cedars-meeting-house-county-seat": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "cynthiana-cynthia-anna-on-the-licking": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "madisonville-a-courthouse-town-on-mcgary-and-silkwood-land": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "paris-from-hopewell": "same man; out of pack for PR #436; goes to the portrait sweep",
+      "lost-river-cave": "same man; out of pack for PR #436; goes to the portrait sweep"
+    },
+    "nathanael-greene": {
+      "greensburg-takes-shape-on-the-green-river": "same man; out of pack for PR #436; goes to the portrait sweep"
+    },
+    "nathan-bedford-forrest": {
+      "george-garvin-brown-and-old-forester": "same man, but named only as one disputed source of the Old Forester name (the usual account credits Dr. William Forrester); a naming legend, not a story person. Never link him or show his portrait on this page."
     }
   }
 }
