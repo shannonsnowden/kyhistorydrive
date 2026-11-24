@@ -514,9 +514,83 @@
           "id": "stephen-frank",
           "name": "Stephen Frank",
           "href": "/people/#stephen-frank"
+        },
+        {
+          "id": "james-wilkinson",
+          "name": "James Wilkinson",
+          "href": "/stories/gen-james-wilkinson-kentuckys-agent-13/"
+        },
+        {
+          "id": "daniel-gano",
+          "name": "Daniel Gano",
+          "href": "/people/#daniel-gano"
+        },
+        {
+          "id": "daniel-weisiger",
+          "name": "Daniel Weisiger",
+          "href": "/people/#daniel-weisiger"
+        },
+        {
+          "id": "andrew-holmes",
+          "name": "Andrew Holmes",
+          "href": "/people/#andrew-holmes"
+        },
+        {
+          "id": "isaac-shelby",
+          "name": "Isaac Shelby",
+          "href": "/stories/isaac-shelby-old-kings-mountain/"
+        },
+        {
+          "id": "john-allen",
+          "name": "John Allen",
+          "href": "/people/#john-allen"
+        },
+        {
+          "id": "john-edwards",
+          "name": "John Edwards",
+          "href": "/people/#john-edwards"
+        },
+        {
+          "id": "henry-lee-mason",
+          "name": "Henry Lee",
+          "href": "/people/#henry-lee-mason"
+        },
+        {
+          "id": "thomas-kennedy-madison",
+          "name": "Thomas Kennedy",
+          "href": "/people/#thomas-kennedy-madison"
+        },
+        {
+          "id": "robert-todd",
+          "name": "Robert Todd",
+          "href": "/people/#robert-todd"
+        },
+        {
+          "id": "gideon-shryock",
+          "name": "Gideon Shryock",
+          "href": "/people/#gideon-shryock"
+        },
+        {
+          "id": "john-brown",
+          "name": "John Brown",
+          "href": "/people/#john-brown"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "stephen-frank",
+        "james-wilkinson",
+        "daniel-gano",
+        "daniel-weisiger",
+        "andrew-holmes",
+        "isaac-shelby",
+        "john-allen",
+        "john-edwards",
+        "henry-lee-mason",
+        "thomas-kennedy-madison",
+        "robert-todd",
+        "gideon-shryock",
+        "john-brown"
+      ]
     },
     "hodgenville-from-hodgens-mill-to-county-seat": {
       "links": [

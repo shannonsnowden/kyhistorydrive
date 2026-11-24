@@ -360,7 +360,8 @@
         "ephraim-mcdowell-jane-todd-crawford-1809",
         "winchester-clark-county-seat",
         "tecumseh-falls-at-the-thames-oct-5-1813",
-        "john-breckinridge-of-cabells-dale"
+        "john-breckinridge-of-cabells-dale",
+        "frankfort-franks-ford-becomes-the-capital"
       ],
       "role": "First and fifth governor of Kentucky",
       "native": false,
@@ -3395,12 +3396,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Frankfort proprietor who carried the 1792 capitol offer. Canonical face: AI illustration; no known likeness exists.",
+      "ai": true
     },
     {
       "id": "stephen-frank",
@@ -3416,12 +3418,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Canonical face: AI illustration; no known likeness exists.",
+      "ai": true
     },
     {
       "id": "matthew-walton",
@@ -7232,7 +7235,6 @@
       "lifeDates": null,
       "stories": [
         "covington-at-the-point",
-        "frankfort-franks-ford-becomes-the-capital",
         "newport-at-the-licking-mouth"
       ],
       "role": "Farm, stone tavern and ferry owner at the Point (Covington), from about 1790",
@@ -8406,6 +8408,159 @@
       "verified": true,
       "notes": "Frontispiece of Hall's own The Romance of Western History (Cincinnati: Applegate, 1857; archive.org romanceofwestern00hal, LoC copy, creator 'Hall, James, 1793-1868'), signed 'Yours Truly James Hall', 'Painted by J. O. Eaton, Engraved by J. C. Buttre'. Commons PD-US. Not James Hall the geologist (1811–1898) or other namesakes. 512 square is a hand crop of the face. Named in Black Hoof prose as Hall of 'McKenney and Hall' (B16).",
       "ai": false
+    },
+    {
+      "id": "daniel-gano",
+      "name": "Daniel Gano",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Revolutionary captain who helped lay out Frankfort, 1787",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Collins, as cited by the Northern Kentucky Tribune (2025) from History of Kentucky vol. 2, p. 707: came to Kentucky with James Wilkinson and, with Daniel Weisiger, laid out Frankfort in 1787. No known likeness. Not Rev. John Gano.",
+      "ai": true
+    },
+    {
+      "id": "daniel-weisiger",
+      "name": "Daniel Weisiger",
+      "aliases": [],
+      "lifeDates": "1763–1829",
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Frankfort merchant, street-layer, and first postmaster",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "ExploreKYHistory (Captain Daniel Weisiger III): 1763–1829; helped Wilkinson lay out and name the streets in the late 1780s; first postmaster 1 Oct 1794–1 July 1795. No known likeness.",
+      "ai": true
+    },
+    {
+      "id": "john-allen",
+      "name": "John Allen",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Bourbon County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Named by Collins (1874) and KHS marker 1774 as John Allen of Bourbon County, one of the five 1792 capital commissioners. Not identified in those accounts with Col. John Allen of Shelbyville (1771–1813), killed at the River Raisin; that portrait was not used. No known likeness of this commissioner.",
+      "ai": true
+    },
+    {
+      "id": "john-edwards",
+      "name": "John Edwards",
+      "aliases": [],
+      "lifeDates": "1748–1837",
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Bourbon County commissioner, 1792; one of Kentucky's first U.S. senators",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "uncertain",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/John_Edwards_of_Kentucky.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John_Edwards_of_Kentucky.jpg",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Bourbon commissioner and U.S. senator John Edwards (1748–1837), not a later namesake. Commons File:John_Edwards_of_Kentucky.jpg is public domain; the shipped crop is the same portrait from the larger public-domain scan on ExploreKYHistory item 439 (Hopewell Museum; painter unknown), with the printed caption removed. ExploreKYHistory notes the marker's 1837 death year may be 1833 or 1834."
+    },
+    {
+      "id": "henry-lee-mason",
+      "name": "Henry Lee",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Mason County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Henry Lee of Mason County, named by Collins and KHS marker 1774. Not Henry Lee III of Virginia (Light-Horse Harry), who was governor of Virginia in 1792. No known likeness.",
+      "ai": true
+    },
+    {
+      "id": "thomas-kennedy-madison",
+      "name": "Thomas Kennedy",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Madison County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Thomas Kennedy of Madison County, a 1792 constitutional convention delegate and one of the five capital commissioners (Collins; KHS marker 1774; Secretary of State delegate list). Not Thomas Kennedy the Covington ferry owner (thomas-kennedy). No known likeness.",
+      "ai": true
+    },
+    {
+      "id": "robert-todd",
+      "name": "Robert Todd",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Fayette County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Gen. Robert Todd of Fayette, the commissioner Collins says switched his vote to Frankfort on 5 Dec 1792. Wikipedia 'Robert Todd (pioneer)' identifies the Fayette militia general, brother of John Todd and Levi Todd. Not Robert Smith Todd and not Robert Todd Lincoln. No portrait on that article. No known likeness used.",
+      "ai": true
     }
   ]
 }

@@ -300,7 +300,8 @@
         "ephraim-mcdowell-jane-todd-crawford-1809",
         "winchester-clark-county-seat",
         "tecumseh-falls-at-the-thames-oct-5-1813",
-        "john-breckinridge-of-cabells-dale"
+        "john-breckinridge-of-cabells-dale",
+        "frankfort-franks-ford-becomes-the-capital"
       ],
       "sourceFile": "Isaac shelby.jpg"
     },
@@ -2543,28 +2544,36 @@
       "id": "andrew-holmes",
       "name": "Andrew Holmes",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/andrew-holmes__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/andrew-holmes__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "frankfort-franks-ford-becomes-the-capital",
         "gen-james-wilkinson-kentuckys-agent-13"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "stephen-frank",
       "name": "Stephen Frank",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/stephen-frank__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/stephen-frank__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "frankfort-franks-ford-becomes-the-capital"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "matthew-walton",
@@ -5207,7 +5216,6 @@
       "licenseUrl": null,
       "stories": [
         "covington-at-the-point",
-        "frankfort-franks-ford-becomes-the-capital",
         "newport-at-the-licking-mouth"
       ]
     },
@@ -6060,6 +6068,125 @@
         "black-hoof-the-shawnee-warrior-who-chose-peace"
       ],
       "sourceFile": "James Hall, judge and writer.png"
+    },
+    {
+      "id": "daniel-gano",
+      "name": "Daniel Gano",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/daniel-gano__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/daniel-gano__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "daniel-weisiger",
+      "name": "Daniel Weisiger",
+      "dates": "1763–1829",
+      "image": {
+        "webp": "/people/portraits/daniel-weisiger__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/daniel-weisiger__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "john-allen",
+      "name": "John Allen",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-allen__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-allen__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "john-edwards",
+      "name": "John Edwards",
+      "dates": "1748–1837",
+      "image": {
+        "webp": "/people/portraits/john-edwards-512.webp",
+        "jpg": "/people/portraits/john-edwards-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": "John Edwards of Kentucky.jpg"
+    },
+    {
+      "id": "henry-lee-mason",
+      "name": "Henry Lee",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/henry-lee-mason__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/henry-lee-mason__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "thomas-kennedy-madison",
+      "name": "Thomas Kennedy",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/thomas-kennedy-madison__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/thomas-kennedy-madison__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "robert-todd",
+      "name": "Robert Todd",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/robert-todd__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/robert-todd__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "sourceFile": null
     }
   ],
   "storySubjects": {

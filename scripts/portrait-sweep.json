@@ -231,9 +231,35 @@
     },
     "frankfort-franks-ford-becomes-the-capital": {
       "links": [
-        "stephen-frank"
+        "stephen-frank",
+        "james-wilkinson",
+        "daniel-gano",
+        "daniel-weisiger",
+        "andrew-holmes",
+        "isaac-shelby",
+        "john-allen",
+        "john-edwards",
+        "henry-lee-mason",
+        "thomas-kennedy-madison",
+        "robert-todd",
+        "gideon-shryock",
+        "john-brown"
       ],
-      "portraits": []
+      "portraits": [
+        "stephen-frank",
+        "james-wilkinson",
+        "daniel-gano",
+        "daniel-weisiger",
+        "andrew-holmes",
+        "isaac-shelby",
+        "john-allen",
+        "john-edwards",
+        "henry-lee-mason",
+        "thomas-kennedy-madison",
+        "robert-todd",
+        "gideon-shryock",
+        "john-brown"
+      ]
     },
     "hodgenville-from-hodgens-mill-to-county-seat": {
       "links": [
@@ -436,12 +462,6 @@
     "hopkinsville": {
       "links": [
         "bartholomew-wood"
-      ],
-      "portraits": []
-    },
-    "owensboro-yellow-banks": {
-      "links": [
-        "william-smeathers"
       ],
       "portraits": []
     },
