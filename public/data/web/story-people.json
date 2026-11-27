@@ -2079,7 +2079,7 @@
         },
         {
           "id": "esteban-miro",
-          "name": "Esteban Miró",
+          "name": "Esteban Mir\u00f3",
           "href": "/people/#esteban-miro"
         },
         {
@@ -3307,7 +3307,7 @@
       "links": [
         {
           "id": "william-bush",
-          "name": "William “Billy” Bush",
+          "name": "William \u201cBilly\u201d Bush",
           "href": "/people/#william-bush"
         },
         {
@@ -3519,9 +3519,29 @@
     "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky": {
       "links": [
         {
+          "id": "canassatego",
+          "name": "Canassatego",
+          "href": "/people/#canassatego"
+        },
+        {
+          "id": "thomas-lee",
+          "name": "Thomas Lee",
+          "href": "/people/#thomas-lee"
+        },
+        {
           "id": "william-beverley",
           "name": "William Beverley",
           "href": "/people/#william-beverley"
+        },
+        {
+          "id": "conrad-weiser",
+          "name": "Conrad Weiser",
+          "href": "/people/#conrad-weiser"
+        },
+        {
+          "id": "tachanoontia",
+          "name": "Tachanoontia",
+          "href": "/people/#tachanoontia"
         },
         {
           "id": "tanacharison",
@@ -3529,7 +3549,10 @@
           "href": "/people/#tanacharison"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "canassatego",
+        "conrad-weiser"
+      ]
     },
     "john-breckinridge-of-cabells-dale": {
       "links": [
