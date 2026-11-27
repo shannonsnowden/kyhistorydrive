@@ -381,7 +381,13 @@
       "portraits": []
     },
     "mcafee-station-on-the-salt-river": {
-      "links": [],
+      "links": [
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        }
+      ],
       "portraits": []
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
@@ -1115,6 +1121,11 @@
           "id": "israel-boone",
           "name": "Israel Boone",
           "href": "/people/#israel-boone"
+        },
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
         }
       ],
       "portraits": [
@@ -1490,6 +1501,11 @@
           "id": "stephen-trigg",
           "name": "Stephen Trigg",
           "href": "/people/#stephen-trigg"
+        },
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
         }
       ],
       "portraits": [
@@ -1790,6 +1806,11 @@
     },
     "danville-and-constitution-square": {
       "links": [
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        },
         {
           "id": "walker-daniel",
           "name": "Walker Daniel",
@@ -2527,6 +2548,11 @@
           "href": "/people/#silas-harlan"
         },
         {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        },
+        {
           "id": "richard-henderson",
           "name": "Richard Henderson",
           "href": "/stories/richard-henderson/"
@@ -3165,19 +3191,24 @@
           "href": "/stories/hancock-taylor-fincastle-surveyor/"
         },
         {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        },
+        {
           "id": "george-washington",
           "name": "George Washington",
           "href": "/people/#george-washington"
         },
         {
-          "id": "lord-dunmore",
-          "name": "Lord Dunmore",
-          "href": "/people/#lord-dunmore"
-        },
-        {
           "id": "lewis-collins",
           "name": "Lewis Collins",
           "href": "/people/#lewis-collins"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
         }
       ],
       "portraits": [
@@ -3760,6 +3791,11 @@
           "href": "/people/#daniel-dugger"
         },
         {
+          "id": "john-campbell-baltimore",
+          "name": "John Campbell",
+          "href": "/people/#john-campbell-baltimore"
+        },
+        {
           "id": "stephen-welch",
           "name": "Stephen Welch",
           "href": "/people/#stephen-welch"
@@ -3831,6 +3867,11 @@
           "id": "zachariah-cox",
           "name": "Zachariah Cox",
           "href": "/people/#zachariah-cox"
+        },
+        {
+          "id": "john-smith-smithland",
+          "name": "John Smith",
+          "href": "/people/#john-smith-smithland"
         },
         {
           "id": "james-garrard",
