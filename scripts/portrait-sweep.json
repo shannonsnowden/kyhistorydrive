@@ -134,7 +134,8 @@
         "george-washington",
         "lord-dunmore",
         "lewis-collins",
-        "james-harrod"
+        "james-harrod",
+        "isaac-hite"
       ],
       "portraits": [
         "hancock-taylor",
@@ -927,6 +928,15 @@
         "walker-daniel",
         "blue-jacket",
         "george-nicholas"
+      ]
+    },
+    "lexington-blind-hero-of-woodburn": {
+      "links": [
+        "elisha-warfield",
+        "edward-troye"
+      ],
+      "portraits": [
+        "elisha-warfield"
       ]
     },
     "maj-silas-harlan": {
