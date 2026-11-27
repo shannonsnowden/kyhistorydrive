@@ -3745,6 +3745,26 @@
     "grey-eagle-and-wagner-at-the-oakland-course": {
       "links": [
         {
+          "id": "h-t-duncan",
+          "name": "Maj. H. T. Duncan",
+          "href": "/people/#h-t-duncan"
+        },
+        {
+          "id": "a-l-shotwell",
+          "name": "A. L. Shotwell",
+          "href": "/people/#a-l-shotwell"
+        },
+        {
+          "id": "daniel-dugger",
+          "name": "Daniel Dugger",
+          "href": "/people/#daniel-dugger"
+        },
+        {
+          "id": "stephen-welch",
+          "name": "Stephen Welch",
+          "href": "/people/#stephen-welch"
+        },
+        {
           "id": "henry-clay",
           "name": "Henry Clay",
           "href": "/people/#henry-clay"
@@ -3771,6 +3791,11 @@
           "id": "thomas-bullitt",
           "name": "Thomas Bullitt",
           "href": "/people/#thomas-bullitt"
+        },
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
         },
         {
           "id": "daniel-boone",

@@ -8769,7 +8769,7 @@
       "sourcePage": "https://archive.org/details/americanturfregi14skin/page/n391/mode/1up",
       "license": "Public domain",
       "licenseUrl": "https://archive.org/details/americanturfregi14skin/page/n391/mode/1up",
-      "credit": "A. Halbert, engraving after Edward Troye (1839) · American Turf Register, July 1843 · public domain",
+      "credit": "Detail (Cato at Wagner's head) from A. Halbert, Wagner, engraving after Edward Troye (1839) · American Turf Register, July 1843 · public domain",
       "freeToUse": true,
       "verified": true,
       "notes": "Crop of the jockey at Wagner's head in the Halbert engraving after Troye's 1839 painting (American Turf Register, July 1843). The editor William T. Porter wrote that 'Cate-O stands out in pretty bold relief in the picture' (quoted in Jessica Dallow, Nineteenth-Century Art Worldwide, Autumn 2013), which identifies the figure. Low-resolution source (about 450 px), lightly upscaled to 512.",
@@ -8796,6 +8796,138 @@
       "verified": true,
       "notes": "Copy print of a daguerreotype portrait of Troye, c. 1850s–1870 (Commons dates it circa 1870), Smithsonian / Archives of American Art; Commons PD (1680x2008). 512 square is a hand crop of the face.",
       "ai": false
+    },
+    {
+      "id": "james-harrod",
+      "name": "James Harrod",
+      "aliases": [],
+      "lifeDates": "1742–1792",
+      "stories": [
+        "isaac-hite-of-cave-spring"
+      ],
+      "role": "Founder of Harrodsburg (Harrod's Town), June 16, 1774",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "h-t-duncan",
+      "name": "Maj. H. T. Duncan",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Breeder of Grey Eagle, near Lexington (foaled 1835)",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "a-l-shotwell",
+      "name": "A. L. Shotwell",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Kentucky owner of Grey Eagle in the 1839 Oakland Course races",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "daniel-dugger",
+      "name": "Daniel Dugger",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Brunswick County, Virginia, breeder of Wagner (foaled 1834)",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "john-campbell-baltimore",
+      "name": "John Campbell (of Baltimore)",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Baltimore owner of Wagner, bought from Dugger for $5,000",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "stephen-welch",
+      "name": "Stephen Welch",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Jockey who rode Grey Eagle in both 1839 Oakland Course races",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
     }
   ]
 }
