@@ -2,12 +2,12 @@
   "generatedAt": "2026-11-13T10:51:39.067Z",
   "version": 2,
   "counts": {
-    "places": 2963,
-    "stories": 266,
-    "total": 3229,
+    "places": 2968,
+    "stories": 271,
+    "total": 3239,
     "byLayer": {
       "markers": 1921,
-      "history": 218,
+      "history": 223,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -32113,6 +32113,81 @@
       ]
     },
     {
+      "id": "place:isaac-hite-cave-spring-jefferson-1773-1794",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Isaac Hite's Cave Spring",
+      "text": "Isaac Hite's Cave Spring Isaac Hite came to Kentucky in 1773 with Thomas Bullitt's surveying party, helped establish Harrodsburg in 1774, represented the Boiling Spring settlement at the 1775 Transylvania convention, and was wounded defending Boonesborough on April 24, 1777. On Goose Creek east of the Falls he built Cave Spring, a farm with a mill and a tannery that John Filson's 1784 map marked as Hite's Mill. He died there in 1794. The pin marks the state marker for Isaac Hite's Home on Lucas Lane in Anchorage. History",
+      "snippet": "Isaac Hite came to Kentucky in 1773 with Thomas Bullitt's surveying party, helped establish Harrodsburg in 1774, represented the Boiling Sp…",
+      "lat": 38.2777167,
+      "lon": -85.5243833,
+      "shareId": "isaac-hite-cave-spring-jefferson-1773-1794",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:smithland-founding-livingston-1797-1805",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Smithland at the mouth of the Cumberland",
+      "text": "Smithland at the mouth of the Cumberland Georgia speculator Zachariah Cox had the mouth of the Cumberland explored in 1796 by Capt. John Smith and announced a trading settlement there in 1797. Gen. James Wilkinson at Fort Massac had Cox branded a pirate, and Cox was arrested at Natchez in August 1798, but the settlers stayed and the town took Smith's name. Smithland was laid out on a plat in 1805, and it became the Livingston County seat after 1842. The pin marks the state marker on the courthouse lawn in Smithland. History",
+      "snippet": "Georgia speculator Zachariah Cox had the mouth of the Cumberland explored in 1796 by Capt. John Smith and announced a trading settlement th…",
+      "lat": 37.13915,
+      "lon": -88.404,
+      "shareId": "smithland-founding-livingston-1797-1805",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:grey-eagle-wagner-oakland-course-louisville-1839",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Grey Eagle and Wagner at the Oakland Course",
+      "text": "Grey Eagle and Wagner at the Oakland Course On September 30, 1839, Kentucky's Grey Eagle met Virginia-bred Wagner, ridden by the Black jockey Cato, at the Oakland Course for a purse reported at $14,000, best two of three four-mile heats. About 10,000 people watched Wagner win both heats. In the rematch on October 5, Grey Eagle won the first heat, Wagner the second by a neck, and Grey Eagle broke down in the third. He never raced again. The course opened in 1832 and closed in the 1850s. The pin is an approximate point at Seventh Street and Magnolia Avenue in Old Louisville. History",
+      "snippet": "On September 30, 1839, Kentucky's Grey Eagle met Virginia-bred Wagner, ridden by the Black jockey Cato, at the Oakland Course for a purse r…",
+      "lat": 38.2295,
+      "lon": -85.7655,
+      "shareId": "grey-eagle-wagner-oakland-course-louisville-1839",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:crigler-mounds-boone-county-adena",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Crigler Mounds, Boone County (approximate)",
+      "text": "Crigler Mounds, Boone County (approximate) In Boone County, Adena people raised two burial mounds, one large and one small, known as sites 15BE20 and 15BE27. Beneath the large mound lay a circle of paired posts 56 feet across, with a raised clay platform across from an entrance. University of Kentucky crews excavated the mounds with Works Progress Administration labor and published them in 1943; the excavators read the circle as a meeting place, and later archaeologists have seen such circles as mortuary camps. The mounds are protected archaeological sites and their locations are not public. This pin is a county-level point. History",
+      "snippet": "In Boone County, Adena people raised two burial mounds, one large and one small, known as sites 15BE20 and 15BE27. Beneath the large mound…",
+      "lat": 39,
+      "lon": -84.7,
+      "shareId": "crigler-mounds-boone-county-adena",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:new-madrid-earthquake-fulton-1811-1812",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "New Madrid earthquakes in Kentucky",
+      "text": "New Madrid earthquakes in Kentucky The New Madrid earthquakes began at 2:15 a.m. on December 16, 1811, with two more great shocks on January 23 and February 7, 1812. At Louisville, Jared Brooks measured the motion with pendulums and springs, ranked each shock on a six-step scale, and counted 1,874 shocks between December 16, 1811, and March 15, 1812. In February 1812 the ground rose under the Mississippi at the Kentucky Bend and briefly made waterfalls. The pin marks the state's New Madrid Earthquake marker in Fulton County. History",
+      "snippet": "The New Madrid earthquakes began at 2:15 a.m. on December 16, 1811, with two more great shocks on January 23 and February 7, 1812. At Louis…",
+      "lat": 36.5178833,
+      "lon": -89.3391167,
+      "shareId": "new-madrid-earthquake-fulton-1811-1812",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
       "id": "place:louisville-slugger-museum",
       "type": "place",
       "layerId": "museums",
@@ -44812,6 +44887,16 @@
       "slug": "covington-at-the-point"
     },
     {
+      "id": "story:crigler-mounds-adena-burial-mounds-in-boone-county",
+      "type": "story",
+      "title": "Crigler Mounds: Adena Burial Mounds in Boone County",
+      "text": "Crigler Mounds: Adena Burial Mounds in Boone County In Boone County, Adena people raised two burial mounds, one large and one small, over a ring of paired posts 56 feet across. Archaeologists still argue over what that circle was. In Boone County, Adena people built two burial mounds, one large and one small, that archaeologists know as the Crigler Mounds, sites 15BE20 and 15BE27. They were raised more than 2,000 years ago by a people who left no written record. What they built still shapes how archaeologists think about the Adena culture. ## The Adena world The Adena tradition flourished in the central Ohio Valley from about 600 BCE to about 200 CE, though dates vary by region and some evid",
+      "snippet": "In Boone County, Adena people raised two burial mounds, one large and one small, over a ring of paired posts 56 feet across. Archaeologists…",
+      "slug": "crigler-mounds-adena-burial-mounds-in-boone-county",
+      "lat": 39,
+      "lon": -84.7
+    },
+    {
       "id": "story:croley-evans-site",
       "type": "story",
       "title": "Croley-Evans Site",
@@ -45320,6 +45405,16 @@
       "slug": "iroquois-beaver-wars"
     },
     {
+      "id": "story:isaac-hite-of-cave-spring",
+      "type": "story",
+      "title": "Isaac Hite of Cave Spring",
+      "text": "Isaac Hite of Cave Spring Isaac Hite came to Kentucky with Thomas Bullitt's 1773 surveyors, helped found Harrodsburg, was wounded at Boonesborough in 1777, and built Cave Spring, a mill-and-tannery farm east of the Falls, where he died in 1794. In the summer of 1773 Isaac Hite, a Virginian of about 20, came down the Ohio to join one of the first surveying parties sent into the Kentucky country. Twenty-one years later he died on a farm he had carved out of that same ground, a few miles east of the Falls of the Ohio. In between, he took part in almost every stage of Kentucky's founding. ## With Bullitt at the Falls Hite was born in 1753 in Hampshire County, Virginia. In 1773 he joined Thomas B",
+      "snippet": "Isaac Hite came to Kentucky with Thomas Bullitt's 1773 surveyors, helped found Harrodsburg, was wounded at Boonesborough in 1777, and built…",
+      "slug": "isaac-hite-of-cave-spring",
+      "lat": 38.2777167,
+      "lon": -85.5243833
+    },
+    {
       "id": "story:isaac-ruddell-and-the-guns-at-ruddells-station",
       "type": "story",
       "title": "Isaac Ruddell and the Guns at Ruddell’s Station",
@@ -45378,6 +45473,16 @@
       "slug": "greenville-a-hilltop-seat-on-william-campbells-land",
       "lat": 37.2008,
       "lon": -87.1782667
+    },
+    {
+      "id": "story:grey-eagle-and-wagner-at-the-oakland-course",
+      "type": "story",
+      "title": "Horse series: Grey Eagle and Wagner at the Oakland Course",
+      "text": "Horse series: Grey Eagle and Wagner at the Oakland Course In 1839 Kentucky's Grey Eagle met Virginia-bred Wagner, ridden by the enslaved jockey Cato, in two four-mile-heat races at Louisville's Oakland Course. Wagner won both, and Grey Eagle broke down in the last heat. In the fall of 1839 Louisville's Oakland Course staged what the turf press called the most important race ever run west of the Alleghenies. Kentucky's young Grey Eagle met Wagner, a seasoned horse from Virginia, and an enslaved jockey named Cato became one of the best-known riders in the country. ## The course The Oakland Course opened in 1832 on about 55 acres at today's Seventh Street and Magnolia Avenue, in what is now Old",
+      "snippet": "In 1839 Kentucky's Grey Eagle met Virginia-bred Wagner, ridden by the enslaved jockey Cato, in two four-mile-heat races at Louisville's Oak…",
+      "slug": "grey-eagle-and-wagner-at-the-oakland-course",
+      "lat": 38.2295,
+      "lon": -85.7655
     },
     {
       "id": "story:james-crow-on-glenns-creek",
@@ -46300,6 +46405,16 @@
       "lon": -82.3
     },
     {
+      "id": "story:smithland-zachariah-coxs-town-on-the-cumberland",
+      "type": "story",
+      "title": "Smithland: Zachariah Cox's town on the Cumberland",
+      "text": "Smithland: Zachariah Cox's town on the Cumberland Smithland began in the late 1790s as land speculator Zachariah Cox's trading post where the Cumberland meets the Ohio. Gen. James Wilkinson had Cox arrested, but the town, named for Cox's scout John Smith, was platted in 1805. Smithland sits where the Cumberland River pours into the Ohio, one of the best trading spots in the western country. Its founder never got to enjoy it. Zachariah Cox picked the site, sent a friend to hold it, and then watched a U.S. general wreck his plans. ## A speculator from Georgia Cox was a surveyor and land speculator who, by the Encyclopedia of Alabama's account, was born about 1765. Between 1789 and 1795 he orga",
+      "snippet": "Smithland began in the late 1790s as land speculator Zachariah Cox's trading post where the Cumberland meets the Ohio. Gen. James Wilkinson…",
+      "slug": "smithland-zachariah-coxs-town-on-the-cumberland",
+      "lat": 37.13915,
+      "lon": -88.404
+    },
+    {
       "id": "story:somerset",
       "type": "story",
       "title": "Somerset",
@@ -46394,6 +46509,16 @@
       "slug": "the-maysville-road-and-jacksons-veto-1830",
       "lat": 38.6423,
       "lon": -83.7814
+    },
+    {
+      "id": "story:the-new-madrid-earthquakes-in-kentucky-1811-12",
+      "type": "story",
+      "title": "The New Madrid earthquakes in Kentucky, 1811–12",
+      "text": "The New Madrid earthquakes in Kentucky, 1811–12 From December 16, 1811, the New Madrid earthquakes shook Kentucky for months. In Louisville, Jared Brooks built pendulums and springs, ranked the shocks by strength, and counted 1,874 of them by mid-March 1812. At 2:15 in the morning on December 16, 1811, Louisville woke up shaking. The ground swayed for three or four minutes. A little after 7 it struck again, harder. A Louisville man named Jared Brooks decided to measure it. His notes became the best record of the strongest earthquakes known east of the Rocky Mountains. ## Four great shocks The New Madrid earthquakes were centered in the central Mississippi Valley, in northeast Arkansas and ar",
+      "snippet": "From December 16, 1811, the New Madrid earthquakes shook Kentucky for months. In Louisville, Jared Brooks built pendulums and springs, rank…",
+      "slug": "the-new-madrid-earthquakes-in-kentucky-1811-12",
+      "lat": 36.5178833,
+      "lon": -89.3391167
     },
     {
       "id": "story:the-travelling-church-1781",

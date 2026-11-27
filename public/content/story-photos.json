@@ -2715,6 +2715,75 @@
         "license": "Original AI illustration",
         "fit": "contain"
       }
+    },
+    "crigler-mounds-adena-burial-mounds-in-boone-county": {
+      "slug": "crigler-mounds-adena-burial-mounds-in-boone-county",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "grey-eagle-and-wagner-at-the-oakland-course": {
+      "slug": "grey-eagle-and-wagner-at-the-oakland-course",
+      "historyId": "grey-eagle-wagner-oakland-course-louisville-1839",
+      "photo": {
+        "image_url": "/content/photos/stories/grey-eagle-and-wagner-at-the-oakland-course.jpg",
+        "title": "Oakland House and Race Course, Louisville, oil painting by Robert Brammer and Augustus A. Von Smith, c. 1840 (Speed Art Museum)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Oakland_House_and_Race_Course_by_Robert_Brammer_and_Augustus_Von_Smith.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Robert Brammer and Augustus A. Von Smith, c. 1840 · Speed Art Museum via Wikimedia Commons · public domain",
+        "year": 1840,
+        "credit": "Robert Brammer and Augustus A. Von Smith · Speed Art Museum",
+        "license": "Public domain",
+        "artwork": "painting"
+      }
+    },
+    "isaac-hite-of-cave-spring": {
+      "slug": "isaac-hite-of-cave-spring",
+      "historyId": "isaac-hite-cave-spring-jefferson-1773-1794",
+      "photo": {
+        "image_url": "/content/photos/stories/isaac-hite-of-cave-spring.jpg",
+        "title": "The Hite-Foree Log House on Lucas Lane in Anchorage, a log house tied to the Hite family (photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hite-Foree_Log_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014,
+        "credit": "Nyttend",
+        "license": "Public domain"
+      }
+    },
+    "smithland-zachariah-coxs-town-on-the-cumberland": {
+      "slug": "smithland-zachariah-coxs-town-on-the-cumberland",
+      "historyId": "smithland-founding-livingston-1797-1805",
+      "photo": {
+        "image_url": "/content/photos/stories/smithland-zachariah-coxs-town-on-the-cumberland.jpg",
+        "title": "The Gower House, an early inn on the Smithland riverfront (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Gower_House_in_Smithland.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013,
+        "credit": "Nyttend",
+        "license": "Public domain"
+      }
+    },
+    "the-new-madrid-earthquakes-in-kentucky-1811-12": {
+      "slug": "the-new-madrid-earthquakes-in-kentucky-1811-12",
+      "historyId": "new-madrid-earthquake-fulton-1811-1812",
+      "photo": {
+        "image_url": "/content/photos/stories/the-new-madrid-earthquakes-in-kentucky-1811-12.jpg",
+        "title": "\"The Great Earthquake at New Madrid,\" engraving from Henry Howe's Historical Collections of the Great West (1851)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_Great_Earthquake_at_New_Madrid_(15_September_1811)_-_DPLA_-_c35a9703865889133609929fa82173dd.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Henry Howe, 1851 · Missouri Historical Society via Wikimedia Commons · public domain (no known copyright)",
+        "year": 1851,
+        "credit": "Henry Howe · Missouri Historical Society",
+        "license": "Public domain",
+        "fit": "contain",
+        "artwork": "engraving"
+      }
     }
   },
   "byHistoryId": {
@@ -4892,6 +4961,65 @@
         "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
         "license": "Original AI illustration",
         "fit": "contain"
+      }
+    },
+    "grey-eagle-wagner-oakland-course-louisville-1839": {
+      "slug": "grey-eagle-and-wagner-at-the-oakland-course",
+      "historyId": "grey-eagle-wagner-oakland-course-louisville-1839",
+      "photo": {
+        "image_url": "/content/photos/stories/grey-eagle-and-wagner-at-the-oakland-course.jpg",
+        "title": "Oakland House and Race Course, Louisville, oil painting by Robert Brammer and Augustus A. Von Smith, c. 1840 (Speed Art Museum)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Oakland_House_and_Race_Course_by_Robert_Brammer_and_Augustus_Von_Smith.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Robert Brammer and Augustus A. Von Smith, c. 1840 · Speed Art Museum via Wikimedia Commons · public domain",
+        "year": 1840,
+        "credit": "Robert Brammer and Augustus A. Von Smith · Speed Art Museum",
+        "license": "Public domain",
+        "artwork": "painting"
+      }
+    },
+    "isaac-hite-cave-spring-jefferson-1773-1794": {
+      "slug": "isaac-hite-of-cave-spring",
+      "historyId": "isaac-hite-cave-spring-jefferson-1773-1794",
+      "photo": {
+        "image_url": "/content/photos/stories/isaac-hite-of-cave-spring.jpg",
+        "title": "The Hite-Foree Log House on Lucas Lane in Anchorage, a log house tied to the Hite family (photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hite-Foree_Log_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014,
+        "credit": "Nyttend",
+        "license": "Public domain"
+      }
+    },
+    "smithland-founding-livingston-1797-1805": {
+      "slug": "smithland-zachariah-coxs-town-on-the-cumberland",
+      "historyId": "smithland-founding-livingston-1797-1805",
+      "photo": {
+        "image_url": "/content/photos/stories/smithland-zachariah-coxs-town-on-the-cumberland.jpg",
+        "title": "The Gower House, an early inn on the Smithland riverfront (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Gower_House_in_Smithland.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013,
+        "credit": "Nyttend",
+        "license": "Public domain"
+      }
+    },
+    "new-madrid-earthquake-fulton-1811-1812": {
+      "slug": "the-new-madrid-earthquakes-in-kentucky-1811-12",
+      "historyId": "new-madrid-earthquake-fulton-1811-1812",
+      "photo": {
+        "image_url": "/content/photos/stories/the-new-madrid-earthquakes-in-kentucky-1811-12.jpg",
+        "title": "\"The Great Earthquake at New Madrid,\" engraving from Henry Howe's Historical Collections of the Great West (1851)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_Great_Earthquake_at_New_Madrid_(15_September_1811)_-_DPLA_-_c35a9703865889133609929fa82173dd.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Henry Howe, 1851 · Missouri Historical Society via Wikimedia Commons · public domain (no known copyright)",
+        "year": 1851,
+        "credit": "Henry Howe · Missouri Historical Society",
+        "license": "Public domain",
+        "fit": "contain",
+        "artwork": "engraving"
       }
     }
   }

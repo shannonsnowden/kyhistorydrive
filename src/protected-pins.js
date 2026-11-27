@@ -79,6 +79,9 @@ const PROTECTED_NOTE_HTML = '<p class="popup-protected" data-protected-pin>Appro
 const COUNTY_LEVEL_PROTECTED = {
   'the-woman-from-short-cave': 'Edmonson County',
   'the-woman-from-short-cave-edmonson': 'Edmonson County',
+  // Nov 27 2026: Crigler Mounds (Adena burial mounds) and its History pin, Boone County only.
+  'crigler-mounds-adena-burial-mounds-in-boone-county': 'Boone County',
+  'crigler-mounds-boone-county-adena': 'Boone County',
 }
 
 /** County for a county-level protected id or story slug ('' when it is not county-level). */

@@ -37,12 +37,14 @@
     "john-finley-the-trader-who-put-kentucky-on-boones-map",
     "odawa-raid-at-eskippakithiki-1753",
     "fort-jefferson-clarks-fort-on-chickasaw-ground",
-    "the-woman-from-short-cave"
+    "the-woman-from-short-cave",
+    "crigler-mounds-adena-burial-mounds-in-boone-county"
   ],
-  "forceComment": "Rounded even though not prehistoric/archaeology: their pin is the protected Eskippakithiki / Indian Old Fields site. Also listed (belt and braces, though already prehistoric/archaeology): the Woman from Short Cave, a protected burial site.",
+  "forceComment": "Rounded even though not prehistoric/archaeology: their pin is the protected Eskippakithiki / Indian Old Fields site. Also listed (belt and braces, though already prehistoric/archaeology): the Woman from Short Cave, a protected burial site. Crigler Mounds (Adena burial mounds, Boone County) is listed the same way.",
   "forceHistoryIds": [
     "fort-jefferson-ballard-1780",
-    "the-woman-from-short-cave-edmonson"
+    "the-woman-from-short-cave-edmonson",
+    "crigler-mounds-boone-county-adena"
   ],
   "forceHistoryComment": "History pins protected without a linked story: Fort Jefferson (Clark 1780-81), county-level Ballard pin; the Fort Jefferson story links no History pin. Short Cave (a burial site): county-level Edmonson pin; like Fort Jefferson, the Short Cave story links no History pin.",
   "roundMarkerNumbers": [
