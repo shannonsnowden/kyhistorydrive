@@ -1248,6 +1248,57 @@
       "yearStart": 1755,
       "yearEnd": 1831,
       "county": ""
+    },
+    "isaac-hite-of-cave-spring": {
+      "reason": "Pin KHS marker #1435 (Isaac Hite's Home), 12215 Lucas Ln., Anchorage, at Hite's Cave Spring plantation; the Hite-Foree Log House (NRHP) is nearby. Story and History pin years 1773 (Bullitt survey)–1794 (death). County Jefferson.",
+      "date": "2026-11-27",
+      "historyId": "isaac-hite-cave-spring-jefferson-1773-1794",
+      "lat": 38.2777167,
+      "lon": -85.5243833,
+      "yearStart": 1773,
+      "yearEnd": 1794,
+      "county": "Jefferson"
+    },
+    "smithland-zachariah-coxs-town-on-the-cumberland": {
+      "reason": "Pin KHS marker #801 (County Named, 1798) on the courthouse lawn in Smithland, at the Ohio-Cumberland confluence; town-level point. Story years 1796 (Smith's exploration)–1845 (courthouse); the History pin keeps 1797–1805 (Cox's settlement to the plat) (yearsStoryOnly). County Livingston.",
+      "date": "2026-11-27",
+      "historyId": "smithland-founding-livingston-1797-1805",
+      "lat": 37.13915,
+      "lon": -88.404,
+      "yearStart": 1796,
+      "yearEnd": 1845,
+      "yearsStoryOnly": true,
+      "county": "Livingston"
+    },
+    "grey-eagle-and-wagner-at-the-oakland-course": {
+      "reason": "Horse series. Approximate point for the vanished Oakland Course (1832-1850s), on 55 acres at today's Seventh Street and Magnolia Avenue in Old Louisville (Broken Sidewalk citing the Encyclopedia of Louisville); street geometry from OpenStreetMap, rounded. No marker. Story years 1835 (Grey Eagle foaled)-1843 (engravings published); the History pin keeps 1839 (the matches) (yearsStoryOnly). County Jefferson.",
+      "date": "2026-11-27",
+      "historyId": "grey-eagle-wagner-oakland-course-louisville-1839",
+      "lat": 38.2295,
+      "lon": -85.7655,
+      "yearStart": 1835,
+      "yearEnd": 1843,
+      "yearsStoryOnly": true,
+      "county": "Jefferson"
+    },
+    "crigler-mounds-adena-burial-mounds-in-boone-county": {
+      "reason": "Protected archaeological site with burials: county-level placement; protected site. Boone County at 0.1° (county centroid, rounded); the mound sites are not public and no town, river, road, direction or nearby place is named. Same pattern as Short Cave and Fort Jefferson: the story links no History pin; the county-level History pin crigler-mounds-boone-county-adena is protected on its own (pin-rounding forceHistoryIds). Years: Adena occupation default range (-800 to 700), not the excavation dates. County Boone.",
+      "date": "2026-11-27",
+      "lat": 39.0,
+      "lon": -84.7,
+      "yearStart": -800,
+      "yearEnd": 700,
+      "county": "Boone"
+    },
+    "the-new-madrid-earthquakes-in-kentucky-1811-12": {
+      "reason": "Pin KHS marker #688 (New Madrid Earthquake), near Miller on KY 94, Fulton County, the state's marker for the event (it cites Brooks's 1,874 shocks at Louisville). Story and History pin years 1811-1812 (the shocks; the 1819 publication is text only). County Fulton.",
+      "date": "2026-11-27",
+      "historyId": "new-madrid-earthquake-fulton-1811-1812",
+      "lat": 36.5178833,
+      "lon": -89.3391167,
+      "yearStart": 1811,
+      "yearEnd": 1812,
+      "county": "Fulton"
     }
   }
 }

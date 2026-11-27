@@ -1158,6 +1158,14 @@ Object.assign(NOV6_PIN_NAMES, {
   'denmark-and-gaines-denmark-the-saddlebreds-foundation': "Gaines' Denmark, bred near Lexington",
   'the-woman-from-short-cave': 'Edmonson County (county-level point)',
 })
+// Nov 27 pins live in story-overrides.json too. Grey Eagle is an approximate point for the vanished Oakland Course. Crigler Mounds is a protected site: Boone County at 0.1°, county-level.
+Object.assign(NOV6_PIN_NAMES, {
+  'isaac-hite-of-cave-spring': "Isaac Hite's Cave Spring",
+  'smithland-zachariah-coxs-town-on-the-cumberland': 'Smithland at the mouth of the Cumberland',
+  'grey-eagle-and-wagner-at-the-oakland-course': 'Grey Eagle and Wagner at the Oakland Course',
+  'crigler-mounds-adena-burial-mounds-in-boone-county': 'Boone County (county-level point)',
+  'the-new-madrid-earthquakes-in-kentucky-1811-12': 'New Madrid earthquakes in Kentucky',
+})
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]
   if (pin && pin.lat != null && pin.lon != null) {

@@ -133,7 +133,9 @@
         "hancock-taylor",
         "george-washington",
         "lord-dunmore",
-        "lewis-collins"
+        "lewis-collins",
+        "james-harrod",
+        "isaac-hite"
       ],
       "portraits": [
         "hancock-taylor",
@@ -149,7 +151,8 @@
     },
     "mcafee-station-on-the-salt-river": {
       "links": [
-        "james-mcafee"
+        "james-mcafee",
+        "james-harrod"
       ],
       "portraits": []
     },
@@ -582,7 +585,8 @@
     },
     "hugh-mcgary-the-blue-licks-hothead": {
       "links": [
-        "israel-boone"
+        "israel-boone",
+        "james-harrod"
       ],
       "portraits": [
         "israel-boone"
@@ -709,7 +713,8 @@
     },
     "col-stephen-trigg-of-viney-grove": {
       "links": [
-        "stephen-trigg"
+        "stephen-trigg",
+        "james-harrod"
       ],
       "portraits": [
         "stephen-trigg"
@@ -873,6 +878,89 @@
         "denmark-1839": "Denmark",
         "gaines-denmark": "Gaines' Denmark"
       }
+    },
+    "smithland-zachariah-coxs-town-on-the-cumberland": {
+      "links": [
+        "zachariah-cox",
+        "james-garrard",
+        "james-wilkinson",
+        "john-smith-smithland"
+      ],
+      "portraits": [
+        "james-garrard",
+        "james-wilkinson",
+        "john-smith-smithland"
+      ],
+      "aliases": {
+        "john-smith-smithland": "John Smith"
+      }
+    },
+    "grey-eagle-and-wagner-at-the-oakland-course": {
+      "links": [
+        "h-t-duncan",
+        "a-l-shotwell",
+        "daniel-dugger",
+        "stephen-welch",
+        "henry-clay",
+        "edward-troye",
+        "john-campbell-baltimore",
+        "grey-eagle-horse",
+        "wagner-horse",
+        "cato-jockey"
+      ],
+      "portraits": [
+        "h-t-duncan",
+        "a-l-shotwell",
+        "daniel-dugger",
+        "stephen-welch",
+        "henry-clay",
+        "edward-troye",
+        "grey-eagle-horse",
+        "wagner-horse",
+        "cato-jockey"
+      ],
+      "aliases": {
+        "john-campbell-baltimore": "John Campbell",
+        "grey-eagle-horse": "Grey Eagle",
+        "wagner-horse": "Wagner",
+        "cato-jockey": "Cato"
+      }
+    },
+    "danville-and-constitution-square": {
+      "links": [
+        "walker-daniel",
+        "blue-jacket",
+        "george-nicholas",
+        "james-harrod"
+      ],
+      "portraits": [
+        "walker-daniel",
+        "blue-jacket",
+        "george-nicholas"
+      ]
+    },
+    "lexington-blind-hero-of-woodburn": {
+      "links": [
+        "elisha-warfield",
+        "edward-troye"
+      ],
+      "portraits": [
+        "elisha-warfield"
+      ]
+    },
+    "maj-silas-harlan": {
+      "links": [
+        "silas-harlan",
+        "richard-henderson",
+        "george-rogers-clark",
+        "john-bowman",
+        "james-harrod"
+      ],
+      "portraits": [
+        "richard-henderson",
+        "george-rogers-clark",
+        "john-bowman"
+      ]
     }
   }
 }

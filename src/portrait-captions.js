@@ -170,6 +170,17 @@ export const PORTRAIT_ALTS = {
   // Nov 20 2026 (#436). Horse series, AI portrait render v2, History CLEAR. Sire of gaines-denmark.
   'denmark-1839': "AI illustration of Denmark, the brown Thoroughbred stallion foaled in 1839 who became the foundation sire of the American Saddlebred, standing in a Kentucky pasture; no known likeness exists.",
   'gaines-denmark': "AI illustration: imagined portrait of Gaines' Denmark, a black saddle-type stallion with two white hind socks, standing in profile in the manner of 1850s American horse painting; no known likeness exists.",
+  // Nov 27 2026 pack. AI portraits v1, Studio WIRE GO + Critiquito Design PASS. None-known.
+  'isaac-hite': "Illustrated portrait of Isaac Hite, Virginia-born surveyor and builder of Cave Spring, in 1780s frontier coat and waistcoat with a surveyor's compass; no known likeness exists",
+  'zachariah-cox': 'Illustrated portrait of Zachariah Cox, Georgia surveyor and land speculator who planned Smithland, in a 1790s dark coat and cravat before a river landing; no known likeness exists',
+  'john-smith-smithland': 'Illustrated portrait of Capt. John Smith, the 1790s river frontiersman for whom Smithland is named, in a hunting shirt and felt hat by the river; no known likeness exists',
+  'jared-brooks': 'Illustrated portrait of Jared Brooks, the Louisville man who measured the 1811–12 New Madrid earthquakes, in an 1810s tailcoat beside a frame of hanging pendulums; no known likeness exists',
+  'james-harrod': "Illustrated portrait of James Harrod, Pennsylvania frontiersman who founded Harrod's Town in 1774, in a fringed hunting shirt and wool cap beside a half-built log cabin; no known likeness exists",
+  'h-t-duncan': 'Illustrated portrait of Maj. H. T. Duncan, Bluegrass breeder of Grey Eagle, in a green tailcoat before a pasture with a grey colt; no known likeness exists',
+  'a-l-shotwell': 'Illustrated portrait of A. L. Shotwell, Kentucky owner of Grey Eagle in 1839, in a navy tailcoat at a racecourse rail; no known likeness exists',
+  'daniel-dugger': 'Illustrated portrait of Daniel Dugger, Brunswick County, Virginia, breeder of Wagner, in a brown coat before a pasture with a chestnut colt; no known likeness exists',
+  'john-campbell-baltimore': 'Illustrated portrait of John Campbell of Baltimore, owner of Wagner in 1839, in a black coat and red waistcoat in a city drawing room; no known likeness exists',
+  'stephen-welch': 'Illustrated portrait of Stephen Welch, the jockey who rode Grey Eagle at Oakland in 1839, in a blue silk cap and jacket; no known likeness exists',
 }
 
 export function portraitAlt(person) {
