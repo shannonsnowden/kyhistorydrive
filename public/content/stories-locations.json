@@ -4,7 +4,7 @@
     "exact": 12,
     "fuzzy": 48,
     "county": 4,
-    "override": 159,
+    "override": 164,
     "none": 43
   },
   "locations": {
@@ -2145,6 +2145,46 @@
       "mapConfidence": "override",
       "matchedPlace": "Edmonson County (county-level point)",
       "historyId": null
+    },
+    "crigler-mounds-adena-burial-mounds-in-boone-county": {
+      "slug": "crigler-mounds-adena-burial-mounds-in-boone-county",
+      "lat": 39,
+      "lon": -84.7,
+      "mapConfidence": "override",
+      "matchedPlace": "Boone County (county-level point)",
+      "historyId": null
+    },
+    "isaac-hite-of-cave-spring": {
+      "slug": "isaac-hite-of-cave-spring",
+      "lat": 38.2777167,
+      "lon": -85.5243833,
+      "mapConfidence": "override",
+      "matchedPlace": "Isaac Hite's Cave Spring",
+      "historyId": "isaac-hite-cave-spring-jefferson-1773-1794"
+    },
+    "smithland-zachariah-coxs-town-on-the-cumberland": {
+      "slug": "smithland-zachariah-coxs-town-on-the-cumberland",
+      "lat": 37.13915,
+      "lon": -88.404,
+      "mapConfidence": "override",
+      "matchedPlace": "Smithland at the mouth of the Cumberland",
+      "historyId": "smithland-founding-livingston-1797-1805"
+    },
+    "the-new-madrid-earthquakes-in-kentucky-1811-12": {
+      "slug": "the-new-madrid-earthquakes-in-kentucky-1811-12",
+      "lat": 36.5178833,
+      "lon": -89.3391167,
+      "mapConfidence": "override",
+      "matchedPlace": "New Madrid earthquakes in Kentucky",
+      "historyId": "new-madrid-earthquake-fulton-1811-1812"
+    },
+    "grey-eagle-and-wagner-at-the-oakland-course": {
+      "slug": "grey-eagle-and-wagner-at-the-oakland-course",
+      "lat": 38.2295,
+      "lon": -85.7655,
+      "mapConfidence": "override",
+      "matchedPlace": "Grey Eagle and Wagner at the Oakland Course",
+      "historyId": "grey-eagle-wagner-oakland-course-louisville-1839"
     }
   }
 }

@@ -55,6 +55,12 @@ export const NO_AUTO_STORY_PHOTOS = [
   'john-breckinridge-of-cabells-dale',
   'greenville-a-hilltop-seat-on-william-campbells-land',
   'black-hoof-the-shawnee-warrior-who-chose-peace',
+  // Nov 27 2026 pack. Hand-placed public-domain photos; do not fetch a stand-in. Crigler Mounds is not listed: its photo is
+  // the shared Adena AI figure (like Robbins and Dover). Never a photo of the remains.
+  'isaac-hite-of-cave-spring',
+  'smithland-zachariah-coxs-town-on-the-cumberland',
+  'grey-eagle-and-wagner-at-the-oakland-course',
+  'the-new-madrid-earthquakes-in-kentucky-1811-12',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

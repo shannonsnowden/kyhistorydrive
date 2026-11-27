@@ -22,6 +22,8 @@ const markerNums = [...ids].filter((id) => id.startsWith('marker:')).map((id) =>
 assert.ok(markerNums.includes('1309') && markerNums.includes('1274'), 'protected-pins.json must list marker:1309 and marker:1274')
 // Nov 20 2026: the Woman from Short Cave (a burial site) and her county-level History pin are protected, so they are never another page's nearby card.
 for (const id of ['the-woman-from-short-cave', 'the-woman-from-short-cave-edmonson']) assert.ok(ids.has(id), `protected-pins.json must list ${id}`)
+// Nov 27 2026: Crigler Mounds (Adena burial mounds) and its county-level Boone County History pin are protected too.
+for (const id of ['crigler-mounds-adena-burial-mounds-in-boone-county', 'crigler-mounds-boone-county-adena']) assert.ok(ids.has(id), `protected-pins.json must list ${id}`)
 
 // --- 1) popup protection logic ---
 const tools = await import('../src/story-tools.js')
@@ -45,6 +47,11 @@ for (const id of ['the-woman-from-short-cave', 'the-woman-from-short-cave-edmons
   assert.ok(!/\bmi\b|mile|within|~|km\b/i.test(note), `${id}: protected note must not carry a distance or radius`)
   const place = pp.protectedPlaceNoteHtml({ id })
   assert.ok(place.includes('Edmonson County') && !/within|~/.test(place), `${id}: popup note must be county-only`)
+}
+for (const id of ['crigler-mounds-adena-burial-mounds-in-boone-county', 'crigler-mounds-boone-county-adena']) {
+  const note = pp.protectedPinNoteHtml(id)
+  assert.ok(note.includes('Boone County'), `${id}: protected note must name Boone County`)
+  assert.ok(!/\bmi\b|mile|within|~|km\b/i.test(note), `${id}: protected note must not carry a distance or radius`)
 }
 // After the list loads the grid fallback is off: the list alone decides.
 assert.ok(!pp.isProtectedPlace({ marker_number: '99999' }, 37.5, -85.2), 'loaded: the 0.1° grid fallback must only run before protected-pins.json loads')
@@ -142,9 +149,9 @@ if (fs.existsSync(storiesDir)) {
   // #436 B9: county-level protected stories never render km, mi, a degree sign or a radius in the
   // location pill, its tooltip, or story.md coordinates_precision.
   const UNIT_RE = /\bkm\b|\bmi\b|mile|°|\bdeg\b|radius|within|~/i
-  for (const slug of ['the-woman-from-short-cave']) {
+  for (const [slug, want] of [['the-woman-from-short-cave', 'Edmonson County'], ['crigler-mounds-adena-burial-mounds-in-boone-county', 'Boone County']]) {
     const county = pp.countyLevelProtectedCounty(slug)
-    assert.equal(county, 'Edmonson County', `${slug}: must be county-level`)
+    assert.equal(county, want, `${slug}: must be county-level`)
     const htmlFile = path.join(storiesDir, slug, 'index.html')
     if (!fs.existsSync(htmlFile)) continue
     const html = fs.readFileSync(htmlFile, 'utf8')

@@ -381,7 +381,13 @@
       "portraits": []
     },
     "mcafee-station-on-the-salt-river": {
-      "links": [],
+      "links": [
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        }
+      ],
       "portraits": []
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
@@ -1115,6 +1121,11 @@
           "id": "israel-boone",
           "name": "Israel Boone",
           "href": "/people/#israel-boone"
+        },
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
         }
       ],
       "portraits": [
@@ -1490,6 +1501,11 @@
           "id": "stephen-trigg",
           "name": "Stephen Trigg",
           "href": "/people/#stephen-trigg"
+        },
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
         }
       ],
       "portraits": [
@@ -1790,6 +1806,11 @@
     },
     "danville-and-constitution-square": {
       "links": [
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        },
         {
           "id": "walker-daniel",
           "name": "Walker Daniel",
@@ -2527,6 +2548,11 @@
           "href": "/people/#silas-harlan"
         },
         {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        },
+        {
           "id": "richard-henderson",
           "name": "Richard Henderson",
           "href": "/stories/richard-henderson/"
@@ -3160,9 +3186,19 @@
           "href": "/people/#thomas-bullitt"
         },
         {
+          "id": "isaac-hite",
+          "name": "Isaac Hite",
+          "href": "/people/#isaac-hite"
+        },
+        {
           "id": "hancock-taylor",
           "name": "Hancock Taylor",
           "href": "/stories/hancock-taylor-fincastle-surveyor/"
+        },
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
         },
         {
           "id": "george-washington",
@@ -3170,14 +3206,14 @@
           "href": "/people/#george-washington"
         },
         {
-          "id": "lord-dunmore",
-          "name": "Lord Dunmore",
-          "href": "/people/#lord-dunmore"
-        },
-        {
           "id": "lewis-collins",
           "name": "Lewis Collins",
           "href": "/people/#lewis-collins"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
         }
       ],
       "portraits": [
@@ -3256,6 +3292,11 @@
           "id": "elisha-warfield",
           "name": "Elisha Warfield",
           "href": "/people/#elisha-warfield"
+        },
+        {
+          "id": "edward-troye",
+          "name": "Edward Troye",
+          "href": "/people/#edward-troye"
         }
       ],
       "portraits": [
@@ -3736,6 +3777,157 @@
         "thomas-jefferson",
         "tecumseh",
         "tenskwatawa"
+      ]
+    },
+    "crigler-mounds-adena-burial-mounds-in-boone-county": {
+      "links": [],
+      "portraits": []
+    },
+    "grey-eagle-and-wagner-at-the-oakland-course": {
+      "links": [
+        {
+          "id": "grey-eagle-horse",
+          "name": "Grey Eagle",
+          "href": "/people/#grey-eagle-horse"
+        },
+        {
+          "id": "wagner-horse",
+          "name": "Wagner",
+          "href": "/people/#wagner-horse"
+        },
+        {
+          "id": "cato-jockey",
+          "name": "Cato",
+          "href": "/people/#cato-jockey"
+        },
+        {
+          "id": "h-t-duncan",
+          "name": "Maj. H. T. Duncan",
+          "href": "/people/#h-t-duncan"
+        },
+        {
+          "id": "a-l-shotwell",
+          "name": "A. L. Shotwell",
+          "href": "/people/#a-l-shotwell"
+        },
+        {
+          "id": "daniel-dugger",
+          "name": "Daniel Dugger",
+          "href": "/people/#daniel-dugger"
+        },
+        {
+          "id": "john-campbell-baltimore",
+          "name": "John Campbell",
+          "href": "/people/#john-campbell-baltimore"
+        },
+        {
+          "id": "stephen-welch",
+          "name": "Stephen Welch",
+          "href": "/people/#stephen-welch"
+        },
+        {
+          "id": "henry-clay",
+          "name": "Henry Clay",
+          "href": "/people/#henry-clay"
+        },
+        {
+          "id": "edward-troye",
+          "name": "Edward Troye",
+          "href": "/people/#edward-troye"
+        }
+      ],
+      "portraits": [
+        "grey-eagle-horse",
+        "wagner-horse",
+        "cato-jockey",
+        "h-t-duncan",
+        "a-l-shotwell",
+        "daniel-dugger",
+        "stephen-welch",
+        "henry-clay",
+        "edward-troye"
+      ]
+    },
+    "isaac-hite-of-cave-spring": {
+      "links": [
+        {
+          "id": "isaac-hite",
+          "name": "Isaac Hite",
+          "href": "/people/#isaac-hite"
+        },
+        {
+          "id": "thomas-bullitt",
+          "name": "Thomas Bullitt",
+          "href": "/people/#thomas-bullitt"
+        },
+        {
+          "id": "james-harrod",
+          "name": "James Harrod",
+          "href": "/people/#james-harrod"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "john-filson",
+          "name": "John Filson",
+          "href": "/stories/john-filson-kentucke-1784/"
+        }
+      ],
+      "portraits": [
+        "thomas-bullitt",
+        "james-harrod",
+        "daniel-boone",
+        "george-rogers-clark",
+        "john-filson"
+      ]
+    },
+    "smithland-zachariah-coxs-town-on-the-cumberland": {
+      "links": [
+        {
+          "id": "zachariah-cox",
+          "name": "Zachariah Cox",
+          "href": "/people/#zachariah-cox"
+        },
+        {
+          "id": "john-smith-smithland",
+          "name": "John Smith",
+          "href": "/people/#john-smith-smithland"
+        },
+        {
+          "id": "james-garrard",
+          "name": "James Garrard",
+          "href": "/people/#james-garrard"
+        },
+        {
+          "id": "james-wilkinson",
+          "name": "James Wilkinson",
+          "href": "/stories/gen-james-wilkinson-kentuckys-agent-13/"
+        }
+      ],
+      "portraits": [
+        "john-smith-smithland",
+        "james-garrard",
+        "james-wilkinson"
+      ]
+    },
+    "the-new-madrid-earthquakes-in-kentucky-1811-12": {
+      "links": [
+        {
+          "id": "jared-brooks",
+          "name": "Jared Brooks",
+          "href": "/people/#jared-brooks"
+        }
+      ],
+      "portraits": [
+        "jared-brooks"
       ]
     }
   }
