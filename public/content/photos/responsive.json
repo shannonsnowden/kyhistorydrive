@@ -785,6 +785,106 @@
           "w": 1200
         }
       ]
+    },
+    "/content/photos/stories/isaac-hite-of-cave-spring.jpg": {
+      "sha256": "0c91288bb475d6cdd3c0e6533ed832f7bcf4c7489a93cc278328f1e84c2a6a7d",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/isaac-hite-of-cave-spring-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/isaac-hite-of-cave-spring-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/isaac-hite-of-cave-spring-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/isaac-hite-of-cave-spring-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/grey-eagle-and-wagner-at-the-oakland-course.jpg": {
+      "sha256": "f25276cc45c669912de02303b718ab2d4132e4c4b27b04e808f49edd01122e81",
+      "width": 1280,
+      "height": 1034,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/grey-eagle-and-wagner-at-the-oakland-course-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/grey-eagle-and-wagner-at-the-oakland-course-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/grey-eagle-and-wagner-at-the-oakland-course-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/grey-eagle-and-wagner-at-the-oakland-course-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/the-new-madrid-earthquakes-in-kentucky-1811-12.jpg": {
+      "sha256": "ad535fe48ca554bcded5d29a9a695f8b177541c75ee14dc40a249191bc035579",
+      "width": 894,
+      "height": 1280,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/the-new-madrid-earthquakes-in-kentucky-1811-12-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-new-madrid-earthquakes-in-kentucky-1811-12-894.avif",
+          "w": 894
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/the-new-madrid-earthquakes-in-kentucky-1811-12-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-new-madrid-earthquakes-in-kentucky-1811-12-894.webp",
+          "w": 894
+        }
+      ]
+    },
+    "/content/photos/stories/smithland-zachariah-coxs-town-on-the-cumberland.jpg": {
+      "sha256": "557e196a67722fd9206ef22e12e964e13706529b6740330169d67255087fe5da",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/smithland-zachariah-coxs-town-on-the-cumberland-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/smithland-zachariah-coxs-town-on-the-cumberland-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/smithland-zachariah-coxs-town-on-the-cumberland-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/smithland-zachariah-coxs-town-on-the-cumberland-1280.webp",
+          "w": 1280
+        }
+      ]
     }
   }
 }

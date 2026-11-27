@@ -52,7 +52,8 @@
         "bland-w-ballard-of-tick-creek",
         "bryan-station-siege-august-1782",
         "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
-        "capt-billy-bush-and-the-bush-settlement"
+        "capt-billy-bush-and-the-bush-settlement",
+        "isaac-hite-of-cave-spring"
       ],
       "sourceFile": null
     },
@@ -247,7 +248,8 @@
         "william-christian-of-beargrass",
         "william-whitley-sportsmans-hill",
         "isaac-ruddell-and-the-guns-at-ruddells-station",
-        "fort-jefferson-clarks-fort-on-chickasaw-ground"
+        "fort-jefferson-clarks-fort-on-chickasaw-ground",
+        "isaac-hite-of-cave-spring"
       ],
       "sourceFile": null
     },
@@ -596,7 +598,8 @@
         "pilot-knob-boones-overlook-1769",
         "battle-of-blue-licks",
         "capt-will-the-hunting-ground",
-        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
+        "isaac-hite-of-cave-spring"
       ],
       "sourceFile": "John-Filson.jpg"
     },
@@ -844,7 +847,8 @@
         "liberty-hall-john-browns-frankfort-house",
         "mascouten-fire-nation-on-the-wabash",
         "potawatomi-fire-keepers-and-the-ohio-valley-wars",
-        "kickapoo-on-the-kentucky-frontier"
+        "kickapoo-on-the-kentucky-frontier",
+        "smithland-zachariah-coxs-town-on-the-cumberland"
       ],
       "sourceFile": "James Wilkinson (NPG).jpg"
     },
@@ -2340,7 +2344,8 @@
       "licenseUrl": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course",
-        "the-maysville-road-and-jacksons-veto-1830"
+        "the-maysville-road-and-jacksons-veto-1830",
+        "grey-eagle-and-wagner-at-the-oakland-course"
       ],
       "sourceFile": "Clay 1848.jpg"
     },
@@ -3727,7 +3732,8 @@
         "lancaster-at-wallaces-crossroads",
         "paris-from-hopewell",
         "col-james-smith-captive-scout-and-cane-ridge-elder",
-        "gen-green-clay-the-surveyor-who-built-clermont"
+        "gen-green-clay-the-surveyor-who-built-clermont",
+        "smithland-zachariah-coxs-town-on-the-cumberland"
       ],
       "sourceFile": "JGarrard.jpg"
     },
@@ -3980,7 +3986,8 @@
         "manns-lick-louisvilles-salt-town",
         "mcafee-station-on-the-salt-river",
         "shepherdsville-on-salt-river",
-        "capt-thomas-bullitts-1773-survey-party"
+        "capt-thomas-bullitts-1773-survey-party",
+        "isaac-hite-of-cave-spring"
       ],
       "sourceFile": null
     },
@@ -6222,6 +6229,126 @@
         "capt-thomas-bullitts-1773-survey-party"
       ],
       "sourceFile": null
+    },
+    {
+      "id": "isaac-hite",
+      "name": "Isaac Hite",
+      "dates": "1753–1794",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "isaac-hite-of-cave-spring"
+      ]
+    },
+    {
+      "id": "zachariah-cox",
+      "name": "Zachariah Cox",
+      "dates": "c. 1765–c. 1838",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "smithland-zachariah-coxs-town-on-the-cumberland"
+      ]
+    },
+    {
+      "id": "john-smith-smithland",
+      "name": "John Smith (Smithland)",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "smithland-zachariah-coxs-town-on-the-cumberland"
+      ]
+    },
+    {
+      "id": "jared-brooks",
+      "name": "Jared Brooks",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "the-new-madrid-earthquakes-in-kentucky-1811-12"
+      ]
+    },
+    {
+      "id": "grey-eagle-horse",
+      "name": "Grey Eagle (horse)",
+      "dates": "foaled 1835",
+      "image": {
+        "webp": "/people/portraits/grey-eagle-horse-512.webp",
+        "jpg": "/people/portraits/grey-eagle-horse-512.jpg"
+      },
+      "credit": "A. Halbert, engraving after Edward Troye · American Turf Register, 1843 · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "sourceFile": "Grey Eagle by Edward Troye.jpg"
+    },
+    {
+      "id": "wagner-horse",
+      "name": "Wagner (horse)",
+      "dates": "foaled 1834",
+      "image": {
+        "webp": "/people/portraits/wagner-horse-512.webp",
+        "jpg": "/people/portraits/wagner-horse-512.jpg"
+      },
+      "credit": "A. Halbert, engraving after Edward Troye (1839) · American Turf Register, July 1843 · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "cato-jockey",
+      "name": "Cato (jockey)",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/cato-jockey-512.webp",
+        "jpg": "/people/portraits/cato-jockey-512.jpg"
+      },
+      "credit": "A. Halbert, engraving after Edward Troye (1839) · American Turf Register, July 1843 · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "edward-troye",
+      "name": "Edward Troye",
+      "dates": "1808–1874",
+      "image": {
+        "webp": "/people/portraits/edward-troye-512.webp",
+        "jpg": "/people/portraits/edward-troye-512.jpg"
+      },
+      "credit": "Unidentified photographer, daguerreotype copy print · Smithsonian Archives of American Art · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "sourceFile": "Edward Troye.jpg"
     }
   ],
   "storySubjects": {
@@ -6245,6 +6372,7 @@
     "hancock-taylor-fincastle-surveyor": "hancock-taylor",
     "james-knox": "james-knox",
     "capt-thomas-bullitts-1773-survey-party": "thomas-bullitt",
+    "isaac-hite-of-cave-spring": "isaac-hite",
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": "cornstalk",
     "john-floyd": "john-floyd",
     "ann-mcginty-and-kentuckys-first-spinning-wheel": "ann-mcginty",
@@ -6296,6 +6424,7 @@
     "john-breckinridge-of-cabells-dale": "john-breckinridge",
     "peter-cartwright-the-backwoods-preacher-from-logan-county": "peter-cartwright",
     "jacob-beam-on-hardin-creek": "jacob-beam",
+    "smithland-zachariah-coxs-town-on-the-cumberland": "zachariah-cox",
     "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
     "tecumseh-falls-at-the-thames-oct-5-1813": "tecumseh",
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",

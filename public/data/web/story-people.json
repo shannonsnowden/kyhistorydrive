@@ -3737,6 +3737,96 @@
         "tecumseh",
         "tenskwatawa"
       ]
+    },
+    "crigler-mounds-adena-burial-mounds-in-boone-county": {
+      "links": [],
+      "portraits": []
+    },
+    "grey-eagle-and-wagner-at-the-oakland-course": {
+      "links": [
+        {
+          "id": "henry-clay",
+          "name": "Henry Clay",
+          "href": "/people/#henry-clay"
+        },
+        {
+          "id": "edward-troye",
+          "name": "Edward Troye",
+          "href": "/people/#edward-troye"
+        }
+      ],
+      "portraits": [
+        "henry-clay",
+        "edward-troye"
+      ]
+    },
+    "isaac-hite-of-cave-spring": {
+      "links": [
+        {
+          "id": "isaac-hite",
+          "name": "Isaac Hite",
+          "href": "/people/#isaac-hite"
+        },
+        {
+          "id": "thomas-bullitt",
+          "name": "Thomas Bullitt",
+          "href": "/people/#thomas-bullitt"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "john-filson",
+          "name": "John Filson",
+          "href": "/stories/john-filson-kentucke-1784/"
+        }
+      ],
+      "portraits": [
+        "thomas-bullitt",
+        "daniel-boone",
+        "george-rogers-clark",
+        "john-filson"
+      ]
+    },
+    "smithland-zachariah-coxs-town-on-the-cumberland": {
+      "links": [
+        {
+          "id": "zachariah-cox",
+          "name": "Zachariah Cox",
+          "href": "/people/#zachariah-cox"
+        },
+        {
+          "id": "james-garrard",
+          "name": "James Garrard",
+          "href": "/people/#james-garrard"
+        },
+        {
+          "id": "james-wilkinson",
+          "name": "James Wilkinson",
+          "href": "/stories/gen-james-wilkinson-kentuckys-agent-13/"
+        }
+      ],
+      "portraits": [
+        "james-garrard",
+        "james-wilkinson"
+      ]
+    },
+    "the-new-madrid-earthquakes-in-kentucky-1811-12": {
+      "links": [
+        {
+          "id": "jared-brooks",
+          "name": "Jared Brooks",
+          "href": "/people/#jared-brooks"
+        }
+      ],
+      "portraits": []
     }
   }
 }
