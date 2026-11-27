@@ -6234,53 +6234,69 @@
       "id": "isaac-hite",
       "name": "Isaac Hite",
       "dates": "1753–1794",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/isaac-hite__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/isaac-hite__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "isaac-hite-of-cave-spring"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "zachariah-cox",
       "name": "Zachariah Cox",
       "dates": "c. 1765–c. 1838",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/zachariah-cox__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/zachariah-cox__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "smithland-zachariah-coxs-town-on-the-cumberland"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-smith-smithland",
       "name": "John Smith (Smithland)",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-smith-smithland__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-smith-smithland__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "smithland-zachariah-coxs-town-on-the-cumberland"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jared-brooks",
       "name": "Jared Brooks",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jared-brooks__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jared-brooks__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "the-new-madrid-earthquakes-in-kentucky-1811-12"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "grey-eagle-horse",
@@ -6354,79 +6370,103 @@
       "id": "james-harrod",
       "name": "James Harrod",
       "dates": "1742–1792",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/james-harrod__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/james-harrod__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "isaac-hite-of-cave-spring"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "h-t-duncan",
       "name": "Maj. H. T. Duncan",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/h-t-duncan__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/h-t-duncan__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "grey-eagle-and-wagner-at-the-oakland-course"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "a-l-shotwell",
       "name": "A. L. Shotwell",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/a-l-shotwell__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/a-l-shotwell__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "grey-eagle-and-wagner-at-the-oakland-course"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "daniel-dugger",
       "name": "Daniel Dugger",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/daniel-dugger__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/daniel-dugger__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "grey-eagle-and-wagner-at-the-oakland-course"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-campbell-baltimore",
       "name": "John Campbell (of Baltimore)",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-campbell-baltimore__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-campbell-baltimore__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "grey-eagle-and-wagner-at-the-oakland-course"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "stephen-welch",
       "name": "Stephen Welch",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/stephen-welch__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/stephen-welch__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "grey-eagle-and-wagner-at-the-oakland-course"
-      ]
+      ],
+      "sourceFile": null
     }
   ],
   "storySubjects": {

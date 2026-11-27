@@ -3776,6 +3776,10 @@
         }
       ],
       "portraits": [
+        "h-t-duncan",
+        "a-l-shotwell",
+        "daniel-dugger",
+        "stephen-welch",
         "henry-clay",
         "edward-troye"
       ]
@@ -3815,6 +3819,7 @@
       ],
       "portraits": [
         "thomas-bullitt",
+        "james-harrod",
         "daniel-boone",
         "george-rogers-clark",
         "john-filson"
@@ -3851,7 +3856,9 @@
           "href": "/people/#jared-brooks"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "jared-brooks"
+      ]
     }
   }
 }
