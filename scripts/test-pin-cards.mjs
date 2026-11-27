@@ -66,7 +66,7 @@ assert.match(main, /ky-sheet/, 'main.js opens the phone bottom sheet')
 assert.match(main, /ensureHighlightSource\(map, \{ lon, lat, title: [^}]*layerId: placeLayer \}\)\s*\n\s*await showDetailPopup\(feature, placeLayer/, 'map deep links mark the selected pin in its layer color')
 assert.match(main, /protectedNote:\s*protectedPinNoteHtml\(/, 'main.js passes protectedPinNoteHtml into pinCardHtml')
 const manifest = JSON.parse(fs.readFileSync(new URL('../public/data/app/ky-history-manifest.json', import.meta.url)))
-assert.equal(manifest.data_version, 116, `data_version ${manifest.data_version} must be 116 (merge order after v2 96: #346=97, #347=98, #348=99, #350=100, #355=101, item 88 Turk/Read=102, item 88 next-7=103, closed Good Eats removals=104, soft pack #413 link audit=105, retire Dee Felice=106, Nov 5 restart pack=107, Nov 6 pack=108, #427 Nov 9 link audit=109, Nov 10 pack=110, Nov 13 pack=111, Nov 16 link audit=112, Nov 17 pack=113, Nov 20 pack=114, #438 Lancaster portraits=115, Nov 27 pack=116)`)
+assert.equal(manifest.data_version, 117, `data_version ${manifest.data_version} must be 117 (merge order after v2 96: #346=97, #347=98, #348=99, #350=100, #355=101, item 88 Turk/Read=102, item 88 next-7=103, closed Good Eats removals=104, soft pack #413 link audit=105, retire Dee Felice=106, Nov 5 restart pack=107, Nov 6 pack=108, #427 Nov 9 link audit=109, Nov 10 pack=110, Nov 13 pack=111, Nov 16 link audit=112, Nov 17 pack=113, Nov 20 pack=114, #440 Frankfort no dv bump, Nov 27 pack=#441=116, Lancaster portraits rebase after #441=117)`)
 
 // Critiquito fixes on #350.
 const css = fs.readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
