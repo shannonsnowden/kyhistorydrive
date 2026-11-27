@@ -360,7 +360,8 @@
         "ephraim-mcdowell-jane-todd-crawford-1809",
         "winchester-clark-county-seat",
         "tecumseh-falls-at-the-thames-oct-5-1813",
-        "john-breckinridge-of-cabells-dale"
+        "john-breckinridge-of-cabells-dale",
+        "frankfort-franks-ford-becomes-the-capital"
       ],
       "role": "First and fifth governor of Kentucky",
       "native": false,
@@ -3375,10 +3376,10 @@
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Gideon_Shryock_by_Jouett.jpg",
       "license": "Public domain",
       "licenseUrl": null,
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "credit": "Matthew Harris Jouett · Public domain · via Wikimedia Commons",
       "freeToUse": true,
       "verified": true,
-      "notes": null
+      "notes": "Commons File:Gideon_Shryock_by_Jouett.jpg. The file title credits Jouett. Matthew Harris Jouett is the Kentucky portrait painter of that name; the same credit is used for his other portraits here. Source line is Kentucky Ante-Bellum Portraiture. Public domain (PD-old-70)."
     },
     {
       "id": "andrew-holmes",
@@ -3395,12 +3396,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Frankfort proprietor who carried the 1792 capitol offer. Canonical face: AI illustration; no known likeness exists.",
+      "ai": true
     },
     {
       "id": "stephen-frank",
@@ -3416,12 +3418,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Canonical face: AI illustration; no known likeness exists.",
+      "ai": true
     },
     {
       "id": "matthew-walton",
@@ -7232,7 +7235,6 @@
       "lifeDates": null,
       "stories": [
         "covington-at-the-point",
-        "frankfort-franks-ford-becomes-the-capital",
         "newport-at-the-licking-mouth"
       ],
       "role": "Farm, stone tavern and ferry owner at the Point (Covington), from about 1790",
@@ -8405,6 +8407,205 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Frontispiece of Hall's own The Romance of Western History (Cincinnati: Applegate, 1857; archive.org romanceofwestern00hal, LoC copy, creator 'Hall, James, 1793-1868'), signed 'Yours Truly James Hall', 'Painted by J. O. Eaton, Engraved by J. C. Buttre'. Commons PD-US. Not James Hall the geologist (1811–1898) or other namesakes. 512 square is a hand crop of the face. Named in Black Hoof prose as Hall of 'McKenney and Hall' (B16).",
+      "ai": false
+    },
+    {
+      "id": "daniel-gano",
+      "name": "Daniel Gano",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Revolutionary captain who helped lay out Frankfort, 1787",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Collins, as cited by the Northern Kentucky Tribune (2025) from History of Kentucky vol. 2, p. 707: came to Kentucky with James Wilkinson and, with Daniel Weisiger, laid out Frankfort in 1787. No known likeness. Not Rev. John Gano.",
+      "ai": true
+    },
+    {
+      "id": "daniel-weisiger",
+      "name": "Daniel Weisiger",
+      "aliases": [],
+      "lifeDates": "1763–1829",
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Frankfort merchant, street-layer, and first postmaster",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://explorekyhistory.ky.gov/files/fullsize/557ae6ada576ab4aaae7ff30d90068e2.jpg",
+      "sourcePage": "https://explorekyhistory.ky.gov/items/show/610",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "Unknown artist · Kentucky Historical Society · Public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "ExploreKYHistory item 610 calls this a portrait of Daniel Weisiger from when he kept his Frankfort inn, and says 'Courtesy of the Kentucky Historical Society.' The page does not name the painter. He died in 1829. Not an AI illustration.",
+      "ai": false
+    },
+    {
+      "id": "john-allen",
+      "name": "John Allen",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Bourbon County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Named by Collins (1874) and KHS marker 1774 as John Allen of Bourbon County, one of the five 1792 capital commissioners. Not identified in those accounts with Col. John Allen of Shelbyville (1771–1813), killed at the River Raisin; that portrait was not used. No known likeness of this commissioner.",
+      "ai": true
+    },
+    {
+      "id": "john-edwards",
+      "name": "John Edwards",
+      "aliases": [],
+      "lifeDates": "1748–1837",
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Bourbon County commissioner, 1792; one of Kentucky's first U.S. senators",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "uncertain",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/John_Edwards_of_Kentucky.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John_Edwards_of_Kentucky.jpg",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Bourbon commissioner and U.S. senator John Edwards (1748–1837), not a later namesake. Commons File:John_Edwards_of_Kentucky.jpg is public domain; the shipped crop is the same portrait from the larger public-domain scan on ExploreKYHistory item 439 (Hopewell Museum; painter unknown), with the printed caption removed. ExploreKYHistory notes the marker's 1837 death year may be 1833 or 1834."
+    },
+    {
+      "id": "henry-lee-mason",
+      "name": "Henry Lee",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Mason County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Henry Lee of Mason County, named by Collins and KHS marker 1774. Not Henry Lee III of Virginia (Light-Horse Harry), who was governor of Virginia in 1792. No known likeness.",
+      "ai": true
+    },
+    {
+      "id": "thomas-kennedy-madison",
+      "name": "Thomas Kennedy",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Madison County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Thomas Kennedy of Madison County, a 1792 constitutional convention delegate and one of the five capital commissioners (Collins; KHS marker 1774; Secretary of State delegate list). Not Thomas Kennedy the Covington ferry owner (thomas-kennedy). No known likeness.",
+      "ai": true
+    },
+    {
+      "id": "robert-todd",
+      "name": "Robert Todd",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Fayette County commissioner for the 1792 capital site",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Gen. Robert Todd of Fayette, the commissioner Collins says switched his vote to Frankfort on 5 Dec 1792. Wikipedia 'Robert Todd (pioneer)' identifies the Fayette militia general, brother of John Todd and Levi Todd. Not Robert Smith Todd and not Robert Todd Lincoln. No portrait on that article. No known likeness used.",
+      "ai": true
+    },
+    {
+      "id": "richard-h-collins",
+      "name": "Richard H. Collins",
+      "aliases": [],
+      "lifeDates": "1824–1888",
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ],
+      "role": "Historian; enlarged his father's Kentucky history, published 1874",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://archive.org/download/collinshistoricav01coll/page/n7_w1600.jpg",
+      "sourcePage": "https://archive.org/details/collinshistoricav01coll",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "W. G. Jackman · Collins, History of Kentucky, vol. 1 (1874)",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Richard Henry Collins (4 May 1824–1 Jan 1888), son of Lewis Collins. ExploreKYHistory item 350 and the 1874/1878 title page: he revised and enlarged Lewis Collins's 1847 Historical Sketches and brought the book down to 1874. Engraving labeled 'Richd H. Collins' on the 'Kentucky Historians' frontispiece, W. G. Jackman, Collins vol. 1. The bearded KHS portrait on ExploreKYHistory item 350 is the same man. Not Lewis Collins.",
+      "ai": false
+    },
+    {
+      "id": "lewis-collins",
+      "name": "Lewis Collins",
+      "aliases": [],
+      "lifeDates": "1797–1870",
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital",
+        "capt-thomas-bullitts-1773-survey-party"
+      ],
+      "role": "Judge of the Mason County Court; author of Historical Sketches of Kentucky (1847)",
+      "county": "Mason",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://archive.org/download/collinshistoricav01coll/page/n7_w1600.jpg",
+      "sourcePage": "https://archive.org/details/collinshistoricav01coll",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "W. G. Jackman · Collins, History of Kentucky, vol. 1 (1874)",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Father of Richard H. Collins. Archive.org lists the author as 'Collins, Lewis, 1797-1870' on collinshistoricav01coll. The 1874 dedication is to 'Judge Lewis Collins,' whose labors as a historian in 1846–7 'were most appreciated after his death, in 1870.' The title page calls him judge of the Mason County Court. Engraving labeled 'Lewis Collins' on the Kentucky Historians frontispiece, W. G. Jackman. Not Richard H. Collins.",
       "ai": false
     }
   ]
