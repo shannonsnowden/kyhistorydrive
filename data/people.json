@@ -52,7 +52,8 @@
         "bland-w-ballard-of-tick-creek",
         "bryan-station-siege-august-1782",
         "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
-        "capt-billy-bush-and-the-bush-settlement"
+        "capt-billy-bush-and-the-bush-settlement",
+        "isaac-hite-of-cave-spring"
       ],
       "role": "Long hunter, explorer, Boonesborough founder",
       "native": false,
@@ -297,7 +298,8 @@
         "william-christian-of-beargrass",
         "william-whitley-sportsmans-hill",
         "isaac-ruddell-and-the-guns-at-ruddells-station",
-        "fort-jefferson-clarks-fort-on-chickasaw-ground"
+        "fort-jefferson-clarks-fort-on-chickasaw-ground",
+        "isaac-hite-of-cave-spring"
       ],
       "role": "Revolutionary general, Illinois campaign",
       "native": false,
@@ -750,7 +752,8 @@
         "pilot-knob-boones-overlook-1769",
         "battle-of-blue-licks",
         "capt-will-the-hunting-ground",
-        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
+        "isaac-hite-of-cave-spring"
       ],
       "role": "Author of Kentucke (1784), mapmaker",
       "native": false,
@@ -1075,7 +1078,8 @@
         "liberty-hall-john-browns-frankfort-house",
         "mascouten-fire-nation-on-the-wabash",
         "potawatomi-fire-keepers-and-the-ohio-valley-wars",
-        "kickapoo-on-the-kentucky-frontier"
+        "kickapoo-on-the-kentucky-frontier",
+        "smithland-zachariah-coxs-town-on-the-cumberland"
       ],
       "role": "General, Spanish agent (\"Agent 13\"), Frankfort founder",
       "native": false,
@@ -3090,7 +3094,8 @@
       "lifeDates": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course",
-        "the-maysville-road-and-jacksons-veto-1830"
+        "the-maysville-road-and-jacksons-veto-1830",
+        "grey-eagle-and-wagner-at-the-oakland-course"
       ],
       "role": "Statesman, Kentucky Association founder",
       "native": false,
@@ -5184,7 +5189,8 @@
         "lancaster-at-wallaces-crossroads",
         "paris-from-hopewell",
         "col-james-smith-captive-scout-and-cane-ridge-elder",
-        "gen-green-clay-the-surveyor-who-built-clermont"
+        "gen-green-clay-the-surveyor-who-built-clermont",
+        "smithland-zachariah-coxs-town-on-the-cumberland"
       ],
       "role": "Second governor",
       "native": false,
@@ -5570,7 +5576,8 @@
         "manns-lick-louisvilles-salt-town",
         "mcafee-station-on-the-salt-river",
         "shepherdsville-on-salt-river",
-        "capt-thomas-bullitts-1773-survey-party"
+        "capt-thomas-bullitts-1773-survey-party",
+        "isaac-hite-of-cave-spring"
       ],
       "role": "Surveyor, Bullitt's Lick",
       "native": false,
@@ -8607,6 +8614,328 @@
       "verified": true,
       "notes": "Father of Richard H. Collins. Archive.org lists the author as 'Collins, Lewis, 1797-1870' on collinshistoricav01coll. The 1874 dedication is to 'Judge Lewis Collins,' whose labors as a historian in 1846–7 'were most appreciated after his death, in 1870.' The title page calls him judge of the Mason County Court. Engraving labeled 'Lewis Collins' on the Kentucky Historians frontispiece, W. G. Jackman. Not Richard H. Collins.",
       "ai": false
+    },
+    {
+      "id": "isaac-hite",
+      "name": "Isaac Hite",
+      "aliases": [],
+      "lifeDates": "1753–1794",
+      "stories": [
+        "isaac-hite-of-cave-spring",
+        "capt-thomas-bullitts-1773-survey-party"
+      ],
+      "role": "Surveyor with Bullitt (1773), Harrodsburg settler, Transylvania delegate, builder of Cave Spring near Anchorage",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. NOT Isaac Hite Jr. (1758–1836) of Belle Grove, Virginia, whose 1799 Charles Peale Polke portrait is on Commons (File:Isaac Hite, Jr. by Charles Peale Polke, 1799.jpg); that is a different man and must not be used. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md).",
+      "ai": true
+    },
+    {
+      "id": "zachariah-cox",
+      "name": "Zachariah Cox",
+      "aliases": [],
+      "lifeDates": "c. 1765–c. 1838",
+      "stories": [
+        "smithland-zachariah-coxs-town-on-the-cumberland"
+      ],
+      "role": "Georgia surveyor and Yazoo land speculator who planned the settlement at the mouth of the Cumberland (Smithland), 1796–98",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness found (Encyclopedia of Alabama article has only a map). Not Sir Percy Cox. Needs a Studio AI portrait.",
+      "ai": true
+    },
+    {
+      "id": "john-smith-smithland",
+      "name": "John Smith (Smithland)",
+      "aliases": [
+        "Capt. John Smith"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "smithland-zachariah-coxs-town-on-the-cumberland"
+      ],
+      "role": "Captain who explored the mouth of the Cumberland for Zachariah Cox in 1796; Smithland's namesake",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Cox's 1803 memorial calls him 'Capt. John Smith T' (possibly the Missouri frontiersman John Smith T, 1770–1836, but that identification is not made in the story). Not Col. James Smith (james-smith) or Capt. John Smith of Jamestown. Needs a Studio AI portrait.",
+      "ai": true
+    },
+    {
+      "id": "jared-brooks",
+      "name": "Jared Brooks",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "the-new-madrid-earthquakes-in-kentucky-1811-12"
+      ],
+      "role": "Louisville resident who measured and counted the New Madrid earthquake shocks, 1811–12",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Died before 1819 ('the late J. Brooks' in McMurtrie's Sketches of Louisville). Not Joseph Brooks (joseph-brooks). Needs a Studio AI portrait.",
+      "ai": true
+    },
+    {
+      "id": "grey-eagle-horse",
+      "name": "Grey Eagle (horse)",
+      "aliases": [
+        "Gray Eagle"
+      ],
+      "lifeDates": "foaled 1835",
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Kentucky Thoroughbred, by Woodpecker out of Ophelia; lost the 1839 Oakland Course matches to Wagner and broke down",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Grey_Eagle_by_Edward_Troye.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Grey_Eagle_by_Edward_Troye.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Grey_Eagle_by_Edward_Troye.jpg",
+      "credit": "A. Halbert, engraving after Edward Troye · American Turf Register, 1843 · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Steel engraving by A. Halbert after a copy of Edward Troye's painting, American Turf Register and Sporting Magazine vol. XIV (1843), p. 174; Commons PD (2235x1667). Painted in the horse's lifetime. 512 square is a hand crop of the horse with part of an unidentified groom at the right edge. Not the trotter Grey Eagle driven by Hiram Woodruff (Currier lithograph).",
+      "ai": false
+    },
+    {
+      "id": "wagner-horse",
+      "name": "Wagner (horse)",
+      "aliases": [],
+      "lifeDates": "foaled 1834",
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Virginia-bred chestnut Thoroughbred, by Sir Charles out of Maria West; beat Grey Eagle twice at Louisville's Oakland Course in 1839",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://archive.org/download/americanturfregi14skin/page/n391.jpg",
+      "sourcePage": "https://archive.org/details/americanturfregi14skin/page/n391/mode/1up",
+      "license": "Public domain",
+      "licenseUrl": "https://archive.org/details/americanturfregi14skin/page/n391/mode/1up",
+      "credit": "A. Halbert, engraving after Edward Troye (1839) · American Turf Register, July 1843 · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Plate 'Wagner' (portrait on steel by Halbert after Troye) facing the 'Memoir of Wagner', American Turf Register and Sporting Magazine vol. XIV, July 1843, p. 367 (archive.org americanturfregi14skin, leaf n391, rotated). Troye painted him in Cincinnati in October 1839. Not on Commons; archive.org scan of a PD-US 1843 publication. 512 square is a hand crop of the horse.",
+      "ai": false
+    },
+    {
+      "id": "cato-jockey",
+      "name": "Cato (jockey)",
+      "aliases": [
+        "Cate-O"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Enslaved jockey who rode Wagner to victory over Grey Eagle at Louisville's Oakland Course in 1839",
+      "native": false,
+      "likeness": "drawing",
+      "timing": "life",
+      "image": "https://archive.org/download/americanturfregi14skin/page/n391.jpg",
+      "sourcePage": "https://archive.org/details/americanturfregi14skin/page/n391/mode/1up",
+      "license": "Public domain",
+      "licenseUrl": "https://archive.org/details/americanturfregi14skin/page/n391/mode/1up",
+      "credit": "Detail (Cato at Wagner's head) from A. Halbert, Wagner, engraving after Edward Troye (1839) · American Turf Register, July 1843 · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Crop of the jockey at Wagner's head in the Halbert engraving after Troye's 1839 painting (American Turf Register, July 1843). The editor William T. Porter wrote that 'Cate-O stands out in pretty bold relief in the picture' (quoted in Jessica Dallow, Nineteenth-Century Art Worldwide, Autumn 2013), which identifies the figure. Low-resolution source (about 450 px), lightly upscaled to 512.",
+      "ai": false
+    },
+    {
+      "id": "edward-troye",
+      "name": "Edward Troye",
+      "aliases": [],
+      "lifeDates": "1808–1874",
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course",
+        "lexington-blind-hero-of-woodburn"
+      ],
+      "role": "Swiss-born painter of American Thoroughbreds who painted Grey Eagle and Wagner",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Edward_Troye.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Edward_Troye.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Edward_Troye.jpg",
+      "credit": "Unidentified photographer, daguerreotype copy print · Smithsonian Archives of American Art · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Copy print of a daguerreotype portrait of Troye, c. 1850s–1870 (Commons dates it circa 1870), Smithsonian / Archives of American Art; Commons PD (1680x2008). 512 square is a hand crop of the face.",
+      "ai": false
+    },
+    {
+      "id": "james-harrod",
+      "name": "James Harrod",
+      "aliases": [],
+      "lifeDates": "1742–1792",
+      "stories": [
+        "isaac-hite-of-cave-spring",
+        "capt-thomas-bullitts-1773-survey-party",
+        "col-stephen-trigg-of-viney-grove",
+        "danville-and-constitution-square",
+        "hugh-mcgary-the-blue-licks-hothead",
+        "maj-silas-harlan",
+        "mcafee-station-on-the-salt-river"
+      ],
+      "role": "Founder of Harrodsburg (Harrod's Town), June 16, 1774",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "h-t-duncan",
+      "name": "Maj. H. T. Duncan",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Breeder of Grey Eagle, near Lexington (foaled 1835)",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "a-l-shotwell",
+      "name": "A. L. Shotwell",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Kentucky owner of Grey Eagle in the 1839 Oakland Course races",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "daniel-dugger",
+      "name": "Daniel Dugger",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Brunswick County, Virginia, breeder of Wagner (foaled 1834)",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "john-campbell-baltimore",
+      "name": "John Campbell (of Baltimore)",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Baltimore owner of Wagner, bought from Dugger for $5,000",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
+    },
+    {
+      "id": "stephen-welch",
+      "name": "Stephen Welch",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "grey-eagle-and-wagner-at-the-oakland-course"
+      ],
+      "role": "Jockey who rode Grey Eagle in both 1839 Oakland Course races",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness. Needs a Studio AI portrait (see /workspace/kyhist-1127/studio-briefs-1127.md, Editor round 1).",
+      "ai": true
     }
   ]
 }

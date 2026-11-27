@@ -1,0 +1,31 @@
+{
+  "slug": "the-new-madrid-earthquakes-in-kentucky-1811-12",
+  "title": "The New Madrid earthquakes in Kentucky, 1811–12",
+  "publishedDate": "2026-11-27",
+  "summary": "From December 16, 1811, the New Madrid earthquakes shook Kentucky for months. In Louisville, Jared Brooks built pendulums and springs, ranked the shocks by strength, and counted 1,874 of them by mid-March 1812.",
+  "bodyMarkdown": "At 2:15 in the morning on December 16, 1811, Louisville woke up shaking. The ground swayed for three or four minutes. A little after 7 it struck again, harder. A Louisville man named [Jared Brooks](/people/#jared-brooks) decided to measure it.\n\nHis notes became the best record of the strongest earthquakes known east of the Rocky Mountains.\n\n## Four great shocks\n\nThe [New Madrid earthquakes](https://grokipedia.com/page/1811%E2%80%931812_New_Madrid_earthquakes) were centered in the central Mississippi Valley, in northeast Arkansas and around New Madrid in what is now Missouri. The first, on December 16, is estimated at magnitude 7.2 to 8.2. A second of about 7.4 hit the same morning, and two more of similar size followed, on January 23 and February 7, 1812.\n\n## Louisville, far from the center\n\nBrooks wrote that the morning shock \"strengthened at a dreadful rate to tremendous, so as to threaten the town with total destruction.\" [It seemed, he wrote,](https://history.hanover.edu/texts/1811/Web/Articles/1819-mcmurtrie.html) \"as if the surface of the earth was afloat.\" Gable ends, parapets and the chimneys of many houses fell.\n\nUpriver at the mouth of the Cumberland, [Smithland](/stories/smithland-zachariah-coxs-town-on-the-cumberland/) residents ran into the streets as chimneys came down. In the far west, the February shock raised a fault under the Mississippi and briefly made waterfalls in the river at the Kentucky Bend. Nearby, across the Tennessee line, sinking ground helped form Reelfoot Lake.\n\n## Pendulums and springs\n\nBrooks did not just feel the shocks. He hung [pendulums from 1 to 6 inches long](https://pubs.usgs.gov/bul/0494/report.pdf) to catch side-to-side motion and set springs to catch the up-and-down. They moved even when people felt nothing. He ranked each shock on a six-step scale, from \"first rate,\" violent enough to threaten the town, down to motions only his instruments could see. He was one of the first people anywhere to rank earthquakes by their shaking.\n\nHe also kept the weather, the time of day and how the town reacted. On April 13, 1812, he wrote that it was \"the 120th day of the continuance of the earthquakes,\" and he hoped they would soon \"let the earth repose again.\"\n\n## 1,874 shocks\n\nFrom December 16, 1811, to March 15, 1812, Brooks counted [1,874 shocks felt at Louisville](https://pubs.usgs.gov/of/1983/0179/report.pdf). His record was printed in 1819 as an appendix to Sketches of Louisville and Its Environs, drawn \"from the papers of the late J. Brooks,\" so he had died by then. A century later the U.S. Geological Survey used it to rebuild the sequence, and seismologists still use it.\n\n## Kentucky today\n\nA state historical marker in Fulton County, near the Tennessee line, tells the story and repeats Brooks's count of shocks felt at Louisville, 250 miles away. The map pin marks it. The fault zone is still active, and small earthquakes are recorded there every year.",
+  "yearStart": 1811,
+  "yearEnd": 1812,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "geology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-11-27",
+  "county": "Fulton",
+  "photo": {
+    "image_url": "/content/photos/stories/the-new-madrid-earthquakes-in-kentucky-1811-12.jpg",
+    "title": "\"The Great Earthquake at New Madrid,\" engraving from Henry Howe's Historical Collections of the Great West (1851)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:The_Great_Earthquake_at_New_Madrid_(15_September_1811)_-_DPLA_-_c35a9703865889133609929fa82173dd.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Henry Howe, 1851 · Missouri Historical Society via Wikimedia Commons · public domain (no known copyright)",
+    "year": 1851,
+    "credit": "Henry Howe · Missouri Historical Society",
+    "license": "Public domain",
+    "fit": "contain",
+    "artwork": "engraving"
+  },
+  "metaSource": "summary"
+}

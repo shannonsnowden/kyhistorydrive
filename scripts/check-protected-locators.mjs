@@ -285,6 +285,15 @@ export const ITEMS = [
     terms: ['sinkhole', 'entrance', 'north of', 'miles from'],
     ownOnly: true,
   },
+  {
+    name: 'Crigler Mounds',
+    names: ['Crigler Mounds'],
+    slugs: ['crigler-mounds-adena-burial-mounds-in-boone-county'],
+    // Adena burial mounds. The story and its pin name only Boone County; the sites are not public.
+    ids: ['crigler-mounds-boone-county-adena'],
+    terms: ['Taylorsport', 'Constance', 'Hebron', 'Petersburg', 'Ohio River', 'Crigler farm', 'Woolper'],
+    ownOnly: true,
+  },
 ]
 
 /** Required credit URLs that may keep a term. Keep this list specific. */
@@ -679,10 +688,10 @@ function selfTest() {
   assert(hitsIn('Portsmouth Earthworks in the research file.', oldFort, { research: true }).includes('Portsmouth'), 'a shortened official title in research still fails')
   assert(findLocators('A square earthwork in Greenup County. Portsmouth.').length === 0, 'bare Portsmouth is not a generic pattern')
   assert(findLocators('A square earthwork in Greenup County. Portsmouth.', oldFort.slugs[0]).some((h) => h.match === 'Portsmouth'), 'Old Fort term catches bare Portsmouth')
-  assert(protectedStoryCount() === 43, `generic pass covers all 43 protected stories (got ${protectedStoryCount()})`)
+  assert(protectedStoryCount() === 44, `generic pass covers all 44 protected stories (got ${protectedStoryCount()})`)
   const storyFiles = fs.readdirSync(path.join(ROOT, 'public/content/stories')).filter((f) => f.endsWith('.json'))
   const protFiles = storyFiles.filter((f) => isProtectedStory(JSON.parse(fs.readFileSync(path.join(ROOT, 'public/content/stories', f), 'utf8'))))
-  assert(protFiles.length === 43, `protected story files: ${protFiles.length}`)
+  assert(protFiles.length === 44, `protected story files: ${protFiles.length}`)
   const planted = []
   scanGeneric({ slug: oldFort.slugs[0], summary: 'A square earthwork in Greenup County. Portsmouth.' }, `content/stories/${oldFort.slugs[0]}.json`, planted)
   const bare = planted.filter((h) => h.match === 'Portsmouth')
