@@ -127,6 +127,20 @@
       ],
       "portraits": []
     },
+    "capt-thomas-bullitts-1773-survey-party": {
+      "links": [
+        "thomas-bullitt",
+        "hancock-taylor",
+        "george-washington",
+        "lord-dunmore",
+        "lewis-collins"
+      ],
+      "portraits": [
+        "hancock-taylor",
+        "george-washington",
+        "lord-dunmore"
+      ]
+    },
     "leestown": {
       "links": [
         "hancock-lee"
@@ -231,9 +245,28 @@
     },
     "frankfort-franks-ford-becomes-the-capital": {
       "links": [
-        "stephen-frank"
+        "stephen-frank",
+        "james-wilkinson",
+        "daniel-gano",
+        "daniel-weisiger",
+        "isaac-shelby",
+        "richard-h-collins",
+        "lewis-collins",
+        "john-allen",
+        "john-edwards",
+        "henry-lee-mason",
+        "thomas-kennedy-madison",
+        "robert-todd",
+        "andrew-holmes",
+        "gideon-shryock",
+        "john-brown"
       ],
-      "portraits": []
+      "portraits": [
+        "richard-h-collins",
+        "lewis-collins",
+        "robert-todd",
+        "andrew-holmes"
+      ]
     },
     "hodgenville-from-hodgens-mill-to-county-seat": {
       "links": [
