@@ -168,7 +168,7 @@ assert.match(shrinkOnlyError([{ slug: 'a', id: 'b' }, { slug: 'c', id: 'd' }], 1
 assert.match(shrinkOnlyError([], 1), /shrank/)
 
 // Cap may only fall. Adding a row without removing one fails; after a removal, lower this number.
-const PROMINENT_PORTRAIT_GAP_MAX = 161
+const PROMINENT_PORTRAIT_GAP_MAX = 159
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const allowFile = JSON.parse(fs.readFileSync(path.join(root, 'scripts/prominent-portrait-gaps.json'), 'utf8'))
 const liveEntries = allowFile.gaps
