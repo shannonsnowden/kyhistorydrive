@@ -878,7 +878,8 @@
       ],
       "portraits": [
         "james-garrard",
-        "james-wilkinson"
+        "james-wilkinson",
+        "john-smith-smithland"
       ],
       "aliases": {
         "john-smith-smithland": "John Smith"
@@ -892,7 +893,10 @@
         "stephen-welch",
         "henry-clay",
         "edward-troye",
-        "john-campbell-baltimore"
+        "john-campbell-baltimore",
+        "grey-eagle-horse",
+        "wagner-horse",
+        "cato-jockey"
       ],
       "portraits": [
         "h-t-duncan",
@@ -900,10 +904,16 @@
         "daniel-dugger",
         "stephen-welch",
         "henry-clay",
-        "edward-troye"
+        "edward-troye",
+        "grey-eagle-horse",
+        "wagner-horse",
+        "cato-jockey"
       ],
       "aliases": {
-        "john-campbell-baltimore": "John Campbell"
+        "john-campbell-baltimore": "John Campbell",
+        "grey-eagle-horse": "Grey Eagle",
+        "wagner-horse": "Wagner",
+        "cato-jockey": "Cato"
       }
     },
     "danville-and-constitution-square": {

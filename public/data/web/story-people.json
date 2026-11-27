@@ -3776,6 +3776,21 @@
     "grey-eagle-and-wagner-at-the-oakland-course": {
       "links": [
         {
+          "id": "grey-eagle-horse",
+          "name": "Grey Eagle",
+          "href": "/people/#grey-eagle-horse"
+        },
+        {
+          "id": "wagner-horse",
+          "name": "Wagner",
+          "href": "/people/#wagner-horse"
+        },
+        {
+          "id": "cato-jockey",
+          "name": "Cato",
+          "href": "/people/#cato-jockey"
+        },
+        {
           "id": "h-t-duncan",
           "name": "Maj. H. T. Duncan",
           "href": "/people/#h-t-duncan"
@@ -3812,6 +3827,9 @@
         }
       ],
       "portraits": [
+        "grey-eagle-horse",
+        "wagner-horse",
+        "cato-jockey",
         "h-t-duncan",
         "a-l-shotwell",
         "daniel-dugger",
@@ -3885,6 +3903,7 @@
         }
       ],
       "portraits": [
+        "john-smith-smithland",
         "james-garrard",
         "james-wilkinson"
       ]
