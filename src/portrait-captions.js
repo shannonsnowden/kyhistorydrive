@@ -89,6 +89,11 @@ export const PORTRAIT_ALTS = {
   'pluggy': "AI illustration of Pluggy, Mingo leader, about 1776",
   'scarouady': "AI illustration of Scarouady, Oneida leader at Logstown, about 1752",
   'tanacharison': "AI illustration of Tanacharison, the Half King, Seneca leader at Logstown, about 1752",
+  // Nov 20 2026: Treaty of Lancaster (1744) faces (Design PASS, Critiquito).
+  canassatego: 'AI illustration of Canassatego, Onondaga speaker for the Six Nations at Lancaster in 1744, in a linen trade shirt with a silver gorget',
+  tachanoontia: 'AI illustration of Tachanoontia, Onondaga speaker at Lancaster in 1744, in a red wool matchcoat and calico shirt',
+  'conrad-weiser': 'AI illustration of Conrad Weiser, Pennsylvania interpreter at Lancaster in 1744, in a plain brown coat',
+  'william-beverley': 'AI illustration of William Beverley, Virginia commissioner at Lancaster in 1744, in a powdered wig and claret coat',
   'the-glass': "AI illustration of The Glass, Cherokee chief, about 1805",
   // Cleared follow-up (not Item 92), Oct 2026. Will Emery is v2.
   'nonhelema': "AI illustration of Nonhelema, Shawnee Chalakatha chief and diplomat, about 1786",

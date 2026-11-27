@@ -6265,18 +6265,19 @@
         "treaty-of-logstown-1752",
         "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
       ],
-      "role": "Ohio Company",
+      "role": "Virginia commissioner at the Treaty of Lancaster, 1744; Ohio Company",
       "native": false,
       "likeness": "none-known",
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article (only Blandfield and a coat of arms); no Grokipedia page. Canonical face: AI illustration v1 (Nov 20 2026; History CLEAR, Design PASS); no known likeness. 512 jpg sha256 ec48ac243659d8576fa828115ce1f1adedb9be14afd8681efac9fc7278d68241.",
+      "ai": true
     },
     {
       "id": "tanacharison",
@@ -6301,6 +6302,96 @@
       "freeToUse": false,
       "verified": false,
       "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting. Canonical face: AI illustration (approval item 92, Oct 19, 2026).",
+      "ai": true
+    },
+    {
+      "id": "thomas-lee",
+      "name": "Thomas Lee",
+      "aliases": [],
+      "lifeDates": "1690–1750",
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ],
+      "role": "Virginia commissioner at the Treaty of Lancaster, 1744; Ohio Company founder",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Col._Thomas_Lee.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Col._Thomas_Lee.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Col._Thomas_Lee.jpg",
+      "credit": "Unidentified painter, oil, c. 1725 · Stratford Hall · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Portrait of Colonel Thomas Lee, oil, unidentified painter, c. 1725 (Commons dates the cropped derivative 1710–1750), Stratford Hall, Virginia. Commons File:Col._Thomas_Lee.jpg, {{PD-art-old-100-expired}} / {{PD-US-expired}}; Wikidata Q140729668, depicts Q4141380. Painted in his lifetime. 512 square is a hand crop of the full file (face and wig fully in frame, not the torso). Grokipedia Thomas_Lee_(Virginia_colonist) has no image.",
+      "ai": false
+    },
+    {
+      "id": "conrad-weiser",
+      "name": "Conrad Weiser",
+      "aliases": [],
+      "lifeDates": "1696–1760",
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ],
+      "role": "Pennsylvania interpreter at the Treaty of Lancaster, 1744",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No certifiable likeness. The en.wikipedia-local File:ConradWeiserPortrait.jpg is an anonymous, undated family drawing that its own file page calls probably an artist's impression; the top-hat image in Walton (1900) and The Life and Times of Conrad Weiser (1893) is a fabrication. Grokipedia Conrad_Weiser has no image. Canonical face: AI illustration v2 (Nov 20 2026; History CLEAR, Design PASS); no known likeness. 512 jpg sha256 1c501ddb24e2680a98cb974926de69976c9c6885761781bf1a25ab07b82c399f.",
+      "ai": true
+    },
+    {
+      "id": "canassatego",
+      "name": "Canassatego",
+      "aliases": [
+        "Canasatego"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ],
+      "role": "Onondaga speaker for the Six Nations at the Treaty of Lancaster, 1744",
+      "native": true,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No Wikipedia/Commons likeness (Wikipedia Canasatego has no portrait; Grokipedia slug 404). Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting. Canonical face: AI illustration v1 (Nov 20 2026; History CLEAR, Design PASS); no known likeness. 512 jpg sha256 15f618facccff18959c1f6e0f6ae2c6fddaaaf4039dc3a7289572e79c9ab36d4.",
+      "ai": true
+    },
+    {
+      "id": "tachanoontia",
+      "name": "Tachanoontia",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "the-treaty-of-lancaster-1744-how-virginia-claimed-kentucky"
+      ],
+      "role": "Onondaga speaker for the Six Nations to Virginia at the Treaty of Lancaster, 1744",
+      "native": true,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Named speaker in the printed 1744 Lancaster treaty minutes. No Wikipedia/Commons likeness; no Grokipedia page. Native leader: no invented likeness. Canonical face: AI illustration v2 (Nov 20 2026; History CLEAR, Design PASS); no known likeness. 512 jpg sha256 19165da4644df31b8db7dacbd05ff0484d2561223ad8ae36fae86d4cf125c71c.",
       "ai": true
     },
     {
