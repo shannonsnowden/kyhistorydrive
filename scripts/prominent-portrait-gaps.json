@@ -1,0 +1,800 @@
+{
+  "_comment": "People the story page lists under People in this story (resolvePeopleInStory: people.json stories[], story-people.json links and portraits, research notes people[], and /people/#id body links) who have no self-hosted portrait. Includes stories with no title subject. scripts/check-story-portraits.mjs fails the build on any gap not listed here. This is not scripts/story-portrait-gaps.json, which only grandfathers a missing inline figure on a person-subject story. Shrink-only: remove a row when that portrait lands. Do not add a row unless you remove one. scripts/test-prominent-portraits.mjs fails if the list grows. A document, map, or place image is not a portrait (see NON_PORTRAIT_IMAGE_IDS in scripts/check-story-portraits.mjs). The Treaty of Lancaster 1744 story is in this list for william-beverley. Conrad Weiser, Thomas Lee, and the Haudenosaunee speakers are named in that story but are not people.json ids on the strip yet. An editor sweep of main 11f27c3f counted 116 stories and 197 story-person gaps, including people named only in the dek, headline, or central-actor text, which this people.json check cannot see.",
+  "gaps": [
+    {
+      "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
+      "id": "william-poage",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "athiamiowee-the-warriors-path-through-kentucky",
+      "id": "gabriel-arthur",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "augusta-on-the-ohio-1797",
+      "id": "philip-buckner",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",
+      "id": "richard-radford",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "bardstown",
+      "id": "david-bard",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "bardstown",
+      "id": "john-cockey-owings",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "bardstown",
+      "id": "william-bard",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "bowling-green-takes-shape-on-the-barren-1798",
+      "id": "george-moore",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "bowling-green-takes-shape-on-the-barren-1798",
+      "id": "robert-moore",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "burlington-boone-county-seat",
+      "id": "john-hawkins-craig",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "id": "andrew-campbell",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
+      "id": "barton-stone",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "capt-james-estill-estills-defeat",
+      "id": "william-miller",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "capt-john-strode-of-strodes-station",
+      "id": "john-baker",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "id": "john-hawkins-craig",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "capt-will-the-hunting-ground",
+      "id": "john-stewart",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
+      "id": "daniel-light",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
+      "id": "william-plascut",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "id": "james-ellis",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "id": "john-kincart",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "id": "martin-baker-jr",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "id": "samuel-kincart",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carrollton-from-port-william",
+      "id": "benjamin-craig",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carrollton-from-port-william",
+      "id": "james-hawkins",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carrollton-from-port-william",
+      "id": "richard-masterson",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "carrollton-from-port-william",
+      "id": "sarah-masterson",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "col-john-hardin-of-pleasant-run",
+      "id": "angus-mcdonald",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "col-john-hardin-of-pleasant-run",
+      "id": "mark-hardin",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "col-william-russell-iii",
+      "id": "henry-russell",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "covington-at-the-point",
+      "id": "john-gano",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "covington-at-the-point",
+      "id": "richard-gano",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "covington-at-the-point",
+      "id": "thomas-carneal",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "covington-at-the-point",
+      "id": "thomas-kennedy",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "cynthiana-cynthia-anna-on-the-licking",
+      "id": "benjamin-harrison-col",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "cynthiana-cynthia-anna-on-the-licking",
+      "id": "robert-harrison",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "daniel-trabue-of-columbia",
+      "id": "mary-haskins",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "drennon-springs-salt-works",
+      "id": "jacob-drennon",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "drennon-springs-salt-works",
+      "id": "matthew-bracken",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "drennon-springs-salt-works",
+      "id": "nicholas-cresswell",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "elizabethtown-from-severns-valley",
+      "id": "andrew-hynes",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "elizabethtown-from-severns-valley",
+      "id": "john-severns",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "elizabethtown-from-severns-valley",
+      "id": "samuel-haycraft",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "elizabethtown-from-severns-valley",
+      "id": "thomas-helm",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "esther-whitley-over-the-cumberlands-1775",
+      "id": "ann-harper",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "flemingsburg-stocktons-town",
+      "id": "george-stockton",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "flemingsburg-stocktons-town",
+      "id": "john-fleming",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "flemingsburg-stocktons-town",
+      "id": "robert-stockton",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "gen-james-wilkinson-kentuckys-agent-13",
+      "id": "humphrey-marshall",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "georgetown-and-royal-spring",
+      "id": "john-mcclelland",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "glasgow-the-barrens",
+      "id": "john-gorin",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "glasgow-the-barrens",
+      "id": "richard-garnett",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "harry-innes",
+      "id": "humphrey-marshall",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "id": "gabriel-madison",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "id": "william-smeathers",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "henderson-at-red-banks",
+      "id": "thomas-allin",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "henry-skaggs-green-river-long-hunter",
+      "id": "elisha-walden",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "henry-skaggs-green-river-long-hunter",
+      "id": "joseph-drake",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "henry-skaggs-green-river-long-hunter",
+      "id": "kasper-mansker",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "henry-skaggs-green-river-long-hunter",
+      "id": "thomas-slaughter",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "henry-skaggs-green-river-long-hunter",
+      "id": "valentine-harman",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "hidden-river-cave-under-horse-cave",
+      "id": "george-a-thomas",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "hodgenville-from-hodgens-mill-to-county-seat",
+      "id": "philip-phillips",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "hodgenville-from-hodgens-mill-to-county-seat",
+      "id": "robert-hodgen",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "hopkinsville",
+      "id": "bartholomew-wood",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "hopkinsville",
+      "id": "martha-ann-wood",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "jack-jouett-kentuckys-midnight-rider",
+      "id": "sally-robards",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "jacob-beam-on-hardin-creek",
+      "id": "martin-hardin",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "james-crow-on-glenns-creek",
+      "id": "oscar-pepper",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "james-knox",
+      "id": "joseph-drake",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "james-knox",
+      "id": "kasper-mansker",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "jenny-wileys-captivity-and-escape",
+      "id": "matthias-harman",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "jenny-wileys-captivity-and-escape",
+      "id": "thomas-wiley",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "john-bradford-and-the-kentucke-gazette",
+      "id": "fielding-bradford",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+      "id": "john-stewart",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "lancaster-at-wallaces-crossroads",
+      "id": "henry-paulding",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "lancaster-at-wallaces-crossroads",
+      "id": "joseph-bledsoe-jr",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "lancaster-at-wallaces-crossroads",
+      "id": "william-buford",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
+      "id": "jacob-kaufman",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
+      "id": "william-lawrence",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "leestown",
+      "id": "hancock-lee",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "leestown",
+      "id": "willis-lee",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "lower-shawneetown-greenup-county",
+      "id": "william-trent",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "manns-lick-louisvilles-salt-town",
+      "id": "james-f-moore",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "manns-lick-louisvilles-salt-town",
+      "id": "john-mann",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "manns-lick-louisvilles-salt-town",
+      "id": "joseph-brooks",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "manns-lick-louisvilles-salt-town",
+      "id": "mary-o-todd",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mcafee-station-on-the-salt-river",
+      "id": "george-mcafee",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mcafee-station-on-the-salt-river",
+      "id": "james-mccoun-jr",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mcafee-station-on-the-salt-river",
+      "id": "mccafee-james",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mcafee-station-on-the-salt-river",
+      "id": "robert-mcafee",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mcafee-station-on-the-salt-river",
+      "id": "samuel-adams-ky",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
+      "id": "leonard-stom",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "moneton",
+      "id": "abraham-wood",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "moneton",
+      "id": "gabriel-arthur",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "moneton",
+      "id": "thomas-batts",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mosopelea-ofo-the-ohio-valley",
+      "id": "jean-baptiste-franquelin",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mount-sterling-little-mountain-town",
+      "id": "enoch-smith",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mount-sterling-little-mountain-town",
+      "id": "john-judy",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "mount-sterling-little-mountain-town",
+      "id": "samuel-spurgin",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "new-castle-henry-county-seat",
+      "id": "jacob-drennon",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "new-castle-henry-county-seat",
+      "id": "matthew-bracken",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "newport-at-the-licking-mouth",
+      "id": "christopher-newport",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "newport-at-the-licking-mouth",
+      "id": "hubbard-taylor",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "newport-at-the-licking-mouth",
+      "id": "thomas-kennedy",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "nicholasville-takes-shape",
+      "id": "john-metcalf",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "odawa-raid-at-eskippakithiki-1753",
+      "id": "john-faulkner",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "old-mulkey-meetinghouse-1804",
+      "id": "john-mulkey",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "old-mulkey-meetinghouse-1804",
+      "id": "philip-mulkey",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "owensboro-yellow-banks",
+      "id": "victor-collot",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "owensboro-yellow-banks",
+      "id": "william-smeathers",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "owingsville-a-town-named-on-a-wager",
+      "id": "thomas-dye-owings",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "paris-from-hopewell",
+      "id": "joseph-houston",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "paris-from-hopewell",
+      "id": "lawrence-protzman",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "peter-cartwright-the-backwoods-preacher-from-logan-county",
+      "id": "james-mcgready",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "id": "elizabeth-patton-preston",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "id": "john-preston-col",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "id": "john-spurlock",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "red-bird-petroglyphs-clay-county",
+      "id": "red-bird",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "richmond-from-millers-barn",
+      "id": "dave-kennedy",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "richmond-from-millers-barn",
+      "id": "john-miller",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "richmond-from-millers-barn",
+      "id": "william-kearly",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+      "id": "john-simpson",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "russellville-from-big-boiling-spring-to-county-seat",
+      "id": "james-mcgready",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "russellville-from-big-boiling-spring-to-county-seat",
+      "id": "william-cook",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "russellville-from-big-boiling-spring-to-county-seat",
+      "id": "william-stewart",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "shaker-village-of-pleasant-hill",
+      "id": "benjamin-seth-youngs",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "shaker-village-of-pleasant-hill",
+      "id": "elisha-thomas",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "shaker-village-of-pleasant-hill",
+      "id": "issachar-bates",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "shaker-village-of-pleasant-hill",
+      "id": "john-meacham",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "shelbyville",
+      "id": "william-shannon",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "shepherdsville-on-salt-river",
+      "id": "adam-shepherd",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "id": "isaac-watkins",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "id": "john-simpson",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "somerset",
+      "id": "william-dodson",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "id": "david-caldwell",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "id": "nancy-hanks",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "taylorsville-on-brashears-creek",
+      "id": "elijah-prewitt",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "taylorsville-on-brashears-creek",
+      "id": "george-cravinston",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "taylorsville-on-brashears-creek",
+      "id": "isaac-ellis",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "taylorsville-on-brashears-creek",
+      "id": "richard-taylor",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "taylorsville-on-brashears-creek",
+      "id": "robert-jeffries",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "taylorsville-on-brashears-creek",
+      "id": "william-bridgewater",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "tellico-cession-1805-south-of-the-cumberland",
+      "id": "daniel-smith",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "the-travelling-church-1781",
+      "id": "william-ellis",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "the-westo-erie-refugees-who-carried-the-beaver-wars-south",
+      "id": "abraham-wood",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "thomas-walker-and-cumberland-gap",
+      "id": "joshua-fry",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "treaty-of-logstown-1752",
+      "id": "james-patton",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "treaty-of-logstown-1752",
+      "id": "joshua-fry",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "treaty-of-logstown-1752",
+      "id": "lunsford-lomax",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "treaty-of-logstown-1752",
+      "id": "william-trent",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "versailles-takes-shape",
+      "id": "hezekiah-briscoe",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "versailles-takes-shape",
+      "id": "oscar-pepper",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "washington-mason-county",
+      "id": "arthur-fox",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "washington-mason-county",
+      "id": "william-wood",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "william-calks-1775-journal",
+      "id": "enoch-smith",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "william-hoy-and-hoys-station",
+      "id": "jack-calloway",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "winchester-clark-county-seat",
+      "id": "enoch-smith",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "winchester-clark-county-seat",
+      "id": "hubbard-taylor",
+      "reason": "no portrait"
+    },
+    {
+      "slug": "winchester-clark-county-seat",
+      "id": "john-baker",
+      "reason": "no portrait"
+    }
+  ]
+}
