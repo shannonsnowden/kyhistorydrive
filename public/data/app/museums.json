@@ -68,7 +68,7 @@
     "geocode_source": "photon",
     "sources": [
       "https://history.ky.gov/visit/old-state-capitol-experience",
-      "https://en.wikipedia.org/wiki/Old_State_Capitol_(Kentucky)"
+      "https://grokipedia.com/page/old_state_capitol_kentucky"
     ]
   },
   {
@@ -1130,11 +1130,11 @@
     "longitude": -88.6307446,
     "founded_year": 2006,
     "history": "House museum interpreting Confederate General Lloyd Tilghman and the 1864 Battle of Paducah in the western theater of the Civil War.",
-    "website": "https://en.wikipedia.org/wiki/Lloyd_Tilghman_House",
+    "website": "https://grokipedia.com/page/lloyd_tilghman_house",
     "museum_type": "military",
     "geocode_source": "photon",
     "sources": [
-      "https://en.wikipedia.org/wiki/Lloyd_Tilghman_House"
+      "https://grokipedia.com/page/lloyd_tilghman_house"
     ]
   },
   {
@@ -1331,11 +1331,11 @@
     "longitude": -84.5484837,
     "founded_year": 1938,
     "history": "Brick frontier house of Revolutionary War pioneer William Whitley, interpreting early Kentucky settlement and the Sportsman's Hill racetrack tradition.",
-    "website": "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site",
+    "website": "https://grokipedia.com/page/william_whitley_house_state_historic_site",
     "museum_type": "house",
     "geocode_source": "manual",
     "sources": [
-      "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site"
+      "https://grokipedia.com/page/william_whitley_house_state_historic_site"
     ]
   },
   {
