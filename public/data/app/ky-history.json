@@ -1683,7 +1683,7 @@
     "geocode_source": "gnis-mcgary-station-historical",
     "geocode_note": "GNIS McGary Station (historical) near Shawnee Springs / Warwick Road, NE of Harrodsburg.",
     "category": "frontier",
-    "website": "https://en.wikipedia.org/wiki/Hugh_McGary",
+    "website": "https://grokipedia.com/page/hugh_mcgary",
     "year_start": 1779,
     "year_end": 1782,
     "photo": {
@@ -2154,7 +2154,7 @@
     "geocode_source": "khs-marker",
     "geocode_note": "KHS marker #1001 'Ellerslie', 2440 Richmond Rd., Lexington — site of the brick house Levi Todd built in 1787. Distinct from the existing Col. John Todd (his brother) pin in downtown Lexington. Years are Levi Todd's Kentucky career (arrived 1775, died 1807), not the house's later history.",
     "category": "person",
-    "website": "https://en.wikipedia.org/wiki/Levi_Todd",
+    "website": "https://grokipedia.com/page/levi_todd",
     "year_start": 1775,
     "year_end": 1807,
     "photo": {
@@ -2324,7 +2324,7 @@
     "geocode_source": "frankfort-cemetery-approx",
     "geocode_note": "Frankfort Cemetery (Innes burial). Occupation years 1783 (moved to KY) – 1816 (death / end of federal judgeship). Distinct from Crow Station (Danville swearing-in) and Elkhorn farm.",
     "category": "people",
-    "website": "https://en.wikipedia.org/wiki/Harry_Innes",
+    "website": "https://grokipedia.com/page/harry_innes",
     "year_start": 1783,
     "year_end": 1816,
     "photo": {
@@ -2649,7 +2649,7 @@
     "geocode_source": "approx-khs-931-location-text-mark-hardin-account",
     "geocode_note": "Approximate point ~3 mi due east of Springfield (37.685, -85.222 town center), rounded to 0.01°. KHS marker #931 (John Hardin, 1753-92) stands “3 mi. E. of Springfield, US 150” but has no published coordinates; Mark Hardin’s 1869 account (in Ben Hardin: His Times and Contemporaries, 1887) puts the Pleasant Run homestead about three miles east of Springfield. Not the Hardin Village 15Gp22 site and not the Ohio death site. Years 1786 settlement–1792 death.",
     "category": "person",
-    "website": "https://en.wikipedia.org/wiki/John_Hardin",
+    "website": "https://grokipedia.com/page/john_hardin",
     "year_start": 1786,
     "year_end": 1792,
     "photo": {
@@ -3155,7 +3155,7 @@
     "geocode_source": "approx-pound-gap-kentucky-side",
     "geocode_note": "Approximate point on the Kentucky (Letcher County) side of Pound Gap near US 23 (37.158, -82.637); the Wikipedia gap point (37.15483, -82.63266) reverse-geocodes to Wise County, Virginia, so the pin is moved just inside Kentucky. KHS marker #510 (US 23/119, Jenkins) is not precisely geolocated. Years 1750 (Ohio Company surveyors)–1864 (Morgan’s Raiders).",
     "category": "landmark",
-    "website": "https://en.wikipedia.org/wiki/Pound_Gap",
+    "website": "https://grokipedia.com/page/pound_gap",
     "year_start": 1750,
     "year_end": 1864,
     "photo": {

@@ -342,7 +342,7 @@
         "name": "James Lane Allen",
         "lifespan": "1849–1925",
         "significance": "Kentucky novelist of the Bluegrass",
-        "bio_url": "https://en.wikipedia.org/wiki/James_Lane_Allen"
+        "bio_url": "https://grokipedia.com/page/james_lane_allen"
       }
     ]
   },
@@ -663,7 +663,7 @@
         "name": "Patty Hill",
         "lifespan": "1868–1946",
         "significance": "Co-composer of the melody for Happy Birthday to You",
-        "bio_url": "https://en.wikipedia.org/wiki/Patty_Hill"
+        "bio_url": "https://grokipedia.com/page/Patty_Hill"
       }
     ]
   },
@@ -836,7 +836,7 @@
         "name": "Richard Taylor",
         "lifespan": "1744–1829",
         "significance": "Revolutionary War officer and father of Zachary Taylor",
-        "bio_url": "https://en.wikipedia.org/wiki/Richard_Taylor_(colonel)"
+        "bio_url": "https://grokipedia.com/page/Richard_Taylor_%28colonel%29"
       }
     ]
   },
@@ -1134,7 +1134,7 @@
     "website": "https://parks.ky.gov/tompkinsville/parks/historic/old-mulkey-meetinghouse-state-historic-site",
     "sources": [
       "https://parks.ky.gov/tompkinsville/parks/historic/old-mulkey-meetinghouse-state-historic-site",
-      "https://en.wikipedia.org/wiki/Old_Mulkey_Meetinghouse"
+      "https://grokipedia.com/page/old_mulkey_meetinghouse"
     ],
     "geocode_source": "manual",
     "marker_number": null,
@@ -1143,7 +1143,7 @@
         "name": "Hannah Boone Pennington",
         "lifespan": null,
         "significance": "Sister of Daniel Boone, associated with the pioneer congregation",
-        "bio_url": "https://en.wikipedia.org/wiki/Old_Mulkey_Meetinghouse"
+        "bio_url": "https://grokipedia.com/page/old_mulkey_meetinghouse"
       }
     ]
   },
@@ -1224,9 +1224,9 @@
     "cemetery_type": "military",
     "nrhp": true,
     "history": "NRHP-listed cemetery associated with the Kentucky Confederate Home (1902–1934). A granite obelisk marks the graves of hundreds of Confederate veterans who died as residents of the home—a rare public Confederate veterans landscape in the Louisville ring counties.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Pewee_Valley_Confederate_Cemetery",
+    "why_historic_url": "https://grokipedia.com/page/pewee_valley_confederate_cemetery",
     "sources": [
-      "https://en.wikipedia.org/wiki/Pewee_Valley_Confederate_Cemetery",
+      "https://grokipedia.com/page/pewee_valley_confederate_cemetery",
       "https://history.ky.gov/markers/csa-cemetery"
     ],
     "geocode_source": "manual",
@@ -1322,19 +1322,19 @@
         "name": "James F. Robinson",
         "lifespan": "1800–1882",
         "significance": "Civil War-era governor of Kentucky",
-        "bio_url": "https://en.wikipedia.org/wiki/James_Fisher_Robinson"
+        "bio_url": "https://grokipedia.com/page/james_fisher_robinson"
       },
       {
         "name": "George W. Johnson",
         "lifespan": "1811–1862",
         "significance": "First Confederate governor of Kentucky",
-        "bio_url": "https://en.wikipedia.org/wiki/George_W._Johnson_(governor)"
+        "bio_url": "https://grokipedia.com/page/george_w_johnson_governor"
       },
       {
         "name": "Edward Troye",
         "lifespan": "1808–1874",
         "significance": "Noted equine portrait painter",
-        "bio_url": "https://en.wikipedia.org/wiki/Edward_Troye"
+        "bio_url": "https://grokipedia.com/page/edward_troye"
       }
     ]
   },
@@ -1447,7 +1447,7 @@
         "name": "Edward Dudley Brown",
         "lifespan": "1850–1906",
         "significance": "Formerly enslaved Thoroughbred trainer and jockey (Brown Dick)",
-        "bio_url": "https://en.wikipedia.org/wiki/Edward_D._Brown"
+        "bio_url": "https://grokipedia.com/page/edward_d_brown"
       }
     ]
   }
